@@ -1,0 +1,382 @@
+<?php
+
+function hadis_input_menu()
+{
+    $items = array();
+
+    $items['hadith/new/%'] = array(
+        'title'            => t('Add New Hadis'),
+        'description'      => t("Add new hadis with an efficient user interface."),
+        'page callback'    => 'drupal_get_form',
+        'page arguments'   => array('hadis_input_form', 2),
+        'access arguments' => array('access administration pages'),
+    );
+
+    return $items;
+}
+
+function hadis_input_form($form, &$form_state, $selectedHadithBookId)
+{
+    $hadithBookCollection = hadis_input_get_hadith_book_collection();
+    $primaryBanglaBook    = hadis_input_get_primary_bangla_book($selectedHadithBookId);
+    $secondaryBanglaBook  = hadis_input_get_secondary_bangla_book($selectedHadithBookId);
+
+    drupal_set_title($hadithBookCollection[$selectedHadithBookId]);
+
+    $form['hadith_book_container'] = array(
+        '#markup' => '<div class="container">'
+    );
+
+    $form['hadith_book'] = array(
+        '#title'         => t('Hadith Book'),
+        '#type'          => 'select',
+        '#required'      => true,
+        '#disabled'      => true,
+        '#options'       => $hadithBookCollection,
+        '#default_value' => $selectedHadithBookId,
+        '#attributes'    => array("style" => "width: 150px"),
+        '#prefix'        => '<div class="three columns first">',
+        '#suffix'        => '</div>'
+    );
+
+    $form['chapter'] = array(
+        '#title'         => t('Chapter'),
+        '#type'          => 'select',
+        '#required'      => true,
+        '#options'       => hadis_input_get_chapter_collection($selectedHadithBookId),
+        '#default_value' => isset($form_state['values']['chapter']) ? $form_state['values']['chapter'] : '',
+        '#attributes'    => array("style" => "width: 270px"),
+        '#prefix'        => '<div id="chapter-container" class="five columns">',
+        '#suffix'        => '</div>'
+    );
+
+    $form['hadith_book_container_close'] = array(
+        '#markup' => '</div>'
+    );
+
+    $form['arabic_section'] = array(
+        '#title'    => t('Section (Arabic)'),
+        '#type'     => 'textfield',
+        '#size'     => 80,
+        '#required' => true,
+        '#prefix'   => '<div class="eight columns">',
+        '#suffix'   => '</div>'
+    );
+
+    $form['english_section'] = array(
+        '#title'    => t('Section (English)'),
+        '#type'     => 'textfield',
+        '#size'     => 80,
+        '#required' => true,
+        '#prefix'   => '<div class="eight columns">',
+        '#suffix'   => '</div>'
+    );
+
+    $form['bangla_primary_section'] = array(
+        '#title'    => t('Section (Bangla - ' . $primaryBanglaBook . ')'),
+        '#type'     => 'textfield',
+        '#size'     => 80,
+        '#required' => true,
+        '#prefix'   => '<div class="eight columns">',
+        '#suffix'   => '</div>'
+    );
+
+    if ($secondaryBanglaBook) {
+
+        $form['bangla_secondary_section'] = array(
+            '#title'    => t('Section (Bangla - ' . $secondaryBanglaBook . ')'),
+            '#type'     => 'textfield',
+            '#size'     => 80,
+            '#required' => true,
+            '#prefix'   => '<div class="eight columns">',
+            '#suffix'   => '</div>'
+        );
+
+    }
+
+    $form['arabic_additional_text'] = array(
+        '#title'    => t('Additional Text (Arabic)'),
+        '#type'     => 'textarea',
+        '#size'     => 80,
+        '#required' => false,
+        '#prefix'   => '<div class="twelve columns">',
+        '#suffix'   => '</div>'
+    );
+
+    $form['english_additional_text'] = array(
+        '#title'    => t('Additional Text (English)'),
+        '#type'     => 'textarea',
+        '#size'     => 80,
+        '#required' => false,
+        '#prefix'   => '<div class="twelve columns">',
+        '#suffix'   => '</div>'
+    );
+
+    $form['bangla_primary_additional_text'] = array(
+        '#title'    => t('Additional Text (Bangla - ' . $primaryBanglaBook . ')'),
+        '#type'     => 'textarea',
+        '#size'     => 80,
+        '#required' => false,
+        '#prefix'   => '<div class="twelve columns">',
+        '#suffix'   => '</div>'
+    );
+
+    if ($secondaryBanglaBook) {
+
+        $form['bangla_secondary_additional_text'] = array(
+            '#title'    => t('Additional Text (Bangla - ' . $secondaryBanglaBook . ')'),
+            '#type'     => 'textarea',
+            '#size'     => 80,
+            '#required' => false,
+            '#prefix'   => '<div class="twelve columns">',
+            '#suffix'   => '</div>'
+        );
+
+    }
+
+    $form['hadith_fieldset'] = array(
+        '#type'   => 'fieldset',
+        '#prefix' => '<div id="hadith-fieldset-wrapper">',
+        '#suffix' => '</div>',
+    );
+
+    if (empty($form_state['num_hadith'])) {
+        $form_state['num_hadith'] = 1;
+    }
+
+    for ($i = 0; $i < $form_state['num_hadith']; $i++) {
+
+        $form['hadith_fieldset']['container-' . $i] = array(
+            '#markup' => '<div class="container hadith-container"><div class="row hadith-data"><div class="nine columns"><h4>Hadith #' . ($i + 1)  . '</h4></div>'
+        );
+
+        $form['hadith_fieldset']['validity_' . $i] = array(
+            '#type'     => 'select',
+            '#options'  => array('সহিহ হাদিস', 'যয়ীফ হাদিস', 'জাল হাদিস'),
+            '#default_value' => 0,
+            '#required' => true,
+            '#prefix'   => '<div class="three columns">',
+            '#suffix'   => '</div>'
+        );
+
+        $form['hadith_fieldset']['reviewed_' . $i] = array(
+            '#type'     => 'select',
+            '#options'  => array('স্কলার রিভিউ হয়নি', 'স্কলার রিভিউ হয়েছে'),
+            '#default_value' => 0,
+            '#required' => true,
+            '#prefix'   => '<div class="three columns">',
+            '#suffix'   => '</div></div>'
+        );
+
+        $form['hadith_fieldset']['primary_bangla_hadith_number_' . $i] = array(
+            '#type'     => 'textfield',
+            '#title'    => t($primaryBanglaBook . ' Hadith #'),
+            '#size'     => 20,
+            '#required' => true,
+            '#prefix'   => '<div class="four columns">',
+            '#suffix'   => '</div>'
+        );
+
+        $form['hadith_fieldset']['primary_bangla_hadith_body_' . $i] = array(
+            '#type'     => 'textarea',
+            '#title'    => t($primaryBanglaBook . ' Hadith Text'),
+            '#required' => true,
+            '#prefix'   => '<div class="twelve columns">',
+            '#suffix'   => '</div>'
+        );
+
+        $form['hadith_fieldset']['primary_bangla_hadith_footnote_' . $i] = array(
+            '#type'     => 'textarea',
+            '#title'    => t($primaryBanglaBook . ' Hadith Footnote/Reference'),
+            '#required' => false,
+            '#prefix'   => '<div class="offset-by-four twelve columns">',
+            '#suffix'   => '</div>'
+        );
+
+        if ($secondaryBanglaBook) {
+
+            $form['hadith_fieldset']['secondary_bangla_hadith_number_' . $i] = array(
+                '#type'     => 'textfield',
+                '#title'    => t($secondaryBanglaBook . ' Hadith #'),
+                '#size'     => 20,
+                '#required' => false,
+                '#prefix'   => '<div class="four columns">',
+                '#suffix'   => '</div>'
+            );
+
+            $form['hadith_fieldset']['secondary_bangla_hadith_body_' . $i] = array(
+                '#type'     => 'textarea',
+                '#title'    => t($secondaryBanglaBook . ' Hadith Text'),
+                '#required' => false,
+                '#prefix'   => '<div class="twelve columns">',
+                '#suffix'   => '</div>'
+            );
+
+            $form['hadith_fieldset']['secondary_bangla_hadith_footnote_' . $i] = array(
+                '#type'     => 'textarea',
+                '#title'    => t($secondaryBanglaBook . ' Hadith Footnote/Reference'),
+                '#required' => false,
+                '#prefix'   => '<div class="offset-by-four twelve columns">',
+                '#suffix'   => '</div>'
+            );
+
+        }
+
+        $form['hadith_fieldset']['international_hadith_number_' . $i] = array(
+            '#type'     => 'textfield',
+            '#title'    => t('International Hadith #'),
+            '#size'     => 20,
+            '#required' => true,
+            '#prefix'   => '<div class="four columns">',
+            '#suffix'   => '</div>'
+        );
+
+        $form['hadith_fieldset']['arabic_hadith_body_' . $i] = array(
+            '#type'     => 'textarea',
+            '#title'    => t('Arabic Hadith Text'),
+            '#required' => true,
+            '#prefix'   => '<div class="twelve columns">',
+            '#suffix'   => '</div>'
+        );
+
+        $form['hadith_fieldset']['arabic_hadith_ref_' . $i] = array(
+            '#type'     => 'textarea',
+            '#title'    => t('Arabic Hadith Reference'),
+            '#required' => false,
+            '#prefix'   => '<div class="offset-by-four twelve columns">',
+            '#suffix'   => '</div>'
+        );
+
+        $form['hadith_fieldset']['english_body_' . $i] = array(
+            '#type'     => 'textarea',
+            '#title'    => t('English Hadith Text'),
+            '#required' => true,
+            '#prefix'   => '<div class="offset-by-four twelve columns">',
+            '#suffix'   => '</div>'
+        );
+
+        $form['hadith_fieldset']['english_hadith_ref_' . $i] = array(
+            '#type'     => 'textarea',
+            '#title'    => t('English Hadith Reference'),
+            '#required' => false,
+            '#prefix'   => '<div class="offset-by-four twelve columns">',
+            '#suffix'   => '</div>'
+        );
+
+        $form['hadith_fieldset']['container-end-' . $i] = array(
+            '#markup' => '</div>'
+        );
+
+    }
+
+    $form['hadith_fieldset']['add_more'] = array(
+        '#type'   => 'submit',
+        '#value'  => t('Add one more'),
+        '#submit' => array('hadis_input_add_more_add_one'),
+        '#ajax'   => array(
+            'callback' => 'hadis_input_hadith_add_more_callback',
+            'wrapper'  => 'hadith-fieldset-wrapper',
+        ),
+    );
+
+    if ($form_state['num_hadith'] > 1) {
+        $form['hadith_fieldset']['remove_name'] = array(
+            '#type'   => 'submit',
+            '#value'  => t('Remove last one'),
+            '#submit' => array('hadis_input_add_more_remove_one'),
+            '#ajax'   => array(
+                'callback' => 'hadis_input_hadith_add_more_callback',
+                'wrapper'  => 'hadith-fieldset-wrapper',
+            ),
+        );
+    }
+
+    $form['submit'] = array(
+        '#type'  => 'submit',
+        '#value' => 'Save Hadith',
+    );
+
+    $path = drupal_get_path('module', 'hadis_input');
+    drupal_add_css($path . '/hadith_input.css');
+
+    return $form;
+}
+
+function hadis_input_form_submit($form, &$form_state)
+{
+    var_dump($form_state['values']);
+    die;
+}
+
+function hadis_input_hadith_add_more_callback($form, &$form_state)
+{
+    return $form['hadith_fieldset'];
+}
+
+function hadis_input_add_more_add_one($form, &$form_state)
+{
+    $form_state['num_hadith']++;
+    $form_state['rebuild'] = TRUE;
+}
+
+function hadis_input_add_more_remove_one($form, &$form_state)
+{
+    if ($form_state['num_hadith'] > 1) {
+        $form_state['num_hadith']--;
+    }
+
+    $form_state['rebuild'] = TRUE;
+}
+
+/**
+ * Returns the terms from the Hadith Book vocabulary
+ *
+ * @return array
+ */
+function hadis_input_get_hadith_book_collection()
+{
+    $hadithVocabularyId = 3;
+    $hadithBookCollection = array();
+
+    foreach (taxonomy_get_tree($hadithVocabularyId) as $term) {
+        $hadithBookCollection[$term->tid] = $term->name;
+    }
+
+    reset($hadithBookCollection);
+    return $hadithBookCollection;
+}
+
+/**
+ * Returns the terms from the Chapter vocabulary based on specified parent
+ *
+ * @param $hadithBookId int Term Id of the Hadith Book
+ * @return array
+ */
+function hadis_input_get_chapter_collection($hadithBookId)
+{
+    $chapterVocabularyId = 4;
+    $parentTermId = array("1" => 5, "2" => 6);
+    $chapterCollection = array();
+
+    foreach (taxonomy_get_tree($chapterVocabularyId, $parentTermId[$hadithBookId]) as $term) {
+        $chapterCollection[$term->tid] = $term->name;
+    }
+
+    return $chapterCollection;
+}
+
+function hadis_input_get_primary_bangla_book($bookId)
+{
+    switch ($bookId) {
+        case 1: return "Islamic Foundation";
+        case 2: return "Islamic Foundation";
+    }
+}
+
+function hadis_input_get_secondary_bangla_book($bookId)
+{
+    switch ($bookId) {
+        case 1: return "Tawheed Publication";
+        case 2: return null;
+    }
+}
