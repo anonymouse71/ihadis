@@ -152,7 +152,7 @@ function hadis_input_form($form, &$form_state, $selectedHadithBookId)
 
         $form['hadith_fieldset']['field_validity_' . $i] = array(
             '#type'     => 'select',
-            '#options'  => array('সহিহ হাদিস', 'যয়ীফ হাদিস', 'জাল হাদিস'),
+            '#options'  => array('সহিহ হাদিস', 'হাসান হাদিস', 'যয়ীফ হাদিস', 'জাল হাদিস'),
             '#default_value' => 0,
             '#required' => true,
             '#prefix'   => '<div class="three columns">',
@@ -442,51 +442,79 @@ function hadis_input_insert_node($data, $additional)
     $node->field_section_arabic[$node->language][0]['value']             = $additional['field_section_arabic'];
     $node->field_section_english[$node->language][0]['value']            = $additional['field_section_english'];
     $node->field_section_bangla_primary[$node->language][0]['value']     = $additional['field_section_bangla_primary'];
-    $node->field_section_bangla_secondary[$node->language][0]['value']   = $additional['field_section_bangla_secondary'];
+
+    if (isset($additional['field_section_bangla_secondary'])) {
+        $node->field_section_bangla_secondary[$node->language][0]['value'] = $additional['field_section_bangla_secondary'];
+    }
+
     $node->field_additional_text_arabic[$node->language][0]['value']     = $additional['field_additional_text_arabic'];
     $node->field_additional_text_english[$node->language][0]['value']    = $additional['field_additional_text_english'];
     $node->field_additional_text_bangla_pri[$node->language][0]['value'] = $additional['field_additional_text_bangla_pri'];
-    $node->field_additional_text_bangla_sec[$node->language][0]['value'] = $additional['field_additional_text_bangla_sec'];
+
+    if (isset($additional['field_additional_text_bangla_sec'])) {
+        $node->field_additional_text_bangla_sec[$node->language][0]['value'] = $additional['field_additional_text_bangla_sec'];
+    }
 
     $node->field_validity[$node->language][0]['value']                 = $data['field_validity'];
     $node->field_scholar_reviewed[$node->language][0]['value']         = $data['field_scholar_reviewed'];
     $node->field_bangla_pri_hadith_num[$node->language][0]['value']    = $data['field_bangla_pri_hadith_num'];
     $node->field_bangla_pri_hadith_body[$node->language][0]['value']   = $data['field_bangla_pri_hadith_body'];
     $node->field_bangla_pri_hadith_note[$node->language][0]['value']   = $data['field_bangla_pri_hadith_note'];
-    $node->field_bangla_sec_hadith_num[$node->language][0]['value']    = $data['field_bangla_sec_hadith_num'];
-    $node->field_bangla_sec_hadith_body[$node->language][0]['value']   = $data['field_bangla_sec_hadith_body'];
-    $node->field_bangla_sec_hadith_note[$node->language][0]['value']   = $data['field_bangla_sec_hadith_note'];
+
+    if (isset($data['field_bangla_sec_hadith_num'])) {
+        $node->field_bangla_sec_hadith_num[$node->language][0]['value']    = $data['field_bangla_sec_hadith_num'];
+    }
+
+    if (isset($data['field_bangla_sec_hadith_body'])) {
+        $node->field_bangla_sec_hadith_body[$node->language][0]['value']   = $data['field_bangla_sec_hadith_body'];
+    }
+
+    if (isset($data['field_bangla_sec_hadith_note'])) {
+        $node->field_bangla_sec_hadith_note[$node->language][0]['value']   = $data['field_bangla_sec_hadith_note'];
+    }
+
     $node->field_international_hadith_num[$node->language][0]['value'] = $data['field_international_hadith_num'];
     $node->field_arabic_hadith_body[$node->language][0]['value']       = $data['field_arabic_hadith_body'];
     $node->field_arabic_hadith_reference[$node->language][0]['value']  = $data['field_arabic_hadith_reference'];
     $node->field_english_hadith_body[$node->language][0]['value']      = $data['field_english_hadith_body'];
     $node->field_english_hadith_reference[$node->language][0]['value'] = $data['field_english_hadith_reference'];
 
-    $data['field_tags'] = "নামাজ, সহিহ, মক্কা";
     $tags = explode(",", $data['field_tags']);
 
-    foreach ($tags as $tag) {
+    if (count($tags) > 0) {
 
-        $tag = trim($tag);
-        $term = taxonomy_get_term_by_name($tag);
+        foreach ($tags as $tag) {
 
-        if (empty($term)) {
-            $term = array('vid' => 1, 'name' => $tag);
-            $term = (object) $term;
-            taxonomy_term_save($term);
-            $tid = $term->tid;
-        } else {
-            $keys = array_keys($term);
-            $tid = $keys[0];
+            $tag = trim($tag);
+            $term = taxonomy_get_term_by_name($tag);
+
+            if (empty($term)) {
+                $tid = hadis_input_create_term($tag);
+            } else {
+                $keys = array_keys($term);
+                $tid = $keys[0];
+            }
+
+            $node->field_tags[$node->language][]['tid'] = $tid;
+
         }
-
-        $node->field_tags[$node->language][]['tid'] = $tid;
 
     }
 
     if ($node = node_submit($node)) { // Prepare node for saving
         node_save($node);
     }
+}
+
+function hadis_input_create_term($tag)
+{
+    $term = array('vid' => 1, 'name' => $tag);
+    $term = (object)$term;
+
+    taxonomy_term_save($term);
+    $tid = $term->tid;
+
+    return $tid;
 }
 
 function hadis_input_get_title($data, $termBook, $termChapter)
