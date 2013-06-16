@@ -10,6 +10,7 @@ core = 7.x
 ;stylesheets[all][] = css/boxed.css
 ;stylesheets[all][] = css/colors/green.css
 ;stylesheets[all][] = css/centum.css
+;stylesheets[all][] = css/app.css
 
 scripts[] = js/custom.js
 scripts[] = js/selectnav.js

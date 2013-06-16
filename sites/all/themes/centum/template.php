@@ -29,6 +29,7 @@ function _centum_add_css() {
   drupal_add_css($theme_path . '/css/colors/' . $default_color);
 
   drupal_add_css($theme_path . '/css/centum.css');
+  drupal_add_css($theme_path . '/css/app.css');
 }
 
 /**
