@@ -28,3 +28,11 @@
     line-height: 24px;
     text-align: justify;
 }
+
+.show-hide > .form-item {
+    display: none;
+}
+
+.show-hide a {
+    font-weight: bold;
+}

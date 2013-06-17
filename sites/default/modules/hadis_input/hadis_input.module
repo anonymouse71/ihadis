@@ -189,7 +189,7 @@ function hadis_input_form($form, &$form_state, $selectedHadithBookId)
             '#type'     => 'textarea',
             '#title'    => t($primaryBanglaBook . ' Hadith Footnote/Reference'),
             '#required' => false,
-            '#prefix'   => '<div class="offset-by-four twelve columns">',
+            '#prefix'   => '<div class="offset-by-four twelve columns show-hide"><a href="#show">Show/Hide Footnote/Reference</a>',
             '#suffix'   => '</div>'
         );
 
@@ -216,7 +216,7 @@ function hadis_input_form($form, &$form_state, $selectedHadithBookId)
                 '#type'     => 'textarea',
                 '#title'    => t($secondaryBanglaBook . ' Hadith Footnote/Reference'),
                 '#required' => false,
-                '#prefix'   => '<div class="offset-by-four twelve columns">',
+                '#prefix'   => '<div class="offset-by-four twelve columns show-hide"><a href="#show">Show/Hide Footnote/Reference</a>',
                 '#suffix'   => '</div>'
             );
 
@@ -243,7 +243,7 @@ function hadis_input_form($form, &$form_state, $selectedHadithBookId)
             '#type'     => 'textarea',
             '#title'    => t('Arabic Hadith Reference'),
             '#required' => false,
-            '#prefix'   => '<div class="offset-by-four twelve columns">',
+            '#prefix'   => '<div class="offset-by-four twelve columns show-hide"><a href="#show">Show/Hide Reference</a>',
             '#suffix'   => '</div>'
         );
 
@@ -259,7 +259,7 @@ function hadis_input_form($form, &$form_state, $selectedHadithBookId)
             '#type'     => 'textarea',
             '#title'    => t('English Hadith Reference'),
             '#required' => false,
-            '#prefix'   => '<div class="offset-by-four twelve columns">',
+            '#prefix'   => '<div class="offset-by-four twelve columns show-hide"><a href="#show">Show/Hide Reference</a>',
             '#suffix'   => '</div>'
         );
 

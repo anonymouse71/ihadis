@@ -448,6 +448,12 @@
 
         })();
 
+        (function(){
+            $(".show-hide a").live('click', function(){
+                $(this).parent().find(".form-item").slideToggle();
+            });
+        })();
+
         /* ------------------ End Document ------------------ */
     });
 })(jQuery);
