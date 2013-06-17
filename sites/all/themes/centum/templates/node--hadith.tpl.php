@@ -80,34 +80,51 @@
  * @ingroup themeable
  */
 
-/*unset($content['comments']);
-unset($content['links']);
-var_dump($content);*/
-
 ?>
 <div id="node-<?php print $node->nid; ?>" class="post <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
     <div class="post-content-hadith"<?php print $content_attributes; ?>>
 
+        <?php if (!$page): ?>
+            <h2<?php print $title_attributes; ?> class="blogTitle"><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+        <?php endif; ?>
+
         <div class="post-description">
 
             <?php hide($content['comments']); hide($content['links']); ?>
 
-            <p class="additional-text"><?php echo $content['field_additional_text_english']['#items'][0]['safe_value']; ?></p>
-            <p class="additional-text"><?php echo $content['field_additional_text_arabic']['#items'][0]['safe_value']; ?></p>
-            <p class="additional-text"><?php echo $content['field_additional_text_bangla_pri']['#items'][0]['safe_value']; ?></p>
+            <?php if (!$page): ?>
 
-            <p class="hadith-body body-arabic"><?php echo $content['field_arabic_hadith_body']['#items'][0]['safe_value']; ?></p>
+                <div class="hadith-teaser"><?php echo $node->field_arabic_hadith_body['und'][0]['safe_value']; ?></div>
+                <div class="hadith-teaser"><?php echo $body['und'][0]['safe_value']; ?></div>
 
-            <ul class="tabs-nav">
-                <li class="active"><a href="#bangla">Bangla Translation</a></li>
-                <li><a href="#english">English Translation</a></li>
-            </ul>
+            <?php else: ?>
 
-            <div class="tabs-container">
-                <div class="tab-content" id="bangla" style="display: block;"><?php echo $content['field_bangla_pri_hadith_body']['#items'][0]['safe_value']; ?></div>
-                <div class="tab-content" id="english" style="display: none;"><?php echo $content['field_english_hadith_body']['#items'][0]['safe_value']; ?></div>
-            </div>
+                <?php if (isset($content['field_additional_text_english'])): ?>
+                <p class="additional-text"><?php echo $content['field_additional_text_english']['#items'][0]['safe_value']; ?></p>
+                <?php endif; ?>
+
+                <?php if (isset($content['field_additional_text_arabic'])): ?>
+                <p class="additional-text"><?php echo $content['field_additional_text_arabic']['#items'][0]['safe_value']; ?></p>
+                <?php endif; ?>
+
+                <?php if (isset($content['field_additional_text_bangla_pri'])): ?>
+                <p class="additional-text"><?php echo $content['field_additional_text_bangla_pri']['#items'][0]['safe_value']; ?></p>
+                <?php endif; ?>
+
+                <p class="hadith-body body-arabic"><?php echo $content['field_arabic_hadith_body']['#items'][0]['safe_value']; ?></p>
+
+                <ul class="tabs-nav">
+                    <li class="active"><a href="#bangla">Bangla Translation</a></li>
+                    <li><a href="#english">English Translation</a></li>
+                </ul>
+
+                <div class="tabs-container">
+                    <div class="tab-content" id="bangla" style="display: block;"><?php echo $content['field_bangla_pri_hadith_body']['#items'][0]['safe_value']; ?></div>
+                    <div class="tab-content" id="english" style="display: none;"><?php echo $content['field_english_hadith_body']['#items'][0]['safe_value']; ?></div>
+                </div>
+
+            <?php endif; ?>
 
         </div>
 

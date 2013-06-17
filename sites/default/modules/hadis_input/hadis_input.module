@@ -427,10 +427,12 @@ function hadis_input_insert_node($data, $additional)
     $node->language = LANGUAGE_NONE;
     $node->uid = 1;
     $node->comment = 2;
+    $node->promote = 1;
 
     $termBook = taxonomy_term_load($additional['field_hadith_book']);
     $termChapter = taxonomy_term_load($additional['field_hadith_book_chapter']);
 
+    // Primary information
     $node->title = hadis_input_get_title($data, $termBook, $termChapter);
     $node->body[$node->language][0]['value']   = $data['field_bangla_pri_hadith_body'];
     $node->body[$node->language][0]['summary'] = text_summary($data['field_bangla_pri_hadith_body']);
@@ -439,46 +441,73 @@ function hadis_input_insert_node($data, $additional)
     $node->field_hadith_book[$node->language][]['tid'] = $additional['field_hadith_book'];
     $node->field_hadith_book_chapter[$node->language][]['tid'] = $additional['field_hadith_book_chapter'];
 
+    // Sections
     $node->field_section_arabic[$node->language][0]['value']             = $additional['field_section_arabic'];
     $node->field_section_english[$node->language][0]['value']            = $additional['field_section_english'];
     $node->field_section_bangla_primary[$node->language][0]['value']     = $additional['field_section_bangla_primary'];
 
+    // Additional text
     if (isset($additional['field_section_bangla_secondary'])) {
         $node->field_section_bangla_secondary[$node->language][0]['value'] = $additional['field_section_bangla_secondary'];
     }
 
-    $node->field_additional_text_arabic[$node->language][0]['value']     = $additional['field_additional_text_arabic'];
-    $node->field_additional_text_english[$node->language][0]['value']    = $additional['field_additional_text_english'];
-    $node->field_additional_text_bangla_pri[$node->language][0]['value'] = $additional['field_additional_text_bangla_pri'];
+    if (isset($additional['field_additional_text_arabic'])) {
+        $node->field_additional_text_arabic[$node->language][0]['value'] = $additional['field_additional_text_arabic'];
+    }
+
+    if (isset($additional['field_additional_text_english'])) {
+        $node->field_additional_text_english[$node->language][0]['value'] = $additional['field_additional_text_english'];
+    }
+
+    if (isset($additional['field_additional_text_bangla_pri'])) {
+        $node->field_additional_text_bangla_pri[$node->language][0]['value'] = $additional['field_additional_text_bangla_pri'];
+    }
 
     if (isset($additional['field_additional_text_bangla_sec'])) {
         $node->field_additional_text_bangla_sec[$node->language][0]['value'] = $additional['field_additional_text_bangla_sec'];
     }
 
+    // Validity and review
     $node->field_validity[$node->language][0]['value']                 = $data['field_validity'];
     $node->field_scholar_reviewed[$node->language][0]['value']         = $data['field_scholar_reviewed'];
+
+    // Primary bangla
     $node->field_bangla_pri_hadith_num[$node->language][0]['value']    = $data['field_bangla_pri_hadith_num'];
     $node->field_bangla_pri_hadith_body[$node->language][0]['value']   = $data['field_bangla_pri_hadith_body'];
-    $node->field_bangla_pri_hadith_note[$node->language][0]['value']   = $data['field_bangla_pri_hadith_note'];
 
+    if (isset($data['field_bangla_pri_hadith_note'])) {
+        $node->field_bangla_pri_hadith_note[$node->language][0]['value'] = $data['field_bangla_pri_hadith_note'];
+    }
+
+    // Secondary bangla
     if (isset($data['field_bangla_sec_hadith_num'])) {
-        $node->field_bangla_sec_hadith_num[$node->language][0]['value']    = $data['field_bangla_sec_hadith_num'];
+        $node->field_bangla_sec_hadith_num[$node->language][0]['value'] = $data['field_bangla_sec_hadith_num'];
     }
 
     if (isset($data['field_bangla_sec_hadith_body'])) {
-        $node->field_bangla_sec_hadith_body[$node->language][0]['value']   = $data['field_bangla_sec_hadith_body'];
+        $node->field_bangla_sec_hadith_body[$node->language][0]['value'] = $data['field_bangla_sec_hadith_body'];
     }
 
     if (isset($data['field_bangla_sec_hadith_note'])) {
-        $node->field_bangla_sec_hadith_note[$node->language][0]['value']   = $data['field_bangla_sec_hadith_note'];
+        $node->field_bangla_sec_hadith_note[$node->language][0]['value'] = $data['field_bangla_sec_hadith_note'];
     }
 
+    // International
     $node->field_international_hadith_num[$node->language][0]['value'] = $data['field_international_hadith_num'];
-    $node->field_arabic_hadith_body[$node->language][0]['value']       = $data['field_arabic_hadith_body'];
-    $node->field_arabic_hadith_reference[$node->language][0]['value']  = $data['field_arabic_hadith_reference'];
-    $node->field_english_hadith_body[$node->language][0]['value']      = $data['field_english_hadith_body'];
-    $node->field_english_hadith_reference[$node->language][0]['value'] = $data['field_english_hadith_reference'];
+    $node->field_arabic_hadith_body[$node->language][0]['value'] = $data['field_arabic_hadith_body'];
 
+    if (isset($data['field_arabic_hadith_reference'])) {
+        $node->field_arabic_hadith_reference[$node->language][0]['value']  = $data['field_arabic_hadith_reference'];
+    }
+
+    // English
+    $node->field_english_hadith_body[$node->language][0]['value'] = $data['field_english_hadith_body'];
+
+    if (isset($data['field_english_hadith_reference'])) {
+        $node->field_english_hadith_reference[$node->language][0]['value'] = $data['field_english_hadith_reference'];
+    }
+
+    // Tags
     $tags = explode(",", $data['field_tags']);
 
     if (count($tags) > 0) {
