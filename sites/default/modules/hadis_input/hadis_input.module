@@ -419,13 +419,15 @@ function hadis_input_create_hadith($data)
 
 function hadis_input_insert_node($data, $additional)
 {
+    global $user;
+
     $node = new stdClass();
     $node->type = "hadith";
 
     node_object_prepare($node);
 
     $node->language = LANGUAGE_NONE;
-    $node->uid = 1;
+    $node->uid = $user->uid;
     $node->comment = 2;
     $node->promote = 1;
 
@@ -562,4 +564,30 @@ function hadis_input_get_bangla_number($number)
 
     $converted = str_replace($engArray, $bangArray, $number);
     return $converted;
+}
+
+function hadis_input_limit_text($text, $len) {
+
+    if (mb_strlen($text) < $len) {
+        return $text;
+    }
+
+    $text_words = explode(' ', $text);
+    $out = null;
+
+    foreach ($text_words as $word) {
+
+        if ((mb_strlen($word) > $len) && $out == null) {
+            return mb_substr($word, 0, $len) . "...";
+        }
+
+        if ((mb_strlen($out) + mb_strlen($word)) > $len) {
+            return $out . "...";
+        }
+
+        $out .= " " . $word;
+
+    }
+
+    return $out;
 }

@@ -95,8 +95,8 @@
 
             <?php if (!$page): ?>
 
-                <div class="hadith-teaser"><?php echo $node->field_arabic_hadith_body['und'][0]['safe_value']; ?></div>
-                <div class="hadith-teaser"><?php echo $body['und'][0]['safe_value']; ?></div>
+                <div class="hadith-teaser"><?php echo hadis_input_limit_text($node->field_arabic_hadith_body['und'][0]['safe_value'], 500); ?></div>
+                <div class="hadith-teaser"><?php echo hadis_input_limit_text($body['und'][0]['safe_value'], 500); ?></div>
 
             <?php else: ?>
 
