@@ -21,6 +21,8 @@ function hadis_input_form($form, &$form_state, $selectedHadithBookId)
     $primaryBanglaBook    = hadis_input_get_primary_bangla_book($selectedHadithBookId);
     $secondaryBanglaBook  = hadis_input_get_secondary_bangla_book($selectedHadithBookId);
 
+    $selectedChapter = isset($form_state['values']['chapter']) ? $form_state['values']['chapter'] : isset($_SESSION['chapter']) ? $_SESSION['chapter'] : '';
+
     drupal_set_title($hadithBookCollection[$selectedHadithBookId]);
 
     $form['hadith_book_container'] = array(
@@ -44,7 +46,7 @@ function hadis_input_form($form, &$form_state, $selectedHadithBookId)
         '#type'          => 'select',
         '#required'      => true,
         '#options'       => hadis_input_get_chapter_collection($selectedHadithBookId),
-        '#default_value' => isset($form_state['values']['chapter']) ? $form_state['values']['chapter'] : '',
+        '#default_value' => $selectedChapter,
         '#attributes'    => array("style" => "width: 270px"),
         '#prefix'        => '<div id="chapter-container" class="five columns">',
         '#suffix'        => '</div>'
@@ -313,7 +315,9 @@ function hadis_input_form($form, &$form_state, $selectedHadithBookId)
 
 function hadis_input_form_submit($form, &$form_state)
 {
+    $_SESSION['chapter'] = $form_state['values']['field_hadith_book_chapter'];
     hadis_input_create_hadith($form_state['values']);
+
     drupal_set_message("Hadith created successfully.");
 }
 
