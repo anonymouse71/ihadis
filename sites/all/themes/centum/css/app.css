@@ -1,3 +1,48 @@
+/* Hadith Input Form */
+
+.form-item label {
+    font-weight: bold;
+}
+
+.twelve input {
+    width: 680px;
+}
+
+.show-hide > .form-item {
+    display: none;
+}
+
+.show-hide a {
+    font-weight: bold;
+}
+
+.tag-input {
+    width: 675px;
+}
+
+.last-saved-hadith {
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Hadith View Template */
+
+.post-description {
+    margin: 10px 0;
+}
+
+.section-container {
+    margin: 10px 0 40px;
+}
+
+.section {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 16px;
+    text-align: center;
+    margin-bottom: 10px !important;
+}
+
 .additional-text {
     font-size: 16px;
     line-height: 20px;
@@ -6,7 +51,7 @@
 }
 
 .hadith-body {
-    font-family: 'Trebuchet MS', Arial, Helvetica;
+    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
     font-size: 28px;
     line-height: 32px;
     text-align: justify;
@@ -23,16 +68,9 @@
 
 .hadith-teaser {
     margin: 10px 0;
-    font-family: 'Trebuchet MS', Arial, Helvetica;
+    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;;
     font-size: 16px;
     line-height: 24px;
     text-align: justify;
 }
 
-.show-hide > .form-item {
-    display: none;
-}
-
-.show-hide a {
-    font-weight: bold;
-}

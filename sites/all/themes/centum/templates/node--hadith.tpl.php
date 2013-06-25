@@ -100,19 +100,42 @@
 
             <?php else: ?>
 
-                <?php if (isset($content['field_additional_text_english'])): ?>
-                <p class="additional-text"><?php echo $content['field_additional_text_english']['#items'][0]['safe_value']; ?></p>
-                <?php endif; ?>
+                <!-- Sections -->
+                <div class="section-container">
 
-                <?php if (isset($content['field_additional_text_arabic'])): ?>
-                <p class="additional-text"><?php echo $content['field_additional_text_arabic']['#items'][0]['safe_value']; ?></p>
-                <?php endif; ?>
+                    <?php if (isset($content['field_section_arabic'])): ?>
+                    <p class="section"><?php hadis_input_display_text($content['field_section_arabic']['#items'][0]['safe_value']); ?></p>
+                    <?php endif; ?>
 
-                <?php if (isset($content['field_additional_text_bangla_pri'])): ?>
-                <p class="additional-text"><?php echo $content['field_additional_text_bangla_pri']['#items'][0]['safe_value']; ?></p>
-                <?php endif; ?>
+                    <?php if (isset($content['field_section_english'])): ?>
+                    <p class="section"><?php hadis_input_display_text($content['field_section_english']['#items'][0]['safe_value']); ?></p>
+                    <?php endif; ?>
 
-                <p class="hadith-body body-arabic"><?php echo $content['field_arabic_hadith_body']['#items'][0]['safe_value']; ?></p>
+                    <?php if (isset($content['field_section_bangla_primary'])): ?>
+                    <p class="section"><?php hadis_input_display_text($content['field_section_bangla_primary']['#items'][0]['safe_value']); ?></p>
+                    <?php endif; ?>
+
+                </div>
+
+                <!-- Additional Texts -->
+                <div class="additional-text-container">
+
+                    <?php if (isset($content['field_additional_text_english'])): ?>
+                    <p class="additional-text"><?php hadis_input_display_text($content['field_additional_text_english']['#items'][0]['safe_value']); ?></p>
+                    <?php endif; ?>
+
+                    <?php if (isset($content['field_additional_text_arabic'])): ?>
+                    <p class="additional-text"><?php hadis_input_display_text($content['field_additional_text_arabic']['#items'][0]['safe_value']); ?></p>
+                    <?php endif; ?>
+
+                    <?php if (isset($content['field_additional_text_bangla_pri'])): ?>
+                    <p class="additional-text"><?php hadis_input_display_text($content['field_additional_text_bangla_pri']['#items'][0]['safe_value']); ?></p>
+                    <?php endif; ?>
+
+                </div>
+
+                <!-- Main Body -->
+                <p class="hadith-body body-arabic"><?php hadis_input_display_text($content['field_arabic_hadith_body']['#items'][0]['safe_value']); ?></p>
 
                 <ul class="tabs-nav">
                     <li class="active"><a href="#bangla">Bangla Translation</a></li>
@@ -120,8 +143,8 @@
                 </ul>
 
                 <div class="tabs-container">
-                    <div class="tab-content" id="bangla" style="display: block;"><?php echo $content['field_bangla_pri_hadith_body']['#items'][0]['safe_value']; ?></div>
-                    <div class="tab-content" id="english" style="display: none;"><?php echo $content['field_english_hadith_body']['#items'][0]['safe_value']; ?></div>
+                    <div class="tab-content" id="bangla" style="display: block;"><?php hadis_input_display_text($content['field_bangla_pri_hadith_body']['#items'][0]['safe_value']); ?></div>
+                    <div class="tab-content" id="english" style="display: none;"><?php hadis_input_display_text($content['field_english_hadith_body']['#items'][0]['safe_value']); ?></div>
                 </div>
 
             <?php endif; ?>
