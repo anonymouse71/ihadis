@@ -74,3 +74,10 @@
     text-align: justify;
 }
 
+p.footnote {
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 12px;
+    font-style: italic;
+}
+

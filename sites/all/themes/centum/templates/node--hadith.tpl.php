@@ -103,6 +103,10 @@
                 <!-- Sections -->
                 <div class="section-container">
 
+                    <?php if (isset($content['field_international_hadith_num'])): ?>
+                    <p class="section">International Hadith #<?php hadis_input_display_text($content['field_international_hadith_num']['#items'][0]['value']); ?></p>
+                    <?php endif; ?>
+
                     <?php if (isset($content['field_section_arabic'])): ?>
                     <p class="section"><?php hadis_input_display_text($content['field_section_arabic']['#items'][0]['safe_value']); ?></p>
                     <?php endif; ?>
@@ -143,8 +147,18 @@
                 </ul>
 
                 <div class="tabs-container">
-                    <div class="tab-content" id="bangla" style="display: block;"><?php hadis_input_display_text($content['field_bangla_pri_hadith_body']['#items'][0]['safe_value']); ?></div>
-                    <div class="tab-content" id="english" style="display: none;"><?php hadis_input_display_text($content['field_english_hadith_body']['#items'][0]['safe_value']); ?></div>
+
+                    <div class="tab-content" id="bangla" style="display: block;">
+                        <p><?php hadis_input_display_text($content['field_bangla_pri_hadith_body']['#items'][0]['safe_value']); ?></p>
+                        <?php if (!empty($content['field_bangla_pri_hadith_note']['#items'][0]['safe_value'])): ?>
+                        <p class="footnote"><?php hadis_input_display_text($content['field_bangla_pri_hadith_note']['#items'][0]['safe_value']); ?></p>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="tab-content" id="english" style="display: none;">
+                        <?php hadis_input_display_text($content['field_english_hadith_body']['#items'][0]['safe_value']); ?>
+                    </div>
+
                 </div>
 
             <?php endif; ?>
