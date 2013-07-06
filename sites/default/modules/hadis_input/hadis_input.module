@@ -190,33 +190,33 @@ function hadis_input_form($form, &$form_state, $selectedHadithBookId)
             '#suffix'   => $lastHadithNumberInt . '</div>'
         );
 
-        $form['hadith_fieldset']['field_arabic_hadith_body_' . $i] = array(
-            '#type'     => 'textarea',
-            '#title'    => t('Arabic Hadith Text'),
-            '#required' => true,
-            '#prefix'   => '<div class="twelve columns">',
-            '#suffix'   => '</div>'
-        );
-
-        $form['hadith_fieldset']['field_arabic_hadith_reference_' . $i] = array(
-            '#type'     => 'textarea',
-            '#title'    => t('Arabic Hadith Reference'),
-            '#required' => false,
-            '#prefix'   => '<div class="offset-by-four twelve columns show-hide"><a href="#show">Show/Hide Reference</a>',
-            '#suffix'   => '</div>'
-        );
-
         $form['hadith_fieldset']['field_english_hadith_body_' . $i] = array(
             '#type'     => 'textarea',
             '#title'    => t('English Hadith Text'),
             '#required' => true,
-            '#prefix'   => '<div class="offset-by-four twelve columns">',
+            '#prefix'   => '<div class="twelve columns">',
             '#suffix'   => '</div>'
         );
 
         $form['hadith_fieldset']['field_english_hadith_reference_' . $i] = array(
             '#type'     => 'textarea',
             '#title'    => t('English Hadith Reference'),
+            '#required' => false,
+            '#prefix'   => '<div class="offset-by-four twelve columns show-hide"><a href="#show">Show/Hide Reference</a>',
+            '#suffix'   => '</div>'
+        );
+
+        $form['hadith_fieldset']['field_arabic_hadith_body_' . $i] = array(
+            '#type'     => 'textarea',
+            '#title'    => t('Arabic Hadith Text'),
+            '#required' => true,
+            '#prefix'   => '<div class="offset-by-four twelve columns">',
+            '#suffix'   => '</div>'
+        );
+
+        $form['hadith_fieldset']['field_arabic_hadith_reference_' . $i] = array(
+            '#type'     => 'textarea',
+            '#title'    => t('Arabic Hadith Reference'),
             '#required' => false,
             '#prefix'   => '<div class="offset-by-four twelve columns show-hide"><a href="#show">Show/Hide Reference</a>',
             '#suffix'   => '</div>'
