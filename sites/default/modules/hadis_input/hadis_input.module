@@ -1,5 +1,7 @@
 <?php
 
+include_once __DIR__ . '/hadis_input_functions.php';
+
 function hadis_input_menu()
 {
     $items = array();
@@ -353,59 +355,6 @@ function hadis_input_add_more_remove_one($form, &$form_state)
     $form_state['rebuild'] = true;
 }
 
-/**
- * Returns the terms from the Hadith Book vocabulary
- *
- * @return array
- */
-function hadis_input_get_hadith_book_collection()
-{
-    $hadithVocabularyId = 3;
-    $hadithBookCollection = array();
-
-    foreach (taxonomy_get_tree($hadithVocabularyId) as $term) {
-        $hadithBookCollection[$term->tid] = $term->name;
-    }
-
-    reset($hadithBookCollection);
-    return $hadithBookCollection;
-}
-
-/**
- * Returns the terms from the Chapter vocabulary based on specified parent
- *
- * @param $hadithBookId int Term Id of the Hadith Book
- * @return array
- */
-function hadis_input_get_chapter_collection($hadithBookId)
-{
-    $chapterVocabularyId = 4;
-    $parentTermId = array("1" => 5, "2" => 6);
-    $chapterCollection = array();
-
-    foreach (taxonomy_get_tree($chapterVocabularyId, $parentTermId[$hadithBookId]) as $term) {
-        $chapterCollection[$term->tid] = $term->name;
-    }
-
-    return $chapterCollection;
-}
-
-function hadis_input_get_primary_bangla_book($bookId)
-{
-    switch ($bookId) {
-        case 1: return "Islamic Foundation";
-        case 2: return "Islamic Foundation";
-    }
-}
-
-function hadis_input_get_secondary_bangla_book($bookId)
-{
-    switch ($bookId) {
-        case 1: return null;
-        case 2: return null;
-    }
-}
-
 function hadis_input_create_hadith($data)
 {
     $garbage = array('add_more', 'remove_name', 'submit', 'form_build_id', 'form_token', 'form_id', 'op');
@@ -552,66 +501,6 @@ function hadis_input_insert_node($data, $additional)
     if ($node = node_submit($node)) { // Prepare node for saving
         node_save($node);
     }
-}
-
-function hadis_input_create_term($tag)
-{
-    $term = array('vid' => 1, 'name' => $tag);
-    $term = (object)$term;
-
-    taxonomy_term_save($term);
-    $tid = $term->tid;
-
-    return $tid;
-}
-
-function hadis_input_get_title($data, $termBook, $termChapter)
-{
-    $title = $termBook->name . ', ';
-    $title .= substr($termChapter->name, strpos($termChapter->name, ' ') + 1) . ', ';
-    $title .= 'হাদিস ' . hadis_input_get_bangla_number($data['field_bangla_pri_hadith_num']);
-
-    return $title;
-}
-
-function hadis_input_get_bangla_number($number)
-{
-    $engArray = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
-    $bangArray = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯', '০');
-
-    $converted = str_replace($engArray, $bangArray, $number);
-    return $converted;
-}
-
-function hadis_input_limit_text($text, $len) {
-
-    if (mb_strlen($text) < $len) {
-        return $text;
-    }
-
-    $text_words = explode(' ', $text);
-    $out = null;
-
-    foreach ($text_words as $word) {
-
-        if ((mb_strlen($word) > $len) && $out == null) {
-            return mb_substr($word, 0, $len) . "...";
-        }
-
-        if ((mb_strlen($out) + mb_strlen($word)) > $len) {
-            return $out . "...";
-        }
-
-        $out .= " " . $word;
-
-    }
-
-    return $out;
-}
-
-function hadis_input_display_text($text)
-{
-    echo nl2br($text);
 }
 
 function hadis_input_save_session($data, $additional)
