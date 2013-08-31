@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . '/hadis_input_functions.php';
+include_once dirname(__FILE__) . '/hadis_input_functions.php';
 
 function hadis_input_menu()
 {

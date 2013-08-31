@@ -1,0 +1,150 @@
+<?php
+
+function hadis_navigation_menu() {
+
+    $items['hadis/search/book'] = array(
+        'page callback' => 'hadis_navigation_handle_book',
+        'access callback' => TRUE,
+    );
+
+    $items['hadis/search/number'] = array(
+        'page callback' => 'hadis_navigation_handle_number',
+        'access callback' => TRUE,
+    );
+
+    $items['hadis/search/book-list'] = array(
+        'page callback' => 'hadis_navigation_handle_book_list',
+        'access callback' => TRUE,
+    );
+
+    return $items;
+}
+
+function hadis_navigation_handle_book() {
+
+    if (isset($_REQUEST['field_hadith_book']) && isset($_REQUEST['field_hadith_book_chapter'])) {
+
+        $term = taxonomy_term_load($_REQUEST['field_hadith_book_chapter']);
+        $uri = taxonomy_term_uri($term);
+
+        $path_alias = drupal_lookup_path('alias', $uri['path']);
+        header("Location: /" . $path_alias);
+
+    }
+
+}
+
+function hadis_navigation_handle_number() {
+
+    if (isset($_REQUEST['field_hadith_book']) && isset($_REQUEST['field_bangla_pri_hadith_num'])) {
+
+        $hadith_num = (int) $_REQUEST['field_bangla_pri_hadith_num'];
+
+        if ($hadith = hadis_input_get_hadith_by_number($hadith_num)) {
+
+            $path_alias = drupal_lookup_path('alias', 'node/' . $hadith->nid);
+            header("Location: /" . $path_alias);
+
+            return;
+        }
+
+        drupal_set_title('হাদিস পাওয়া যায় নি ');
+        $err = "আপনি যে হাদিস নাম্বার দিয়ে সার্চ করেছেন সেই নাম্বারের কোন হাদিস আমাদের ডাটাবেসে নেই ।  মূল পাতায় ফেরত যেতে <a href='/'>এখানে </a>ক্লিক করুন । ";
+
+        return $err;
+
+    }
+
+}
+
+function hadis_navigation_handle_book_list() {
+
+    header('Content-Type: application/json');
+
+    $list = array();
+    $chapters = hadis_input_get_chapter_collection(1, true);
+    $book = taxonomy_term_load(1);
+
+    foreach ($chapters as $chapterId => $chapter) {
+
+        $uri = taxonomy_term_uri($chapter);
+        $title = taxonomy_term_title($chapter);
+        $path_alias = drupal_lookup_path('alias', $uri['path']);
+
+        $list[] = array(
+            'name'        => $title,
+            'description' => $book->name,
+            'value'       => $title,
+            'link'        => 'http://' . $_SERVER['HTTP_HOST'] . '/' . $path_alias
+        );
+
+    }
+
+    echo json_encode($list);
+    exit(0);
+}
+
+function hadis_navigation_get_hadith_info($hadith_num, $field = 'body')
+{
+    if ($hadith = hadis_input_get_hadith_by_number($hadith_num)) {
+
+        if ($field == 'body') {
+            return $hadith->field_bangla_pri_hadith_body['und'][0]['value'];
+        }
+
+        if ($field == 'ref') {
+            return $hadith->title;
+        }
+
+    }
+
+    return '';
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function hadis_navigation_block_info()
+{
+    $blocks = array();
+
+    $blocks['hadis_nav'] = array(
+        'info' => t('Hadis Navigation'),
+    );
+
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function hadis_navigation_block_view($delta = '')
+{
+    $block = array();
+
+    switch ($delta) {
+        case 'hadis_nav':
+            $block['content'] = hadis_nav_view();
+            break;
+    }
+
+    return $block;
+}
+
+function hadis_nav_view()
+{
+    ob_start();
+    include dirname(__FILE__) . '/front-panel-navigation.php';
+    $output = ob_get_clean();
+
+    // Block output in HTML with div wrapper
+    $block = array(
+        'body' => array(
+            '#type'   => 'markup',
+            '#markup' => $output,
+        )
+    );
+
+    return $block;
+
+}

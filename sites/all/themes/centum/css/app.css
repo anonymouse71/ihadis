@@ -1,3 +1,15 @@
+/* Theme Overrides */
+
+div#logo {
+    margin: 0 auto;
+    width: 150px;
+}
+
+#header {
+    min-height: inherit;
+}
+
+
 /* Hadith Input Form */
 
 .form-item label {
@@ -107,4 +119,107 @@ p.footnote {
 
 .book-chapter a:hover {
     color: #404040;
+}
+
+/* Home page search box */
+
+.twitter-typeahead {
+    left: 11%;
+    margin: 20px 0 50px;
+}
+
+.typeahead,
+.tt-query,
+.tt-hint {
+    width: 700px;
+    height: 30px;
+    padding: 8px 12px !important;
+    font-size: 24px !important;
+    line-height: 30px !important;
+    border: 2px solid #ccc !important;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    border-radius: 8px;
+    outline: none;
+}
+
+.typeahead {
+    background-color: #fff !important;
+}
+
+.typeahead:focus {
+    border: 2px solid #0097cf !important;
+}
+
+.tt-query {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+}
+
+.tt-hint {
+    color: #999 !important
+}
+
+.tt-dropdown-menu {
+    width: 728px;
+    margin-top: 12px;
+    padding: 8px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+    padding: 3px 20px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+    color: #fff;
+    background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+    margin: 0;
+}
+
+.gist {
+    font-size: 14px;
+}
+
+/* example specific styles */
+/* ----------------------- */
+
+.tt-suggestion a, .tt-suggestion a:hover {
+    color: #000;
+}
+
+.tt-suggestion {
+    padding: 8px 20px;
+}
+
+.tt-suggestion + .tt-suggestion {
+    border-top: 1px solid #ccc;
+}
+
+.repo-language {
+    float: right;
+    font-style: italic;
+}
+
+.repo-name {
+    font-weight: bold;
+}
+
+.repo-description {
+    font-size: 14px;
 }

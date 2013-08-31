@@ -48,6 +48,10 @@ function centum_preprocess_html(&$variables)
             ),
         ), 'centum:viewport_meta'
     );
+
+    if ($variables['is_front']) {
+        drupal_add_js($theme_path . '/js/front.js', array('type' => 'file'));
+    }
 }
 
 function centum_preprocess_page(&$vars)
@@ -57,6 +61,11 @@ function centum_preprocess_page(&$vars)
 
     if (!empty($custom_main_menu['content'])) {
         $vars['navigation'] = $custom_main_menu['content'];
+    }
+
+    if ($vars['is_front'] || !$vars['is_front']) {
+        $vars['navigation'] = '';
+        $vars['breadcrumb'] = '';
     }
 
     if (arg(0) == 'node' && arg(1)) {

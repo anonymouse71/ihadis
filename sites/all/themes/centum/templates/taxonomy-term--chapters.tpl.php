@@ -41,6 +41,6 @@
  * @ingroup themeable
  */
 
-var_dump($term);
+//var_dump($term);
 
 ?>

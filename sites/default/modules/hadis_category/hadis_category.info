@@ -1,0 +1,7 @@
+name = Hadis Category
+description = Provides block for showing hadis by category
+package = iHadis Modules
+core = 7.x
+version = 7.x-1.x-dev
+
+files[] = hadis_category.module

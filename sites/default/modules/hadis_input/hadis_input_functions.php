@@ -25,6 +25,8 @@ function hadis_input_get_hadith_book_collection()
  * Returns the terms from the Chapter vocabulary based on specified parent
  *
  * @param $hadithBookId int Term Id of the Hadith Book taxonomy
+ * @param bool $details
+ *
  * @return array
  */
 function hadis_input_get_chapter_collection($hadithBookId, $details = false)
@@ -39,7 +41,7 @@ function hadis_input_get_chapter_collection($hadithBookId, $details = false)
 
     var_dump($entities);*/
 
-    $parentTermId = include_once __DIR__ . '/hadis_input_book_mapping.php';
+    $parentTermId = include_once dirname(__FILE__) . '/hadis_input_book_mapping.php';
     $chapterCollection = array();
 
     foreach (taxonomy_get_tree(CHAPTER_VOCABULARY, $parentTermId[$hadithBookId]) as $term) {
@@ -149,4 +151,26 @@ function hadis_input_limit_text($text, $len) {
 function hadis_input_display_text($text)
 {
     echo nl2br($text);
+}
+
+function hadis_input_get_hadith_by_number($number, $book = 1)
+{
+    $query = new EntityFieldQuery();
+
+    $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'hadith')
+    ->fieldCondition('field_bangla_pri_hadith_num', 'value', $number);
+
+    $result = $query->execute();
+
+    if (!empty($result['node'])) {
+
+        $nodeIds = array_keys($result['node']);
+        $nodes = entity_load('node', $nodeIds);
+
+        return array_shift($nodes);
+
+    }
+
+    return false;
 }

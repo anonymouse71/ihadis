@@ -21,6 +21,8 @@ scripts[] = js/fancybox.js
 scripts[] = js/carousel.js
 scripts[] = js/isotope.js
 scripts[] = js/centum.js
+scripts[] = js/typeahead.min.js
+scripts[] = js/hogan-2.0.0.js
 
 features[] = logo
 features[] = name
