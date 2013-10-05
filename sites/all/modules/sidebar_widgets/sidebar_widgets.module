@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Sidebar Widgets feature.
- */
-
-include_once 'sidebar_widgets.features.inc';
