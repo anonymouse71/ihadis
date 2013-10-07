@@ -1,0 +1,4 @@
+ihadis_core:
+    resource: "@IhadisCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
