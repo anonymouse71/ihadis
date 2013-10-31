@@ -22,7 +22,6 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "friendsofsymfony/comment-bundle": "dev-master",
         "friendsofsymfony/elastica-bundle": "3.0.*@dev",
-        "knplabs/knp-paginator-bundle": "dev-master",
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
         "knplabs/doctrine-behaviors": "1.0.*@dev"
