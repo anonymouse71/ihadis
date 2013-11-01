@@ -30,7 +30,7 @@ class Section
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=3000)
      */
     private $title;
 
@@ -40,6 +40,13 @@ class Section
      * @ORM\Column(name="preface", type="text", nullable=true)
      */
     private $preface;
+
+    /**
+     * @var Book
+     *
+     * @ORM\ManyToOne(targetEntity="Book")
+     */
+    private $book;
 
     /**
      * @var Chapter
@@ -102,5 +109,49 @@ class Section
     public function getPreface()
     {
         return $this->preface;
+    }
+
+    /**
+     * Set book
+     *
+     * @param Book $book
+     * @return Chapter
+     */
+    public function setBook($book)
+    {
+        $this->book = $book;
+        return $this;
+    }
+
+    /**
+     * Get book
+     *
+     * @return Book
+     */
+    public function getBook()
+    {
+        return $this->book;
+    }
+
+    /**
+     * Set chapter
+     *
+     * @param Chapter $chapter
+     * @return Section
+     */
+    public function setChapter($chapter)
+    {
+        $this->chapter = $chapter;
+        return $this;
+    }
+
+    /**
+     * Get chapter
+     *
+     * @return Chapter
+     */
+    public function getChapter()
+    {
+        return $this->chapter;
     }
 }

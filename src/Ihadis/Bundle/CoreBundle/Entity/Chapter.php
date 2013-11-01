@@ -43,6 +43,13 @@ class Chapter
     private $preface;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="sort_order", type="integer")
+     */
+    private $sortOrder = 0;
+
+    /**
      * @var Book
      *
      * @ORM\ManyToOne(targetEntity="Book")
@@ -80,7 +87,6 @@ class Chapter
     public function setTitle($title)
     {
         $this->title = $title;
-    
         return $this;
     }
 
@@ -103,7 +109,6 @@ class Chapter
     public function setPreface($preface)
     {
         $this->preface = $preface;
-    
         return $this;
     }
 
@@ -115,5 +120,49 @@ class Chapter
     public function getPreface()
     {
         return $this->preface;
+    }
+
+    /**
+     * Set book
+     *
+     * @param Book $book
+     * @return Chapter
+     */
+    public function setBook($book)
+    {
+        $this->book = $book;
+        return $this;
+    }
+
+    /**
+     * Get book
+     *
+     * @return Book
+     */
+    public function getBook()
+    {
+        return $this->book;
+    }
+
+    /**
+     * Set sort order
+     *
+     * @param int $order
+     * @return Chapter
+     */
+    public function setSortOrder($order)
+    {
+        $this->sortOrder = $order;
+        return $this;
+    }
+
+    /**
+     * Get sort order
+     *
+     * @return Chapter
+     */
+    public function getSortOrder()
+    {
+        return $this->sortOrder;
     }
 }

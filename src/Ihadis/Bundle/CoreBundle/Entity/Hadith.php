@@ -297,4 +297,70 @@ class Hadith
     {
         return $this->validity;
     }
+
+    /**
+     * Set book
+     *
+     * @param Book $book
+     * @return Chapter
+     */
+    public function setBook($book)
+    {
+        $this->book = $book;
+        return $this;
+    }
+
+    /**
+     * Get book
+     *
+     * @return Book
+     */
+    public function getBook()
+    {
+        return $this->book;
+    }
+
+    /**
+     * Set chapter
+     *
+     * @param Chapter $chapter
+     * @return Section
+     */
+    public function setChapter($chapter)
+    {
+        $this->chapter = $chapter;
+        return $this;
+    }
+
+    /**
+     * Get chapter
+     *
+     * @return Chapter
+     */
+    public function getChapter()
+    {
+        return $this->chapter;
+    }
+
+    /**
+     * Set section
+     *
+     * @param Section $section
+     * @return Hadith
+     */
+    public function setSection($section)
+    {
+        $this->section = $section;
+        return $this;
+    }
+
+    /**
+     * Get section
+     *
+     * @return Section
+     */
+    public function getSection()
+    {
+        return $this->section;
+    }
 }
