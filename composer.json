@@ -20,11 +20,11 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "friendsofsymfony/comment-bundle": "dev-master",
         "friendsofsymfony/elastica-bundle": "3.0.*@dev",
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
-        "knplabs/doctrine-behaviors": "1.0.*@dev"
+        "knplabs/doctrine-behaviors": "1.0.*@dev",
+        "sylius/resource-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

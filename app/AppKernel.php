@@ -18,10 +18,13 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
             new FOS\UserBundle\FOSUserBundle(),
-            //new FOS\ElasticaBundle\FOSElasticaBundle(),
-            //new FOS\CommentBundle\FOSCommentBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
+
+            //new FOS\ElasticaBundle\FOSElasticaBundle(),
 
             new Ihadis\Bundle\CoreBundle\IhadisCoreBundle(),
         );
