@@ -1,70 +1,116 @@
-{% block form_row %}
-    {% spaceless %}
-        <div class="control-group">
-            {{ form_label(form) }}
-            <div class="controls">
-                {{ form_widget(form) }}
-                {{ form_errors(form) }}
-            </div>
-        </div>
-    {% endspaceless %}
-{% endblock form_row %}
+{% extends 'form_div_layout.html.twig' %}
 
-{% block form_widget_datepicker %}
+{% block choice_widget_collapsed %}
+    {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+    {{ parent() }}
+{% endblock choice_widget_collapsed %}
+
+{% block textarea_widget %}
+    {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+    {{ parent() }}
+{% endblock textarea_widget %}
+
+{% block form_widget_simple %}
     {% spaceless %}
-        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' m-ctrl-medium date-picker')|trim}) %}
-        <div class="input-append date date-picker span6 {{ attr.class }}">
-            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' span11')|trim}) %}
-            <input readonly type="text" {{ block('widget_attributes') }}/>
-            <span class="add-on"><i class="icon-calendar"></i></span>
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+        {% set type = type|default('text') %}
+
+        {% if 'file' == type %}
+            <span class="btn-primary btn-lg file-overlay"><i class="icon-folder-open"></i> Choose FIle</span>
+        {% endif %}
+        {{ parent() }}
+    {% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block form_label %}
+    {% spaceless %}
+        {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' control-label col-lg-4'}) %}
+        {{ parent() }}
+    {% endspaceless %}
+{% endblock form_label %}
+
+{% block money_widget %}
+    {% spaceless %}
+        <div class="input-group">
+            <span class="input-group-addon">{{ money_pattern|replace({'{{ widget }}': ''}) }}</span>
+            {{ block('form_widget_simple') }}
         </div>
     {% endspaceless %}
-{% endblock form_widget_datepicker %}
+{% endblock money_widget %}
+
+{% block percent_widget %}
+    {% spaceless %}
+        <div class="input-group">
+            <span class="input-group-addon">%</span>
+            {{ block('form_widget_simple') }}
+        </div>
+    {% endspaceless %}
+{% endblock percent_widget %}
+
+{% block datetime_widget %}
+    {% spaceless %}
+        {% if widget == 'single_text' %}
+            {{ block('form_widget_simple') }}
+        {% else %}
+            <div class="form-group">
+                {{ form_widget(form.date) }}
+                {{ form_widget(form.time) }}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock datetime_widget %}
 
 {% block date_widget %}
     {% spaceless %}
         {% if widget == 'single_text' %}
             {{ block('form_widget_simple') }}
-        {% elseif widget == 'choice' %}
-            {{ block('form_widget_datepicker') }}
         {% else %}
-            <div {{ block('widget_container_attributes') }}>
-                {{ date_pattern|replace({
-                '{{ year }}':  form_widget(form.year),
-                '{{ month }}': form_widget(form.month),
-                '{{ day }}':   form_widget(form.day),
-                })|raw }}
-            </div>
+            {{ '{{ year }} / {{ month }} / {{ day }}'|replace({
+            '{{ year }}':  form_widget(form.year, {'attr': {'style': 'display: inline; width: 100px;'}}),
+            '{{ month }}': form_widget(form.month, {'attr': {'style': 'display: inline; width: 100px;'}}),
+            '{{ day }}':   form_widget(form.day, {'attr': {'style': 'display: inline; width: 100px;'}}),
+            })|raw }}
         {% endif %}
     {% endspaceless %}
 {% endblock date_widget %}
 
+{% block time_widget %}
+    {% spaceless %}
+        {% if widget == 'single_text' %}
+            {{ block('form_widget_simple') }}
+        {% else %}
+            {% set vars = widget == 'text' ? { 'attr': { 'size': 1, 'style': 'width: 60px; display: inline;' }} : {} %}
+            &nbsp;{{ form_widget(form.hour, vars) }}{% if with_minutes %}:{{ form_widget(form.minute, vars) }}{% endif %}{% if with_seconds %} {{ form_widget(form.second, vars) }}{% endif %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock time_widget %}
+
+{% block form_row %}
+    {% spaceless %}
+        <div class="form-group{% if errors|length > 0 %} has-error{% endif %}">
+            {{ form_label(form) }}
+            <div class="col-lg-8">
+                {{ form_widget(form) }}
+                {% for error in errors %}
+                    <span class="help-block form-error">
+                {{
+                error.messagePluralization is null
+                ? error.messageTemplate|trans(error.messageParameters, 'validators')
+                : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
+                }}
+            </span>
+                {% endfor %}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
 {% block form_errors %}
     {% spaceless %}
         {% if errors|length > 0 %}
-            <ul>
-                {% for error in errors %}
-                    <li>{{ error.message }}</li>
-                {% endfor %}
-            </ul>
+            {% for error in errors %}
+                <div class="alert alert-danger">{{ error.message }}</div>
+            {% endfor %}
         {% endif %}
     {% endspaceless %}
 {% endblock form_errors %}
-
-{% block form_label %}
-    {% spaceless %}
-        {% if label is not sameas(false) %}
-            {% if not compound %}
-                {% set label_attr = label_attr|merge({'for': id}) %}
-            {% endif %}
-            {% if required %}
-                {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
-            {% endif %}
-            {% if label is empty %}
-                {% set label = name|humanize %}
-            {% endif %}
-            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' control-label')|trim}) %}
-            <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}</label>
-        {% endif %}
-    {% endspaceless %}
-{% endblock form_label %}

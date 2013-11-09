@@ -1,0 +1,26 @@
+{% extends 'full_width.html.twig' %}
+
+{% block title %}{{ message is defined ? message : 'Delete confirmation' }}{% endblock %}
+
+{% block body %}
+
+    <form action="{{ app.request.requestUri }}" method="post" class="delete-action-form" novalidate>
+
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="confirmed" value="1">
+
+        <div class="form-actions">
+
+            <p>Are you sure you want to delete this resource ?</p>
+
+            <button class="btn btn-danger" type="submit">
+                <i class="icon-trash"></i> <span>Delete</span>
+            </button>
+
+            <a href="{{ app.request.headers.get('referer') }}" class="btn btn-info"><i class="icon-remove"></i> Cancel</a>
+
+        </div>
+
+    </form>
+
+{% endblock %}

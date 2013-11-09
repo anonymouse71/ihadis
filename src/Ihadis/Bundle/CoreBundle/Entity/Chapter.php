@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @ORM\Table(name="chapters")
  * @ORM\Entity(repositoryClass="Ihadis\Bundle\CoreBundle\Repository\ChapterRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Chapter
 {
@@ -66,6 +67,14 @@ class Chapter
     public function __construct()
     {
         $this->sections = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\PreFlush
+     */
+    public function handleTranslation()
+    {
+        $this->mergeNewTranslations();
     }
 
     /**
@@ -164,5 +173,50 @@ class Chapter
     public function getSortOrder()
     {
         return $this->sortOrder;
+    }
+
+    /**
+     * Get Title in English
+     *
+     * @return mixed
+     */
+    public function getTitleEnglish()
+    {
+        return $this->translate('en')->getTitle();
+    }
+
+    /**
+     * Set Title in English
+     *
+     * @param $title
+     *
+     * @return mixed
+     */
+    public function setTitleEnglish($title)
+    {
+        $this->translate('en')->setTitle($title);
+        return $this;
+    }
+
+    /**
+     * Get Title in Arabic
+     *
+     * @return mixed
+     */
+    public function getTitleArabic()
+    {
+        return $this->translate('ar')->getTitle();
+    }
+
+    /**
+     * Set Title in Arabic
+     *
+     * @param $title
+     *
+     * @return mixed
+     */
+    public function setTitleArabic($title)
+    {
+        $this->translate('ar')->setTitle($title);
     }
 }

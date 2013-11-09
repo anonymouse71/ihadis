@@ -24,7 +24,8 @@
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
         "knplabs/doctrine-behaviors": "1.0.*@dev",
-        "sylius/resource-bundle": "dev-master"
+        "sylius/resource-bundle": "dev-master",
+        "white-october/pagerfanta-bundle": "1.0.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

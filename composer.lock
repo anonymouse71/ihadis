@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f773fc013308a292601c97211fbcc189",
+    "hash": "22c21d787fda389eadcada20d6051b63",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2416,23 +2416,28 @@
         },
         {
             "name": "white-october/pagerfanta-bundle",
-            "version": "v1.0.0",
+            "version": "dev-master",
             "target-dir": "WhiteOctober/PagerfantaBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
-                "reference": "6bea6f3a23ea4b69d821b00c89a3746e437b8880"
+                "reference": "cf51f3482fa7a73757f4ca4e2d7424bcdb1d2b2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/6bea6f3a23ea4b69d821b00c89a3746e437b8880",
-                "reference": "6bea6f3a23ea4b69d821b00c89a3746e437b8880",
+                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/cf51f3482fa7a73757f4ca4e2d7424bcdb1d2b2f",
+                "reference": "cf51f3482fa7a73757f4ca4e2d7424bcdb1d2b2f",
                 "shasum": ""
             },
             "require": {
                 "pagerfanta/pagerfanta": "1.0.*",
-                "symfony/framework-bundle": "~2.1",
-                "symfony/property-access": "~2.2"
+                "symfony/framework-bundle": "~2.2",
+                "symfony/property-access": "~2.2",
+                "symfony/twig-bundle": "~2.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7",
+                "symfony/symfony": "~2.2"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2461,7 +2466,7 @@
                 "page",
                 "paging"
             ],
-            "time": "2013-06-06 08:08:38"
+            "time": "2013-11-08 00:34:44"
         },
         {
             "name": "willdurand/negotiation",
@@ -2527,7 +2532,8 @@
         "knplabs/knp-menu": 20,
         "knplabs/knp-menu-bundle": 20,
         "knplabs/doctrine-behaviors": 20,
-        "sylius/resource-bundle": 20
+        "sylius/resource-bundle": 20,
+        "white-october/pagerfanta-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

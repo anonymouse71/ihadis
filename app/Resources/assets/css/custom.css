@@ -1,1 +1,9 @@
-/* here you can put your own css to customize and override the theme */
+/* Here you can put your own css to customize and override the theme */
+
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.delete-action-form {
+    display: inline;
+}

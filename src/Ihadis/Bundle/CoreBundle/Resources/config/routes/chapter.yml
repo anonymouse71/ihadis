@@ -1,0 +1,29 @@
+ihadis_chapter_list:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: ihadis.controller.chapter:indexAction
+
+ihadis_chapter_add:
+    pattern: /add
+    methods: [GET, POST]
+    defaults:
+        _controller: ihadis.controller.chapter:createAction
+        _sylius:
+            redirect: ihadis_chapter_list
+
+ihadis_chapter_edit:
+    pattern: /{id}/edit
+    methods: [GET, PUT]
+    defaults:
+        _controller: ihadis.controller.chapter:updateAction
+        _sylius:
+            redirect: ihadis_chapter_list
+
+ihadis_chapter_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: ihadis.controller.chapter:deleteAction
+        _sylius:
+            redirect: ihadis_chapter_list
