@@ -2,15 +2,15 @@
 {% form_theme form '::partials/form.elements.html.twig' %}
 {% import '@IhadisCore/macros.html.twig' as buttons %}
 
-{% block title %}Add Chapter{% endblock %}
+{% block title %}Add Section{% endblock %}
 
 {% block body %}
 
     <div class="form form-horizontal">
 
-        <div class="col-lg-6">
+        <div class="col-lg-8">
 
-            {{ form_start(form, {'method': 'POST', 'attr': {'id': 'chapter' }}) }}
+            {{ form_start(form, {'method': 'POST', 'attr': {'id': 'section' }}) }}
             {{ form_widget(form) }}
             {{ buttons.action() }}
             {{ form_end(form) }}

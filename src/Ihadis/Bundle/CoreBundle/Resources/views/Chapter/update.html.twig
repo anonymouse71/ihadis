@@ -1,5 +1,6 @@
 {% extends 'full_width.html.twig' %}
 {% form_theme form '::partials/form.elements.html.twig' %}
+{% import '@IhadisCore/macros.html.twig' as buttons %}
 
 {% block title %}Edit Chapter{% endblock %}
 
@@ -11,11 +12,7 @@
 
             {{ form_start(form, {'method': 'PUT', 'attr': {'id': 'chapter' }}) }}
             {{ form_widget(form) }}
-
-            <div>
-                <button type="submit" class="btn green" formnovalidate>Save</button>
-            </div>
-
+            {{ buttons.action() }}
             {{ form_end(form) }}
 
         </div>

@@ -10,6 +10,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  *
  * @ORM\Table(name="sections")
  * @ORM\Entity(repositoryClass="Ihadis\Bundle\CoreBundle\Repository\SectionRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Section
 {
@@ -54,6 +55,14 @@ class Section
      * @ORM\ManyToOne(targetEntity="Chapter")
      */
     private $chapter;
+
+    /**
+     * @ORM\PreFlush
+     */
+    public function handleTranslation()
+    {
+        $this->mergeNewTranslations();
+    }
 
     /**
      * Get id
@@ -153,5 +162,95 @@ class Section
     public function getChapter()
     {
         return $this->chapter;
+    }
+
+    /**
+     * Get Title in English
+     *
+     * @return mixed
+     */
+    public function getTitleEnglish()
+    {
+        return $this->translate('en')->getTitle();
+    }
+
+    /**
+     * Set Title in English
+     *
+     * @param $title
+     *
+     * @return mixed
+     */
+    public function setTitleEnglish($title)
+    {
+        $this->translate('en')->setTitle($title);
+        return $this;
+    }
+
+    /**
+     * Get Title in Arabic
+     *
+     * @return mixed
+     */
+    public function getTitleArabic()
+    {
+        return $this->translate('ar')->getTitle();
+    }
+
+    /**
+     * Set Title in Arabic
+     *
+     * @param $title
+     *
+     * @return mixed
+     */
+    public function setTitleArabic($title)
+    {
+        $this->translate('ar')->setTitle($title);
+    }
+
+    /**
+     * Get Preface in English
+     *
+     * @return mixed
+     */
+    public function getPrefaceEnglish()
+    {
+        return $this->translate('en')->getPreface();
+    }
+
+    /**
+     * Set Preface in English
+     *
+     * @param $preface
+     *
+     * @return mixed
+     */
+    public function setPrefaceEnglish($preface)
+    {
+        $this->translate('en')->setPreface($preface);
+        return $this;
+    }
+
+    /**
+     * Get Preface in Arabic
+     *
+     * @return mixed
+     */
+    public function getPrefaceArabic()
+    {
+        return $this->translate('ar')->getPreface();
+    }
+
+    /**
+     * Set Preface in Arabic
+     *
+     * @param $preface
+     *
+     * @return mixed
+     */
+    public function setPrefaceArabic($preface)
+    {
+        $this->translate('ar')->setPreface($preface);
     }
 }

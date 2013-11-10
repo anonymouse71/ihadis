@@ -1,0 +1,43 @@
+ihadis_section_list:
+    pattern: /{chapter}
+    methods: [GET]
+    defaults:
+        _controller: ihadis.controller.section:indexAction
+        _sylius:
+            criteria:
+                chapter: $chapter
+
+ihadis_section_add:
+    pattern: /add/{book}/{chapter}
+    methods: [GET, POST]
+    defaults:
+        _controller: ihadis.controller.section:createAction
+        book: null
+        chapter: null
+        _sylius:
+            redirect:
+                route: ihadis_section_list
+                parameters:
+                    chapter: $chapter
+
+ihadis_section_edit:
+    pattern: /{id}/chapter/{chapter}/edit
+    methods: [GET, PUT]
+    defaults:
+        _controller: ihadis.controller.section:updateAction
+        _sylius:
+            redirect:
+                route: ihadis_section_list
+                parameters:
+                    chapter: $chapter
+
+ihadis_section_delete:
+    pattern: /{id}/chapter/{chapter}
+    methods: [DELETE]
+    defaults:
+        _controller: ihadis.controller.section:deleteAction
+        _sylius:
+            redirect:
+                route: ihadis_section_list
+                parameters:
+                    chapter: $chapter

@@ -1,10 +1,14 @@
 ihadis_book:
     resource: "@IhadisCoreBundle/Resources/config/routes/book.yml"
-    prefix:   /book
+    prefix:   /books
 
 ihadis_book:
     resource: "@IhadisCoreBundle/Resources/config/routes/chapter.yml"
-    prefix:   /chapter
+    prefix:   /chapters
+
+ihadis_section:
+    resource: "@IhadisCoreBundle/Resources/config/routes/section.yml"
+    prefix:   /sections
 
 ihadis_core_homepage:
     pattern:  /hello/{name}

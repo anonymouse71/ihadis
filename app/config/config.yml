@@ -102,6 +102,7 @@ sylius_resource:
             templates: IhadisCoreBundle:Section
             classes:
                 model: Ihadis\Bundle\CoreBundle\Entity\Section
+                controller: Ihadis\Bundle\CoreBundle\Controller\SectionController
 
         ihadis.hadith:
             driver: doctrine/orm
