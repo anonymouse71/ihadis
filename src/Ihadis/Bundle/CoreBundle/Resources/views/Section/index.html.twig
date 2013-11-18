@@ -2,13 +2,32 @@
 
 {% block title %}List of Sections{% endblock %}
 
+{% block breadcrumb %}
+
+    {% set section = sections|first %}
+
+    <ul class="breadcrumb">
+
+        <li>
+            <i class="icon-home"></i>
+            <a href="/">Home</a>
+            <i class="icon-angle-right"></i>
+        </li>
+
+        <li><a href="#">{{ section.book.title }}</a></li>
+        <li><a href="{{ path('ihadis_chapter_list', {'book': section.book.id}) }}">{{ section.chapter.title }}</a></li>
+
+    </ul>
+
+{% endblock %}
+
 {% block body %}
 
     <div class="table-toolbar">
 
         <div class="btn-group">
-            <a href="{{ path('ihadis_section_add', {'book': sections|first.book.id, 'chapter': sections|first.chapter.id}) }}" class="btn green">
-                Add New <i class="fa fa-plus"></i>
+            <a href="{{ path('ihadis_section_add', {'chapter': app.request.attributes.get('chapter')}) }}" class="btn green">
+                Add New Section <i class="fa fa-plus"></i>
             </a>
         </div>
 
@@ -31,10 +50,11 @@
 
             {% for section in sections %}
                 <tr>
-                    <td>{{ section.title|trim(50) }}</td>
+                    <td>{{ section.title|truncate(70) }}</td>
                     <td>{{ section.chapter.title }}</td>
                     <td>{{ section.chapter.book.title }}</td>
                     <td style="text-align: center">
+                        <a href="{{ path('ihadis_hadith_list', {'section': section.id}) }}" class="btn btn-info">Hadiths</a>
                         <a href="{{ path('ihadis_section_edit', {'id': section.id, 'chapter': section.chapter.id}) }}" class="btn mini blue">Edit</a>
                         <form method="post" action="{{ path('ihadis_section_delete', {'id': section.id, 'chapter': section.chapter.id}) }}" class="delete-action-form">
                             <input type="hidden" name="_method" value="DELETE" />

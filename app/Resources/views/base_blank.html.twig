@@ -35,11 +35,7 @@
 
 </head>
 
-<body class="{{ bodyClass|default('page-full-width') }} {{ currentRoute }}">
-
-    {% block topNavigation %}
-        {{ include(':partials:header.html.twig', {'parameter': ''}) }}
-    {% endblock %}
+<body class="{{ bodyClass|default('page-full-width') }} {{ currentRoute }}" style="background-color: #fff !important;">
 
     <!-- BEGIN CONTAINER -->
     <div class="page-container row-fluid">
@@ -49,18 +45,6 @@
 
     </div>
     <!-- END CONTAINER -->
-
-    {% block footer %}
-        <!-- BEGIN FOOTER -->
-        <div class="footer" style="clear: both">
-
-            <div class="footer-inner">
-                2013 &copy; iHadis Team.
-            </div>
-
-        </div>
-        <!-- END FOOTER -->
-    {% endblock %}
 
     {% block javascripts %}
 
@@ -95,7 +79,7 @@
         $(document).ready(function(){
 
             {% block documentReady %}
-                App.init();
+            App.init();
             {% endblock documentReady %}
 
         });

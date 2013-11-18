@@ -10,6 +10,10 @@ ihadis_section:
     resource: "@IhadisCoreBundle/Resources/config/routes/section.yml"
     prefix:   /sections
 
+ihadis_hadith:
+    resource: "@IhadisCoreBundle/Resources/config/routes/hadith.yml"
+    prefix:   /hadiths
+
 ihadis_core_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: IhadisCoreBundle:Default:index }

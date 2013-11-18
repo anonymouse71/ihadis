@@ -2,13 +2,31 @@
 
 {% block title %}List of Chapters{% endblock %}
 
+{% block breadcrumb %}
+
+    {% set chapter = chapters|first %}
+
+    <ul class="breadcrumb">
+
+        <li>
+            <i class="icon-home"></i>
+            <a href="/">Home</a>
+            <i class="icon-angle-right"></i>
+        </li>
+
+        <li><a href="#">{{ chapter.book.title }}</a></li>
+
+    </ul>
+
+{% endblock %}
+
 {% block body %}
 
     <div class="table-toolbar">
 
         <div class="btn-group">
-            <a href="{{ path('ihadis_chapter_add') }}" class="btn green">
-                Add New <i class="fa fa-plus"></i>
+            <a href="{{ path('ihadis_chapter_add', {'book': app.request.attributes.get('book')}) }}" class="btn green">
+                Add New Chapter <i class="fa fa-plus"></i>
             </a>
         </div>
 
@@ -34,8 +52,8 @@
                     <td class="text-center">{{ chapter.book.title }}</td>
                     <td style="text-align: center">
                         <a href="{{ path('ihadis_section_list', {'chapter': chapter.id}) }}" class="btn btn-info">Sections</a>
-                        <a href="{{ path('ihadis_chapter_edit', {'id': chapter.id}) }}" class="btn blue">Edit</a>
-                        <form method="post" action="{{ path('ihadis_chapter_delete', {'id': chapter.id}) }}" class="delete-action-form">
+                        <a href="{{ path('ihadis_chapter_edit', {'id': chapter.id, 'book': chapter.book.id}) }}" class="btn blue">Edit</a>
+                        <form method="post" action="{{ path('ihadis_chapter_delete', {'id': chapter.id, 'book': chapter.book.id}) }}" class="delete-action-form">
                             <input type="hidden" name="_method" value="DELETE" />
                             <input type="submit" class="btn mini red" value="Delete" />
                         </form>

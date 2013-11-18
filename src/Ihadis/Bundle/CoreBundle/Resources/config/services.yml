@@ -3,17 +3,28 @@ parameters:
 services:
 
   ihadis.twig.route_extension:
-    class: IHadis\Bundle\CoreBundle\Twig\CoreExtension
-    arguments: [ @service_container ]
-    tags:
-      - { name: twig.extension }
+      class: IHadis\Bundle\CoreBundle\Twig\CoreExtension
+      arguments: [ @service_container ]
+      tags:
+        - { name: twig.extension }
 
   ihadis.form.type.chapter:
-    class: IHadis\Bundle\CoreBundle\Form\Type\ChapterFormType
-    tags:
-      - { name: form.type, alias: "ihadis_chapter" }
+      class: IHadis\Bundle\CoreBundle\Form\Type\ChapterFormType
+      tags:
+        - { name: form.type, alias: "ihadis_chapter" }
 
   ihadis.form.type.section:
       class: IHadis\Bundle\CoreBundle\Form\Type\SectionFormType
       tags:
         - { name: form.type, alias: "ihadis_section" }
+
+  ihadis.form.type.hadith:
+      class: IHadis\Bundle\CoreBundle\Form\Type\HadithFormType
+      tags:
+        - { name: form.type, alias: "ihadis_hadith" }
+
+  ihadis.type.entity_hidden:
+      class: Ihadis\Bundle\CoreBundle\Form\Type\EntityHiddenType
+      arguments: ["@doctrine.orm.entity_manager"]
+      tags:
+        - { name: form.type, alias: entity_hidden }

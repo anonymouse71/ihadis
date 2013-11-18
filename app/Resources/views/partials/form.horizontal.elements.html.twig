@@ -24,14 +24,14 @@
 
 {% block form_label %}
     {% spaceless %}
-        {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' control-label'}) %}
+        {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' control-label col-lg-4'}) %}
         {{ parent() }}
     {% endspaceless %}
 {% endblock form_label %}
 
 {% block money_widget %}
     {% spaceless %}
-        <div class="form-group">
+        <div class="input-group">
             <span class="input-group-addon">{{ money_pattern|replace({'{{ widget }}': ''}) }}</span>
             {{ block('form_widget_simple') }}
         </div>
@@ -40,8 +40,8 @@
 
 {% block percent_widget %}
     {% spaceless %}
-        <div class="form-group">
-            <span class="form-group-addon">%</span>
+        <div class="input-group">
+            <span class="input-group-addon">%</span>
             {{ block('form_widget_simple') }}
         </div>
     {% endspaceless %}
@@ -89,16 +89,18 @@
     {% spaceless %}
         <div class="form-group{% if errors|length > 0 %} has-error{% endif %}">
             {{ form_label(form) }}
-            {{ form_widget(form) }}
-            {% for error in errors %}
-                <span class="help-block form-error">
-            {{
-            error.messagePluralization is null
-            ? error.messageTemplate|trans(error.messageParameters, 'validators')
-            : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
-            }}
+            <div class="col-lg-8">
+                {{ form_widget(form) }}
+                {% for error in errors %}
+                    <span class="help-block form-error">
+                {{
+                error.messagePluralization is null
+                ? error.messageTemplate|trans(error.messageParameters, 'validators')
+                : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
+                }}
             </span>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     {% endspaceless %}
 {% endblock form_row %}

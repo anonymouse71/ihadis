@@ -109,3 +109,11 @@ sylius_resource:
             templates: IhadisCoreBundle:Hadith
             classes:
                 model: Ihadis\Bundle\CoreBundle\Entity\Hadith
+                controller: Ihadis\Bundle\CoreBundle\Controller\HadithController
+
+# Additional Services
+services:
+ twig.extension.text:
+     class: Twig_Extensions_Extension_Text
+     tags:
+         - { name: twig.extension }

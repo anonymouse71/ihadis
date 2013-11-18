@@ -1,0 +1,54 @@
+ihadis_hadith_list:
+    pattern: /{section}
+    methods: [GET]
+    defaults:
+        _controller: ihadis.controller.hadith:indexAction
+        _sylius:
+            criteria:
+                section: $section
+
+ihadis_hadith_add:
+    pattern: /add/{section}
+    methods: [GET, POST]
+    defaults:
+        _controller: ihadis.controller.hadith:createAction
+        book: null
+        chapter: null
+        _sylius:
+            redirect:
+                route: ihadis_hadith_list
+                parameters:
+                    section: $section
+
+ihadis_hadith_add_form:
+    pattern: /form/{section}
+    methods: [GET]
+    defaults:
+        _controller: ihadis.controller.hadith:formAction
+        _sylius:
+            redirect:
+                route: ihadis_hadith_list
+                parameters:
+                    section: $section
+
+ihadis_hadith_edit:
+    pattern: /{id}/section/{section}/edit
+    methods: [GET, PUT]
+    defaults:
+        _controller: ihadis.controller.hadith:updateAction
+        _sylius:
+            redirect:
+                route: ihadis_hadith_list
+                parameters:
+                    section: $section
+
+ihadis_hadith_delete:
+    pattern: /{id}/section/{section}
+    methods: [DELETE]
+    defaults:
+        _controller: ihadis.controller.hadith:deleteAction
+        _sylius:
+            redirect:
+                route: ihadis_hadith_list
+                parameters:
+                    section: $section

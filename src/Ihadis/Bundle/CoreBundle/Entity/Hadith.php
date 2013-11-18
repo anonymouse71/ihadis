@@ -10,6 +10,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  *
  * @ORM\Table(name="hadiths")
  * @ORM\Entity(repositoryClass="Ihadis\Bundle\CoreBundle\Repository\HadithRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Hadith
 {
@@ -103,6 +104,14 @@ class Hadith
      * @ORM\ManyToOne(targetEntity="Section")
      */
     private $section;
+
+    /**
+     * @ORM\PreFlush
+     */
+    public function handleTranslation()
+    {
+        $this->mergeNewTranslations();
+    }
 
     /**
      * Get id
@@ -362,5 +371,143 @@ class Hadith
     public function getSection()
     {
         return $this->section;
+    }
+
+    /**
+     * Get Narrator in English
+     *
+     * @return mixed
+     */
+    public function getNarratorEnglish()
+    {
+        return $this->translate('en')->getNarrator();
+    }
+
+    /**
+     * Set Narrator in English
+     *
+     * @param $narrator
+     *
+     * @return mixed
+     */
+    public function setNarratorEnglish($narrator)
+    {
+        $this->translate('en')->setNarrator($narrator);
+        return $this;
+    }
+
+    /**
+     * Get Narrator in Arabic
+     *
+     * @return mixed
+     */
+    public function getNarratorArabic()
+    {
+        return $this->translate('ar')->getNarrator();
+    }
+
+    /**
+     * Set Narrator in Arabic
+     *
+     * @param $narrator
+     *
+     * @return mixed
+     */
+    public function setNarratorArabic($narrator)
+    {
+        $this->translate('ar')->setNarrator($narrator);
+        return $this;
+    }
+
+    /**
+     * Get Body in English
+     *
+     * @return mixed
+     */
+    public function getBodyEnglish()
+    {
+        return $this->translate('en')->getBody();
+    }
+
+    /**
+     * Set Body in English
+     *
+     * @param $body
+     *
+     * @return mixed
+     */
+    public function setBodyEnglish($body)
+    {
+        $this->translate('en')->setBody($body);
+        return $this;
+    }
+
+    /**
+     * Get Body in Arabic
+     *
+     * @return mixed
+     */
+    public function getBodyArabic()
+    {
+        return $this->translate('ar')->getBody();
+    }
+
+    /**
+     * Set Body in Arabic
+     *
+     * @param $body
+     *
+     * @return mixed
+     */
+    public function setBodyArabic($body)
+    {
+        $this->translate('ar')->setBody($body);
+        return $this;
+    }
+
+    /**
+     * Get Reference in English
+     *
+     * @return mixed
+     */
+    public function getReferenceEnglish()
+    {
+        return $this->translate('en')->getReference();
+    }
+
+    /**
+     * Set Reference in English
+     *
+     * @param $reference
+     *
+     * @return mixed
+     */
+    public function setReferenceEnglish($reference)
+    {
+        $this->translate('en')->setReference($reference);
+        return $this;
+    }
+
+    /**
+     * Get Reference in Arabic
+     *
+     * @return mixed
+     */
+    public function getReferenceArabic()
+    {
+        return $this->translate('ar')->getReference();
+    }
+
+    /**
+     * Set Reference in Arabic
+     *
+     * @param $reference
+     *
+     * @return mixed
+     */
+    public function setReferenceArabic($reference)
+    {
+        $this->translate('ar')->setReference($reference);
+        return $this;
     }
 }

@@ -6,12 +6,16 @@
 
 {% block body %}
 
-    <div class="form form-horizontal">
+    <div class="form">
 
         <div class="col-lg-8">
 
-            {{ form_start(form, {'method': 'POST', 'attr': {'id': 'section' }}) }}
-            {{ form_widget(form) }}
+            {{ form_start(form, {'method': 'POST'}) }}
+
+            <div class="form-body">
+                {{ form_widget(form) }}
+            </div>
+
             {{ buttons.action() }}
             {{ form_end(form) }}
 

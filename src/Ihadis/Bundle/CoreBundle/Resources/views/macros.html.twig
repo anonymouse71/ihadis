@@ -1,6 +1,6 @@
 {% macro action() %}
-<div class="col-lg-8 col-lg-offset-4">
-    <button type="submit" class="btn green" formnovalidate>Save</button>
+<div class="form-actions nobg" style="border: none; margin: 0">
+    <button type="submit" class="btn green">Save</button>
     <a href="{{ app.request.headers.get('referer') }}" class="btn btn-default">Cancel</a>
 </div>
 {% endmacro %}
