@@ -2,7 +2,9 @@
 
 namespace Ihadis\Bundle\CoreBundle\Controller;
 
-class DefaultController extends Controller
+use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
+
+class DefaultController extends BaseController
 {
     public function indexAction($name)
     {

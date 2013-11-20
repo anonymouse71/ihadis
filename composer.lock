@@ -615,12 +615,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSElasticaBundle.git",
-                "reference": "08697a4d8492b074554f6abdc3e16bb57a08dcdc"
+                "reference": "40d3df9f92d1a0063d2eb6cf769c44f497dea8fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSElasticaBundle/zipball/08697a4d8492b074554f6abdc3e16bb57a08dcdc",
-                "reference": "08697a4d8492b074554f6abdc3e16bb57a08dcdc",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSElasticaBundle/zipball/40d3df9f92d1a0063d2eb6cf769c44f497dea8fc",
+                "reference": "40d3df9f92d1a0063d2eb6cf769c44f497dea8fc",
                 "shasum": ""
             },
             "require": {
@@ -689,7 +689,7 @@
                 "propel",
                 "search"
             ],
-            "time": "2013-11-06 21:03:10"
+            "time": "2013-11-18 21:29:02"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -1166,12 +1166,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/DoctrineBehaviors.git",
-                "reference": "759a9399e9c03542605810b76324c4692ad30893"
+                "reference": "c78fbb42cd4b721da89d7aa9d9c97266cee8e101"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/759a9399e9c03542605810b76324c4692ad30893",
-                "reference": "759a9399e9c03542605810b76324c4692ad30893",
+                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/c78fbb42cd4b721da89d7aa9d9c97266cee8e101",
+                "reference": "c78fbb42cd4b721da89d7aa9d9c97266cee8e101",
                 "shasum": ""
             },
             "require": {
@@ -1215,7 +1215,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2013-09-16 09:39:07"
+            "time": "2013-11-19 12:46:38"
         },
         {
             "name": "knplabs/knp-menu",
@@ -1408,16 +1408,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f72392d0e6eb855118f5a84e89ac2d257c704abd"
+                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f72392d0e6eb855118f5a84e89ac2d257c704abd",
-                "reference": "f72392d0e6eb855118f5a84e89ac2d257c704abd",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6225b22de9dcf36546be3a0b2fa8e3d986153f57",
+                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57",
                 "shasum": ""
             },
             "require": {
@@ -1425,21 +1425,26 @@
                 "psr/log": "~1.0"
             },
             "require-dev": {
+                "aws/aws-sdk-php": "~2.4.8",
                 "doctrine/couchdb": "dev-master",
                 "mlehner/gelf-php": "1.0.*",
-                "raven/raven": "0.5.*"
+                "phpunit/phpunit": "~3.7.0",
+                "raven/raven": "0.5.*",
+                "ruflin/elastica": "0.90.*"
             },
             "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
                 "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "raven/raven": "Allow sending log messages to a Sentry server"
+                "raven/raven": "Allow sending log messages to a Sentry server",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6.x-dev"
+                    "dev-master": "1.7.x-dev"
                 }
             },
             "autoload": {
@@ -1466,7 +1471,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-07-28 22:38:30"
+            "time": "2013-11-14 19:48:31"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -1920,12 +1925,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "b71e4a8dfbde52b1f954259594daff3a27ed3c8b"
+                "reference": "df94cd8f773eef4e02ce308b5b736868db9acf68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusResourceBundle/zipball/b71e4a8dfbde52b1f954259594daff3a27ed3c8b",
-                "reference": "b71e4a8dfbde52b1f954259594daff3a27ed3c8b",
+                "url": "https://api.github.com/repos/Sylius/SyliusResourceBundle/zipball/df94cd8f773eef4e02ce308b5b736868db9acf68",
+                "reference": "df94cd8f773eef4e02ce308b5b736868db9acf68",
                 "shasum": ""
             },
             "require": {
@@ -1933,6 +1938,7 @@
                 "jms/serializer-bundle": "0.12.*",
                 "php": ">=5.3.3",
                 "symfony/framework-bundle": "~2.3",
+                "symfony/twig-bundle": "~2.3",
                 "white-october/pagerfanta-bundle": "1.0.*"
             },
             "require-dev": {
@@ -1984,7 +1990,7 @@
                 "storage",
                 "sylius"
             ],
-            "time": "2013-11-02 14:11:52"
+            "time": "2013-11-07 14:10:05"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -2212,16 +2218,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.6",
+            "version": "v2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "d0597156c4c03ceca039f6b7770a47397ba295f0"
+                "reference": "2829b471871c2564228fe9f0832a0f928a8ffaa1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/d0597156c4c03ceca039f6b7770a47397ba295f0",
-                "reference": "d0597156c4c03ceca039f6b7770a47397ba295f0",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/2829b471871c2564228fe9f0832a0f928a8ffaa1",
+                "reference": "2829b471871c2564228fe9f0832a0f928a8ffaa1",
                 "shasum": ""
             },
             "require": {
@@ -2316,7 +2322,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-10 13:24:22"
+            "time": "2013-11-14 07:58:51"
         },
         {
             "name": "twig/extensions",
@@ -2421,12 +2427,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
-                "reference": "cf51f3482fa7a73757f4ca4e2d7424bcdb1d2b2f"
+                "reference": "606467f9e9f9e80975128db589eec2f9d11139c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/cf51f3482fa7a73757f4ca4e2d7424bcdb1d2b2f",
-                "reference": "cf51f3482fa7a73757f4ca4e2d7424bcdb1d2b2f",
+                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/606467f9e9f9e80975128db589eec2f9d11139c2",
+                "reference": "606467f9e9f9e80975128db589eec2f9d11139c2",
                 "shasum": ""
             },
             "require": {
@@ -2466,7 +2472,7 @@
                 "page",
                 "paging"
             ],
-            "time": "2013-11-08 00:34:44"
+            "time": "2013-11-15 14:52:00"
         },
         {
             "name": "willdurand/negotiation",
