@@ -3,6 +3,7 @@
 namespace Ihadis\Bundle\CoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class HadithController extends Controller
 {
@@ -38,5 +39,10 @@ class HadithController extends Controller
         ;
 
         return $this->handleView($view);
+    }
+
+    public function successAction()
+    {
+        return new Response('OK');
     }
 }

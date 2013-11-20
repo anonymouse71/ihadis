@@ -13,7 +13,10 @@ ihadis_chapter_add:
     defaults:
         _controller: ihadis.controller.chapter:createAction
         _sylius:
-            redirect: ihadis_chapter_list
+            redirect:
+                route: ihadis_chapter_list
+                parameters:
+                    book: $book
             _sylius:
                 criteria:
                     book: $book
@@ -24,7 +27,10 @@ ihadis_chapter_edit:
     defaults:
         _controller: ihadis.controller.chapter:updateAction
         _sylius:
-            redirect: ihadis_chapter_list
+            redirect:
+                route: ihadis_chapter_list
+                parameters:
+                    book: $book
             _sylius:
                 criteria:
                     book: $book
@@ -35,7 +41,10 @@ ihadis_chapter_delete:
     defaults:
         _controller: ihadis.controller.chapter:deleteAction
         _sylius:
-            redirect: ihadis_chapter_list
+            redirect:
+                route: ihadis_chapter_list
+                parameters:
+                    book: $book
             _sylius:
                 criteria:
                     book: $book

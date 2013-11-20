@@ -1,3 +1,9 @@
+ihadis_hadith_success:
+    pattern: /success
+    methods: [GET]
+    defaults:
+        _controller: ihadis.controller.hadith:successAction
+
 ihadis_hadith_list:
     pattern: /{section}
     methods: [GET]
@@ -16,20 +22,14 @@ ihadis_hadith_add:
         chapter: null
         _sylius:
             redirect:
-                route: ihadis_hadith_list
+                route: ihadis_hadith_success
                 parameters:
-                    section: $section
 
 ihadis_hadith_add_form:
     pattern: /form/{section}
     methods: [GET]
     defaults:
         _controller: ihadis.controller.hadith:formAction
-        _sylius:
-            redirect:
-                route: ihadis_hadith_list
-                parameters:
-                    section: $section
 
 ihadis_hadith_edit:
     pattern: /{id}/section/{section}/edit
@@ -52,3 +52,4 @@ ihadis_hadith_delete:
                 route: ihadis_hadith_list
                 parameters:
                     section: $section
+

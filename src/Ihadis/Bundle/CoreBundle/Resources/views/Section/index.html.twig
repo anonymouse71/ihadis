@@ -4,6 +4,8 @@
 
 {% block breadcrumb %}
 
+    {% if sections is not empty %}
+
     {% set section = sections|first %}
 
     <ul class="breadcrumb">
@@ -18,6 +20,8 @@
         <li><a href="{{ path('ihadis_chapter_list', {'book': section.book.id}) }}">{{ section.chapter.title }}</a></li>
 
     </ul>
+
+    {% endif %}
 
 {% endblock %}
 

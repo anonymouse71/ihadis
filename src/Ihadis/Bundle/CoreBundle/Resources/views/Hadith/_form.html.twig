@@ -1,95 +1,94 @@
-{% extends 'base_blank.html.twig' %}
-{% import '@IhadisCore/macros.html.twig' as buttons %}
 {% form_theme form '::partials/form.elements.html.twig' %}
 
 {% block container %}
-<div class="form">
 
-    <form id="hadith-form" method="post" action="">
+<div class="portlet box blue">
 
-        <div class="form-body">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-reorder"></i> Hadith #1
+        </div>
+        <div class="tools">
+            <a href="#" class="collapse"></a>
+            <a href="#" class="remove"></a>
+        </div>
+    </div>
 
-            <div class="row">
+    <div class="portlet-body form">
 
-                <div class="col-md-4">
+        <form method="post" action="{{ path('ihadis_hadith_add', {'section': hadith.section.id}) }}">
 
-                    <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">Bangla</div>
+            <div class="form-body">
 
-                    {{ form_row(form.numberPrimary) }}
-                    {#{{ form_row(form.narrator) }}#}
-                    {{ form_row(form.body) }}
+                <div class="row">
 
-                    <div class="show-hide">
-                        <a href="#show">Show/Hide Reference</a>
-                        {{ form_row(form.reference) }}
-                        {{ form_row(form.note) }}
+                    <div class="col-md-4">
+
+                        <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">Bangla</div>
+
+                        {{ form_row(form.numberPrimary) }}
+                        {#{{ form_row(form.narrator) }}#}
+                        {{ form_row(form.body) }}
+
+                        <div class="show-hide">
+                            <a href="#show">Show/Hide Reference</a>
+                            {{ form_row(form.reference) }}
+                            {{ form_row(form.note) }}
+                        </div>
+
                     </div>
 
-                </div>
+                    <div class="col-md-4">
 
-                <div class="col-md-4">
+                        <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">Arabic</div>
 
-                    <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">Arabic</div>
+                        {{ form_row(form.numberSecondary) }}
+                        {#{{ form_row(form.narratorArabic) }}#}
+                        {{ form_row(form.bodyArabic) }}
 
-                    {{ form_row(form.numberSecondary) }}
-                    {#{{ form_row(form.narratorArabic) }}#}
-                    {{ form_row(form.bodyArabic) }}
+                        <div class="show-hide">
+                            <a href="#show">Show/Hide Reference</a>
+                            {{ form_row(form.referenceArabic) }}
+                        </div>
 
-                    <div class="show-hide">
-                        <a href="#show">Show/Hide Reference</a>
-                        {{ form_row(form.referenceArabic) }}
                     </div>
 
-                </div>
+                    <div class="col-md-4">
 
-                <div class="col-md-4">
+                        <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">English</div>
 
-                    <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">English</div>
+                        {{ form_row(form.narratorEnglish) }}
+                        {{ form_row(form.bodyEnglish) }}
 
-                    {{ form_row(form.narratorEnglish) }}
-                    {{ form_row(form.bodyEnglish) }}
+                        <div class="show-hide">
+                            <a href="#show">Show/Hide Reference</a>
+                            {{ form_row(form.referenceEnglish) }}
+                        </div>
 
-                    <div class="show-hide">
-                        <a href="#show">Show/Hide Reference</a>
-                        {{ form_row(form.referenceEnglish) }}
                     </div>
 
                 </div>
 
             </div>
 
-        </div>
+            <div class="form-actions form-inline nobg" style="border: none; margin: 0">
 
-        <div class="form-actions form-inline nobg" style="border: none; margin: 0">
+                {{ form_row(form.validity) }}
+                {{ form_row(form.scholarReviewed) }}
 
-            {{ form_row(form.validity) }}
-            {{ form_row(form.scholarReviewed) }}
+                {#<div class="pull-right">
+                    <button type="submit" class="btn green">Save</button>
+                    <a href="{{ app.request.headers.get('referer') }}" class="btn btn-default">Cancel</a>
+                </div>#}
 
-            <div class="pull-right">
-                <button type="submit" class="btn green">Save</button>
-                <a href="{{ app.request.headers.get('referer') }}" class="btn btn-default">Cancel</a>
             </div>
 
+            {{ form_rest(form) }}
 
-        </div>
+        </form>
 
-        {{ form_rest(form) }}
-
-    </form>
+    </div>
 
 </div>
 
 {% endblock %}
-
-{% block documentReady %}
-
-    {{ parent() }}
-
-        $(".show-hide a").live('click', function(){
-            $(this).parent().find(".form-group").slideToggle();
-        });
-
-        $(".show-hide").find(".form-group").hide();
-
-{% endblock %}
-

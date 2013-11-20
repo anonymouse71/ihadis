@@ -4,6 +4,8 @@
 
 {% block breadcrumb %}
 
+    {% if hadiths is not empty %}
+
     {% set hadith = hadiths|first %}
 
     <ul class="breadcrumb">
@@ -19,6 +21,8 @@
         <li><a href="{{ path('ihadis_section_list', {'chapter': hadith.chapter.id}) }}">{{ hadith.section.title|truncate(50) }}</a></li>
 
     </ul>
+
+    {% endif %}
 
 {% endblock %}
 
