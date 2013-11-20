@@ -15,5 +15,5 @@ ihadis_hadith:
     prefix:   /hadiths
 
 ihadis_core_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: IhadisCoreBundle:Default:index }

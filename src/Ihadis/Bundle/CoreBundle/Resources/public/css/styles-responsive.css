@@ -1,0 +1,215 @@
+﻿/* Large desktop */
+@media (min-width: 1200px) { 
+	
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+	.center
+	{
+		width: 100%;
+	}
+	
+	.other-nav
+	{
+		float: left;
+	}
+	
+	.bottom-links
+	{
+		margin: 0;
+	}
+	
+	.right-panel
+	{
+		width: 78%;
+	}
+	
+	.surah-holder-main .fr
+	{
+		float: left;
+	}
+	
+	.surah
+	{
+		padding-left: 10px;
+	}
+	
+	.surah-top2
+	{
+		margin: 20px 0 0;
+	}
+	
+	.int-no
+	{
+		margin: 0 0 0 10px;
+	}
+	
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+	.center
+	{
+		width: 100%;
+	}
+	
+	.right-panel
+	{
+		width: 71%;
+	}
+	
+	nav
+	{
+		margin: 0 0 0 144px;
+	}
+	
+	.second-nav-holder
+	{
+		padding: 10px 0;
+	}
+	
+	.other-nav
+	{
+		float: left;
+	}
+	
+	.surah-holder-main .fr
+	{
+		float: left;
+	}
+	
+	.surah-holder
+	{
+		width: 100%;
+	}
+	
+	/*.surah
+	{
+		width: 100%;
+	}*/
+	
+	.surah
+	{
+		padding: 0 0 0 10px;
+		width: 100%;
+	}
+	
+	.surah-top
+	{
+		padding: 0;
+	}
+	
+	.surah-top2
+	{
+		margin: 30px 0 0;
+	}
+		
+	.surah-bottom-panel
+	{
+		padding: 40px 0 0;
+	}
+	
+	.bottom-links
+	{
+		margin: 0;
+		width: auto;
+	}
+	
+	.section-left, .section-right
+	{
+		width: 100%;
+	}
+	
+	.section-right
+	{
+		text-align: left;
+		margin: 10px 0 0;
+	}
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	.right-panel
+	{
+		width: 60%;
+	}
+	
+	.second-nav-holder
+	{
+		padding: 10px 0 15px;
+	}
+	
+	.surah-holder
+	{
+		width: 100%;
+	}
+	
+	.surah
+	{
+		width: 84%;
+	}
+	
+	.section
+	{
+		padding: 10px;
+	}
+	
+	.section-left, .section-right
+	{
+		width: 100%;
+	}
+	
+	.bottom-links
+	{
+		clear: both;
+	}
+	
+	a.share
+	{
+		clear: both;
+	}
+	
+	.bottom-links a, .bottom-links a:link, .bottom-links a:visited
+	{
+		display: block;
+		padding: 5px 25px 5px 0;
+	}
+	
+	.section-translation
+	{
+		margin: 0;
+	}
+	
+}
+
+@media (max-width: 320px) {
+	
+	.left-panel
+	{
+		width: 100%;
+	}
+	.right-panel
+	{
+		clear: both;
+		float: left;
+		width: 100%;
+	}
+	
+	nav
+	{
+		margin: 10px 0 0;
+		clear: both;
+	}
+	
+	nav li
+	{
+		float: none;
+		display: block;
+	}
+	
+	.second-nav-holder
+	{
+		padding: 10px;
+	}
+}
