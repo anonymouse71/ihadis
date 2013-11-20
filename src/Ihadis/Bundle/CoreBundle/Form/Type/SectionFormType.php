@@ -25,6 +25,7 @@ class SectionFormType extends AbstractType
             ))
             ->add('preface', 'textarea', array(
                 'label' => 'Section Preface (Bangla)',
+                'required' => false,
                 'attr'  => array('rows' => 5)
             ))
             ->add('titleEnglish', null, array(
@@ -32,6 +33,7 @@ class SectionFormType extends AbstractType
             ))
             ->add('prefaceEnglish', 'textarea', array(
                 'label'  => 'Section Preface (English)',
+                'required' => false,
                 'attr'  => array('rows' => 5)
             ))
             ->add('titleArabic', null, array(
@@ -39,6 +41,7 @@ class SectionFormType extends AbstractType
             ))
             ->add('prefaceArabic', 'textarea', array(
                 'label'  => 'Section Preface (Arabic)',
+                'required' => false,
                 'attr'  => array('rows' => 5)
             ))
         ;
