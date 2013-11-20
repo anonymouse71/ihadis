@@ -9,17 +9,17 @@ services:
   #      - { name: twig.extension }
 
   ihadis.form.type.chapter:
-      class: IHadis\Bundle\CoreBundle\Form\Type\ChapterFormType
+      class: Ihadis\Bundle\CoreBundle\Form\Type\ChapterFormType
       tags:
         - { name: form.type, alias: "ihadis_chapter" }
 
   ihadis.form.type.section:
-      class: IHadis\Bundle\CoreBundle\Form\Type\SectionFormType
+      class: Ihadis\Bundle\CoreBundle\Form\Type\SectionFormType
       tags:
         - { name: form.type, alias: "ihadis_section" }
 
   ihadis.form.type.hadith:
-      class: IHadis\Bundle\CoreBundle\Form\Type\HadithFormType
+      class: Ihadis\Bundle\CoreBundle\Form\Type\HadithFormType
       tags:
         - { name: form.type, alias: "ihadis_hadith" }
 
