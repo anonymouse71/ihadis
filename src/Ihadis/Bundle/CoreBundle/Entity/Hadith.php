@@ -19,6 +19,12 @@ class Hadith
         ORMBehaviors\Blameable\Blameable
     ;
 
+    const VALIDITY_NONE  = 0;
+    const VALIDITY_MAUDU = 10;
+    const VALIDITY_DAIF  = 20;
+    const VALIDITY_HASAN = 30;
+    const VALIDITY_SAHIH = 40;
+
     /**
      * @var integer
      *
@@ -69,6 +75,13 @@ class Hadith
      * @ORM\Column(name="reference", type="text", nullable=true)
      */
     private $reference;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="explanation", type="text", nullable=true)
+     */
+    private $explanation;
 
     /**
      * @var boolean
@@ -259,6 +272,28 @@ class Hadith
     public function getReference()
     {
         return $this->reference;
+    }
+
+    /**
+     * Set explanation
+     *
+     * @param string $explanation
+     * @return Hadith
+     */
+    public function setExplanation($explanation)
+    {
+        $this->explanation = $explanation;
+        return $this;
+    }
+
+    /**
+     * Get explanation
+     *
+     * @return string
+     */
+    public function getExplanation()
+    {
+        return $this->explanation;
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Ihadis\Bundle\CoreBundle\Controller;
 
+use Ihadis\Bundle\CoreBundle\Entity\Hadith;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -10,12 +11,17 @@ class HadithController extends Controller
     protected function prepareResource(Request $request, $resource)
     {
         if ($request->attributes->has('section')) {
+
             $section = $this->get('ihadis.repository.section')->find($request->attributes->get('section'));
+
             if ($section) {
                 $resource->setSection($section);
                 $resource->setChapter($section->getChapter());
                 $resource->setBook($section->getBook());
             }
+
+            $resource->setValidity(Hadith::VALIDITY_SAHIH);
+
         }
     }
 

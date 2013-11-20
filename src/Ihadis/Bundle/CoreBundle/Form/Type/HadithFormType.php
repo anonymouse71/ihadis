@@ -2,6 +2,7 @@
 
 namespace Ihadis\Bundle\CoreBundle\Form\Type;
 
+use Ihadis\Bundle\CoreBundle\Entity\Hadith;
 use Ihadis\Bundle\CoreBundle\Form\EventListener\AddEntityFieldSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -13,12 +14,12 @@ class HadithFormType extends AbstractType
     {
         $builder
             ->add('numberPrimary', null, array(
-                'label'  => 'Hadith Number',
+                'label'  => 'Intl. Hadith Number',
                 'required' => true,
                 'attr'   => array('class' => 'input-small')
             ))
             ->add('numberSecondary', null, array(
-                'label'  => 'Hadith Number',
+                'label'  => 'Bangla Hadith Number',
                 'required' => true,
                 'attr'   => array('class' => 'input-small')
             ))
@@ -29,13 +30,19 @@ class HadithFormType extends AbstractType
             ))
             ->add('validity', 'choice', array(
                 'label'  => 'Validity',
-                'choices' => array(0 => 'N/A', 10 => "Maudu'", 20 => "Da'if", 30 => "Hasan", 40 => "Sahih"),
+                'choices' => array(
+                    Hadith::VALIDITY_NONE  => 'N/A',
+                    Hadith::VALIDITY_MAUDU => "Maudu'",
+                    Hadith::VALIDITY_DAIF  => "Da'if",
+                    Hadith::VALIDITY_HASAN => "Hasan",
+                    Hadith::VALIDITY_SAHIH => "Sahih"
+                ),
                 'attr'   => array('class' => 'input-small')
             ))
-            /*->add('narrator', 'text', array(
+            ->add('narrator', 'text', array(
                 'label'  => 'Hadith Narrator',
-                'attr'   => array('class' => 'input-small')
-            ))*/
+                'required' => false
+            ))
             ->add('body', 'textarea', array(
                 'label' => 'Hadith Text',
                 'required' => true,
@@ -49,11 +56,17 @@ class HadithFormType extends AbstractType
             ->add('note', 'textarea', array(
                 'label' => 'Note',
                 'required' => false,
-                'attr'  => array('rows' => 2)
+                'attr'  => array('rows' => 3)
             ))
-            /*->add('narratorArabic', 'text', array(
-                'label'  => 'Hadith Narrator'
-            ))*/
+            ->add('explanation', 'textarea', array(
+                'label' => 'Explanation',
+                'required' => false,
+                'attr'  => array('rows' => 3)
+            ))
+            ->add('narratorArabic', 'text', array(
+                'label'  => 'Hadith Narrator',
+                'required' => false
+            ))
             ->add('bodyArabic', 'textarea', array(
                 'label' => 'Hadith Text',
                 'required' => true,
