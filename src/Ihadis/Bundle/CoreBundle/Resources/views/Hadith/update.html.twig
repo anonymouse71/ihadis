@@ -34,8 +34,9 @@
                 <div class="row">
                     <div class="col-md-3">{{ form_row(form.numberPrimary) }}</div>
                     <div class="col-md-3">{{ form_row(form.numberSecondary) }}</div>
-                    <div class="col-md-3">{{ form_row(form.validity) }}</div>
-                    <div class="col-md-3">{{ form_row(form.scholarReviewed) }}</div>
+                    <div class="col-md-2">{{ form_row(form.validity) }}</div>
+                    <div class="col-md-2">{{ form_row(form.scholarReviewed) }}</div>
+                    <div class="col-md-2">{{ form_row(form.crossChecked) }}</div>
                 </div>
 
             </div>
@@ -58,20 +59,7 @@
 
                     <div>&nbsp;</div>
 
-                    <div class="col-md-12">
-
-                        <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">Bangla</div>
-
-                        {{ form_row(form.numberPrimary) }}
-                        {{ form_row(form.narrator) }}
-                        {{ form_row(form.body) }}
-                        {{ form_row(form.reference) }}
-                        {{ form_row(form.note) }}
-                        {{ form_row(form.explanation) }}
-
-                    </div>
-
-                    <div class="col-md-12">
+                    <div class="col-md-4">
 
                         <div style="font-weight: bold; font-size: 14px; margin: 10px 0;">Arabic</div>
 
@@ -82,13 +70,26 @@
 
                     </div>
 
-                    <div class="col-md-12">
+                    <div class="col-md-4">
 
                         <div style="font-weight: bold; font-size: 14px; margin: 10px 0;">English</div>
 
                         {{ form_row(form.narratorEnglish) }}
                         {{ form_row(form.bodyEnglish) }}
                         {{ form_row(form.referenceEnglish) }}
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">Bangla</div>
+
+                        {{ form_row(form.numberPrimary) }}
+                        {{ form_row(form.narrator) }}
+                        {{ form_row(form.body) }}
+                        {{ form_row(form.reference) }}
+                        {{ form_row(form.note) }}
+                        {{ form_row(form.explanation) }}
 
                     </div>
 

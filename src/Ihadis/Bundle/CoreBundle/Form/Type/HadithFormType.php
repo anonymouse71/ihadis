@@ -28,6 +28,11 @@ class HadithFormType extends AbstractType
                 'choices' => array(0 => 'No', 1 => 'Yes'),
                 'attr'   => array('class' => 'input-small')
             ))
+            ->add('crossChecked', 'choice', array(
+                'label'   => 'Cross Checked',
+                'choices' => array(0 => 'No', 1 => 'Yes'),
+                'attr'   => array('class' => 'input-small')
+            ))
             ->add('validity', 'choice', array(
                 'label'  => 'Validity',
                 'choices' => array(

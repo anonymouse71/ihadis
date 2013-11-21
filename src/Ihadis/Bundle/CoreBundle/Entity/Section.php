@@ -31,6 +31,13 @@ class Section
     /**
      * @var string
      *
+     * @ORM\Column(name="number", type="string", length=50)
+     */
+    private $number;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="title", type="string", length=3000)
      */
     private $title;
@@ -72,6 +79,28 @@ class Section
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set number
+     *
+     * @param string $number
+     * @return Section
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 
     /**
@@ -252,5 +281,50 @@ class Section
     public function setPrefaceArabic($preface)
     {
         $this->translate('ar')->setPreface($preface);
+    }
+
+    /**
+     * Get Number in English
+     *
+     * @return mixed
+     */
+    public function getNumberEnglish()
+    {
+        return $this->translate('en')->getNumber();
+    }
+
+    /**
+     * Set Number in English
+     *
+     * @param $number
+     *
+     * @return mixed
+     */
+    public function setNumberEnglish($number)
+    {
+        $this->translate('en')->setNumber($number);
+        return $this;
+    }
+
+    /**
+     * Get Number in Arabic
+     *
+     * @return mixed
+     */
+    public function getNumberArabic()
+    {
+        return $this->translate('ar')->getNumber();
+    }
+
+    /**
+     * Set Number in Arabic
+     *
+     * @param $number
+     *
+     * @return mixed
+     */
+    public function setNumberArabic($number)
+    {
+        $this->translate('ar')->setNumber($number);
     }
 }

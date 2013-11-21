@@ -16,6 +16,13 @@ class SectionTranslation
     /**
      * @var string
      *
+     * @ORM\Column(name="number", type="string", length=50)
+     */
+    private $number;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="title", type="string", length=3000)
      */
     private $title;
@@ -28,6 +35,28 @@ class SectionTranslation
     private $preface;
 
     /**
+     * Set number
+     *
+     * @param string $number
+     * @return Section
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
      * Set title
      *
      * @param string $title
@@ -36,7 +65,6 @@ class SectionTranslation
     public function setTitle($title)
     {
         $this->title = $title;
-
         return $this;
     }
 
@@ -59,7 +87,6 @@ class SectionTranslation
     public function setPreface($preface)
     {
         $this->preface = $preface;
-
         return $this;
     }
 

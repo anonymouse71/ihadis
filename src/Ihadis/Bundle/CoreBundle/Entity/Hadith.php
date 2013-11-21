@@ -91,6 +91,13 @@ class Hadith
     private $scholarReviewed;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="crossChecked", type="boolean")
+     */
+    private $crossChecked;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="validity", type="smallint")
@@ -317,6 +324,28 @@ class Hadith
     public function getScholarReviewed()
     {
         return $this->scholarReviewed;
+    }
+
+    /**
+     * Set crossChecked
+     *
+     * @param boolean $crossChecked
+     * @return Hadith
+     */
+    public function setCrossChecked($crossChecked)
+    {
+        $this->crossChecked = $crossChecked;
+        return $this;
+    }
+
+    /**
+     * Get crossChecked
+     *
+     * @return boolean
+     */
+    public function getCrossChecked()
+    {
+        return $this->crossChecked;
     }
 
     /**

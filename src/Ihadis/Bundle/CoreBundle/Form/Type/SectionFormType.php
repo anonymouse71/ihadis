@@ -20,6 +20,9 @@ class SectionFormType extends AbstractType
                      'class'    => 'IhadisCoreBundle:Chapter',
                      'property' => 'title')
             )
+            ->add('number', null, array(
+                'label' => 'Section Number (Bangla)'
+            ))
             ->add('title', null, array(
                 'label' => 'Section Name (Bangla)'
             ))
@@ -28,6 +31,9 @@ class SectionFormType extends AbstractType
                 'required' => false,
                 'attr'  => array('rows' => 5)
             ))
+            ->add('numberEnglish', null, array(
+                'label' => 'Section Number (English)'
+            ))
             ->add('titleEnglish', null, array(
                 'label'  => 'Section Name (English)'
             ))
@@ -35,6 +41,9 @@ class SectionFormType extends AbstractType
                 'label'  => 'Section Preface (English)',
                 'required' => false,
                 'attr'  => array('rows' => 5)
+            ))
+            ->add('numberArabic', null, array(
+                'label' => 'Section Number (Arabic)'
             ))
             ->add('titleArabic', null, array(
                 'label'  => 'Section Name (Arabic)'
