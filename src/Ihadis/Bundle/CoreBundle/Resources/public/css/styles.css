@@ -1,733 +1,600 @@
-﻿*
-{
-	margin: 0;
-	padding: 0;
+﻿* {
+    margin: 0;
+    padding: 0;
 }
 
-body
-{
-	font-size: 15px;
-	font-family: Arial, Tahoma;
-	color: #000;
+body {
+    font-size: 15px;
+    font-family: Arial, Tahoma,sans-serif;
+    color: #000;
 }
 
-img
-{
-	border: 0;
+img {
+    border: 0;
 }
 
-a, a:link, a:visited
-{
-	text-decoration: none;
-	outline: 0;
-	color: #798f93;
+a, a:link, a:visited {
+    text-decoration: none;
+    outline: 0;
+    color: #798f93;
 }
 
-a:hover
-{
-	text-decoration: underline;
+a:hover {
+    text-decoration: underline;
 }
 
-ul
-{
-	list-style: none;
+ul {
+    list-style: none;
 }
 
-header, footer, section, article, aside, hgroup, nav
-{
-	display: block;
+header, footer, section, article, aside, hgroup, nav {
+    display: block;
 }
 
-input:-moz-placeholder, input:-webkit-placeholder, input:-o-placeholder, input:-ms-placeholder
-{
-	color:#8c8c8c;
+input:-moz-placeholder, input:-webkit-placeholder, input:-o-placeholder, input:-ms-placeholder {
+    color: #8c8c8c;
 }
 
-.button::-moz-focus-inner
-{
-	border:0;
-	padding:0;
-} /* To remove extra padding from input button... .button is the class name of the input button */
-
-
-
-
-
-
-
+.button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
 
+/* To remove extra padding from input button... .button is the class name of the input button */
 
-.clr
-{
-	clear: both;
+.clr {
+    clear: both;
 }
 
-.fl
-{
-	float: left;
+.fl {
+    float: left;
 }
 
-.fr
-{
-	float: right;
+.fr {
+    float: right;
 }
 
-.null
-{
-	line-height: 0;
-	font-size: 0;
+.null {
+    line-height: 0;
+    font-size: 0;
 }
-
-
-
 
-
-
-
-
-
-
-.center
-{
-	width: 1024px;
-	margin: auto;
+.center {
+    width: 1024px;
+    margin: auto;
 }
 
-.top
-{
-	padding: 0 10px 0;
-	border-bottom: 1px solid #eaeaea;
+.top {
+    padding: 0 10px 0;
+    border-bottom: 1px solid #eaeaea;
 }
 
-.logo
-{
-	margin: 12px 0 0;
-	float: left;
+.logo {
+    margin: 12px 0 0;
+    float: left;
 }
 
-.signup
-{
-	float: right;
+.signup {
+    float: right;
 }
 
-.signup ul
-{
-	float: left;
-	margin: 8px 0 0;
+.signup ul {
+    float: left;
+    margin: 8px 0 0;
 }
 
-.signup li
-{
-	font-size: 12px;
-	display: inline;
-	color: #d7ddde;
+.signup li {
+    font-size: 12px;
+    display: inline;
+    color: #d7ddde;
 }
 
-.signup li a, .signup li a:link, .signup li a:visited
-{
-	color: #d7ddde;
+.signup li a, .signup li a:link, .signup li a:visited {
+    color: #d7ddde;
 }
 
-nav
-{
-	float: left;
-	font-size: 12px;
-	margin: 0 0 0 240px;
+nav {
+    float: left;
+    font-size: 12px;
+    margin: 0 0 0 240px;
 }
 
-nav li
-{
-	float: left;
-	margin: 0 10px 0 0;
+nav li {
+    float: left;
+    margin: 0 10px 0 0;
 }
 
-nav li a, nav li a:link, nav li a:visited
-{
-	display: block;
-	border-top: 4px solid transparent;
-	padding: 10px 5px;
-	color: #798f93;
+nav li a, nav li a:link, nav li a:visited {
+    display: block;
+    border-top: 4px solid transparent;
+    padding: 10px 5px;
+    color: #798f93;
 }
 
-nav li a:hover,  nav li.active a
-{
-	text-decoration: none;
-	border-top: 4px solid #4a9b41;
-	color: #4a9b41;
-	font-weight: bold;
+nav li a:hover, nav li.active a {
+    text-decoration: none;
+    border-top: 4px solid #4a9b41;
+    color: #4a9b41;
+    font-weight: bold;
 }
 
-a.user
-{
-	margin: 3px 0 0 15px;
-	display: inline-block;
+a.user {
+    margin: 3px 0 0 15px;
+    display: inline-block;
 }
 
-.left-panel
-{
-	width: 130px;
-	float: left;
-	background: #fcfafa;
-	border-right: 1px solid #f0f0f0;
-	box-shadow: 1px 0 0 #f8f8f8;
+.left-panel {
+    width: 130px;
+    float: left;
+    background: #fcfafa;
+    border-right: 1px solid #f0f0f0;
+    box-shadow: 1px 0 0 #f8f8f8;
 }
 
-.left-navigations
-{
-	padding: 10px 5px 10px 15px;
-	font-size: 12px;
-	cursor: pointer;
+.left-navigations {
+    padding: 10px 5px 10px 15px;
+    font-size: 12px;
+    cursor: pointer;
 }
 
-.left-navigations:hover .nav-arrow
-{
-	background: url(../images/arrow_open.png);
+.left-navigations:hover .nav-arrow {
+    background: url(../images/arrow_open.png);
 }
 
-.nav-arrow, .nav-arrow-active, .arrow-up
-{
-	width: 14px;
-	height: 14px;
-	cursor: pointer;
-	background: url(../images/arrow_close.png);
+.nav-arrow, .nav-arrow-active, .arrow-up {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    background: url(../images/arrow_close.png);
 }
 
-.nav-arrow:hover, .nav-arrow-active
-{
-	background: url(../images/arrow_open.png);
+.nav-arrow:hover, .nav-arrow-active {
+    background: url(../images/arrow_open.png);
 }
 
-.arrow-up
-{
-	background: url(../images/arrow_up.png);
+.arrow-up {
+    background: url(../images/arrow_up.png);
 }
 
-.translation-panel
-{
-	margin: 0 0 15px;
+.translation-panel {
+    margin: 0 0 15px;
 }
 
-.translation-panel li
-{
-	float: left;
-	font-size: 12px;
+.translation-panel li {
+    float: left;
+    font-size: 12px;
 }
 
-.translation-panel li a, .translation-panel li a:link, .translation-panel li a:visited
-{
-	display: block;
-	background: #4a9b41;
-	padding: 6px;
-	text-align: center;
-	color: #fff;
-	border: 1px solid #45903c;
-	border-left: none;
+.translation-panel li a, .translation-panel li a:link, .translation-panel li a:visited {
+    display: block;
+    background: #4a9b41;
+    padding: 6px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #45903c;
+    border-left: none;
 }
 
-.translation-panel li a:hover, .translation-panel li.active a
-{
-	text-decoration: none;
-	background: #fff;
-	color: #cac5bf;
-	border: 1px solid #efeded;
-	border-left: none;
+.translation-panel li a:hover, .translation-panel li.active a {
+    text-decoration: none;
+    background: #fff;
+    color: #cac5bf;
+    border: 1px solid #efeded;
+    border-left: none;
 }
 
-.translation-panel li:nth-last-child(1) a
-{
-	border-right: none;
+.translation-panel li:nth-last-child(1) a {
+    border-right: none;
 }
 
-.translation-panel li:first-child a 
-{
-	border-left: 1px solid #45903c;
+.translation-panel li:first-child a {
+    border-left: 1px solid #45903c;
 }
 
-.translation-panel li:first-child a:hover, .translation-panel li.active:first-child a
-{
-	border-left: 1px solid #efeded;
+.translation-panel li:first-child a:hover, .translation-panel li.active:first-child a {
+    border-left: 1px solid #efeded;
 }
 
-.left-nav-details
-{
-	padding: 10px 5px 10px 15px;
-	font-size: 10px;
-	color: #9f9f9f;
+.left-nav-details {
+    padding: 10px 5px 10px 15px;
+    font-size: 10px;
+    color: #9f9f9f;
 }
 
-.left-nav-details li
-{
-	margin: 0 0 10px;
-	padding: 0 0 0 24px;
+.left-nav-details li {
+    margin: 0 0 10px;
+    padding: 0 0 0 24px;
 }
 
-.left-nav-details li.selected
-{
-	background: url(../images/arrow_green.png) left no-repeat;
-	font-weight: bold;
+.left-nav-details li.selected {
+    background: url(../images/arrow_green.png) left no-repeat;
+    font-weight: bold;
 }
 
-.navigation
-{
-	font-size: 16px;
-	color: #9c9b9b;
-	padding: 10px 5px 10px 15px;
+.navigation {
+    font-size: 16px;
+    color: #9c9b9b;
+    padding: 10px 5px 10px 15px;
 }
 
-.hadith-search-panel
-{
-	border: 1px solid #e2e0e0;
-	background: #fff;
-	font-size: 12px;
+.hadith-search-panel {
+    border: 1px solid #e2e0e0;
+    background: #fff;
+    font-size: 12px;
 }
 
-.hadith-search
-{
-	padding: 9px 4px 10px 14px;
+.hadith-search {
+    padding: 9px 4px 10px 14px;
 }
 
-.text-search
-{
-	width: 84px;
-	height: 22px;
-	border: none;
-	border-bottom: 1px solid #e1e1e1;
-	margin: 20px 0 25px;
-	font-size: 11px;
+.text-search {
+    width: 84px;
+    height: 22px;
+    border: none;
+    border-bottom: 1px solid #e1e1e1;
+    margin: 20px 0 25px;
+    font-size: 11px;
 }
 
-.button
-{
-	background: #4a9b41;
-	color: #fff;
-	border: 1px solid #81b53a;
-	font-size: 12px;
-	font-weight: bold;
-	display: inline-block;
-	padding: 6px 25px;
-	cursor: pointer;
+.button {
+    background: #4a9b41;
+    color: #fff;
+    border: 1px solid #81b53a;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 6px 25px;
+    cursor: pointer;
 }
 
-
-
-
-
-
-.right-panel
-{
-	width: 893px;
-	float: right;
+.right-panel {
+    width: 893px;
+    float: right;
 }
 
-.second-nav-holder
-{
-	border-bottom: 1px solid #e4e4e4;
-	padding: 10px 65px 15px;
+.second-nav-holder {
+    border-bottom: 1px solid #e4e4e4;
+    padding: 10px 65px 15px;
 }
 
-h1
-{
-	font-size: 22px;
-	font-weight: normal;
-	color: #272325;
+h1 {
+    font-size: 22px;
+    font-weight: normal;
+    color: #272325;
 }
 
-.title-holder span
-{
-	color: #adadad;
-	font-size: 12px;
-	margin: 0 10px 0 0;
+.title-holder span {
+    color: #adadad;
+    font-size: 12px;
+    margin: 0 10px 0 0;
 }
 
-.title-holder span a, .title-holder span a:link, .title-holder span a:visited
-{
-	color: #adadad;
+.title-holder span a, .title-holder span a:link, .title-holder span a:visited {
+    color: #adadad;
 }
 
-.other-nav
-{
-	float: right;
-	font-size: 12px;
+.other-nav {
+    float: right;
+    font-size: 12px;
 }
 
-.other-nav li
-{
-	margin: 0 15px 0 0;
-	float: left;
+.other-nav li {
+    margin: 0 15px 0 0;
+    float: left;
 }
 
-.other-nav li a, .other-nav li a:link, .other-nav li a:visited
-{
-	color: #5e5b5d;
+.other-nav li a, .other-nav li a:link, .other-nav li a:visited {
+    color: #5e5b5d;
 }
 
-.other-nav li
-{
-	background: url(../images/bullet_arrow.png) right no-repeat;
-	padding: 0 15px 0 0;
+.other-nav li {
+    background: url(../images/bullet_arrow.png) right no-repeat;
+    padding: 0 15px 0 0;
 }
 
-.other-nav li.search
-{
-	background: url(../images/icon_search.png) right no-repeat;
-	padding: 0 25px 0 0;
+.other-nav li.search {
+    background: url(../images/icon_search.png) right no-repeat;
+    padding: 0 25px 0 0;
 }
 
-.other-nav li.search:hover
-{
-	background: url(../images/icon_search.png) right no-repeat;
+.other-nav li.search:hover {
+    background: url(../images/icon_search.png) right no-repeat;
 }
 
-.other-nav li a, .other-nav li a:link, .other-nav li a:visited
-{
-	padding: 7px 0;
-	display: block;
+.other-nav li a, .other-nav li a:link, .other-nav li a:visited {
+    padding: 7px 0;
+    display: block;
 }
 
-.other-nav li a:hover
-{
-	text-decoration: none;
-	color: #4a9b41;
+.other-nav li a:hover {
+    text-decoration: none;
+    color: #4a9b41;
 }
 
-.other-nav li:hover
-{
-	background: url(../images/bullet_arrow_up.png) right no-repeat;
+.other-nav li:hover {
+    background: url(../images/bullet_arrow_up.png) right no-repeat;
 }
 
-.other-nav li.books a, .other-nav li.books-active a
-{
-	background: url(../images/icon_books.png) left no-repeat;
-	padding: 7px 0 7px 24px;
+.other-nav li.books a, .other-nav li.books-active a {
+    background: url(../images/icon_books.png) left no-repeat;
+    padding: 7px 0 7px 24px;
 }
 
-.other-nav li.books a:hover, .other-nav li.books-active a
-{
-	background: url(../images/icon_books_green.png) left no-repeat;
-	color: #4a9b41;
+.other-nav li.books a:hover, .other-nav li.books-active a {
+    background: url(../images/icon_books_green.png) left no-repeat;
+    color: #4a9b41;
 }
 
-.other-nav li.bukhari a, .other-nav li.bukhari-active a
-{
-	background: url(../images/icon_bukhari.png) left no-repeat;
-	padding: 7px 0 7px 24px;
+.other-nav li.bukhari a, .other-nav li.bukhari-active a {
+    background: url(../images/icon_bukhari.png) left no-repeat;
+    padding: 7px 0 7px 24px;
 }
 
-.other-nav li.bukhari a:hover, .other-nav li.bukhari-active a
-{
-	background: url(../images/icon_bukhari_green.png) left no-repeat;
-	color: #4a9b41;
+.other-nav li.bukhari a:hover, .other-nav li.bukhari-active a {
+    background: url(../images/icon_bukhari_green.png) left no-repeat;
+    color: #4a9b41;
 }
 
-.other-nav li.volume a, .other-nav li.volume-active a
-{
-	background: url(../images/icon_volume.png) left no-repeat;
-	padding: 7px 0 7px 24px;
+.other-nav li.volume a, .other-nav li.volume-active a {
+    background: url(../images/icon_volume.png) left no-repeat;
+    padding: 7px 0 7px 24px;
 }
 
-.other-nav li.volume a:hover, .other-nav li.volume-active a
-{
-	background: url(../images/icon_volume_green.png) left no-repeat;
-	color: #4a9b41;
+.other-nav li.volume a:hover, .other-nav li.volume-active a {
+    background: url(../images/icon_volume_green.png) left no-repeat;
+    color: #4a9b41;
 }
 
-.other-nav li.books-active, .other-nav li.bukhari-active, .other-nav li.volume-active
-{
-	background: url(../images/bullet_arrow_up.png) right no-repeat;
+.other-nav li.books-active, .other-nav li.bukhari-active, .other-nav li.volume-active {
+    background: url(../images/bullet_arrow_up.png) right no-repeat;
 }
 
-.surah-holder-main
-{
-	border-bottom: 1px solid #eceaea;
-	padding: 20px 10px;
+.surah-holder-main {
+    border-bottom: 1px solid #eceaea;
+    padding: 20px 10px;
 }
 
-.surah-holder
-{
-	width: 425px;
+.surah-holder {
+    width: 425px;
 }
 
-.surah-top
-{
-	padding: 0 0 0 55px;
-	font-size: 10px;
-	color: #bfbfbf;
+.surah-top {
+    padding: 0 0 0 55px;
+    font-size: 10px;
+    color: #bfbfbf;
 }
 
-.surah-number
-{
-	float: left;
-	background: url(../images/icon_surah.png) left no-repeat;
-	padding: 0 0 0 30px;
-	color: #8dc63f;
-	font-size: 30px;
-	margin: 0 30px 0 0;
+.surah-number {
+    float: left;
+    background: url(../images/icon_surah.png) left no-repeat;
+    padding: 0 0 0 30px;
+    color: #8dc63f;
+    font-size: 30px;
+    margin: 0 30px 0 0;
 }
 
-.references
-{
-	float: left;
+.references {
+    float: left;
 }
 
-.references p
-{
-	margin: 3px 0;
+.references p {
+    margin: 3px 0;
 }
 
-.references span
-{
-	display: inline-block;
-	width: 110px;
+.references span {
+    display: inline-block;
+    width: 110px;
 }
 
-.surah-bottom
-{
-	padding: 30px 0 0;
+.surah-bottom {
+    padding: 30px 0 0;
 }
 
-.translation li a, .translation li a:link, .translation li a:visited
-{
-	width: 32px;
-	height: 24px;
-	padding: 8px 0 0;
-	display: block;
-	border: 1px solid #f3f3f3;
-	border-bottom: none;
-	font-size: 12px;
-	color: #c6c6c6;
-	text-align: center;
+.translation li a, .translation li a:link, .translation li a:visited {
+    width: 32px;
+    height: 24px;
+    padding: 8px 0 0;
+    display: block;
+    border: 1px solid #f3f3f3;
+    border-bottom: none;
+    font-size: 12px;
+    color: #c6c6c6;
+    text-align: center;
 }
 
-.translation li:nth-last-child(1) a
-{
-	border-bottom: 1px solid #f3f3f3;
+.translation li:nth-last-child(1) a {
+    border-bottom: 1px solid #f3f3f3;
 }
 
-.surah
-{
-	width: 370px;
-	line-height: 22px;
-	text-align: justify;
+.surah {
+    width: 370px;
+    line-height: 22px;
+    text-align: justify;
 }
 
-.surah p
-{
-	margin: 0 0 6px;
-	color: #b6b6b6;
-	text-align: left;
+.surah p {
+    margin: 0 0 6px;
+    color: #b6b6b6;
+    text-align: left;
 }
 
-.surah p span
-{
-	color: #4a9b41;
+.surah p span {
+    color: #4a9b41;
 }
 
-.surah-top2
-{
-	font-size: 10px;
-	color: #bfbfbf;
+.surah-top2 {
+    font-size: 10px;
+    color: #bfbfbf;
 }
 
-.int-no
-{
-	margin: 0 20px 0 0;
-	text-align: center;
+.int-no {
+    margin: 0 20px 0 0;
+    text-align: center;
 }
 
-.surah-no2
-{
-	font-size: 30px;
-	color: #67c69b;
-	margin: 0 10px 0 24px;
+.surah-no2 {
+    font-size: 30px;
+    color: #67c69b;
+    margin: 0 10px 0 24px;
 }
 
-.authenticity
-{
-	text-align: right;
+.authenticity {
+    text-align: right;
 }
 
-.authenticity p
-{
-	font-weight: bold;
-	color: #8dc63f;
-	font-size: 12px;
-	margin: 0 0 4px;
+.authenticity p {
+    font-weight: bold;
+    color: #8dc63f;
+    font-size: 12px;
+    margin: 0 0 4px;
 }
 
-.surah-bottom-panel
-{
-	padding: 40px 55px 0;
-	font-weight: bold;
-	font-size: 12px;
+.surah-bottom-panel {
+    padding: 40px 55px 0;
+    font-weight: bold;
+    font-size: 12px;
 }
 
-a.copy-link, a.share
-{
-	color: #8dc63f;
-	display: inline-block;
+a.copy-link, a.share {
+    color: #8dc63f;
+    display: inline-block;
 }
 
-a.copy-link
-{
-	background: url(../images/icon_copy.png) left no-repeat;
-	padding: 0 0 0 20px;
+a.copy-link {
+    background: url(../images/icon_copy.png) left no-repeat;
+    padding: 0 0 0 20px;
 }
 
-a.share
-{
-	background: url(../images/icon_share.png) right no-repeat;
-	padding: 0 25px 0 0;
+a.share {
+    background: url(../images/icon_share.png) right no-repeat;
+    padding: 0 25px 0 0;
 }
 
-.bottom-links
-{
-	width: 450px;
-	text-align: center;
-	margin: 0 0 0 70px;
-	font-weight: bold;
+.bottom-links {
+    width: 450px;
+    text-align: center;
+    margin: 0 0 0 70px;
+    font-weight: bold;
 }
 
-.bottom-links a, .bottom-links a:link, .bottom-links a:visited
-{
-	color: #b7b3ad;
-	display: inline-block;
-	padding: 0 22px 0 0;
-	margin: 0 8px;
+.bottom-links a, .bottom-links a:link, .bottom-links a:visited {
+    color: #b7b3ad;
+    display: inline-block;
+    padding: 0 22px 0 0;
+    margin: 0 8px;
 }
 
-.bottom-links a:hover
-{
-	color: #8dc63f;
+.bottom-links a:hover {
+    color: #8dc63f;
 }
 
-.bottom-links a.footnote
-{
-	background: url(../images/icon_footnote.png) right no-repeat;
+.bottom-links a.footnote {
+    background: url(../images/icon_footnote.png) right no-repeat;
 }
 
-.bottom-links a.report
-{
-	background: url(../images/icon_report.png) right no-repeat;
+.bottom-links a.report {
+    background: url(../images/icon_report.png) right no-repeat;
 }
 
-.bottom-links a.print
-{
-	background: url(../images/icon_print.png) right no-repeat;
+.bottom-links a.print {
+    background: url(../images/icon_print.png) right no-repeat;
 }
 
-.bottom-links a.tags
-{
-	background: url(../images/icon_tag.png) right no-repeat;
+.bottom-links a.tags {
+    background: url(../images/icon_tag.png) right no-repeat;
 }
 
-a.share-big
-{
-	display: inline-block;
-	margin: 17px 0 0 15px;
+a.share-big {
+    display: inline-block;
+    margin: 17px 0 0 15px;
 }
+
+.translation-panel {
 
-.translation-panel
-{
-	
 }
 
-.section
-{
-	padding: 20px 65px;
-	background: #f9f4f1;
-	border-bottom: 1px solid #eceaea;
+.section {
+    padding: 20px 65px;
+    background: #f9f4f1;
+    border-bottom: 1px solid #eceaea;
 }
 
-.section-left, .section-right
-{
-	width: 365px;
+.section-left, .section-right {
+    width: 365px;
 }
 
-h2
-{
-	font-size: 20x;
-	font-weight: normal;
-	margin: 0 0 10px;
+h2 {
+    font-size: 20x;
+    font-weight: normal;
+    margin: 0 0 10px;
 }
 
-.section-right
-{
-	text-align: right;
+.section-right {
+    text-align: right;
 }
 
-.section-translation
-{
-	padding: 20px 0 0;
-	border-bottom: 1px solid #ededed;
-	font-size: 13px;
-	margin: 0 65px;
+.section-translation {
+    padding: 20px 0 0;
+    border-bottom: 1px solid #ededed;
+    font-size: 13px;
+    margin: 0 65px;
 }
 
-.section-translation p
-{
-	margin: 0 0 20px;
+.section-translation p {
+    margin: 0 0 20px;
 }
 
-a.copy-link2
-{
-	display: inline-block;
-	background: #8dc63f;
-	padding: 10px 15px;
-	font-weight: normal;
-	color: #fff;
-	border: 1px solid #81b53a;
-	border-bottom: none;
+a.copy-link2 {
+    display: inline-block;
+    background: #8dc63f;
+    padding: 10px 15px;
+    font-weight: normal;
+    color: #fff;
+    border: 1px solid #81b53a;
+    border-bottom: none;
 }
 
-a.copy-link2:hover
-{
-	text-decoration: none;
+a.copy-link2:hover {
+    text-decoration: none;
 }
 
-.share-panel
-{
-	float: right;
+.share-panel {
+    float: right;
 }
 
-.share-panel a, .share-panel a:link, .share-panel a:visited
-{
-	margin: 0 0 0 10px;
+.share-panel a, .share-panel a:link, .share-panel a:visited {
+    margin: 0 0 0 10px;
 }
 
-.footnote-explanation
-{
-	border-top: 1px solid #ededed;
-	padding: 25px 0 0;
+.footnote-explanation {
+    border-top: 1px solid #ededed;
+    padding: 25px 0 0;
 }
 
-.footnote-explanation li
-{
-	float: left;
-	border-right: 1px solid #c4c3c3;
-	font-size: 16px;
-	color: #b7b3ad;
-	padding: 0 15px 0 0;
-	margin: 0 15px 0 0;
-	font-weight: normal;
+.footnote-explanation li {
+    float: left;
+    border-right: 1px solid #c4c3c3;
+    font-size: 16px;
+    color: #b7b3ad;
+    padding: 0 15px 0 0;
+    margin: 0 15px 0 0;
+    font-weight: normal;
 }
 
-.footnote-explanation li:last-child
-{
-	border: none;
+.footnote-explanation li:last-child {
+    border: none;
 }
 
-.footnote-explanation li a:hover, .footnote-explanation li.active a
-{
-	color: #8dc63f;
-	text-decoration: none;
+.footnote-explanation li a:hover, .footnote-explanation li.active a {
+    color: #8dc63f;
+    text-decoration: none;
 }
 
-.footnote-explanation p
-{
-	margin: 10px 0 0;
-	font-weight: normal;
-	font-size: 14px;
-	color: #6c6c6c;
+.footnote-explanation p {
+    margin: 10px 0 0;
+    font-weight: normal;
+    font-size: 14px;
+    color: #6c6c6c;
 }
 
 
