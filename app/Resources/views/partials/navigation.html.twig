@@ -1,7 +1,11 @@
-<div class="navbar hor-menu hidden-phone hidden-tablet">
+<div class="navbar hor-menu hidden-phone hidden-tablet pull-right">
 
     <div class="navbar-inner">
-        {#{{ knp_menu_render('DocudexCoreBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'DocudexCoreBundle:Menu:knp_menu.html.twig'}) }}#}
+
+        <ul class="nav navbar-nav">
+            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a> </li>
+        </ul>
+
     </div>
 
 </div>

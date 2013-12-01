@@ -2,86 +2,64 @@ var Login = function () {
 
 	var handleLogin = function() {
 
-		// ajax login function to be called right after the form validation success
-		var ajaxLogin = function(form) {
-			form = $(form);
-			$.ajax({
-				type: "POST",
-				url: "index.html",
-				data: form.serialize(),
-				dataType: "json",
-				beforeSend:function(){
-					$('.alert-danger,.alert-success').hide();
-				},
-				error: function(jqXHR, textStatus, errorThrown){
-					alert(errorThrown);
-					$('.alert-danger').show();
-					$('.alert-danger span').html(errorThrown);
-				},
-				success: function(data){
-					alert('Success!!!');
-					$('.alert-success').show();
-					$('.alert-success span').html(data);
-				}
-			});
-		}
-
 		$('.login-form').validate({
-	            errorElement: 'span', //default input error message container
-	            errorClass: 'help-block', // default input error message class
-	            focusInvalid: false, // do not focus the last invalid input
-	            rules: {
-	                username: {
-	                    required: true
-	                },
-	                password: {
-	                    required: true
-	                },
-	                remember: {
-	                    required: false
-	                }
-	            },
 
-	            messages: {
-	                username: {
-	                    required: "Username is required1."
-	                },
-	                password: {
-	                    required: "Password is required2."
-	                }
-	            },
+            errorElement: 'span', //default input error message container
+            errorClass: 'help-block', // default input error message class
+            focusInvalid: false, // do not focus the last invalid input
+            rules: {
+                _username: {
+                    required: true
+                },
+                _password: {
+                    required: true
+                },
+                _remember_me: {
+                    required: false
+                }
+            },
 
-	            invalidHandler: function (event, validator) { //display error alert on form submit   
-	                $('.alert-danger', $('.login-form')).show();
-	            },
+            messages: {
+                _username: {
+                    required: "Username is required1."
+                },
+                _password: {
+                    required: "Password is required2."
+                }
+            },
 
-	            highlight: function (element) { // hightlight error inputs
-	                $(element)
-	                    .closest('.form-group').addClass('has-error'); // set error class to the control group
-	            },
+            invalidHandler: function (event, validator) { //display error alert on form submit
+                $('.alert-danger', $('.login-form')).show();
+            },
 
-	            success: function (label) {
-	                label.closest('.form-group').removeClass('has-error');
-	                label.remove();
-	            },
+            highlight: function (element) { // hightlight error inputs
+                $(element)
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+            },
 
-	            errorPlacement: function (error, element) {
-	                error.insertAfter(element.closest('.input-icon'));
-	            },
+            success: function (label) {
+                label.closest('.form-group').removeClass('has-error');
+                label.remove();
+            },
 
-	            submitHandler: function (form) {
-	                ajaxLogin(form); // form validation success, call ajax form submit
-	            }
-	        });
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.closest('.input-icon'));
+            },
 
-	        $('.login-form input').keypress(function (e) {
-	            if (e.which == 13) {
-	                if ($('.login-form').validate().form()) {
-	                    ajaxLogin($('.login-form')); //form validation success, call ajax form submit
-	                }
-	                return false;
-	            }
-	        });
+            submitHandler: function (form) {
+                form.submit();
+            }
+        });
+
+        $('.login-form input').keypress(function (e) {
+            if (e.which == 13) {
+                if ($('.login-form').validate().form()) {
+                    //ajaxLogin($('.login-form')); //form validation success, call ajax form submit
+                    return true;
+                }
+                return false;
+            }
+        });
 	}
 
 	var handleForgetPassword = function () {
@@ -271,8 +249,8 @@ var Login = function () {
         init: function () {
         	
             handleLogin();
-            handleForgetPassword();
-            handleRegister();        
+            //handleForgetPassword();
+            //handleRegister();
 	       
         }
 

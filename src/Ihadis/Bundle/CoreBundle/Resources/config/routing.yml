@@ -1,18 +1,18 @@
 ihadis_book:
     resource: "@IhadisCoreBundle/Resources/config/routes/book.yml"
-    prefix:   /books
+    prefix:   /admin/books
 
 ihadis_book:
     resource: "@IhadisCoreBundle/Resources/config/routes/chapter.yml"
-    prefix:   /chapters
+    prefix:   /admin/chapters
 
 ihadis_section:
     resource: "@IhadisCoreBundle/Resources/config/routes/section.yml"
-    prefix:   /sections
+    prefix:   /admin/sections
 
 ihadis_hadith:
     resource: "@IhadisCoreBundle/Resources/config/routes/hadith.yml"
-    prefix:   /hadiths
+    prefix:   /admin/hadiths
 
 ihadis_core_homepage:
     pattern:  /

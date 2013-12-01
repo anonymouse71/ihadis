@@ -1,0 +1,96 @@
+{% extends '::base.html.twig' %}
+
+{% set bodyClass = 'login' %}
+
+{% block stylesheets %}
+    {% stylesheets filter='cssrewrite'
+    "assets/plugins/font-awesome/css/font-awesome.min.css"
+    "assets/plugins/bootstrap/css/bootstrap.min.css"
+    "assets/plugins/uniform/css/uniform.default.css"
+    "assets/plugins/gritter/css/jquery.gritter.css"
+    "assets/css/style-metronic.css"
+    "assets/css/style.css"
+    "assets/css/style-responsive.css"
+    "assets/css/plugins.css"
+    "assets/css/themes/default.css"
+    'assets/css/pages/login.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
+{% block pageHeader %}
+{% endblock %}
+
+{% block topNavigation %}
+{% endblock %}
+
+{% block container %}
+
+    <!-- BEGIN LOGO -->
+    <div class="logo" style="margin-top: 200px; font-size: 24px; color: #fff">
+        iHadis
+    </div>
+    <!-- END LOGO -->
+
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+
+        <div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% endif %}
+        </div>
+
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for key, message in messages %}
+                <div class="alert alert-{{ type }}">
+                    <button class="close" data-dismiss="alert"></button>
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <div>
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
+
+    </div>
+    <!-- END LOGIN -->
+
+    <!-- BEGIN COPYRIGHT -->
+    <div class="copyright">
+        2013 &copy; iHadis.
+    </div>
+
+    {% block footer %}
+    {% endblock %}
+
+{% endblock container %}
+
+{% block javascripts %}
+
+    {% javascripts
+    "assets/plugins/jquery-1.10.2.min.js"
+    "assets/plugins/jquery-migrate-1.2.1.min.js"
+    "assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"
+    "assets/plugins/bootstrap/js/bootstrap.min.js"
+    "assets/plugins/uniform/jquery.uniform.min.js"
+    "assets/plugins/jquery.cookie.min.js"
+    'assets/plugins/jquery-validation/dist/jquery.validate.min.js'
+    'assets/scripts/app.js'
+    'assets/scripts/login.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock javascripts %}
+
+{% block documentReady %}
+    App.init();
+    Login.init();
+{% endblock documentReady %}
