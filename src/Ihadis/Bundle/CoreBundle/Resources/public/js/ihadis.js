@@ -4,7 +4,7 @@ var IHadis = function () {
 
         $(".translation a").live('click', function(){
 
-            $(this).parent().find('a').removeClass('active');
+            $(this).parent().parent().find('a').removeClass('active');
             $(this).addClass('active');
 
             $(this).parent().parent().parent().parent().find(".surah").hide();
