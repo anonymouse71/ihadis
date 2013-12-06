@@ -12,19 +12,23 @@ class ChapterFormType extends AbstractType
     {
         $builder
             ->add('title', null, array(
-                    'label' => 'Chapter Name (Bangla)')
+                'label' => 'Chapter Name (Bangla)')
             )
             ->add('titleEnglish', null, array(
-                    'label'  => 'Chapter Name (English)')
+                'label'  => 'Chapter Name (English)')
             )
             ->add('titleArabic', null, array(
-                    'label'  => 'Chapter Name (Arabic)')
+                'label'  => 'Chapter Name (Arabic)')
             )
+            ->add('number', null, array(
+                'label'  => 'Number'
+            ))
             ->add('book', 'entity', array(
-                    'label'    => 'Book',
-                    'class'    => 'IhadisCoreBundle:Book',
-                    'property' => 'title')
-            );
+                'label'    => 'Book',
+                'class'    => 'IhadisCoreBundle:Book',
+                'property' => 'title')
+            )
+        ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

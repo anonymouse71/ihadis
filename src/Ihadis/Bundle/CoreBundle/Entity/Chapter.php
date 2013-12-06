@@ -53,7 +53,7 @@ class Chapter
     /**
      * @var Book
      *
-     * @ORM\ManyToOne(targetEntity="Book")
+     * @ORM\ManyToOne(targetEntity="Book", inversedBy="chapters")
      */
     private $book;
 
@@ -173,6 +173,11 @@ class Chapter
     public function getNumber()
     {
         return $this->number;
+    }
+
+    public function getSectionCount()
+    {
+        return $this->sections->count();
     }
 
     /**

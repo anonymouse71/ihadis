@@ -4,6 +4,8 @@
 
 {% block breadcrumb %}
 
+    {% if chapters is not empty %}
+
     {% set chapter = chapters|first %}
 
     <ul class="breadcrumb">
@@ -17,6 +19,8 @@
         <li><a href="#">{{ chapter.book.title }}</a></li>
 
     </ul>
+
+    {% endif %}
 
 {% endblock %}
 
@@ -32,12 +36,13 @@
 
     </div>
 
-    <table class="table table-striped table-bordered table-hover" id="chapters" style="width: 80%">
+    <table class="table table-striped table-bordered table-hover" id="chapters">
 
         <thead>
 
             <tr>
                 <th class="text-center" style="width: 55%">Chapter</th>
+                <th class="text-center" style="width: 10%"># of Section</th>
                 <th class="text-center" style="width: 15%">Book</th>
                 <th class="text-center" style="width: 30%">&nbsp;</th>
             </tr>
@@ -49,6 +54,7 @@
             {% for chapter in chapters %}
                 <tr>
                     <td>{{ chapter.title }}</td>
+                    <td class="text-center">{{ chapter.sectionCount }}</td>
                     <td class="text-center">{{ chapter.book.title }}</td>
                     <td style="text-align: center">
                         <a href="{{ path('ihadis_section_list', {'chapter': chapter.id}) }}" class="btn btn-info">Sections</a>

@@ -1,5 +1,21 @@
+ihadis_book_list:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: ihadis.controller.book:indexAction
+
 ihadis_book_show:
     pattern: /{id}
     methods: [GET]
     defaults:
         _controller: ihadis.controller.book:showAction
+
+ihadis_book_edit:
+    pattern: /{id}/edit
+    methods: [GET, PUT]
+    defaults:
+        _controller: ihadis.controller.book:updateAction
+        _sylius:
+            redirect:
+                route: ihadis_book_list
+                parameters:

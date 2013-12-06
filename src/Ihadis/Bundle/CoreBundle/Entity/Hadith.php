@@ -107,7 +107,7 @@ class Hadith
     /**
      * @var Book
      *
-     * @ORM\ManyToOne(targetEntity="Book")
+     * @ORM\ManyToOne(targetEntity="Book", inversedBy="hadiths")
      */
     private $book;
 
@@ -121,7 +121,7 @@ class Hadith
     /**
      * @var Section
      *
-     * @ORM\ManyToOne(targetEntity="Section")
+     * @ORM\ManyToOne(targetEntity="Section", inversedBy="hadiths")
      */
     private $section;
 

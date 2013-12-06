@@ -53,14 +53,14 @@ class Section
     /**
      * @var Book
      *
-     * @ORM\ManyToOne(targetEntity="Book")
+     * @ORM\ManyToOne(targetEntity="Book", inversedBy="sections")
      */
     private $book;
 
     /**
      * @var Chapter
      *
-     * @ORM\ManyToOne(targetEntity="Chapter")
+     * @ORM\ManyToOne(targetEntity="Chapter", inversedBy="sections")
      */
     private $chapter;
 
@@ -214,6 +214,11 @@ class Section
     public function getChapter()
     {
         return $this->chapter;
+    }
+
+    public function getHadithCount()
+    {
+        return $this->hadiths->count();
     }
 
     /**

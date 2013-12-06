@@ -99,6 +99,20 @@ class Book
     private $chapters;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Section", mappedBy="book", fetch="EXTRA_LAZY")
+     */
+    private $sections;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Hadith", mappedBy="book", fetch="EXTRA_LAZY")
+     */
+    private $hadiths;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="slug", type="string", length=50)
@@ -108,6 +122,8 @@ class Book
     public function __construct()
     {
         $this->chapters = new ArrayCollection();
+        $this->sections = new ArrayCollection();
+        $this->hadiths  = new ArrayCollection();
     }
 
     /**
@@ -340,5 +356,50 @@ class Book
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Get chapters
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getChapters()
+    {
+        return $this->chapters;
+    }
+
+    /**
+     * Get hadiths
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getHadiths()
+    {
+        return $this->hadiths;
+    }
+
+    /**
+     * Get sections
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getSections()
+    {
+        return $this->sections;
+    }
+
+    public function getChapterCount()
+    {
+        return $this->chapters->count();
+    }
+
+    public function getSectionCount()
+    {
+        return $this->sections->count();
+    }
+
+    public function getHadithCount()
+    {
+        return $this->hadiths->count();
     }
 }
