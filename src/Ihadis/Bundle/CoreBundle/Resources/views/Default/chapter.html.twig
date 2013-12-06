@@ -1,5 +1,7 @@
 {% extends '@IhadisCore/layout.html.twig' %}
 
+{% block title %} {{ parent() }} - {{ book.title }} | {{ chapter.title }} {% endblock %}
+
 {% block content %}
 
     {% include '@IhadisCore/Default/_secondaryNav.html.twig' %}
