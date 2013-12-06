@@ -2,6 +2,7 @@
 
 namespace Ihadis\Bundle\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
@@ -64,6 +65,18 @@ class Section
     private $chapter;
 
     /**
+     * @var
+     *
+     * @ORM\OneToMany(targetEntity="Hadith", mappedBy="section")
+     */
+    private $hadiths;
+
+    public function __construct()
+    {
+        $this->hadiths = new ArrayCollection();
+    }
+
+    /**
      * @ORM\PreFlush
      */
     public function handleTranslation()
@@ -79,6 +92,16 @@ class Section
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get Hadiths
+     *
+     * @return ArrayCollection
+     */
+    public function getHadiths()
+    {
+        return $this->hadiths;
     }
 
     /**

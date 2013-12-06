@@ -5,7 +5,7 @@
 
 body {
     font-size: 15px;
-    font-family: Arial, Tahoma,sans-serif;
+    font-family: Arial, Tahoma, sans-serif;
     color: #000;
 }
 
@@ -29,6 +29,10 @@ ul {
 
 header, footer, section, article, aside, hgroup, nav {
     display: block;
+}
+
+.bn {
+    font-family: Nikosh2, SolaimanLipi, Nikosh, NikoshBAN, Verdana, sans-serif !important;
 }
 
 input:-moz-placeholder, input:-webkit-placeholder, input:-o-placeholder, input:-ms-placeholder {
@@ -60,8 +64,11 @@ input:-moz-placeholder, input:-webkit-placeholder, input:-o-placeholder, input:-
 }
 
 .center {
-    width: 1024px;
+    width: 1030px;
     margin: auto;
+    border: 1px solid rgb(228, 228, 228);
+    box-shadow: 0px 3px 14px 1px #D5CECE;
+    padding: 0 2px 2px;
 }
 
 .top {
@@ -124,10 +131,10 @@ a.user {
 }
 
 .left-panel {
-    width: 130px;
+    width: 135px;
     float: left;
-    background: #fcfafa;
-    border-right: 1px solid #f0f0f0;
+    background: #f3f8f2;
+    border-right: 1px solid #dfdfdf;
     box-shadow: 1px 0 0 #f8f8f8;
 }
 
@@ -157,7 +164,7 @@ a.user {
 }
 
 .translation-panel {
-    margin: 0 0 15px;
+    margin: 0 0 10px;
 }
 
 .translation-panel li {
@@ -197,7 +204,7 @@ a.user {
 
 .left-nav-details {
     padding: 10px 5px 10px 15px;
-    font-size: 10px;
+    font-size: 13px;
     color: #9f9f9f;
 }
 
@@ -208,6 +215,7 @@ a.user {
 
 .left-nav-details li.selected {
     background: url(../images/arrow_green.png) left no-repeat;
+    color: green;
     font-weight: bold;
 }
 
@@ -221,6 +229,7 @@ a.user {
     border: 1px solid #e2e0e0;
     background: #fff;
     font-size: 12px;
+    border-top: 1px solid #e2e0e0;
 }
 
 .hadith-search {
@@ -254,7 +263,7 @@ a.user {
 
 .second-nav-holder {
     border-bottom: 1px solid #e4e4e4;
-    padding: 10px 65px 15px;
+    padding: 10px 35px 15px;
 }
 
 h1 {
@@ -360,7 +369,7 @@ h1 {
 
 .surah-top {
     padding: 0 0 0 55px;
-    font-size: 10px;
+    font-size: 13px;
     color: #bfbfbf;
 }
 
@@ -383,7 +392,7 @@ h1 {
 
 .references span {
     display: inline-block;
-    width: 110px;
+    width: 120px;
 }
 
 .surah-bottom {
@@ -395,15 +404,19 @@ h1 {
     height: 24px;
     padding: 8px 0 0;
     display: block;
-    border: 1px solid #f3f3f3;
+    border: 1px solid #e6e6e6;
     border-bottom: none;
     font-size: 12px;
     color: #c6c6c6;
     text-align: center;
 }
 
+.translation li a.active {
+    color: black;
+}
+
 .translation li:nth-last-child(1) a {
-    border-bottom: 1px solid #f3f3f3;
+    border-bottom: 1px solid #e6e6e6;
 }
 
 .surah {
@@ -423,7 +436,7 @@ h1 {
 }
 
 .surah-top2 {
-    font-size: 10px;
+    font-size: 13px;
     color: #bfbfbf;
 }
 
@@ -514,17 +527,17 @@ a.share-big {
 }
 
 .section {
-    padding: 20px 65px;
-    background: #f9f4f1;
+    padding: 20px 35px;
+    background: #f3f8dc;
     border-bottom: 1px solid #eceaea;
 }
 
 .section-left, .section-right {
-    width: 365px;
+    width: 395px;
 }
 
 h2 {
-    font-size: 20x;
+    font-size: 20px;
     font-weight: normal;
     margin: 0 0 10px;
 }
@@ -536,8 +549,10 @@ h2 {
 .section-translation {
     padding: 20px 0 0;
     border-bottom: 1px solid #ededed;
-    font-size: 13px;
+    font-size: 14px;
     margin: 0 65px;
+    text-align: justify;
+    line-height: 20px;
 }
 
 .section-translation p {

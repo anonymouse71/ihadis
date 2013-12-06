@@ -1,0 +1,19 @@
+{% extends '@IhadisCore/layout.html.twig' %}
+
+{% block content %}
+
+    {% include '@IhadisCore/Default/_secondaryNav.html.twig' %}
+
+    {% for section in sections %}
+
+        {% include '@IhadisCore/Default/_sectionHeader.html.twig' with {'section': section} %}
+
+        {% for hadith in section.hadiths %}
+
+            {% include '@IhadisCore/Default/_hadith.html.twig' with {'hadith': hadith} %}
+
+        {% endfor %}
+
+    {% endfor %}
+
+{% endblock %}

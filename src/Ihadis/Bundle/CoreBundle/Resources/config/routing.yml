@@ -2,7 +2,7 @@ ihadis_book:
     resource: "@IhadisCoreBundle/Resources/config/routes/book.yml"
     prefix:   /admin/books
 
-ihadis_book:
+ihadis_chapter:
     resource: "@IhadisCoreBundle/Resources/config/routes/chapter.yml"
     prefix:   /admin/chapters
 
@@ -14,6 +14,10 @@ ihadis_hadith:
     resource: "@IhadisCoreBundle/Resources/config/routes/hadith.yml"
     prefix:   /admin/hadiths
 
-ihadis_core_homepage:
+ihadis_homepage:
     pattern:  /
     defaults: { _controller: IhadisCoreBundle:Default:index }
+
+ihadis_public_chapter:
+    pattern: /{slug}/{number}
+    defaults: { _controller: IhadisCoreBundle:Default:chapter }

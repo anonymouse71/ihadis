@@ -1,0 +1,113 @@
+<div class="surah-holder-main">
+
+    <div class="surah-holder fl">
+
+        <div class="surah-top">
+
+            <div class="surah-number">
+                {{ hadith.numberSecondary }}
+            </div>
+
+            <div class="references">
+                <p><span>Reference :</span><strong>{{ hadith.getReferencePartsEnglish(1) }}</strong></p>
+                <p><span>In-book Reference :</span><strong>{{ hadith.getReferencePartsEnglish(2) }}</strong></p>
+            </div>
+
+            <div class="clr"></div>
+
+        </div>
+
+        <div class="surah-bottom">
+
+            <div class="translation fl">
+                <ul>
+                    <li><a href="#{{ hadith.numberPrimary }}" data-id="en" class="active">En</a></li>
+                    <li><a href="#{{ hadith.numberPrimary }}" data-id="bn">Bn</a></li>
+                </ul>
+            </div>
+
+            <div class="surah fr en">
+                <p>Narrated <span>{{ hadith.getNarratorEnglish }}:</span></p>
+                <div>{{ hadith.getBodyEnglish }}</div>
+            </div>
+
+            <div class="surah fr bn" style="display: none;">
+                <p><span>{{ hadith.getNarrator }}</span> থেকে বর্নীতঃ </p>
+                <div>{{ hadith.getBody }}</div>
+            </div>
+
+            <div class="clr"></div>
+
+        </div>
+
+    </div>
+
+    <div class="surah-holder fr">
+
+        <div class="surah-top2">
+
+            <div class="fr" style="width: 34px">&nbsp;</div>
+
+            <div class="int-no fr">
+                <img src="/images/int_no.png"/><br/>
+                Intl No
+            </div>
+
+            <div class="surah-no2 fr">
+                {{ hadith.numberPrimary }}
+            </div>
+
+            <div class="authenticity fr">
+                <p>Authenticity Status</p>
+                <span>{{ hadith.getAuthenticityLabel }}</span>
+                {% if hadith.scholarReviewed %}
+                &nbsp;&nbsp;<span>Scholar Review: <img src="/images/green_tick.png"/></span>
+                {% endif %}
+            </div>
+
+            <div class="clr"></div>
+
+        </div>
+
+        <div class="surah-bottom">
+
+            <div class="surah fl">
+
+                <p class="fr">
+                    Narrated <span>{{ hadith.getNarratorArabic }}</span>
+                </p>
+
+                <div class="clr"></div>
+
+                <div>{{ hadith.getBodyArabic }}‏</div>
+
+            </div>
+
+            <div class="clr"></div>
+
+        </div>
+
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="surah-bottom-panel">
+
+        <a class="copy-link fl" href="#">Copy Link</a>
+
+        <div class="bottom-links fl">
+            <a class="tags" href="#">Tags</a>
+            <a class="footnote" href="#">Footnote</a>
+            <a class="report" href="#">Report</a>
+            <a class="print" href="#">Print</a>
+        </div>
+
+        <a class="share fr" href="#">Share</a>
+
+        <div class="clr"></div>
+
+    </div>
+
+    <div class="clr"></div>
+
+</div>

@@ -98,6 +98,13 @@ class Book
      */
     private $chapters;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=50)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->chapters = new ArrayCollection();
@@ -309,5 +316,29 @@ class Book
     public function getNumberOfChapters()
     {
         return $this->numberOfChapters;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Book
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

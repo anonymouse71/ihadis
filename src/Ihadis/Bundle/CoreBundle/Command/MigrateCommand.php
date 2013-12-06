@@ -85,7 +85,7 @@ class MigrateCommand extends ContainerAwareCommand
         $chapter = new Chapter();
         $chapter->setTitle($data['field_hadith_book_chapter']);
         $chapter->setBook($book);
-        $chapter->setSortOrder($data['field_hadith_book_chapter_id']);
+        $chapter->setNumber($data['field_hadith_book_chapter_id']);
 
         $this->getContainer()->get('doctrine.orm.entity_manager')->persist($chapter);
         $this->getContainer()->get('doctrine.orm.entity_manager')->flush();

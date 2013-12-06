@@ -1,4 +1,4 @@
-var IHadis = function () {
+var IHadisBackend = function () {
 
     var hadithCounter = 1;
 

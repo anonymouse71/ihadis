@@ -574,4 +574,21 @@ class Hadith
         $this->translate('ar')->setReference($reference);
         return $this;
     }
+
+    public function getAuthenticityLabel()
+    {
+        switch ($this->validity) {
+            case self::VALIDITY_NONE    : return '-';
+            case self::VALIDITY_SAHIH   : return 'Sahih';
+            case self::VALIDITY_HASAN   : return 'Hasan';
+            case self::VALIDITY_MAUDU   : return 'Maudu';
+            case self::VALIDITY_DAIF    : return "D'aif";
+        }
+    }
+
+    public function getReferencePartsEnglish($index = 0)
+    {
+        $lines = explode("\n", $this->getReferenceEnglish());
+        return isset($lines[$index-1]) ? $lines[$index-1] : '';
+    }
 }

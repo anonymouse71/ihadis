@@ -46,9 +46,9 @@ class Chapter
     /**
      * @var int
      *
-     * @ORM\Column(name="sort_order", type="integer")
+     * @ORM\Column(name="number", type="integer")
      */
-    private $sortOrder = 0;
+    private $number = 0;
 
     /**
      * @var Book
@@ -154,25 +154,25 @@ class Chapter
     }
 
     /**
-     * Set sort order
+     * Set number
      *
-     * @param int $order
+     * @param int $number
      * @return Chapter
      */
-    public function setSortOrder($order)
+    public function setNumber($number)
     {
-        $this->sortOrder = $order;
+        $this->number = $number;
         return $this;
     }
 
     /**
-     * Get sort order
+     * Get number
      *
-     * @return Chapter
+     * @return int
      */
-    public function getSortOrder()
+    public function getNumber()
     {
-        return $this->sortOrder;
+        return $this->number;
     }
 
     /**
