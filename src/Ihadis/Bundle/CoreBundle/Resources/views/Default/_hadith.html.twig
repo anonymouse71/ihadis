@@ -28,13 +28,13 @@
                 </ul>
             </div>
 
-            <div class="surah fr en">
+            <div id="hadith-body-{{ hadith.numberPrimary }}-en" class="surah fr en">
                 <p>Narrated <span>{{ hadith.getNarratorEnglish }}:</span></p>
                 <div>{{ hadith.getBodyEnglish }}</div>
             </div>
 
-            <div class="surah fr bn" style="display: none;">
-                <p><span>{{ hadith.getNarrator }}</span> থেকে বর্নীতঃ </p>
+            <div id="hadith-body-{{ hadith.numberPrimary }}-bn" class="surah fr bn" style="display: none;">
+                <p><span>{{ hadith.getNarrator }}</span> থেকে বর্ণিতঃ  </p>
                 <div>{{ hadith.getBody }}</div>
             </div>
 
@@ -76,7 +76,7 @@
             <div class="surah fl">
 
                 <p class="fr">
-                    Narrated <span>{{ hadith.getNarratorArabic }}</span>
+                    Narrated <span>{{ hadith.getNarratorEnglish }}:</span>
                 </p>
 
                 <div class="clr"></div>
@@ -95,7 +95,7 @@
 
     <div class="surah-bottom-panel">
 
-        <a class="copy-link fl" href="#">Copy Link</a>
+        <a data-id="{{ hadith.numberPrimary }}" class="copy-hadith fl" href="#copy" data-clipboard-text="Copy me!">Copy Hadith</a>
 
         <div class="bottom-links fl">
             <a class="tags" href="#">Tags</a>

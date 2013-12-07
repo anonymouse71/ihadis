@@ -133,7 +133,7 @@ a.user {
 .left-panel {
     width: 135px;
     float: left;
-    background: #f3f8f2;
+    background: #fcfafa;
     border-right: 1px solid #dfdfdf;
     box-shadow: 1px 0 0 #f8f8f8;
 }
@@ -180,6 +180,7 @@ a.user {
     color: #fff;
     border: 1px solid #45903c;
     border-left: none;
+    width: 54px;
 }
 
 .translation-panel li a:hover, .translation-panel li.active a {
@@ -204,13 +205,13 @@ a.user {
 
 .left-nav-details {
     padding: 10px 5px 10px 15px;
-    font-size: 13px;
+    font-size: 12px;
     color: #9f9f9f;
 }
 
 .left-nav-details li {
     margin: 0 0 10px;
-    padding: 0 0 0 24px;
+    padding: 0 0 0 18px;
 }
 
 .left-nav-details li.selected {
@@ -369,7 +370,7 @@ h1 {
 
 .surah-top {
     padding: 0 0 0 55px;
-    font-size: 13px;
+    font-size: 11px;
     color: #bfbfbf;
 }
 
@@ -468,12 +469,17 @@ h1 {
     font-size: 12px;
 }
 
-a.copy-link, a.share {
+a.copy-link, a.share, a.copy-hadith {
     color: #8dc63f;
     display: inline-block;
 }
 
 a.copy-link {
+    background: url(../images/icon_copy.png) left no-repeat;
+    padding: 0 0 0 20px;
+}
+
+a.copy-hadith {
     background: url(../images/icon_copy.png) left no-repeat;
     padding: 0 0 0 20px;
 }
@@ -528,7 +534,7 @@ a.share-big {
 
 .section {
     padding: 20px 35px;
-    background: #f3f8dc;
+    background: #f8ffef;
     border-bottom: 1px solid #eceaea;
 }
 
