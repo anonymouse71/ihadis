@@ -24,19 +24,37 @@
     </div>
 
     {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
+
         {% if section.getPrefaceEnglish|length > 1 or section.getPrefaceArabic|length > 1 %}
         <div class="section-translation bn">
+
+            {% if section.getPrefaceArabic|length > 1 %}
             <p class="ar">{{ section.getPrefaceArabic }}</p>
+            {% endif %}
+
+            {% if section.getPrefaceEnglish|length > 1 %}
             <p>{{ section.getPrefaceEnglish }}</p>
+            {% endif %}
+
         </div>
         {% endif %}
+
     {% else %}
+
         {% if section.getPreface|length > 1 or section.getPrefaceArabic|length > 1 %}
         <div class="section-translation">
-            <p class="ar">{{ section.getPrefaceArabic }}</p>
+
+            {% if section.getPrefaceArabic|length > 1 %}
+                <p class="ar">{{ section.getPrefaceArabic }}</p>
+            {% endif %}
+
+            {% if section.getPreface|length > 1 %}
             <p class="bn">{{ section.getPreface }}</p>
+            {% endif %}
+
         </div>
         {% endif %}
+
     {% endif %}
 
 </div>

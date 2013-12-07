@@ -4,7 +4,7 @@ var IHadis = function () {
 
     var handleTranslationToggle = function() {
 
-        $(".translation a").live('click', function(){
+        $(".utility-toolbar a").live('click', function(){
 
             $(this).parent().parent().find('a').removeClass('active');
             $(this).addClass('active');

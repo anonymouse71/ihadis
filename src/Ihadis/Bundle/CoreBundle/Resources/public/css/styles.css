@@ -36,8 +36,10 @@ header, footer, section, article, aside, hgroup, nav {
 }
 
 .ar {
-    font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif !important;
+    font-family: KFGQPC Uthman Taha Naskh, KFGQPC Uthmanic Script HAFS, Scheherazade, Trebuchet MS, Arial, Helvetica, Tahoma, Verdana, sans-serif !important;
     direction: rtl;
+    font-size: 18px;
+    line-height: 1.2;
 }
 
 input:-moz-placeholder, input:-webkit-placeholder, input:-o-placeholder, input:-ms-placeholder {
@@ -378,6 +380,8 @@ h1 {
     padding: 0 0 0 55px;
     font-size: 11px;
     color: #bfbfbf;
+    height: 35px;
+    overflow: hidden;
 }
 
 .surah-number {
@@ -390,8 +394,11 @@ h1 {
 }
 
 .references {
-    float: left;
+    /*float: left;*/
+    color: #666;
     font-family: Tahom, Arial, sans-serif;
+    font-weight: normal;
+    text-align: right;
 }
 
 .references p {
@@ -404,7 +411,7 @@ h1 {
 }
 
 .surah-bottom {
-    padding: 30px 0 0;
+    padding: 20px 0 0;
 }
 
 .translation li a, .translation li a:link, .translation li a:visited {
@@ -447,6 +454,8 @@ h1 {
 .surah-top2 {
     font-size: 13px;
     color: #bfbfbf;
+    height: 35px;
+    overflow: hidden;
 }
 
 .int-no {
@@ -460,19 +469,23 @@ h1 {
     margin: 0 10px 0 24px;
 }
 
-.authenticity {
-    text-align: right;
-}
-
 .authenticity p {
-    font-weight: bold;
-    color: #8dc63f;
-    font-size: 13px;
+    font-weight: normal;
+    color: #666;
     margin: 0 0 4px;
 }
 
+.authenticity span {
+    font-weight: bold;
+    color: #666;
+}
+
+.authenticity span.sahih {
+    color: #8dc63f;
+}
+
 .surah-bottom-panel {
-    padding: 40px 55px 0;
+    padding: 30px 55px 0;
     font-weight: bold;
     font-size: 12px;
 }
@@ -524,6 +537,52 @@ a.share {
 
 .bottom-links a.tags {
     background: url(../images/icon_tag.png) right no-repeat;
+}
+
+.utility-toolbar {
+    margin-top: 5px;
+}
+
+.utility-toolbar li a {
+    width: 32px;
+    height: 24px;
+    padding: 8px 0 0;
+    display: block;
+    border: 1px solid #e6e6e6;
+    border-bottom: none;
+    font-size: 12px;
+    color: #c6c6c6;
+    text-align: center;
+}
+
+.utility-toolbar li:nth-last-child(1) a {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.utility-toolbar li a:hover, .utility-toolbar li a.active {
+    color: #000;
+    background-color: #efefef;
+    text-decoration: none;
+}
+
+a.report {
+    background: url(../images/icon_report.png) center no-repeat;
+}
+
+a.print {
+    background: url(../images/icon_print.png) center no-repeat;
+}
+
+a.tags {
+    background: url(../images/icon_tag.png) center no-repeat;
+}
+
+a.fb {
+    background: url(../images/icon_fb.png) center no-repeat;
+}
+
+a.tw {
+    background: url(../images/icon_tw.png) center no-repeat;
 }
 
 a.share-big {

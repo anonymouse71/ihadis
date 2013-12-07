@@ -10,18 +10,13 @@
                 {{ hadith.numberSecondary }}
             </div>
 
-            <div class="references">
-                <p><span>Reference :</span>{{ hadith.getReferencePartsEnglish(1) }}</p>
-                <p><span>In-book Reference :</span>{{ hadith.getReferencePartsEnglish(2) }}</p>
-            </div>
-
             <div class="clr"></div>
 
         </div>
 
         <div class="surah-bottom">
 
-            <div class="translation fl">
+            <div class="utility-toolbar fl">
                 <ul>
                     <li><a href="#{{ hadith.numberPrimary }}-en" data-id="en" class="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}active{% endif %}">En</a></li>
                     <li><a href="#{{ hadith.numberPrimary }}-bn" data-id="bn" class="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}active{% endif %}">Bn</a></li>
@@ -59,14 +54,6 @@
                 {{ hadith.numberPrimary }}
             </div>
 
-            <div class="authenticity fr">
-                <p>Authenticity Status</p>
-                <span>{{ hadith.getAuthenticityLabel }}</span>
-                {% if hadith.scholarReviewed %}
-                &nbsp;&nbsp;<span>Scholar Review: <img src="/images/green_tick.png"/></span>
-                {% endif %}
-            </div>
-
             <div class="clr"></div>
 
         </div>
@@ -85,6 +72,16 @@
 
             </div>
 
+            <div class="utility-toolbar fr">
+                <ul>
+                    <li><a href="#{{ hadith.numberPrimary }}-report" class="report"></a></li>
+                    <li><a href="#{{ hadith.numberPrimary }}-print" class="print"></a></li>
+                    <li><a href="#{{ hadith.numberPrimary }}-tags" class="tags"></a></li>
+                    <li><a href="#{{ hadith.numberPrimary }}-fb" class="fb"></a></li>
+                    <li><a href="#{{ hadith.numberPrimary }}-tw" class="tw"></a></li>
+                </ul>
+            </div>
+
             <div class="clr"></div>
 
         </div>
@@ -95,18 +92,27 @@
 
     <div class="surah-bottom-panel">
 
-        <a data-id="{{ hadith.numberPrimary }}" class="copy-hadith fl" href="#copy" data-clipboard-text="Copy me!">Copy Hadith</a>
+        <div class="authenticity fl">
+            <p>Authenticity Status: <span class="{{ hadith.getAuthenticityLabel|lower }}">{{ hadith.getAuthenticityLabel }}</span></p>
+            <p>Scholar Review: <img src="/images/green_tick.png"/></p>
+        </div>
 
-        <div class="bottom-links fl">
+        <div class="references fr">
+            <p><span>Reference :</span> {{ hadith.getReferencePartsEnglish(1) }}</p>
+            <p><span>In-book Reference :</span> {{ hadith.getReferencePartsEnglish(2) }}</p>
+        </div>
+
+        <div class="clr"></div>
+
+        {#<div class="bottom-links fl">
+            <a class="copy-hadith" href="#">Copy Hadith</a>
             <a class="tags" href="#">Tags</a>
             <a class="footnote" href="#">Footnote</a>
             <a class="report" href="#">Report</a>
             <a class="print" href="#">Print</a>
         </div>
 
-        <a class="share fr" href="#">Share</a>
-
-        <div class="clr"></div>
+        <a class="share fr" href="#">Share</a>#}
 
     </div>
 
