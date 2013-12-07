@@ -16,7 +16,17 @@ var IHadis = function () {
 
     }
 
+    var handleLanguageToggle = function() {
 
+        $('.translation-panel a').click(function(){
+
+            var lang = $(this).data('id');
+            $.cookie('lang', lang, { expires: 365, path: '/' });
+            window.location.reload();
+
+        });
+
+    }
 
     var initZeroClipboard = function() {
         ZeroClipboard.setDefaults( { moviePath: '/bundles/ihadiscore/js/ZeroClipboard.swf' } );
@@ -36,8 +46,9 @@ var IHadis = function () {
     return {
 
         init: function() {
-            initZeroClipboard();
-            //handleHadithCopy();
+            /*initZeroClipboard();
+            handleHadithCopy();*/
+            handleLanguageToggle();
             handleTranslationToggle();
         }
 

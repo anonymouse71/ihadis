@@ -11,8 +11,8 @@
             </div>
 
             <div class="references">
-                <p><span>Reference :</span><strong>{{ hadith.getReferencePartsEnglish(1) }}</strong></p>
-                <p><span>In-book Reference :</span><strong>{{ hadith.getReferencePartsEnglish(2) }}</strong></p>
+                <p><span>Reference :</span>{{ hadith.getReferencePartsEnglish(1) }}</p>
+                <p><span>In-book Reference :</span>{{ hadith.getReferencePartsEnglish(2) }}</p>
             </div>
 
             <div class="clr"></div>
@@ -23,17 +23,17 @@
 
             <div class="translation fl">
                 <ul>
-                    <li><a href="#{{ hadith.numberPrimary }}-en" data-id="en" class="active">En</a></li>
-                    <li><a href="#{{ hadith.numberPrimary }}-bn" data-id="bn">Bn</a></li>
+                    <li><a href="#{{ hadith.numberPrimary }}-en" data-id="en" class="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}active{% endif %}">En</a></li>
+                    <li><a href="#{{ hadith.numberPrimary }}-bn" data-id="bn" class="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}active{% endif %}">Bn</a></li>
                 </ul>
             </div>
 
-            <div id="hadith-body-{{ hadith.numberPrimary }}-en" class="surah fr en">
+            <div id="hadith-body-{{ hadith.numberPrimary }}-en" class="surah fr en" style="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}display: block;{% endif %}">
                 <p>Narrated <span>{{ hadith.getNarratorEnglish }}:</span></p>
                 <div>{{ hadith.getBodyEnglish }}</div>
             </div>
 
-            <div id="hadith-body-{{ hadith.numberPrimary }}-bn" class="surah fr bn" style="display: none;">
+            <div id="hadith-body-{{ hadith.numberPrimary }}-bn" class="surah fr bn" style="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}display: block;{% endif %}">
                 <p><span>{{ hadith.getNarrator }}</span> থেকে বর্ণিতঃ  </p>
                 <div>{{ hadith.getBody }}</div>
             </div>
@@ -73,7 +73,7 @@
 
         <div class="surah-bottom">
 
-            <div class="surah fl">
+            <div class="surah fl" style="display: block">
 
                 <p class="fr">
                     Narrated <span>{{ hadith.getNarratorEnglish }}:</span>
