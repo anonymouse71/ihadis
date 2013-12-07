@@ -5,7 +5,7 @@
 
 body {
     font-size: 15px;
-    font-family: Arial, Tahoma, sans-serif;
+    font-family: Tahoma, Arial, Helvetica, Verdana, sans-serif;
     color: #000;
 }
 
@@ -32,7 +32,11 @@ header, footer, section, article, aside, hgroup, nav {
 }
 
 .bn {
-    font-family: Nikosh2, SolaimanLipi, Nikosh, NikoshBAN, Verdana, sans-serif !important;
+    font-family: kalpurush, Nikosh2, SolaimanLipi, Nikosh, NikoshBAN, Verdana, sans-serif !important;
+}
+
+.ar {
+    font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif !important;
 }
 
 input:-moz-placeholder, input:-webkit-placeholder, input:-o-placeholder, input:-ms-placeholder {
@@ -74,6 +78,7 @@ input:-moz-placeholder, input:-webkit-placeholder, input:-o-placeholder, input:-
 .top {
     padding: 0 10px 0;
     border-bottom: 1px solid #eaeaea;
+    position: fixed;  background: #FFF;  width: 1011px;  top: 0px;
 }
 
 .logo {
@@ -133,9 +138,11 @@ a.user {
 .left-panel {
     width: 135px;
     float: left;
-    background: #fcfafa;
+    background: #FCFAFA;
     border-right: 1px solid #dfdfdf;
     box-shadow: 1px 0 0 #f8f8f8;
+    position: fixed;
+    top: 41px;
 }
 
 .left-navigations {
@@ -163,6 +170,10 @@ a.user {
     background: url(../images/arrow_up.png);
 }
 
+.section-container {
+    margin-top: 114px;
+}
+
 .translation-panel {
     margin: 0 0 10px;
 }
@@ -180,7 +191,7 @@ a.user {
     color: #fff;
     border: 1px solid #45903c;
     border-left: none;
-    width: 54px;
+    width: 53px;
 }
 
 .translation-panel li a:hover, .translation-panel li.active a {
@@ -211,7 +222,7 @@ a.user {
 
 .left-nav-details li {
     margin: 0 0 10px;
-    padding: 0 0 0 18px;
+    padding: 0 0 0 24px;
 }
 
 .left-nav-details li.selected {
@@ -227,10 +238,10 @@ a.user {
 }
 
 .hadith-search-panel {
-    border: 1px solid #e2e0e0;
     background: #fff;
     font-size: 12px;
-    border-top: 1px solid #e2e0e0;
+    border: 1px solid #e2e0e0;
+    border-right-style: none;
 }
 
 .hadith-search {
@@ -265,6 +276,10 @@ a.user {
 .second-nav-holder {
     border-bottom: 1px solid #e4e4e4;
     padding: 10px 35px 15px;
+    position: fixed;
+    background: #fff;
+    width: 824px;
+    top: 40px;
 }
 
 h1 {
@@ -459,7 +474,7 @@ h1 {
 .authenticity p {
     font-weight: bold;
     color: #8dc63f;
-    font-size: 12px;
+    font-size: 13px;
     margin: 0 0 4px;
 }
 
@@ -469,17 +484,12 @@ h1 {
     font-size: 12px;
 }
 
-a.copy-link, a.share, a.copy-hadith {
+a.copy-link, a.share {
     color: #8dc63f;
     display: inline-block;
 }
 
 a.copy-link {
-    background: url(../images/icon_copy.png) left no-repeat;
-    padding: 0 0 0 20px;
-}
-
-a.copy-hadith {
     background: url(../images/icon_copy.png) left no-repeat;
     padding: 0 0 0 20px;
 }
@@ -534,7 +544,7 @@ a.share-big {
 
 .section {
     padding: 20px 35px;
-    background: #f8ffef;
+    background: #F8FFEF;
     border-bottom: 1px solid #eceaea;
 }
 
@@ -555,7 +565,7 @@ h2 {
 .section-translation {
     padding: 20px 0 0;
     border-bottom: 1px solid #ededed;
-    font-size: 14px;
+    font-size: 15px;
     margin: 0 65px;
     text-align: justify;
     line-height: 20px;
@@ -617,30 +627,4 @@ a.copy-link2:hover {
     font-size: 14px;
     color: #6c6c6c;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
