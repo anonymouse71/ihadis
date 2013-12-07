@@ -24,15 +24,17 @@
     </div>
 
     {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
-        {% if section.getPreface|length > 1 %}
+        {% if section.getPrefaceEnglish|length > 1 or section.getPrefaceArabic|length > 1 %}
         <div class="section-translation bn">
-            <p>{{ section.getPreface }}</p>
+            <p>{{ section.getPrefaceEnglish }}</p>
+            <p class="ar">{{ section.getPrefaceArabic }}</p>
         </div>
         {% endif %}
     {% else %}
-        {% if section.getPrefaceEnglish|length > 1 %}
+        {% if section.getPreface|length > 1 or section.getPrefaceArabic|length > 1 %}
         <div class="section-translation">
-            <p>{{ section.getPrefaceEnglish }}</p>
+            <p class="bn">{{ section.getPreface }}</p>
+            <p class="ar">{{ section.getPrefaceArabic }}</p>
         </div>
         {% endif %}
     {% endif %}

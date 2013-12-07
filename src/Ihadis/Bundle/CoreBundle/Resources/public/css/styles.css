@@ -37,6 +37,7 @@ header, footer, section, article, aside, hgroup, nav {
 
 .ar {
     font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif !important;
+    direction: rtl;
 }
 
 input:-moz-placeholder, input:-webkit-placeholder, input:-o-placeholder, input:-ms-placeholder {
