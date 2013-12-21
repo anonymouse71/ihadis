@@ -1,0 +1,56 @@
+{% extends 'full_width.html.twig' %}
+
+{% block title %}Assign Chapters{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+{% block body %}
+
+<form action="" method="post">
+
+    <div class="table-toolbar">
+
+        <div class="btn-group">
+        
+            
+            <select name="book" onchange="this.form.submit()">
+                <option>-- Select Book --</option>
+                {% for book in books %}
+                    <option value="{{ book.id }}" {% if app.request.request.get('book') == book.id %}selected="selected"{% endif %} >{{ book.title }}</option>
+                {% endfor %}
+            </select>
+            
+        </div>
+
+    </div>
+
+    <table class="table table-striped table-bordered table-hover" id="chapters" style="width: 60%;">
+
+        <thead>
+
+            <tr>
+                <th class="text-center" style="width: 10%">&nbsp;</th>
+                <th class="text-center" style="width: 75%">Chapter</th>
+                <th class="text-center" style="width: 15%"># of Section</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for chapter in chapters %}
+                <tr>
+                    <td><input type="checkbox" name="chapters[]" value="{{ chapter.id }}" {% if chapter.id in selectedChapters %} checked="checked" {% endif %} /></td>
+                    <td>{{ chapter.title }}</td>
+                    <td class="text-center">{{ chapter.sectionCount }}</td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <input type="submit" value="Save Assignment" />
+
+</form>
+
+{% endblock %}
