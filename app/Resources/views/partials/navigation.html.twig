@@ -3,7 +3,14 @@
     <div class="navbar-inner">
 
         <ul class="nav navbar-nav">
-            <li><a href="{{ path('ihadis_book_list') }}">Books</a> </li>
+
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <li><a href="{{ path('ihadis_book_list') }}">Books</a></li>
+                <li><a href="{{ path('ihadis_admin_user_index') }}">Users</a></li>
+            {% else %}
+                <li><a href="{{ path('ihadis_dashboard') }}">Dashboard</a></li>
+            {% endif %}
+
         </ul>
 
     </div>

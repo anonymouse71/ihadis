@@ -1,18 +1,31 @@
-ihadis_book:
+### Admin Pages ###
+
+ihadis_dashboard:
+    pattern: /admin/dashboard
+    defaults:
+        _controller: IhadisCoreBundle:Dashboard:index
+
+ihadis_admin_book:
     resource: "@IhadisCoreBundle/Resources/config/routes/book.yml"
     prefix:   /admin/books
 
-ihadis_chapter:
+ihadis_admin_chapter:
     resource: "@IhadisCoreBundle/Resources/config/routes/chapter.yml"
     prefix:   /admin/chapters
 
-ihadis_section:
+ihadis_admin_section:
     resource: "@IhadisCoreBundle/Resources/config/routes/section.yml"
     prefix:   /admin/sections
 
-ihadis_hadith:
+ihadis_admin_hadith:
     resource: "@IhadisCoreBundle/Resources/config/routes/hadith.yml"
     prefix:   /admin/hadiths
+
+ihadis_admin_user:
+    resource: "@IhadisCoreBundle/Resources/config/routes/user.yml"
+    prefix:   /admin/users
+
+### Public Pages ###
 
 ihadis_homepage:
     pattern:  /

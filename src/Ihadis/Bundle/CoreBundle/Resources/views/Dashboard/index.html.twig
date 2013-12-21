@@ -1,0 +1,14 @@
+{% extends 'full_width.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+{% block body %}
+
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        <div>Coming soon.</div>
+    {% else %}
+        {% include '@IhadisCore/Dashboard/_assignment.html.twig' %}
+    {% endif %}
+
+{% endblock %}

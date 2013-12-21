@@ -1,0 +1,20 @@
+ihadis_admin_user_index:
+    pattern: /
+    defaults:
+        _controller: IhadisCoreBundle:User:index
+
+ihadis_admin_user_new:
+    pattern: /new
+    defaults:
+        _controller: IhadisCoreBundle:User:new
+
+ihadis_admin_user_create:
+    pattern: /create
+    defaults:
+        _controller: IhadisCoreBundle:User:create
+
+ihadis_admin_user_chapters:
+    pattern: /chapters/{user}
+    defaults:
+        _controller: IhadisCoreBundle:User:chapters
+

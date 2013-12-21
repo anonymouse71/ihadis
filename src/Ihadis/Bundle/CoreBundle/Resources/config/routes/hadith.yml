@@ -12,6 +12,8 @@ ihadis_hadith_list:
         _sylius:
             criteria:
                 section: $section
+            sorting:
+                numberPrimary: asc
 
 ihadis_hadith_add:
     pattern: /add/{section}
