@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             //new FOS\ElasticaBundle\FOSElasticaBundle(),
 
             new Ihadis\Bundle\CoreBundle\IhadisCoreBundle(),
+            new Ihadis\Bundle\WebBundle\IhadisWebBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

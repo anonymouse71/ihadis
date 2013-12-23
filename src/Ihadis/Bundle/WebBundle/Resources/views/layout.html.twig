@@ -4,8 +4,15 @@
     <meta charset="utf-8"/>
     <title>{% block title %}iHadis.com{% endblock %}</title>
 
-    <link href="{{ asset('bundles/ihadiscore/css/styles.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('bundles/ihadiscore/css/styles-responsive.css') }}" rel="stylesheet" type="text/css"/>
+    {% block stylesheets %}
+
+        {% stylesheets
+        "@IhadisWebBundle/Resources/public/css/styles.css"
+        "@IhadisWebBundle/Resources/public/css/styles-responsive.css"
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -46,7 +53,7 @@
         <div class="left-panel">
 
             {% block sidebar %}
-                {% include '@IhadisCore/_sidebar.html.twig' %}
+                {% include '@IhadisWeb/_sidebar.html.twig' %}
             {% endblock %}
 
         </div>
@@ -77,8 +84,8 @@
         "assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js"
         "assets/plugins/jquery.blockui.min.js"
         "assets/plugins/jquery.cookie.min.js"
-        "@IhadisCoreBundle/Resources/public/js/ZeroClipboard.min.js"
-        "@IhadisCoreBundle/Resources/public/js/ihadis.js"
+        "@IhadisWebBundle/Resources/public/js/ZeroClipboard.min.js"
+        "@IhadisWebBundle/Resources/public/js/ihadis.js"
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}

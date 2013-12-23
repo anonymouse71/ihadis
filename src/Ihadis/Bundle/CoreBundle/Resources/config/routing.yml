@@ -24,13 +24,3 @@ ihadis_admin_hadith:
 ihadis_admin_user:
     resource: "@IhadisCoreBundle/Resources/config/routes/user.yml"
     prefix:   /admin/users
-
-### Public Pages ###
-
-ihadis_homepage:
-    pattern:  /
-    defaults: { _controller: IhadisCoreBundle:Default:index }
-
-ihadis_public_chapter:
-    pattern: /{slug}/{number}
-    defaults: { _controller: IhadisCoreBundle:Default:chapter }
