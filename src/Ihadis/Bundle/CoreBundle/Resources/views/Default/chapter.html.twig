@@ -11,7 +11,8 @@
 
         {% include '@IhadisCore/Default/_sectionHeader.html.twig' with {'section': section} %}
 
-        {% for hadith in section.hadiths %}
+        {% set hadiths = hadithRepo.getBySectionId(section.id) %}
+        {% for hadith in hadiths %}
 
             {% include '@IhadisCore/Default/_hadith.html.twig' with {'hadith': hadith} %}
 

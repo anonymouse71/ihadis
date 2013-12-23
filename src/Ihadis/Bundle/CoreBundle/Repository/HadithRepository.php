@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class HadithRepository extends EntityRepository
 {
+    /**
+     * Get Hadiths by Section
+     */
+    public function getBySectionId($sectionId)
+    {
+        $result = $this->createQueryBuilder('h')
+                    ->where('h.section = :section')
+                    ->setParameter('section', $sectionId)
+                    ->orderBy('h.numberPrimary', 'asc')
+                    ->getQuery()
+                    ->getResult();
+
+        return $result;
+    }
+
+
 }

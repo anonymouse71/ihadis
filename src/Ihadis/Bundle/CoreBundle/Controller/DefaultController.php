@@ -19,10 +19,13 @@ class DefaultController extends BaseController
             'chapter' => $chapter
         ));
 
+        $hadithRepository = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith');
+
         return $this->render('IhadisCoreBundle:Default:chapter.html.twig', array(
             'book'     => $book,
             'chapter'  => $chapter,
-            'sections' => $sections
+            'sections' => $sections,
+            'hadithRepo' => $hadithRepository
         ));
     }
 }
