@@ -1,0 +1,7 @@
+parameters:
+#    ihadis_web.example.class: Ihadis\Bundle\WebBundle\Example
+
+services:
+#    ihadis_web.example:
+#        class: %ihadis_web.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

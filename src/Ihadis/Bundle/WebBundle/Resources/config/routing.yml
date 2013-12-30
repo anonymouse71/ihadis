@@ -1,0 +1,9 @@
+### Public Pages ###
+
+ihadis_homepage:
+    pattern:  /
+    defaults: { _controller: IhadisWebBundle:Default:index }
+
+ihadis_public_chapter:
+    pattern: /{slug}/{number}
+    defaults: { _controller: IhadisWebBundle:Default:chapter }

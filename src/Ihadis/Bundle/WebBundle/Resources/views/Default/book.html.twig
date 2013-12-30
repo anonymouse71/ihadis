@@ -1,0 +1,24 @@
+{% extends '@IhadisWeb/layout.html.twig' %}
+
+{% block title %} {{ parent() }} - {{ book.title }} | {{ chapter.title }} {% endblock %}
+
+{% block content %}
+
+    {% include '@IhadisWeb/Default/_secondaryNav.html.twig' %}
+
+    <div class="section-container">
+        {% for section in sections %}
+
+            {% include '@IhadisWeb/Default/_sectionHeader.html.twig' with {'section': section} %}
+
+            {% set hadiths = hadithRepo.getBySectionId(section.id) %}
+            {% for hadith in hadiths %}
+
+                {% include '@IhadisWeb/Default/_hadith.html.twig' with {'hadith': hadith} %}
+
+            {% endfor %}
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
