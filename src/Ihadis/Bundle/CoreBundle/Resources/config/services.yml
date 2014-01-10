@@ -3,7 +3,7 @@ parameters:
 services:
 
   ihadis.twig.core_extension:
-      class: IHadis\Bundle\CoreBundle\Twig\CoreExtension
+      class: Ihadis\Bundle\CoreBundle\Twig\CoreExtension
       arguments: [ @service_container ]
       tags:
         - { name: twig.extension }
