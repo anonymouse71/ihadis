@@ -4,7 +4,7 @@ var IHadis = function () {
 
     var handleTranslationToggle = function() {
 
-        $(".utility-toolbar a").live('click', function(){
+        $("#language-toggle a").live('click', function(){
 
             $(this).parent().parent().find('a').removeClass('active');
             $(this).addClass('active');
@@ -23,6 +23,42 @@ var IHadis = function () {
             var lang = $(this).data('id');
             $.cookie('lang', lang, { expires: 365, path: '/' });
             window.location.reload();
+
+        });
+
+    }
+
+    var handleAuthenticityToggle = function() {
+
+        $('.authenticity-selector a').click(function(){
+
+            var selected = $(this).parent().hasClass('selected');
+            var authType = $(this).data('id');
+
+            $.cookie('auth-' + authType, (selected) ? 0 : 1, { expires: 365, path: '/' });
+            window.location.reload();
+
+        });
+
+    }
+
+    var handleHadithTools = function() {
+
+        $('#hadith-tools a').live('click', function(){
+
+            var action = $(this).data('action');
+            var hadith = $(this).data('id');
+
+            var permalink = $('#permalink-' + hadith).attr("href");
+            var title = $('#permalink-' + hadith).attr("title");
+
+            switch (action) {
+
+                case 'print': window.open(permalink, 'print', 'width=800,height=600').print(); break;
+                case 'facebook': window.open('https://www.facebook.com/sharer/sharer.php?s=100&p[url]=' + permalink + '&p[title]=' + title, 'sharer', 'width=626,height=436'); break;
+                case 'twitter' : window.open('https://twitter.com/share?url=' + permalink + '&text=' + title + '&hashtags=hadith,sunnah,islam,ihadis', 'sharer', 'width=626,height=436'); break;
+
+            }
 
         });
 
@@ -50,6 +86,8 @@ var IHadis = function () {
             handleHadithCopy();*/
             handleLanguageToggle();
             handleTranslationToggle();
+            handleAuthenticityToggle();
+            handleHadithTools();
         }
 
     }

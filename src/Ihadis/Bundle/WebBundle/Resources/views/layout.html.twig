@@ -9,6 +9,7 @@
         {% stylesheets
         "@IhadisWebBundle/Resources/public/css/styles.css"
         "@IhadisWebBundle/Resources/public/css/styles-responsive.css"
+        "@IhadisWebBundle/Resources/public/css/print.css"
         %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -29,12 +30,12 @@
             <div class="logo null"><a href="/"><img src="/images/logo.png"/></a></div>
 
             <nav>
-                <ul>
-                    <li><a href="#">Search</a></li>
+                {#<ul>
+                    <li><a href="#">Home</a></li>
                     <li class="active"><a href="#">Hadith Books</a></li>
                     <li><a href="#">Quran</a></li>
                     <li><a href="#">About Us</a></li>
-                </ul>
+                </ul>#}
             </nav>
 
             <div class="signup">
@@ -50,17 +51,21 @@
 
         </div>
 
-        <div class="left-panel">
+        <div class="main-body">
 
-            {% block sidebar %}
-                {% include '@IhadisWeb/_sidebar.html.twig' %}
-            {% endblock %}
+            <div class="left-panel">
 
-        </div>
+                {% block sidebar %}
+                    {% include '@IhadisWeb/_sidebar.html.twig' %}
+                {% endblock %}
 
-        <div class="right-panel">
+            </div>
 
-            {% block content %}{% endblock %}
+            <div class="right-panel">
+
+                {% block content %}{% endblock %}
+
+            </div>
 
         </div>
 

@@ -2,11 +2,11 @@ parameters:
 
 services:
 
-  #ihadis.twig.route_extension:
-  #    class: IHadis\Bundle\CoreBundle\Twig\CoreExtension
-  #    arguments: [ @service_container ]
-  #    tags:
-  #      - { name: twig.extension }
+  ihadis.twig.core_extension:
+      class: IHadis\Bundle\CoreBundle\Twig\CoreExtension
+      arguments: [ @service_container ]
+      tags:
+        - { name: twig.extension }
 
   ihadis.form.type.chapter:
       class: Ihadis\Bundle\CoreBundle\Form\Type\ChapterFormType

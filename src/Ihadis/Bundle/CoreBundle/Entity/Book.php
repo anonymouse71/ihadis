@@ -388,6 +388,141 @@ class Book
         return $this->sections;
     }
 
+    /**
+     * Get Title in English
+     *
+     * @return mixed
+     */
+    public function getTitleEnglish()
+    {
+        return $this->translate('en')->getTitle();
+    }
+
+    /**
+     * Set Title in English
+     *
+     * @param $title
+     *
+     * @return mixed
+     */
+    public function setTitleEnglish($title)
+    {
+        $this->translate('en')->setTitle($title);
+        return $this;
+    }
+
+    /**
+     * Get Title in Arabic
+     *
+     * @return mixed
+     */
+    public function getTitleArabic()
+    {
+        return $this->translate('ar')->getTitle();
+    }
+
+    /**
+     * Set Title in Arabic
+     *
+     * @param $title
+     *
+     * @return mixed
+     */
+    public function setTitleArabic($title)
+    {
+        $this->translate('ar')->setTitle($title);
+    }
+
+    /**
+     * Get Description in English
+     *
+     * @return mixed
+     */
+    public function getDescriptionEnglish()
+    {
+        return $this->translate('en')->getDescription();
+    }
+
+    /**
+     * Set Description in English
+     *
+     * @param $description
+     *
+     * @return mixed
+     */
+    public function setDescriptionEnglish($description)
+    {
+        $this->translate('en')->setDescription($description);
+        return $this;
+    }
+
+    /**
+     * Get Description in Arabic
+     *
+     * @return mixed
+     */
+    public function getDescriptionArabic()
+    {
+        return $this->translate('ar')->getDescription();
+    }
+
+    /**
+     * Set Description in Arabic
+     *
+     * @param $description
+     *
+     * @return mixed
+     */
+    public function setDescriptionArabic($description)
+    {
+        $this->translate('ar')->setDescription($description);
+    }
+
+    /**
+     * Get Synopsis in English
+     *
+     * @return mixed
+     */
+    public function getSynopsisEnglish()
+    {
+        return $this->translate('en')->getSynopsis();
+    }
+
+    /**
+     * Set Synopsis in English
+     *
+     * @param $synopsis
+     *
+     * @return mixed
+     */
+    public function setSynopsisEnglish($synopsis)
+    {
+        $this->translate('en')->setSynopsis($synopsis);
+        return $this;
+    }
+
+    /**
+     * Get Synopsis in Arabic
+     *
+     * @return mixed
+     */
+    public function getSynopsisArabic()
+    {
+        return $this->translate('ar')->getSynopsis();
+    }
+
+    /**
+     * Set Synopsis in Arabic
+     *
+     * @param $synopsis
+     *
+     * @return mixed
+     */
+    public function setSynopsisArabic($synopsis)
+    {
+        $this->translate('ar')->setSynopsis($synopsis);
+    }
+
     public function getChapterCount()
     {
         return $this->chapters->count();

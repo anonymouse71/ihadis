@@ -4,6 +4,14 @@ ihadis_homepage:
     pattern:  /
     defaults: { _controller: IhadisWebBundle:Default:index }
 
+ihadis_public_book:
+    pattern: /{slug}
+    defaults: { _controller: IhadisWebBundle:Default:book }
+
 ihadis_public_chapter:
     pattern: /{slug}/{number}
     defaults: { _controller: IhadisWebBundle:Default:chapter }
+
+ihadis_public_hadith:
+    pattern: /{slug}/{number}/{numberPrimary}
+    defaults: { _controller: IhadisWebBundle:Default:hadith }

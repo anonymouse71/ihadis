@@ -18,15 +18,14 @@
 </div>
 
 <div class="left-nav-details">
-    <ul>
-        <li class="selected">Sahih</li>
-        <li>Hasan</li>
-        <li>Musnad</li>
-        <li>Dai'f</li>
+    <ul class="authenticity-selector">
+        <li class="{% if app.request.cookies.has('auth-sahih') == false or app.request.cookies.get('auth-sahih') == '1' %}selected{% endif %}"><a data-id="sahih" href="#sahih">Sahih</a></li>
+        <li class="{% if app.request.cookies.has('auth-hasan') == false or app.request.cookies.get('auth-hasan') == '1' %}selected{% endif %}"><a data-id="hasan" href="#hasan">Hasan</a></li>
+        <li class="{% if app.request.cookies.has('auth-daif') == false or app.request.cookies.get('auth-daif') == '1' %}selected{% endif %}"><a data-id="daif" href="#daif">Dai'f</a></li>
+        <li class="{% if app.request.cookies.has('auth-maudu') == false or app.request.cookies.get('auth-maudu') == '1' %}selected{% endif %}"><a data-id="maudu" href="#maudu">Maudu</a></li>
     </ul>
 </div>
 
-{#
 <div class="navigation">
     Navigation
 </div>
@@ -37,6 +36,7 @@
     <div class="clr"></div>
 </div>
 
+{% if page == 'chapter' %}
 <div class="left-navigations">
     Chapters
     <div class="nav-arrow fr"></div>
@@ -52,6 +52,6 @@
             <input name="" type="button" class="button" value="Go"/>
         </form>
     </div>
-
     <div class="clr"></div>
-</div>#}
+</div>
+{% endif %}
