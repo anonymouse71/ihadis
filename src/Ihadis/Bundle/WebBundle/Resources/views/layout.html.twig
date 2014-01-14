@@ -9,6 +9,7 @@
         {% stylesheets
         "@IhadisWebBundle/Resources/public/css/styles.css"
         "@IhadisWebBundle/Resources/public/css/styles-responsive.css"
+        "@IhadisWebBundle/Resources/public/css/bjqs.css"
         %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -50,19 +51,21 @@
 
         </div>
 
-        <div class="left-panel">
+        {% block body %}
+            <div class="left-panel">
 
-            {% block sidebar %}
-                {% include '@IhadisWeb/_sidebar.html.twig' %}
-            {% endblock %}
+                {% block sidebar %}
+                    {% include '@IhadisWeb/_sidebar.html.twig' %}
+                {% endblock %}
 
-        </div>
+            </div>
 
-        <div class="right-panel">
+            <div class="right-panel">
 
-            {% block content %}{% endblock %}
+                {% block content %}{% endblock %}
 
-        </div>
+            </div>
+        {% endblock %}
 
         <div class="clr"></div>
 
@@ -72,7 +75,7 @@
 
         <!--[if lt IE 9]>
         <script src="/assets/plugins/respond.min.js"></script>
-        <script src="/assets/plugins/excanvas.min.js"></script>
+        <!--<script src="/assets/plugins/excanvas.min.js"></script>-->
         <![endif]-->
 
         <!-- BEGIN GLOBAL JS -->
@@ -86,6 +89,7 @@
         "assets/plugins/jquery.cookie.min.js"
         "@IhadisWebBundle/Resources/public/js/ZeroClipboard.min.js"
         "@IhadisWebBundle/Resources/public/js/ihadis.js"
+        "@IhadisWebBundle/Resources/public/js/bjqs-1.3.min.js"
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}

@@ -1,5 +1,214 @@
 {% extends '@IhadisWeb/layout.html.twig' %}
-
 {% block body %}
-Assalamu Alaikum!
+    <style>
+        #home {
+            padding: 15px 30px;
+
+            /*For sticky footer*/
+            min-height: 100%;
+            margin-bottom: -100px;
+        }
+        #home:after {
+            content: "";
+            display: block;
+            height: 100px;
+        }
+        #home-logo img{
+            display: block;
+            padding: 30px 0 10px;
+            margin: 0 auto;
+        }
+        #home-search {
+            margin: 20px auto;
+            border: 1px solid lightsteelblue;
+            border-radius: 10px;
+            height: 70px;
+            width: 400px;;
+        }
+        #home-search input {
+            height: 60px;
+            line-height: 60px;
+            width: 342px;
+            border: 0;
+            margin: 5px 0 5px 10px;
+            font-size: 14px;
+        }
+        #home-search img {
+            vertical-align: middle;
+        }
+        #booklist {
+            text-align: center;
+            width: 750px;
+            margin: 0 auto;
+            padding: 10px 15px;
+            color: #aaa;
+        }
+        #booklist h2{
+            color: slategray;
+            margin-bottom: 20px;
+        }
+        #all-books{
+            margin: 0 auto;
+        }
+        #all-books li ul {
+            padding: 10px;
+            /*width: 540px;*/
+            margin: 30px auto 15px;
+        }
+
+        /*First li is slider page and next li is book item*/
+
+        #all-books li li {
+            display: inline-block;
+            width: 100px;
+            height: 170px;
+            margin: 0 15px 20px 15px;
+            vertical-align: top;
+        }
+        #all-books li li img {
+            box-shadow: 2px 2px 5px #333;
+        }
+        #all-books li li .book-name {
+            font-size: 14px;
+
+        }
+        #all-books li li .cover-intro {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        #footer {
+            height: 100px;
+            background-color: lightslategray;
+        }
+        #footer ul {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 20px;
+            line-height: 100px;
+        ;
+        }
+        #footer li {
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+        }
+        #footer li a {
+            color: #dddddd;
+            font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        ul.bjqs-controls.v-centered li a {
+            font-size: 80px;;
+            line-height: 80px;
+            text-decoration: none;
+            opacity: .4;
+        }
+        ul.bjqs-controls.v-centered li a:hover {
+            opacity: 1;
+        }
+    </style>
+
+    <div id="home">
+
+        <div id="home-logo">
+            <img src="/images/logo-big.png" />
+        </div>
+        <div id="home-search">
+            <form>
+                <input type="text" name="q" placeholder="Search by Keywords / Tags" tabindex="0"/>
+                <a href="javascript:;"><img src="/images/magnify.png" /></a>
+            </form>
+        </div>
+        <div id="booklist">
+            <h2>Hadith Collection</h2>
+            <p>
+                A random Hadith - The solution is to apply your background to an inner element or maybe your design will work with background-attachment:fixed instead.
+            </p>
+
+            <div id="all-books">
+                <ul class="bjqs">
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="/images/cover/sahih-bukhari.png">
+                                    <span class="book-name">Sahih Bukhari</span>
+                                    <span class="cover-intro">By Imam Bukhari</span>
+                                </a>
+                            </li>
+                            <li>
+                                <img src="/images/cover/sahih-muslim.png">
+                                <span class="book-name">Sahih Muslim</span>
+                                <span class="cover-intro">By Imam Muslim</span>
+                            </li>
+                            <li>
+                                <img src="/images/cover/tirmidhi.png">
+                                <span class="book-name">At-Tirmidi</span>
+                                <span class="cover-intro">98 Chapters</span>
+                            </li>
+                            <li>
+                                <img src="/images/cover/musnade-ahmad.png">
+                                <span class="book-name">Musnade Ahmad</span>
+                                <span class="cover-intro">98 Chapters</span>
+                            </li>
+                            <li>
+                                <img src="/images/cover/abu-daud.png">
+                                <span class="book-name">Abu Daud</span>
+                                <span class="cover-intro">98 Chapters</span>
+                            </li>
+                            <li>
+                                <img src="/images/cover/nasai.png">
+                                <span class="book-name">Nasai'i</span>
+                                <span class="cover-intro">98 Chapters</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>
+                                <img src="/images/cover/bulugul-maram.png">
+                                <span class="book-name">Bulugul Maram</span>
+                                <span class="cover-intro">98 Chapters</span>
+                            </li>
+                            <li>
+                                <img src="/images/cover/riadus-salehin.png">
+                                <span class="book-name">Riadus-Salehin</span>
+                                <span class="cover-intro">98 Chapters</span>
+                            </li>
+                            <li>
+                                <img src="/images/cover/muatta-imam-malik.png">
+                                <span class="book-name">Riadus-Salehin</span>
+                                <span class="cover-intro">98 Chapters</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div id="footer">
+        <ul>
+            <li><a href="#">Updates</a></li>
+            <li><a href="#">Join with us</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+        </ul>
+    </div>
+
 {% endblock %}
+{% block documentReady %}
+    $('#all-books').bjqs({
+        'height' : 400,
+        'width' : 540,
+        'responsive' : false,
+        'animtype': 'slide',
+        'automatic': false,
+        'nexttext' : "&rsaquo;",
+        'prevtext' : "&lsaquo;",
+        'showmarkers': false
+    });
+{% endblock documentReady %}

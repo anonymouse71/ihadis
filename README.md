@@ -154,6 +154,16 @@ It comes pre-configured with the following bundles:
 All libraries and bundles included in the Symfony Standard Edition are
 released under the MIT or BSD license.
 
+
+Prepare iHadis
+-------------------
+Create 3 symlinks in /web dir
+```
+ln -s ../app/Resources/assets assets
+ln -s ../src/Ihadis/Bundle/WebBundle/Resources/public/images/ images
+ln -s ../app/Resources/assets/img/ img
+```
+
 Enjoy!
 
 [1]:  http://symfony.com/doc/2.3/book/installation.html

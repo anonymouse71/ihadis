@@ -7,6 +7,7 @@ body {
     font-size: 15px;
     font-family: Arial, Helvetica, Verdana, sans-serif;
     color: #000;
+    padding-top: 40px;
 }
 
 img {
@@ -42,8 +43,12 @@ header, footer, section, article, aside, hgroup, nav {
     line-height: 1.3;
 }
 
-input:-moz-placeholder, input:-webkit-placeholder, input:-o-placeholder, input:-ms-placeholder {
-    color: #8c8c8c;
+*::-webkit-input-placeholder,
+*:-moz-placeholder,
+*::-moz-placeholder,
+*:-ms-input-placeholder {
+    color: #dde;
+    font-weight: normal;
 }
 
 .button::-moz-focus-inner {
