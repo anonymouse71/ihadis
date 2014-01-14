@@ -32,6 +32,22 @@ class CoreExtension extends \Twig_Extension
         );
     }
 
+    public function getFilters()
+    {
+        return array(
+            new \Twig_SimpleFilter('banglaNumber', array($this, 'getBanglaNumber'))
+        );
+    }
+
+    public function getBanglaNumber($val)
+    {
+        $engArray  = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
+        $bangArray = array('১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯', '০');
+
+        $converted = str_replace($engArray, $bangArray, $val);
+        return $converted;
+    }
+
     /**
      * Returns the name of the extension.
      *

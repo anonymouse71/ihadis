@@ -151,6 +151,7 @@ a.user {
     float: left;
     background: #FCFAFA;
     border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
     box-shadow: 1px 0 0 #f8f8f8;
     position: fixed;
     top: 41px;
@@ -510,7 +511,7 @@ a.copy-link {
 
 a.share {
     background: url(../images/icon_share.png) right no-repeat;
-    padding: 0 25px 0 0;
+    padding: 0 15px 0 0;
 }
 
 .bottom-links {
@@ -688,3 +689,15 @@ a.copy-link2:hover {
     color: #6c6c6c;
 }
 
+.book-title-holder {
+    position: inherit;
+    margin-top: 50px;
+}
+
+.chapter-list td {
+    padding: 5px 10px;
+}
+
+.print-only {
+    display: none;
+}

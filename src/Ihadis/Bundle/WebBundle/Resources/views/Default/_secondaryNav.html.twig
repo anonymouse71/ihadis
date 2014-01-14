@@ -1,14 +1,19 @@
 <div class="second-nav-holder">
 
     <div class="fl title-holder">
-        <h1 class="bn">{{ book.title }}</h1>
-        <span class="bn">{{ chapter.title }}</span>
+
+        {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
+            <h1>{{ book.titleEnglish }}</h1>
+            <span>{{ chapter.titleEnglish }}</span>
+        {% else %}
+            <h1 class="bn">{{ book.title }}</h1>
+            <span class="bn">{{ chapter.title }}</span>
+        {% endif %}
+
     </div>
 
     <div class="other-nav">
         <ul style="margin-top: 10px;">
-            <li class="bukhari"><a href="#">Bukhari Sharif</a></li>
-            <li class="volume"><a href="#">Volume 4</a></li>
             <li class="search"><a href="#">Search</a></li>
         </ul>
 

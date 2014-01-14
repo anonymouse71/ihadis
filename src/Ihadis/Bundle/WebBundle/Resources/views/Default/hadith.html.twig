@@ -1,0 +1,24 @@
+{% extends '@IhadisWeb/layout.html.twig' %}
+
+{% block title %} {{ parent() }} - {{ book.title }} | {{ chapter.title }} {% endblock %}
+
+{% block content %}
+
+    {% include '@IhadisWeb/Default/_secondaryNav.html.twig' %}
+
+    <div class="section-container">
+
+        {% include '@IhadisWeb/Default/_sectionHeader.html.twig' with {'section': selectedHadith.section} %}
+        {% include '@IhadisWeb/Default/_hadith.html.twig' with {'hadith': selectedHadith, 'book': selectedHadith.book, 'chapter': selectedHadith.chapter} %}
+
+        <div class="remaining-chapter" style="padding: 25px; text-align: center; font-weight: bold">
+            {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
+                Click <a href="{{ path('ihadis_public_chapter', {'slug': book.slug, 'number': chapter.number}) }}">here</a> to view other hadith from this chapter.
+            {% else %}
+                Click <a href="{{ path('ihadis_public_chapter', {'slug': book.slug, 'number': chapter.number}) }}">here</a> to view other hadith from this chapter.
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock %}

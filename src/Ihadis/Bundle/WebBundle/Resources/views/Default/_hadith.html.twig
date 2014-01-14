@@ -6,6 +6,17 @@
 
         <div class="surah-top">
 
+            <div class="print-only">
+                <div class="int-no fr">
+                    <img src="/images/int_no.png"/><br/>
+                    Intl No
+                </div>
+
+                <div class="surah-no2 fr">
+                    {{ hadith.numberPrimary }}
+                </div>
+            </div>
+
             <div class="surah-number">
                 {{ hadith.numberSecondary }}
             </div>
@@ -16,7 +27,7 @@
 
         <div class="surah-bottom">
 
-            <div class="utility-toolbar fl">
+            <div id="language-toggle" class="utility-toolbar fl">
                 <ul>
                     <li><a href="#{{ hadith.numberPrimary }}-en" data-id="en" class="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}active{% endif %}">En</a></li>
                     <li><a href="#{{ hadith.numberPrimary }}-bn" data-id="bn" class="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}active{% endif %}">Bn</a></li>
@@ -72,13 +83,13 @@
 
             </div>
 
-            <div class="utility-toolbar fr">
+            <div id="hadith-tools" class="utility-toolbar fr">
                 <ul>
-                    <li><a href="#{{ hadith.numberPrimary }}-report" class="report"></a></li>
-                    <li><a href="#{{ hadith.numberPrimary }}-print" class="print"></a></li>
-                    <li><a href="#{{ hadith.numberPrimary }}-tags" class="tags"></a></li>
-                    <li><a href="#{{ hadith.numberPrimary }}-fb" class="fb"></a></li>
-                    <li><a href="#{{ hadith.numberPrimary }}-tw" class="tw"></a></li>
+                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="report" href="#{{ hadith.numberPrimary }}-report" class="report"></a></li>
+                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="print" href="#{{ hadith.numberPrimary }}-print" class="print printfriendly"></a></li>
+                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="tags" href="#{{ hadith.numberPrimary }}-tags" class="tags"></a></li>
+                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="facebook" href="#{{ hadith.numberPrimary }}-fb" class="fb"></a></li>
+                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="twitter" href="#{{ hadith.numberPrimary }}-tw" class="tw"></a></li>
                 </ul>
             </div>
 
@@ -104,15 +115,11 @@
 
         <div class="clr"></div>
 
-        {#<div class="bottom-links fl">
-            <a class="copy-hadith" href="#">Copy Hadith</a>
-            <a class="tags" href="#">Tags</a>
-            <a class="footnote" href="#">Footnote</a>
-            <a class="report" href="#">Report</a>
-            <a class="print" href="#">Print</a>
-        </div>
-
-        <a class="share fr" href="#">Share</a>#}
+        <a id="permalink-{{ hadith.numberPrimary }}"
+           class="share permalink"
+           href="{{ url('ihadis_public_hadith', {'slug': book.slug, 'number': chapter.number, 'numberPrimary': hadith.numberPrimary}) }}"
+           title="{{ book.titleEnglish }}, Chapter {{ chapter.titleEnglish }}, Hadith No. {{ hadith.numberPrimary }}">Permalink
+        </a>
 
     </div>
 

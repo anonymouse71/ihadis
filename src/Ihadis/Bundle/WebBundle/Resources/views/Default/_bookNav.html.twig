@@ -1,0 +1,27 @@
+<div class="second-nav-holder book-title-holder">
+
+    <div class="fl title-holder">
+        {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
+            <h1 style="margin-top: 10px;">{{ book.titleEnglish }}</h1>
+        {% else %}
+            <h1 class="bn" style="margin-top: 10px;">{{ book.title }}</h1>
+        {% endif %}
+    </div>
+
+    <div class="other-nav">
+        <h1 style="margin-top: 10px;">{{ book.titleArabic }}</h1>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="book-desc" style="margin: 20px 0;">
+        {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
+            <p>{{ book.descriptionEnglish }}</p>
+        {% else %}
+            <p class="bn">{{ book.description }}</p>
+        {% endif %}
+    </div>
+
+    <div class="clr"></div>
+
+</div>

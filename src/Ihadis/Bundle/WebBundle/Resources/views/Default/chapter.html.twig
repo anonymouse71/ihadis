@@ -14,7 +14,7 @@
         {% set hadiths = hadithRepo.getBySectionId(section.id) %}
         {% for hadith in hadiths %}
 
-            {% include '@IhadisWeb/Default/_hadith.html.twig' with {'hadith': hadith} %}
+            {% include '@IhadisWeb/Default/_hadith.html.twig' with {'hadith': hadith, 'book': book, 'chapter': chapter} %}
 
         {% endfor %}
 

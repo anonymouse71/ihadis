@@ -175,9 +175,52 @@ class Chapter
         return $this->number;
     }
 
+    /**
+     * Get total section count
+     *
+     * @return int
+     */
     public function getSectionCount()
     {
         return $this->sections->count();
+    }
+
+    /**
+     * Get total hadith count
+     *
+     * @return int
+     */
+    public function getHadithCount()
+    {
+        $total = 0;
+
+        foreach ($this->sections as $section) {
+            $total += $section->getHadithCount();
+        }
+
+        return $total;
+    }
+
+    public function getHadithNumberRange()
+    {
+        $first = 0;
+        $last = 0;
+
+        foreach ($this->sections as $section) {
+
+            $hadiths = $section->getHadiths();
+
+            if ($hadiths->count() > 0) {
+                if ($first == 0) {
+                    $first = $hadiths->first()->getNumberPrimary();
+                } else {
+                    $last = $hadiths->last()->getNumberPrimary();
+                }
+            }
+
+        }
+
+        return $first . ' - ' . $last;
     }
 
     /**
