@@ -111,6 +111,13 @@ sylius_resource:
                 model: Ihadis\Bundle\CoreBundle\Entity\Hadith
                 controller: Ihadis\Bundle\CoreBundle\Controller\HadithController
 
+        ihadis.hadith_report:
+            driver: doctrine/orm
+            templates: IhadisCoreBundle:HadithReport
+            classes:
+                model: Ihadis\Bundle\CoreBundle\Entity\HadithReport
+
+
 # Additional Services
 services:
  twig.extension.text:
