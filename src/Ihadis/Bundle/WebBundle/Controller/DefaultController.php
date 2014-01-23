@@ -5,6 +5,7 @@ namespace Ihadis\Bundle\WebBundle\Controller;
 use Ihadis\Bundle\CoreBundle\Entity\Book;
 use Ihadis\Bundle\CoreBundle\Entity\Chapter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends BaseController
 {
@@ -64,5 +65,14 @@ class DefaultController extends BaseController
             'hadithRepo' => $hadithRepository,
             'selectedHadith' => $hadith
         ));
+    }
+
+    public function reportAction()
+    {
+        if ($this->getRequest()->getMethod() == 'POST') {
+            $data = $this->getRequest()->request->all();
+            $this->getDoctrine()->getRepository('IhadisCoreBundle:HadithReport')->create($data);
+            return new Response('OK');
+        }
     }
 }

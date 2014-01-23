@@ -26,6 +26,4 @@ class HadithRepository extends EntityRepository
 
         return $result;
     }
-
-
 }

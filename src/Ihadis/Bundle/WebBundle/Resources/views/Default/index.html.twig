@@ -1,116 +1,17 @@
 {% extends '@IhadisWeb/layout.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    {% stylesheets
+    "@IhadisWebBundle/Resources/public/css/home.css"
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
 {% block body %}
-    <style>
-        #home {
-            padding: 15px 30px;
-
-            /*For sticky footer*/
-            min-height: 100%;
-            margin-bottom: -100px;
-        }
-        #home:after {
-            content: "";
-            display: block;
-            height: 100px;
-        }
-        #home-logo img{
-            display: block;
-            padding: 30px 0 10px;
-            margin: 0 auto;
-        }
-        #home-search {
-            margin: 20px auto;
-            border: 1px solid lightsteelblue;
-            border-radius: 10px;
-            height: 70px;
-            width: 400px;;
-        }
-        #home-search input {
-            height: 60px;
-            line-height: 60px;
-            width: 342px;
-            border: 0;
-            margin: 5px 0 5px 10px;
-            font-size: 14px;
-        }
-        #home-search img {
-            vertical-align: middle;
-        }
-        #booklist {
-            text-align: center;
-            width: 750px;
-            margin: 0 auto;
-            padding: 10px 15px;
-            color: #aaa;
-        }
-        #booklist h2{
-            color: slategray;
-            margin-bottom: 20px;
-        }
-        #all-books{
-            margin: 0 auto;
-        }
-        #all-books li ul {
-            padding: 10px;
-            /*width: 540px;*/
-            margin: 30px auto 15px;
-        }
-
-        /*First li is slider page and next li is book item*/
-
-        #all-books li li {
-            display: inline-block;
-            width: 100px;
-            height: 170px;
-            margin: 0 15px 20px 15px;
-            vertical-align: top;
-        }
-        #all-books li li img {
-            box-shadow: 2px 2px 5px #333;
-        }
-        #all-books li li .book-name {
-            font-size: 13px;
-            margin-top: 6px;
-            display: inline-block;
-        }
-        #all-books li li .cover-intro {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 12px;
-        }
-
-        #footer {
-            height: 100px;
-            background-color: lightslategray;
-        }
-        #footer ul {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 20px;
-            line-height: 100px;
-        ;
-        }
-        #footer li {
-            display: inline-block;
-            width: 150px;
-            text-align: center;
-        }
-        #footer li a {
-            color: #dddddd;
-            font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 16px;
-            text-transform: uppercase;
-        }
-
-        ul.bjqs-controls.v-centered li a {
-            font-size: 80px;;
-            line-height: 80px;
-            text-decoration: none;
-            opacity: .4;
-        }
-        ul.bjqs-controls.v-centered li a:hover {
-            opacity: 1;
-        }
-    </style>
 
     <div id="home">
 

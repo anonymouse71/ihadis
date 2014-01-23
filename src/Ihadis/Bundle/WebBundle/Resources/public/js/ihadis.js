@@ -4,7 +4,7 @@ var IHadis = function () {
 
     var handleTranslationToggle = function() {
 
-        $("#language-toggle a").live('click', function(){
+        $("#language-toggle").find("a").live('click', function(){
 
             $(this).parent().parent().find('a').removeClass('active');
             $(this).addClass('active');
@@ -44,21 +44,41 @@ var IHadis = function () {
 
     var handleHadithTools = function() {
 
-        $('#hadith-tools a').live('click', function(){
+        $('#hadith-tools').find('a').live('click', function(){
 
             var action = $(this).data('action');
             var hadith = $(this).data('id');
 
-            var permalink = $('#permalink-' + hadith).attr("href");
-            var title = $('#permalink-' + hadith).attr("title");
+            var permalinkElement = $('#permalink-' + hadith);
+            var permalink = permalinkElement.attr("href");
+            var title = permalinkElement.attr("title");
 
             switch (action) {
-
-                case 'print': window.open(permalink, 'print', 'width=800,height=600').print(); break;
-                case 'facebook': window.open('https://www.facebook.com/sharer/sharer.php?s=100&p[url]=' + permalink + '&p[title]=' + title, 'sharer', 'width=626,height=436'); break;
-                case 'twitter' : window.open('https://twitter.com/share?url=' + permalink + '&text=' + title + '&hashtags=hadith,sunnah,islam,ihadis', 'sharer', 'width=626,height=436'); break;
-
+                case 'report'   : $('#report-modal').reveal(); break;
+                case 'print'    : window.open(permalink, 'print', 'width=800,height=600').print(); break;
+                case 'facebook' : window.open('https://www.facebook.com/sharer/sharer.php?s=100&p[url]=' + permalink + '&p[title]=' + title, 'sharer', 'width=626,height=436'); break;
+                case 'twitter'  : window.open('https://twitter.com/share?url=' + permalink + '&text=' + title + '&hashtags=hadith,sunnah,islam,ihadis', 'sharer', 'width=626,height=436'); break;
             }
+
+        });
+
+        $('#report-hadith').submit(function(e){
+
+            e.preventDefault();
+            $('#report-submit-progress').show();
+
+            $.ajax({
+                url: '/hadith/report',
+                method: 'POST',
+                data: $('#report-hadith').serialize(),
+                success: function(res) {
+                    if (res == 'OK') {
+                        $('#report-submit-progress').hide();
+                        $('#email, #comments').val('');
+                        $('#report-modal').trigger('reveal:close');
+                    }
+                }
+            });
 
         });
 
@@ -66,7 +86,7 @@ var IHadis = function () {
 
     var initZeroClipboard = function() {
         ZeroClipboard.setDefaults( { moviePath: '/bundles/ihadiscore/js/ZeroClipboard.swf' } );
-        clip = new ZeroClipboard();
+        this.clip = new ZeroClipboard();
     }
 
     var handleHadithCopy = function() {
@@ -75,7 +95,7 @@ var IHadis = function () {
             var lang = $(this).parent().parent().find('.translation a.active').data('id');
             var content = $('#hadith-body-' + hadithNum + '-' + lang).text();
             console.log(content);
-            clip.setText(content);
+            this.clip.setText(content);
         })
     }
 

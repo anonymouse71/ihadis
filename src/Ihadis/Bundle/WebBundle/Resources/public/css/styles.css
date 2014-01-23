@@ -7,7 +7,6 @@ body {
     font-size: 15px;
     font-family: Arial, Helvetica, Verdana, sans-serif;
     color: #000;
-    padding-top: 40px;
 }
 
 img {
@@ -700,4 +699,30 @@ a.copy-link2:hover {
 
 .print-only {
     display: none;
+}
+
+.authenticity, .references {
+    color: #bfbfbf;
+}
+
+.modal-form {
+    margin-top: 15px;
+}
+
+.modal-form label, .modal-form input, .modal-form select, .modal-form textarea {
+    display: block;
+    font-size: 12px;
+}
+
+.modal-form label {
+    font-weight: bold;
+}
+
+.modal-form input, .modal-form select, .modal-form textarea {
+    margin-bottom: 15px;
+}
+
+.modal-form input[type="text"], .modal-form textarea {
+    padding: 5px;
+    width: 98%;
 }
