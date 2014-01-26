@@ -25,25 +25,17 @@ body {
     margin: 0 auto;
 }
 
-#home-search {
-    margin: 20px auto;
-    border: 1px solid lightsteelblue;
+#q {
+    display: block;
     border-radius: 10px;
-    height: 70px;
-    width: 400px;;
-}
-
-#home-search input {
-    height: 60px;
-    line-height: 60px;
-    width: 342px;
-    border: 0;
-    margin: 5px 0 5px 10px;
+    height: 50px;
+    width: 380px;;
+    line-height: 50px;
+    border: 1px solid lightsteelblue;
+    margin: 20px auto;
+    padding: 10px;
     font-size: 14px;
-}
-
-#home-search img {
-    vertical-align: middle;
+    background: transparent url(../images/magnify.png) no-repeat scroll right center;
 }
 
 #booklist {

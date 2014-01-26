@@ -13,6 +13,23 @@ ihadis_public_book:
     pattern: /{slug}
     defaults: { _controller: IhadisWebBundle:Default:book }
 
+about_us:
+    pattern: /page/aboutUs
+    defaults: { _controller: IhadisWebBundle:StaticPages:aboutUs }
+
+disclaimer:
+    pattern: /page/disclaimer
+    defaults: { _controller: IhadisWebBundle:StaticPages:disclaimer }
+
+join_team:
+    pattern: /page/joinTeam
+    defaults: { _controller: IhadisWebBundle:StaticPages:joinTeam }
+
+feedback:
+    pattern: /page/feedback
+    defaults: { _controller: IhadisWebBundle:StaticPages:feedback }
+
+
 ihadis_public_chapter:
     pattern: /{slug}/{number}
     defaults: { _controller: IhadisWebBundle:Default:chapter }
@@ -20,5 +37,3 @@ ihadis_public_chapter:
 ihadis_public_hadith:
     pattern: /{slug}/{number}/{numberPrimary}
     defaults: { _controller: IhadisWebBundle:Default:hadith }
-
-
