@@ -1,6 +1,6 @@
 <div class="section-panel">
 
-    <div class="section">
+    <div class="section" id="section-{{ section.id }}">
 
         {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
         <div class="section-left fl">

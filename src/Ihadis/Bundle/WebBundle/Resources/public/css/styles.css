@@ -279,8 +279,9 @@ a.user {
     padding: 10px 35px 15px;
     position: fixed;
     background: #fff;
+    height: 80px;
     width: 822px;
-    top: 40px;
+    top: 39px;
 }
 
 h1 {
@@ -289,14 +290,16 @@ h1 {
     color: #272325;
 }
 
-.title-holder span {
-    color: #adadad;
-    font-size: 12px;
-    margin: 0 10px 0 0;
+.title-holder {
+    width: 700px;
 }
 
 .title-holder span a, .title-holder span a:link, .title-holder span a:visited {
     color: #adadad;
+}
+
+.title-holder h1 {
+    margin-bottom: 10px;
 }
 
 .other-nav {
