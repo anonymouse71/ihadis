@@ -6,7 +6,7 @@
 
             <h1>{{ book.titleEnglish }}</h1>
 
-            <select id="chapter-selection">
+            <select id="chapter-selection" style="width: 200px;">
                 {% for ch in chapters %}
                     <option value="{{ ch.number }}" {% if ch == chapter %}selected="selected"{% endif %}>{{ ch.titleEnglish }}</option>
                 {% endfor %}
@@ -14,7 +14,7 @@
 
             &nbsp;
 
-            <select id="section-selection">
+            <select id="section-selection" style="width: 350px;">
                 {% for sec in sections %}
                     <option value="{{ sec.id }}">{{ sec.titleEnglish }}</option>
                 {% endfor %}
@@ -24,7 +24,7 @@
 
             <h1 class="bn">{{ book.title }}</h1>
 
-            <select id="chapter-selection" class="bn">
+            <select id="chapter-selection" class="bn" style="width: 200px;">
                 {% for ch in chapters %}
                 <option value="{{ ch.number }}" {% if ch == chapter %}selected="selected"{% endif %}>{{ ch.title }}</option>
                 {% endfor %}
@@ -32,7 +32,7 @@
 
             &nbsp;
 
-            <select id="section-selection" class="bn">
+            <select id="section-selection" class="bn" style="width: 350px;">
                 {% for sec in sections %}
                 <option value="{{ sec.id }}">{{ sec.title }}</option>
                 {% endfor %}

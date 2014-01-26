@@ -78,13 +78,8 @@ var IHadis = function () {
 
     var handleChapterSelection = function() {
 
-        $('#chapter-selection').select2({
-            width: '200px'
-        });
-
-        $('#section-selection').select2({
-            width: '350px'
-        });
+        $('#chapter-selection').select2();
+        $('#section-selection').select2();
 
         $('#chapter-selection').change(function(){
             var url = chapterUrl.replace('100', $(this).val());
