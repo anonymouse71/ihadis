@@ -5,13 +5,10 @@ var IHadis = function () {
     var handleTranslationToggle = function() {
 
         $("#language-toggle").find("a").live('click', function(){
-
             $(this).parent().parent().find('a').removeClass('active');
             $(this).addClass('active');
-
             $(this).parent().parent().parent().parent().find(".surah").hide();
             $(this).parent().parent().parent().parent().find("." + $(this).data('id')).show();
-
         });
 
     }
@@ -19,11 +16,9 @@ var IHadis = function () {
     var handleLanguageToggle = function() {
 
         $('.translation-panel a').click(function(){
-
             var lang = $(this).data('id');
             $.cookie('lang', lang, { expires: 365, path: '/' });
             window.location.reload();
-
         });
 
     }
@@ -31,13 +26,10 @@ var IHadis = function () {
     var handleAuthenticityToggle = function() {
 
         $('.authenticity-selector a').click(function(){
-
             var selected = $(this).parent().hasClass('selected');
             var authType = $(this).data('id');
-
             $.cookie('auth-' + authType, (selected) ? 0 : 1, { expires: 365, path: '/' });
             window.location.reload();
-
         });
 
     }
@@ -84,6 +76,24 @@ var IHadis = function () {
 
     }
 
+    var handleChapterSelection = function() {
+
+        $('#chapter-selection').select2();
+        $('#section-selection').select2();
+
+        $('#chapter-selection').change(function(){
+            var url = chapterUrl.replace('100', $(this).val());
+            window.location.href = url;
+        });
+
+        $('#section-selection').change(function(){
+            $('html, body').animate({
+                scrollTop: $('#section-' + $(this).val()).offset().top - 140
+            }, 2000);
+        });
+
+    }
+
     var initZeroClipboard = function() {
         ZeroClipboard.setDefaults( { moviePath: '/bundles/ihadiscore/js/ZeroClipboard.swf' } );
         this.clip = new ZeroClipboard();
@@ -108,6 +118,7 @@ var IHadis = function () {
             handleTranslationToggle();
             handleAuthenticityToggle();
             handleHadithTools();
+            handleChapterSelection();
         }
 
     }

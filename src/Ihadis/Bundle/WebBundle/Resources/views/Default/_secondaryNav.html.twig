@@ -3,11 +3,41 @@
     <div class="fl title-holder">
 
         {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
+
             <h1>{{ book.titleEnglish }}</h1>
-            <span>{{ chapter.titleEnglish }}</span>
+
+            <select id="chapter-selection" style="width: 200px;">
+                {% for ch in chapters %}
+                    <option value="{{ ch.number }}" {% if ch == chapter %}selected="selected"{% endif %}>{{ ch.titleEnglish }}</option>
+                {% endfor %}
+            </select>
+
+            &nbsp;
+
+            <select id="section-selection" style="width: 350px;">
+                {% for sec in sections %}
+                    <option value="{{ sec.id }}">{{ sec.titleEnglish }}</option>
+                {% endfor %}
+            </select>
+
         {% else %}
+
             <h1 class="bn">{{ book.title }}</h1>
-            <span class="bn">{{ chapter.title }}</span>
+
+            <select id="chapter-selection" class="bn" style="width: 200px;">
+                {% for ch in chapters %}
+                <option value="{{ ch.number }}" {% if ch == chapter %}selected="selected"{% endif %}>{{ ch.title }}</option>
+                {% endfor %}
+            </select>
+
+            &nbsp;
+
+            <select id="section-selection" class="bn" style="width: 350px;">
+                {% for sec in sections %}
+                <option value="{{ sec.id }}">{{ sec.title }}</option>
+                {% endfor %}
+            </select>
+
         {% endif %}
 
     </div>

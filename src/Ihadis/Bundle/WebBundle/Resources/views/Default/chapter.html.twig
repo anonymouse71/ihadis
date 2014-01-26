@@ -7,18 +7,36 @@
     {% include '@IhadisWeb/Default/_secondaryNav.html.twig' %}
 
     <div class="section-container">
-    {% for section in sections %}
 
-        {% include '@IhadisWeb/Default/_sectionHeader.html.twig' with {'section': section} %}
+    {% if sections is empty %}
 
-        {% set hadiths = hadithRepo.getBySectionId(section.id) %}
-        {% for hadith in hadiths %}
+        <div style="height: 220px; padding: 50px 35px">
+            {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
+                This chapter does not contain any hadith yet.
+            {% else %}
+                এই অধ্যায়ে কোন হাদিস এখনো যোগ করা হয়নি।
+            {% endif %}
+        </div>
 
-            {% include '@IhadisWeb/Default/_hadith.html.twig' with {'hadith': hadith, 'book': book, 'chapter': chapter} %}
+    {% else %}
+
+        {% for section in sections %}
+
+            {% include '@IhadisWeb/Default/_sectionHeader.html.twig' with {'section': section} %}
+
+            {% set hadiths = hadithRepo.getBySectionId(section.id) %}
+            {% for hadith in hadiths %}
+
+                {% include '@IhadisWeb/Default/_hadith.html.twig' with {'hadith': hadith, 'book': book, 'chapter': chapter} %}
+
+            {% endfor %}
 
         {% endfor %}
 
-    {% endfor %}
+    {% endif %}
+
     </div>
+
+    <script type="text/javascript">var chapterUrl = '{{ path('ihadis_public_chapter', {'slug': book.slug, 'number': '100'}) }}';</script>
 
 {% endblock %}

@@ -29,6 +29,10 @@ class DefaultController extends BaseController
 
     public function chapterAction(Book $book, Chapter $chapter)
     {
+        $chapters = $this->get('ihadis.repository.chapter')->findBy(array(
+            'book' => $book
+        ));
+
         $sections = $this->get('ihadis.repository.section')->findBy(array(
             'chapter' => $chapter
         ));
@@ -39,6 +43,7 @@ class DefaultController extends BaseController
             'page'       => 'chapter',
             'book'       => $book,
             'chapter'    => $chapter,
+            'chapters'   => $chapters,
             'sections'   => $sections,
             'hadithRepo' => $hadithRepository
         ));
