@@ -9,12 +9,8 @@ ihadis_public_report_hadith:
     defaults: { _controller: IhadisWebBundle:Default:report }
     methods: [POST]
 
-ihadis_public_book:
-    pattern: /{slug}
-    defaults: { _controller: IhadisWebBundle:Default:book }
-
 about_us:
-    pattern: /page/aboutUs
+    pattern: /page/about-us
     defaults: { _controller: IhadisWebBundle:StaticPages:aboutUs }
 
 disclaimer:
@@ -22,16 +18,25 @@ disclaimer:
     defaults: { _controller: IhadisWebBundle:StaticPages:disclaimer }
 
 join_team:
-    pattern: /page/joinTeam
+    pattern: /page/join-team
     defaults: { _controller: IhadisWebBundle:StaticPages:joinTeam }
 
 feedback:
     pattern: /page/feedback
     defaults: { _controller: IhadisWebBundle:StaticPages:feedback }
 
+under_construction:
+    pattern: /page/under_construction
+    defaults: { _controller: IhadisWebBundle:StaticPages:incomplete }
+
 ihadis_pdf_book:
     pattern: /pdf/{bookName}
     defaults: { _controller: IhadisWebBundle:Default:pdfBook }
+
+
+ihadis_public_book:
+    pattern: /{slug}
+    defaults: { _controller: IhadisWebBundle:Default:book }
 
 ihadis_public_chapter:
     pattern: /{slug}/{number}

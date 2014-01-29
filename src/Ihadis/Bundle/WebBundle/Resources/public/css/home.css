@@ -4,11 +4,11 @@ body {
 
 .center {
     border: 0;
-    box-shadow: none;
+    margin: -40px auto 0;
 }
 
 #home {
-    padding: 15px 30px;
+    padding: 55px 30px 15px;
 
     /*For sticky footer*/
     min-height: 100%;
@@ -36,7 +36,9 @@ body {
     border: 1px solid lightsteelblue;
     margin: 20px auto;
     padding: 10px;
-    font-size: 14px;
+    font-size: 18px;
+    text-shadow: 0px 0px 2px #ccc;
+    color: #696;
     background: transparent url(../images/magnify.png) no-repeat scroll right center;
 }
 
@@ -95,31 +97,6 @@ body {
 }
 #all-books li li a {
     text-decoration: none;
-}
-
-#footer {
-    height: 100px;
-    background-color: lightslategray;
-}
-
-#footer ul {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 100px;;
-}
-
-#footer li {
-    display: inline-block;
-    width: 150px;
-    text-align: center;
-}
-
-#footer li a {
-    color: #dddddd;
-    font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    text-transform: uppercase;
 }
 
 ul.bjqs-controls.v-centered li a {

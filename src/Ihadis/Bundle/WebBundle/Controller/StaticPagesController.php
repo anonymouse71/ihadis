@@ -26,4 +26,10 @@ class StaticPagesController extends Controller
         return $this->render('IhadisWebBundle:StaticPages:feedback.html.twig');
     }
 
+    public function incompleteAction()
+    {
+        return $this->render('IhadisWebBundle:StaticPages:incomplete.html.twig');
+    }
+
+
 }

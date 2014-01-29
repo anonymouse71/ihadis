@@ -34,12 +34,16 @@
 
             <nav>
                 <ul>
-                    <li><a href="#">Search</a></li>
-                    <li class="active"><a href="{{ path('ihadis_homepage') }}">Hadith Books</a></li>
-                    <li><a href="{{ path('join_team') }}">Join The Team</a></li>
-                    <li><a href="{{ path('feedback') }}">Feedback</a></li>
-                    <li><a href="{{ path('about_us') }}">About Us</a></li>
-                    <li><a href="{{ path('disclaimer') }}">Disclaimer</a></li>
+                    {% set rut = app.request.get('_route') %}
+                    <li {% if rut == 'ihadis_homepage' %}class="active"{% endif %}>
+                        <a href="{{ path('ihadis_homepage') }}">Hadith Books</a></li>
+                    <li {% if rut == 'join_team' %}class="active"{% endif %}>
+                        <a href="{{ path('join_team') }}">Join The Team</a></li>
+                    <li {% if rut == 'feedback' %}class="active"{% endif %}>
+                        <a href="{{ path('feedback') }}">Feedback</a></li>
+                    <li {% if rut == 'about_us' %}class="active"{% endif %}>
+                        <a href="{{ path('about_us') }}">About Us</a></li>
+                    <li><a href="{{ path('under_construction') }}">Contact</a></li>
                 </ul>
             </nav>
 
@@ -73,12 +77,47 @@
         <div class="clr"></div>
 
         <div id="footer">
-            <ul>
-                <li><a href="#">Updates</a></li>
-                <li><a href="#">Join with us</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-            </ul>
+            <div class="link-box">
+                <h5>More about iHadis</h5>
+                <ul>
+                    <li>&raquo; <a href="{{ path('disclaimer') }}">Disclaimer</a></li>
+                    <li>&raquo; <a href="{{ path('under_construction') }}">Updates</a></li>
+                    <li>&raquo; <a href="{{ path('under_construction') }}">Sources we use</a></li>
+                </ul>
+            </div>
+            <div class="link-box">
+                <h5>Islamic resources</h5>
+                <ul>
+                    <li>&raquo; <a href="#">Quran.com</a></li>
+                    <li>&raquo; <a href="#">Islam House</a></li>
+                    <li>&raquo; <a href="#">Bangla Books</a></li>
+                    <li>&raquo; <a href="#">Bangla lectures</a></li>
+                </ul>
+            </div>
+            <div class="link-box">
+                <h5>Recommended blogs</h5>
+                <ul>
+                    <li>&raquo; <a href="#">Quraner-Alo</a></li>
+                    <li>&raquo; <a href="#">Sorol-Poth</a></li>
+                    <li>&raquo; <a href="#">Somokalin</a></li>
+                    <li>&raquo; <a href="#">Another one</a></li>
+                </ul>
+            </div>
+            <div>
+                <p>
+                    <a href="{{ path('ihadis_homepage') }}">Home</a> &nbsp;
+                    <a href="{{ path('feedback') }}">Feedback</a> &nbsp;
+                    <a href="{{ path('about_us') }}">About Us</a> &nbsp;
+                    <a href="{{ path('join_team') }}">Join Team</a> &nbsp;
+                    <a href="#"><img src="/images/social/facebook.png"/></a> &nbsp;
+                    <a href="#"><img src="/images/social/twitter.png"/></a> &nbsp;
+                    <a href="#"><img src="/images/social/skype.png"/></a> &nbsp;
+                    <a href="#"><img src="/images/social/gmail.png"/></a> &nbsp;
+                </p>
+                <p id="copyright"> Copyright &copy; 2014, all rights reserved, iHadis.com</p>
+            </div>
+            <div class="clr"></div>
+
         </div>
 
     </section>
