@@ -29,6 +29,9 @@ feedback:
     pattern: /page/feedback
     defaults: { _controller: IhadisWebBundle:StaticPages:feedback }
 
+ihadis_pdf_book:
+    pattern: /pdf/{bookName}
+    defaults: { _controller: IhadisWebBundle:Default:pdfBook }
 
 ihadis_public_chapter:
     pattern: /{slug}/{number}

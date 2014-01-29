@@ -1,8 +1,10 @@
 body {
-    font-size: 15px;
-    font-family: Arial, Helvetica, Verdana, sans-serif;
-    color: #000;
     padding-top: 40px;
+}
+
+.center {
+    border: 0;
+    box-shadow: none;
 }
 
 #home {
@@ -39,16 +41,18 @@ body {
 }
 
 #booklist {
+    font-size: 16px;
+    color: #82969A;
+    line-height: 26px;
     text-align: center;
-    width: 750px;
     margin: 0 auto;
     padding: 10px 15px;
-    color: #aaa;
 }
 
 #booklist h2 {
-    color: slategray;
-    margin-bottom: 20px;
+    color: #82969A;
+    font-weight: bold;
+    margin-bottom: 18px;
 }
 
 #all-books {
@@ -65,25 +69,32 @@ body {
 
 #all-books li li {
     display: inline-block;
-    width: 100px;
-    height: 170px;
-    margin: 0 15px 20px 15px;
+    width: 130px;
+    height: 175px;
+    line-height: normal;
+    margin: 0 15px 40px 15px;
     vertical-align: top;
 }
 
 #all-books li li img {
-    box-shadow: 2px 2px 5px #333;
+    box-shadow: 0 0 11px 1px #A29A9A;
+    width: 102px;
+    height: 133px;
 }
 
 #all-books li li .book-name {
-    font-size: 13px;
+    font-size: 15px;
+    color: #82969A;
+    display: block;
     margin-top: 6px;
-    display: inline-block;
 }
 
 #all-books li li .cover-intro {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 12px;
+}
+#all-books li li a {
+    text-decoration: none;
 }
 
 #footer {

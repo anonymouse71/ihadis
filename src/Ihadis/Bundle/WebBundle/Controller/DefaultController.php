@@ -6,12 +6,16 @@ use Ihadis\Bundle\CoreBundle\Entity\Book;
 use Ihadis\Bundle\CoreBundle\Entity\Chapter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Yaml\Yaml;
 
 class DefaultController extends BaseController
 {
     public function indexAction()
     {
-        return $this->render('IhadisWebBundle:Default:index.html.twig');
+        $booklist = Yaml::parse(file_get_contents('../app/config/booklist.yml'));
+        return $this->render('IhadisWebBundle:Default:index.html.twig', array(
+            'booklist' => $booklist,
+        ));
     }
 
     public function bookAction(Book $book)
@@ -25,6 +29,18 @@ class DefaultController extends BaseController
             'book'     => $book,
             'chapters' => $chapters
         ));
+    }
+
+    public function pdfBookAction($bookName)
+    {
+        $booklist = Yaml::parse(file_get_contents('../app/config/booklist.yml'));
+        var_dump($booklist[$bookName]);
+        die;
+//        return $this->render('IhadisWebBundle:Default:book.html.twig', array(
+//            'page'     => 'book',
+//            'book'     => $book,
+//            'chapters' => $chapters
+//        ));
     }
 
     public function chapterAction(Book $book, Chapter $chapter)

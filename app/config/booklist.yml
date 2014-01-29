@@ -1,0 +1,136 @@
+Sahih Bukhari:
+  collector: Imam Bukhari
+  image: sahih-bukhari.png
+  link:
+    type: digital
+    slug: bukhari
+
+Sahih Muslim:
+  collector: Imam Muslim
+  image: sahih-muslim.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+At-Tirmidi:
+  collector: Imam Tirmidi
+  image: tirmidhi.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Ibne Majah:
+  collector: Imam Ibne Majah
+  image: ibne-majah.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Muatta Imam Malik:
+  collector: Imam Malik
+  image: muatta-imam-malik.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Nasai:
+  collector: Imam Nasai
+  image: nasai.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Abu Daud2:
+  collector: Imam Muslim
+  image: sahih-muslim.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Abu Daud3:
+  collector: Imam Muslim
+  image: sahih-muslim.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Abu Daud4:
+  collector: Imam Muslim
+  image: sahih-muslim.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Abu Daud5:
+  collector: Imam Muslim
+  image: sahih-muslim.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Abu Daud6:
+  collector: Imam Muslim
+  image: sahih-muslim.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Abu Daud7:
+  collector: Imam Muslim
+  image: sahih-muslim.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Abu Daud8:
+  collector: Imam Muslim
+  image: sahih-muslim.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+
+Abu Daud9:
+  collector: Imam Muslim
+  image: sahih-muslim.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
