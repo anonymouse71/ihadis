@@ -43,15 +43,18 @@ var IHadis = function () {
 
             var permalinkElement = $('#permalink-' + hadith);
             var footnoteElement = $('#hadith-' + hadith).find('.surah-footnote');
+            var explanationElement = $('#hadith-' + hadith).find('.surah-explanation');
+
             var permalink = permalinkElement.attr("href");
             var title = permalinkElement.attr("title");
 
             switch (action) {
-                case 'report'   : $('#report-modal').reveal(); break;
-                case 'footnote' : footnoteElement.slideToggle(); break;
-                case 'print'    : window.open(permalink, 'print', 'width=800,height=600').print(); break;
-                case 'facebook' : window.open('https://www.facebook.com/sharer/sharer.php?s=100&p[url]=' + permalink + '&p[title]=' + title, 'sharer', 'width=626,height=436'); break;
-                case 'twitter'  : window.open('https://twitter.com/share?url=' + permalink + '&text=' + title + '&hashtags=hadith,sunnah,islam,ihadis', 'sharer', 'width=626,height=436'); break;
+                case 'report'      : $('#report-modal').reveal(); break;
+                case 'footnote'    : footnoteElement.slideToggle(); break;
+                case 'explanation' : explanationElement.slideToggle(); break;
+                case 'print'       : window.open(permalink, 'print', 'width=800,height=600').print(); break;
+                case 'facebook'    : window.open('https://www.facebook.com/sharer/sharer.php?s=100&p[url]=' + permalink + '&p[title]=' + title, 'sharer', 'width=626,height=436'); break;
+                case 'twitter'     : window.open('https://twitter.com/share?url=' + permalink + '&text=' + title + '&hashtags=hadith,sunnah,islam,ihadis', 'sharer', 'width=626,height=436'); break;
             }
 
         });

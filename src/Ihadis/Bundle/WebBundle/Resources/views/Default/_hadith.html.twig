@@ -91,8 +91,8 @@
 
             <div id="hadith-tools" class="utility-toolbar fr">
                 <ul>
-                    {#<li><a data-id="{{ hadith.numberPrimary }}" data-action="report" href="#{{ hadith.numberPrimary }}-report" class="report"></a></li>#}
                     {#<li><a data-id="{{ hadith.numberPrimary }}" data-action="tags" href="#{{ hadith.numberPrimary }}-tags" class="tags"></a></li>#}
+                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="report" href="#{{ hadith.numberPrimary }}-report" class="report"></a></li>
                     <li><a data-id="{{ hadith.numberPrimary }}" data-action="print" href="#{{ hadith.numberPrimary }}-print" class="print"></a></li>
                     <li><a data-id="{{ hadith.numberPrimary }}" data-action="facebook" href="#{{ hadith.numberPrimary }}-fb" class="fb"></a></li>
                     <li><a data-id="{{ hadith.numberPrimary }}" data-action="twitter" href="#{{ hadith.numberPrimary }}-tw" class="tw"></a></li>
@@ -107,11 +107,21 @@
 
     <div class="clr"></div>
 
-    <div class="surah-footnote" style="display: none;">
-        {% if hadith.explanation %}
-            {{ hadith.explanation }}
+    <div class="surah-footnote bn" style="{% if not hadith.note %}display: none;{% endif %}">
+        {% if hadith.note %}
+            {{ hadith.note|nl2br }}
         {% else %}
             <p>এই হাদিসের জন্য কোন ফুটনোট এখনো যোগ করা হয়নি। </p>
+        {% endif %}
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="surah-explanation bn" style="display: none;">
+        {% if hadith.explanation %}
+            {{ hadith.explanation|nl2br }}
+        {% else %}
+            <p>এই হাদিসের জন্য কোন ব্যাখা এখনো যোগ করা হয়নি । </p>
         {% endif %}
     </div>
 
@@ -131,7 +141,7 @@
 
         <div class="bottom-links fl">
             <a data-id="{{ hadith.numberPrimary }}" data-action="footnote" href="#{{ hadith.numberPrimary }}-footnote" class="footnote">Footnote</a>
-            <a data-id="{{ hadith.numberPrimary }}" data-action="report" href="#{{ hadith.numberPrimary }}-report" class="report">Report</a>
+            <a data-id="{{ hadith.numberPrimary }}" data-action="explanation" href="#{{ hadith.numberPrimary }}-explanation" class="explanation">Explanation</a>
             <a id="permalink-{{ hadith.numberPrimary }}"
                 class="share permalink"
                 target="_blank"
