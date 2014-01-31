@@ -10,6 +10,16 @@
 
         <div class="surah-holder-main">
 
+            <div class="book-desc" style="margin: 10px 25px; text-align: justify;">
+                {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
+                    <p>{{ book.descriptionEnglish }}</p>
+                {% else %}
+                    <p class="bn">{{ book.description }}</p>
+                {% endif %}
+            </div>
+
+            <div class="clr"></div>
+
             <table class="chapter-list" cellspacing='0' style="width: 95%">
 
                 {% for chapter in chapters %}

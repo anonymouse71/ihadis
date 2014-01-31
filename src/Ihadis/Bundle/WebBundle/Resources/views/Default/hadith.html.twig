@@ -15,10 +15,12 @@
             {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
                 Click <a href="{{ path('ihadis_public_chapter', {'slug': book.slug, 'number': chapter.number}) }}">here</a> to view other hadith from this chapter.
             {% else %}
-                Click <a href="{{ path('ihadis_public_chapter', {'slug': book.slug, 'number': chapter.number}) }}">here</a> to view other hadith from this chapter.
+                এই অধ্যায়ের অন্যান্য হাদিসগুলো দেখতে হলে <a href="{{ path('ihadis_public_chapter', {'slug': book.slug, 'number': chapter.number}) }}">এখানে</a> ক্লিক করুন।
             {% endif %}
         </div>
 
     </div>
+
+    <script type="text/javascript">var chapterUrl = '{{ path('ihadis_public_chapter', {'slug': book.slug, 'number': '100'}) }}';</script>
 
 {% endblock %}

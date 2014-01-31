@@ -1,4 +1,4 @@
-<div class="surah-holder-main">
+<div id="hadith-{{ hadith.numberPrimary }}" class="surah-holder-main">
 
     <a name="{{ hadith.numberPrimary }}"></a>
 
@@ -54,7 +54,13 @@
 
         <div class="surah-top2">
 
-            <div class="fr" style="width: 34px">&nbsp;</div>
+            <div class="fr" style="width: 34px">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('ihadis_hadith_edit', {'id': hadith.id, 'section': hadith.section.id}) }}"><img src="/images/edit.png"></a>
+                {% else %}
+                    &nbsp;
+                {% endif %}
+            </div>
 
             <div class="int-no fr">
                 <img src="/images/int_no.png"/><br/>
@@ -85,9 +91,9 @@
 
             <div id="hadith-tools" class="utility-toolbar fr">
                 <ul>
-                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="report" href="#{{ hadith.numberPrimary }}-report" class="report"></a></li>
-                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="print" href="#{{ hadith.numberPrimary }}-print" class="print printfriendly"></a></li>
-                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="tags" href="#{{ hadith.numberPrimary }}-tags" class="tags"></a></li>
+                    {#<li><a data-id="{{ hadith.numberPrimary }}" data-action="report" href="#{{ hadith.numberPrimary }}-report" class="report"></a></li>#}
+                    {#<li><a data-id="{{ hadith.numberPrimary }}" data-action="tags" href="#{{ hadith.numberPrimary }}-tags" class="tags"></a></li>#}
+                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="print" href="#{{ hadith.numberPrimary }}-print" class="print"></a></li>
                     <li><a data-id="{{ hadith.numberPrimary }}" data-action="facebook" href="#{{ hadith.numberPrimary }}-fb" class="fb"></a></li>
                     <li><a data-id="{{ hadith.numberPrimary }}" data-action="twitter" href="#{{ hadith.numberPrimary }}-tw" class="tw"></a></li>
                 </ul>
@@ -97,6 +103,16 @@
 
         </div>
 
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="surah-footnote" style="display: none;">
+        {% if hadith.explanation %}
+            {{ hadith.explanation }}
+        {% else %}
+            <p>এই হাদিসের জন্য কোন ফুটনোট এখনো যোগ করা হয়নি। </p>
+        {% endif %}
     </div>
 
     <div class="clr"></div>
@@ -113,13 +129,18 @@
             <p><span>In-book Reference :</span> {{ hadith.getReferencePartsEnglish(2) }}</p>
         </div>
 
-        <div class="clr"></div>
+        <div class="bottom-links fl">
+            <a data-id="{{ hadith.numberPrimary }}" data-action="footnote" href="#{{ hadith.numberPrimary }}-footnote" class="footnote">Footnote</a>
+            <a data-id="{{ hadith.numberPrimary }}" data-action="report" href="#{{ hadith.numberPrimary }}-report" class="report">Report</a>
+            <a id="permalink-{{ hadith.numberPrimary }}"
+                class="share permalink"
+                target="_blank"
+                href="{{ url('ihadis_public_hadith', {'slug': book.slug, 'number': chapter.number, 'numberPrimary': hadith.numberPrimary}) }}"
+                title="{{ book.titleEnglish }}, Chapter {{ chapter.titleEnglish }}, Hadith No. {{ hadith.numberPrimary }}">Permalink
+            </a>
+        </div>
 
-        <a id="permalink-{{ hadith.numberPrimary }}"
-           class="share permalink"
-           href="{{ url('ihadis_public_hadith', {'slug': book.slug, 'number': chapter.number, 'numberPrimary': hadith.numberPrimary}) }}"
-           title="{{ book.titleEnglish }}, Chapter {{ chapter.titleEnglish }}, Hadith No. {{ hadith.numberPrimary }}">Permalink
-        </a>
+        <div class="clr"></div>
 
     </div>
 
