@@ -43,6 +43,13 @@ p.bn {
 ul {
     list-style: none;
 }
+ul.square {
+    list-style: square;
+    list-style-position: inside;
+    color: #666;
+    padding: 10px 0 10px 20px;
+}
+
 
 ol {
     list-style-position: inside;
@@ -139,8 +146,8 @@ header, footer, section, article, aside, hgroup, nav {
 .top {
     padding: 0 10px 0;
     border-bottom: 1px solid #eaeaea;
-    position: fixed;
-    background: #FFF;
+    position: fixed;  
+    background: #FFF;  
     width: 1010px;
     top: 0;
 }
@@ -202,7 +209,6 @@ a.user {
     margin-top: 41px;
     padding: 85px 15px 30px;
 }
-
 .left-panel {
     width: 135px;
     float: left;
@@ -270,6 +276,7 @@ a.user {
     border: 1px solid #45903c;
     border-left: none;
 }
+
 
 .left-nav-details {
     padding: 10px 5px 10px 15px;

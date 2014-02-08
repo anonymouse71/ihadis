@@ -11,9 +11,9 @@ Sahih Muslim:
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { name: প্রথম খন্ড ,link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { name: দ্বিতীয় খন্ড ,link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { name: তৃতীয় খন্ড ,link: http://the/download/link.pdf, image: sahih-muslim.png }
 
 At-Tirmidi:
   collector: Imam Tirmidi

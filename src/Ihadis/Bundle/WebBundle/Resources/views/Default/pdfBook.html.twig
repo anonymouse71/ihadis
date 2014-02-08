@@ -1,0 +1,102 @@
+{% extends '@IhadisWeb/layout.html.twig' %}
+
+{% block title %}About iHadis{% endblock %}
+
+{% block body %}
+    <div class="main-panel">
+        <div class="second-nav-holder">
+
+            <div class="fl title-holder">
+                {% if book %}
+                <h1 class="bn">{{ name }}</h1>
+                <span class="bn">{{ book.collector }}</span>
+                {% else %}
+                <h1>দুঃখিত, বইটি পাওয়া যায়নি </h1>
+                {% endif %}
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div class="clr"></div>
+
+        {% if book %}
+            <div id="intro">
+                <p>
+                    এই বইটি <b>ইউনিকোড করার কাজ চলছে।</b>
+                    কাজ শেষ হওয়া মাত্র আমাদের সাইটে ইন্টিগ্রেট করা হবে ইন শা আল্লাহ।
+                    তবে এর PDF ফরম্যাট ইন্টারনেটে পাওয়া যায়।
+                    আপনি পাশের লিঙ্ক থেকে {{ name }} এর  PDF ফাইল নামাতে পারবেন।
+                </p>
+
+                <p class="alert">
+                    আপনার যদি PDF  ফাইল পড়ার জন্য কোন সফটওয়্যার না থাকে তাহলে নিচের লিস্ট থেকে যে কোনটি ডাউন্লোড করে নিতে পারেন -
+                    <ul class="square">
+                        <li><a href="http://www.foxitsoftware.com/Secure_PDF_Reader/" target="_blank">Foxit</a> (Windows/Linux)</li>
+                        <li><a href="http://blog.kowalczyk.info/software/sumatrapdf/download-free-pdf-viewer.html">Sumatra PDF</a> (Windows)</li>
+                        <li><a href="http://www.adobe.com/products/reader">Adobe Reader</a>  (Windows/Mac/Linux)</li>
+                    </ul>
+                </p>
+            </div>
+            <ul id="parts">
+                {% for part in book.link.parts %}
+                <li>
+                    <a href="{{ part.link }}" target="_blank">
+                        <img src="/images/cover/{{ part.image }}" />
+                        <span class="book-name">
+                            {% if part.name|default(false) %} {{ part.name }}
+                            {% else %} PART {{ loop.index }}
+                            {% endif %}
+                        </span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            <p>
+                আপনি যে বইটি খুঁজছেন সেটি আমাদের কাছে নেই।<br />
+                দয়া করে <a href="{{ path('ihadis_homepage') }}">হোম পেজ </a> থেকে সঠিক বইগুলোর মধ্যে পছন্দ করুন।
+            </p>
+        {% endif %}
+
+    </div>
+
+    <style type="text/css">
+        #intro {
+            width: 49%;
+            float: left;
+            padding: 10px 0;
+        }
+        #parts {
+            text-align: center;
+            width: 49%;
+            padding: 20px 0;
+            border: 1px solid #eee;
+            background-color: #f5f5f5;
+            margin: 15px auto;
+            float: right;
+        }
+
+        #parts li {
+            display: inline-block;
+            width: 130px;
+            height: 175px;
+            line-height: normal;
+            margin: 0 15px 40px 15px;
+            vertical-align: top;
+        }
+
+        #parts li img {
+            box-shadow: 0 0 11px 1px #A29A9A;
+            width: 102px;
+            height: 133px;
+        }
+
+        #parts li .book-name {
+            font-size: 15px;
+            color: #82969A;
+            display: block;
+            margin-top: 6px;
+        }
+
+    </style>
+{% endblock %}

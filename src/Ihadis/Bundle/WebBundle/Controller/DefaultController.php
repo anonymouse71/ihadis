@@ -33,14 +33,16 @@ class DefaultController extends BaseController
 
     public function pdfBookAction($bookName)
     {
-        $booklist = Yaml::parse(file_get_contents('../app/config/booklist.yml'));
-        var_dump($booklist[$bookName]);
-        die;
-//        return $this->render('IhadisWebBundle:Default:book.html.twig', array(
-//            'page'     => 'book',
-//            'book'     => $book,
-//            'chapters' => $chapters
-//        ));
+        $bookList = Yaml::parse(file_get_contents('../app/config/booklist.yml'));
+        $book = false;
+        if(array_key_exists($bookName, $bookList)) {
+            $book = $bookList[$bookName];
+        }
+
+        return $this->render('IhadisWebBundle:Default:pdfBook.html.twig', array(
+            'name' => $bookName,
+            'book' => $book,
+        ));
     }
 
     public function chapterAction(Book $book, Chapter $chapter)
