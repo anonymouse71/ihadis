@@ -18,7 +18,7 @@ var IHadis = function () {
         $('.translation-panel a').click(function(){
             var lang = $(this).data('id');
             $.cookie('lang', lang, { expires: 365, path: '/' });
-            window.location.reload();
+            window.location = '/                                                                                                                                  ';
         });
 
     }
@@ -83,9 +83,6 @@ var IHadis = function () {
 
     var handleChapterSelection = function() {
 
-        $('#chapter-selection').select2();
-        $('#section-selection').select2();
-
         $('#chapter-selection').change(function(){
             var url = chapterUrl.replace('100', $(this).val());
             window.location.href = url;
@@ -112,7 +109,23 @@ var IHadis = function () {
             console.log(content);
             this.clip.setText(content);
         })
-    }
+    };
+
+    var handleGoto = function() {
+        $('#goto_form').submit(function(e) {
+            e.preventDefault();
+            var book = $(this).find("[name='goto_book']").val();
+            var hadith = $(this).find("[name='goto_hadith']").val();
+            window.location = '/goto/'+ book + '/'+ hadith;
+        })
+    };
+
+    var handleSearch = function() {
+        $('#title-search').click(function(){
+            var q = $('#q').val();
+            window.location = '/search/'+q;
+        })
+    };
 
     return {
 
@@ -124,6 +137,8 @@ var IHadis = function () {
             handleAuthenticityToggle();
             handleHadithTools();
             handleChapterSelection();
+            handleGoto();
+            handleSearch();
         }
 
     }

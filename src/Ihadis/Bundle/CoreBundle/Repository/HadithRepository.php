@@ -26,4 +26,23 @@ class HadithRepository extends EntityRepository
 
         return $result;
     }
+
+    /**
+     * Get Hadiths by Section
+     */
+    public function search($keyword, $page)
+    {
+        $result = $this->createQueryBuilder('h')
+            ->join('h.translations', 't')
+            ->where('h.body LIKE :keyword')
+            ->orWhere('t.body LIKE :keyword')
+            ->setParameter('keyword', "%$keyword%")
+            ->orderBy('h.numberPrimary', 'asc')
+            ->setFirstResult($page)
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+
+        return $result;
+    }
 }

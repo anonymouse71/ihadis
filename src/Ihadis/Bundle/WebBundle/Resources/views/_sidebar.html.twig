@@ -26,17 +26,19 @@
     </ul>
 </div>
 
-<div class="navigation">
-    Search
+<div class="left-navigations">
+    Search by number
+    <div class="clr"></div>
 </div>
 
-<div class="hadith-search-panel">
+<div class="hadith-search-panel left-nav-details">
     <div class="hadith-search">
-        Hadith
-        <div class="arrow-up fr"></div>
-        <form action="" method="get">
-            <input name="" type="text" class="text-search" placeholder="Hadith no."/>
-            <input name="" type="button" class="button" value="Go"/>
+        <form action="" id="goto_form" method="get">
+            <select name="goto_book">
+                <option value="bukhari">Sahih bukhari</option>
+            </select>
+            <input name="goto_hadith" type="text" class="text-search" placeholder="Hadith no."/>
+            <input name="" type="submit" class="button" value="Go"/>
         </form>
     </div>
     <div class="clr"></div>
