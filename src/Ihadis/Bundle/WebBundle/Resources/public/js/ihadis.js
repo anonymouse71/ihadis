@@ -121,10 +121,19 @@ var IHadis = function () {
     };
 
     var handleSearch = function() {
-        $('#title-search').click(function(){
+        var search = function() {
             var q = $('#q').val();
             window.location = '/search/'+q;
-        })
+        };
+
+        $('#q').keypress(function(e) {
+            var keycode = (e.keyCode ? e.keyCode : e.which);
+            if(keycode == '13'){
+                search();
+            }
+        });
+        $('#title-search').click(search);
+
     };
 
     return {
@@ -139,8 +148,10 @@ var IHadis = function () {
             handleChapterSelection();
             handleGoto();
             handleSearch();
+        },
+        initSearch: function() {
+            handleSearch();
         }
-
     }
 
 }();

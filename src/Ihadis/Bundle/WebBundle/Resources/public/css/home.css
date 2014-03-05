@@ -31,15 +31,15 @@ body {
     display: block;
     border-radius: 10px;
     height: 50px;
-    width: 380px;;
-    line-height: 50px;
+    width: 350px;
+    line-height: 24px;
     border: 1px solid lightsteelblue;
     margin: 20px auto;
-    padding: 10px;
+    padding: 10px 45px 10px 10px;
     font-size: 18px;
     text-shadow: 0px 0px 2px #ccc;
     color: #696;
-    background: transparent url(../images/magnify.png) no-repeat scroll right center;
+    background: transparent url(../images/magnify.png) no-repeat scroll 360px center;
 }
 
 #booklist {

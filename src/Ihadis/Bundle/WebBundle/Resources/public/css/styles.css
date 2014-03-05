@@ -139,7 +139,7 @@ header, footer, section, article, aside, hgroup, nav {
     margin: auto;
     border: 1px solid rgb(228, 228, 228);
     box-shadow: 0 3px 14px 1px #D5CECE;
-    padding: 0;
+    padding: 0 0 140px 0;
     background-color: white;
 }
 
@@ -150,6 +150,7 @@ header, footer, section, article, aside, hgroup, nav {
     background: #FFF;  
     width: 1010px;
     top: 0;
+    z-index: 9;
 }
 
 .logo {
@@ -913,8 +914,8 @@ img.article {
 {
     box-shadow: none;
     width: 110px;
-    height: 50px;
-    line-height: 50px;
+    height: 45px;
+    line-height: 16px;
     border-width: 0;
     font-size: 15px;
     padding: 0 0px 0 8px;
@@ -928,6 +929,8 @@ img.article {
     height: 100px;
     background-color: rgb(120, 143, 148);
     padding: 20px 15px 20px 50px;
+    position: absolute;
+    width: 965px;
 }
 
 #footer p {
