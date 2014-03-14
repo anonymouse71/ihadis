@@ -36,7 +36,7 @@ var IHadis = function () {
 
     var handleHadithTools = function() {
 
-        $('#hadith-tools, .bottom-links').find('a').live('click', function(){
+        $('#hadith-tools a, .bottom-links a').live('click', function(){
 
             var action = $(this).data('action');
             var hadith = $(this).data('id');
@@ -121,6 +121,7 @@ var IHadis = function () {
     };
 
     var handleSearch = function() {
+
         var search = function() {
             var q = $('#q').val();
             window.location = '/search/'+q;
@@ -132,6 +133,7 @@ var IHadis = function () {
                 search();
             }
         });
+
         $('#title-search').click(search);
 
     };
@@ -149,6 +151,7 @@ var IHadis = function () {
             handleGoto();
             handleSearch();
         },
+
         initSearch: function() {
             handleSearch();
         }
