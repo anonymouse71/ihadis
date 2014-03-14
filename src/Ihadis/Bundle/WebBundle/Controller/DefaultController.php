@@ -115,12 +115,16 @@ class DefaultController extends BaseController
 
     public function searchAction($keyword, $page)
     {
-        $hadiths = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith')->search($keyword, $page);
+        $perPage = 2;
+        list($hadiths, $total) = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith')->search($keyword, $page, $perPage);
 
         return $this->render('IhadisWebBundle:Default:search.html.twig', array(
             'hadiths'   => $hadiths,
+            'total'   => $total,
+            'per_page' => $perPage,
             'keyword'   => $keyword,
-            'page' => $page
+            'page' => $page,
+            'page_links' => $this->_pagination($page, ceil($total/$perPage), 'ihadis_search', $keyword)
         ));
 
     }
@@ -147,5 +151,37 @@ class DefaultController extends BaseController
         } else {
             return 'bn';
         }
+    }
+
+    /**
+     * Pagination function
+     *
+     * @param int $current The current page
+     * @param int $pages How many pages there are in total
+     * @param string $route
+     * @param string $keyword  Need to make the link only
+     * @internal param int|string $link Link format (sprintf with one %d parameter)
+     * @return array An array of links
+     */
+    function _pagination($current, $pages, $route, $keyword) {
+        $min = ($current-3<$pages && $current-3>0) ? $current-3 : 1;
+        $max = ($current+3>$pages) ? $pages : $current+3;
+        $output = array();
+        for($i=$min; $i<=$max; $i++):
+            if($current == $i):
+                $output[] = "<span>{$i}</span>";
+            else:
+                $output[] = '<a href="'. $this->generateUrl($route, array('keyword'=> $keyword, 'page'=> $i)) .'">'.$i.'</a>';
+            endif;
+        endfor;
+        if ($current+1 < $pages):
+            $output[] = '<a href="'. $this->generateUrl($route, array('keyword'=> $keyword, 'page'=> $current +1)) .'" title="Next">&rsaquo;</a>';
+            $output[] = '<a href="'. $this->generateUrl($route, array('keyword'=> $keyword, 'page'=> $pages)) .'" title="Last">&raquo;</a>';
+        endif;
+        if ($current-1 > 0):
+            array_unshift($output, '<a href="'. $this->generateUrl($route, array('keyword'=> $keyword, 'page'=> $current -1)) .'" title="Previous">&lsaquo;</a>');
+            array_unshift($output, '<a href="'. $this->generateUrl($route, array('keyword'=> $keyword, 'page'=> 1)) .'" title="First">&laquo;</a>');
+        endif;
+        return $output;
     }
 }

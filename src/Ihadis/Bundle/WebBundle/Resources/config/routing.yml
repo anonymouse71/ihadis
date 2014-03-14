@@ -6,7 +6,7 @@ ihadis_homepage:
 
 ihadis_search:
     pattern: /search/{keyword}/{page}
-    defaults: { _controller: IhadisWebBundle:Default:search, page: 0 }
+    defaults: { _controller: IhadisWebBundle:Default:search, page: 1 }
 
 ihadis_public_report_hadith:
     pattern: /hadith/report

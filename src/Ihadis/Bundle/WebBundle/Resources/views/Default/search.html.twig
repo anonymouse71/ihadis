@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    {% include '@IhadisWeb/Default/_secondaryNav.html.twig' with {'isSearchResult' : true, 'count': hadiths|length} %}
+    {% include '@IhadisWeb/Default/_secondaryNav.html.twig' with {'isSearchResult' : true, 'count': total} %}
 
     <div class="section-container">
 
@@ -24,7 +24,19 @@
             {% include '@IhadisWeb/Default/_hadith.html.twig' with {'hadith': hadith, 'book': hadith.book, 'chapter': hadith.chapter} %}
         {% endfor %}
 
+        {% include '@IhadisWeb/Default/_pagination.html.twig' with {'count' : total, 'current': page, 'per_page': per_page} %}
+
     {% endif %}
     </div>
 
 {% endblock %}
+    {% block documentReady %}
+    {{ parent() }}
+
+    $(".surah:contains('{{ keyword }}')").each(function(){
+        $(this).html(
+                $(this).html().replace('{{ keyword }}', "<span class='highlighted'>{{ keyword }}</span>")
+        );
+    });
+
+    {% endblock documentReady %}

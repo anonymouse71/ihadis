@@ -1,0 +1,14 @@
+{% set from =  (per_page * current) - (per_page - 1) %}
+{% set to =  (per_page * current < total)? per_page * current : total %}
+
+<div style="text-align: center">
+    <div class="pagination">
+        {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
+            <small class="dim">Showing results from {{ from }} to {{ to }}</small>
+        {% else %}
+            <small class="dim">{{ from }} থেকে  {{ to }} নং ফলাফল দেখছেন</small>
+        {% endif %}
+
+        {% for link in page_links %}{{ link|raw }}{% endfor %}
+    </div>
+</div>

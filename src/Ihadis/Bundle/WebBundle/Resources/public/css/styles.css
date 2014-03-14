@@ -809,6 +809,9 @@ a.copy-link2:hover {
     color: #6c6c6c;
 }
 
+.highlighted {
+    background-color: yellow;
+}
 .book-title-holder {
     position: inherit;
     margin-top: 50px;
@@ -822,7 +825,7 @@ a.copy-link2:hover {
     display: none;
 }
 
-.authenticity, .references {
+.authenticity, .references, .dim {
     color: #bfbfbf;
 }
 
@@ -981,4 +984,30 @@ img.article {
     font-size: 12px;
     color: #eee;
     letter-spacing: .05em;
+}
+
+/*  Pagination
+-----------------------------*/
+.pagination{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px auto;
+    display: inline-block;
+}
+.pagination > * {
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 5px 10px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 13px;
+}
+
+.pagination > a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.pagination > *:last-child{
+    border-right: none;
 }

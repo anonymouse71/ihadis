@@ -3,6 +3,7 @@
 namespace Ihadis\Bundle\CoreBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * HadithRepository
@@ -30,19 +31,37 @@ class HadithRepository extends EntityRepository
     /**
      * Get Hadiths by Section
      */
-    public function search($keyword, $page)
+    public function search($keyword, $page, $perPage)
     {
-        $result = $this->createQueryBuilder('h')
-            ->join('h.translations', 't')
-            ->where('h.body LIKE :keyword')
-            ->orWhere('t.body LIKE :keyword')
-            ->setParameter('keyword', "%$keyword%")
+        $first = ($page - 1) * $perPage;
+//        var_dump($page, $first);
+//        die("\n Died in " . __FILE__ . " at line " . __LINE__);
+        $query = $this->createQueryBuilder('h');
+        $result = $this->_buildSerach($query, $keyword)
             ->orderBy('h.numberPrimary', 'asc')
-            ->setFirstResult($page)
-            ->setMaxResults(10)
+            ->setFirstResult($first)
+            ->setMaxResults($perPage)
             ->getQuery()
             ->getResult();
 
-        return $result;
+        $countQuery = $this->createQueryBuilder('h');
+        $countQuery->resetDQLPart('select')
+            ->addSelect($countQuery->expr()->countDistinct('h.id') . ' AS total');
+
+        $count = $this->_buildSerach($countQuery, $keyword)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getSingleResult();
+
+        return array($result, $count['total']);
+    }
+
+    private function _buildSerach(QueryBuilder $qb, $keyword)
+    {
+        return $qb
+            ->join('h.translations', 't')
+            ->where('h.body LIKE :keyword')
+            ->orWhere('t.body LIKE :keyword')
+            ->setParameter('keyword', "%$keyword%");
     }
 }

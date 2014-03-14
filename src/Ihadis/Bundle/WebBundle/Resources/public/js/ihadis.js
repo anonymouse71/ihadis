@@ -90,7 +90,7 @@ var IHadis = function () {
 
         $('#section-selection').change(function(){
             $('html, body').animate({
-                scrollTop: $('#section-' + $(this).val()).offset().top - 140
+                scrollTop: $('#section-' + $(this).val()).offset().top - 90
             }, 2000);
         });
 
