@@ -115,7 +115,7 @@ class DefaultController extends BaseController
 
     public function searchAction($keyword, $page)
     {
-        $perPage = 2;
+        $perPage = $this->container->getParameter('search_perPage');
         list($hadiths, $total) = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith')->search($keyword, $page, $perPage);
 
         return $this->render('IhadisWebBundle:Default:search.html.twig', array(

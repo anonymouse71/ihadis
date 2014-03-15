@@ -34,7 +34,7 @@ class HadithRepository extends EntityRepository
     public function search($keyword, $page, $perPage)
     {
         $first = ($page - 1) * $perPage;
-//        var_dump($page, $first);
+//        var_dump($page, $first, $perPage);
 //        die("\n Died in " . __FILE__ . " at line " . __LINE__);
         $query = $this->createQueryBuilder('h');
         $result = $this->_buildSerach($query, $keyword)
@@ -59,6 +59,7 @@ class HadithRepository extends EntityRepository
     private function _buildSerach(QueryBuilder $qb, $keyword)
     {
         return $qb
+            ->distinct(true)
             ->join('h.translations', 't')
             ->where('h.body LIKE :keyword')
             ->orWhere('t.body LIKE :keyword')
