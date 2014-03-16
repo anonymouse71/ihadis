@@ -43,8 +43,8 @@
                                 <a href="{{ path('ihadis_pdf_book', {'bookName': name}) }}">
                                 {% endif %}
                                     <img src="/images/cover/{{ book.image }}" />
-                                    <span class="book-name">{{ name }}</span>
-                                    <span class="cover-intro">By {{ book.collector }}</span>
+                                    <span class="book-name bn">{{ name }}</span>
+                                    <span class="cover-intro bn">{{ book.collector }}</span>
                                 </a>
                             </li>
                     {% if loop.index % 8 == 0 %}

@@ -1,136 +1,177 @@
-Sahih Bukhari:
-  collector: Imam Bukhari
+সহিহ বুখারি :
+  collector: ইমাম বুখারি
   image: sahih-bukhari.png
   link:
     type: digital
     slug: bukhari
 
-Sahih Muslim:
-  collector: Imam Muslim
+সহিহ মুসলিম :
+  collector: ইমাম মুসলিম
   image: sahih-muslim.png
   link:
     type: pdf
     parts:
-      - { name: প্রথম খন্ড ,link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { name: দ্বিতীয় খন্ড ,link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { name: তৃতীয় খন্ড ,link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://archive.org/download/SahihMuslimVolume1/Sahih%20Muslim%20Volume%201.pdf, image: sahih-muslim.png }
+      - { link: http://archive.org/download/SahihMuslimVolume1/Sahih%20Muslim%20Volume%202.pdf, image: sahih-muslim.png }
+      - { link: http://archive.org/download/SahihMuslimVolume1/Sahih%20Muslim%20Volume%203.pdf, image: sahih-muslim.png }
+      - { link: http://archive.org/download/SahihMuslimVolume1/Sahih%20Muslim%20Volume%204.pdf, image: sahih-muslim.png }
+      - { link: http://archive.org/download/SahihMuslimVolume1/Sahih%20Muslim%20Volume%205.pdf, image: sahih-muslim.png }
+      - { link: http://archive.org/download/SahihMuslimVolume1/Sahih%20Muslim%20Volume%206.pdf, image: sahih-muslim.png }
 
-At-Tirmidi:
-  collector: Imam Tirmidi
+আত-তিরমিযি :
+  collector: ইমাম তিরমিযি
   image: tirmidhi.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://ia601202.us.archive.org/5/items/ShahihAt-tirmiji-01Part/SahihAt-tirmiji-01.pdf, image: tirmidhi.png }
+      - { link: http://ia600204.us.archive.org/22/items/SahihAt-tirmijipart-02Tahqiq/SahihAt-tirmiji.Part-02.pdf, image: tirmidhi.png }
+      - { link: http://ia600204.us.archive.org/0/items/SaheehAt-tirmijiTahqiqPart-03/CopyOfSoheiAtTirmijiP03.pdf, image: tirmidhi.png }
+      - { link: http://ia600204.us.archive.org/0/items/SaheehAt-tirmijiTahqiqPart-03/CopyOfSoheiAtTirmijiP03.pdf, image: tirmidhi.png }
 
-Ibne Majah:
-  collector: Imam Ibne Majah
+ইবনে মাজাহ :
+  collector: ইমাম ইবনে মাজাহ
   image: ibne-majah.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://ia601201.us.archive.org/3/items/SunanIbnMajah-1/SunanIbnMajah-1.pdf, image: ibne-majah.png }
+      - { link: http://ia600709.us.archive.org/6/items/SunanuIbnMazahInBangla2ndPart/SunanuIbnMazah.part-02..pdf, image: ibne-majah.png }
+      - { link: http://ia600600.us.archive.org/17/items/SunanuIbnMazahInBangla3rdPart/SunanuIbnMazahInBangla3rdPart.pdf, image: ibne-majah.png }
 
-Muatta Imam Malik:
-  collector: Imam Malik
+মুয়াত্তা ইমাম মালিক :
+  collector: ইমাম মালিক
   image: muatta-imam-malik.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://www.mediafire.com/?5zyy2bu3y758vus, image: muatta-imam-malik.png }
+      - { link: http://ia600805.us.archive.org/34/items/MuwattaImamMalikpart02-bangla-visit-alhamdulillah-library.blogspot.in.pd/MuwattaImamMalikpart02-bangla-visit-alhamdulillah-library.blogspot.in.pdf, image: muatta-imam-malik.png }
 
-Nasai:
-  collector: Imam Nasai
+সুনানে নাসায়ী :
+  collector: ইমাম নাসায়ী
   image: nasai.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://www.mediafire.com/?bcds4s6k42t2s7v, image: nasai.png }
+      - { link: http://www.mediafire.com/?i560wy01h01dqi2, image: nasai.png }
+      - { link: http://ia600805.us.archive.org/18/items/SunaneNasaiSharif.Part-03/SunaneNasaiSharif.Part-03.pdf, image: nasai.png }
+      - { link: http://ia700809.us.archive.org/3/items/SunaneIbnNasaiSharif.Part-04/SunaneIbnNasaiSharif.Part-04.pdf, image: nasai.png }
 
-Abu Daud2:
-  collector: Imam Muslim
-  image: sahih-muslim.png
+সুনানে আবু দাউদ :
+  collector: ইমাম আবু দাউদ
+  image: abu-daud.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://www.archive.org/download/AbuDaud1stPart/AbuDaud1stPart.pdf, image: abu-daud.png }
+      - { link: http://www.archive.org/download/AbuDaud2ndPart/AbuDaud2ndPart.pdf, image: abu-daud.png }
+      - { link: http://www.archive.org/download/AbuDaud3rdPart/AbuDaud3rdPart.pdf, image: abu-daud.png }
+      - { link: http://www.archive.org/download/AbuDaud4thPart/AbuDaud4thPart.pdf, image: abu-daud.png }
 
-Abu Daud3:
-  collector: Imam Muslim
-  image: sahih-muslim.png
+রিয়াদুস সালেহিন :
+  collector: ইমাম নওয়াবী
+  image: riadus-salehin.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://server1.quraneralo.com/book/Riyad_us_Saliheen_in_Bangla_NEW_QA.pdf, image: riadus-salehin.png }
 
-Abu Daud4:
-  collector: Imam Muslim
-  image: sahih-muslim.png
+জাল হাদীস সিরিজ :
+  collector: আল্লামা নাসিরুদ্দীন আলবানী
+  image: jal-hadis.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://www.mediafire.com/?3rbb7advka1sax7, image: jal-hadis.png }
+      - { link: http://www.mediafire.com/?vzdtmm9sa38x761, image: jal-hadis.png }
+      - { link: http://www.mediafire.com/download/wgsrbg88i6vxvas/Jal+o+Joif+Hadeeth+Series+Third+Part+%28waytojannah.com%29.pdf, image: jal-hadis.png }
 
-Abu Daud5:
-  collector: Imam Muslim
-  image: sahih-muslim.png
+বুলুগুল মারাম :
+  collector: হাফিজ ইবনু হাজার আসকালানী
+  image: bulugul-maram.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://ia600701.us.archive.org/30/items/BulugulMarambangla/BulugulMarambangla.pdf, image: bulugul-maram.png }
 
-Abu Daud6:
-  collector: Imam Muslim
-  image: sahih-muslim.png
+
+মুসনাদে আহমাদ :
+  collector: ইমাম আহমাদ বিন হাম্বল
+  image: musnade-ahmad.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://ia600808.us.archive.org/23/items/MusnadAhmedPart01/MusnadAhmedPart01.pdf, image: musnade-ahmad.png }
+      - { link: http://archive.org/details/MusnadyAhmmedPart2, image: musnade-ahmad.png }
 
-Abu Daud7:
-  collector: Imam Muslim
-  image: sahih-muslim.png
+মেশকাত শরীফ :
+  collector: আল্লামা  মুহাম্মাদ ইবনে আব্দুল্লাহ খাতিব আত-তিবরিযি
+  image: mishkat.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://archive.org/download/MishkatSharifBanglaFull/Mishkat%20Sharif%20Bangla%201st%20Part%20%28WaytoJannah.Com%29.pdf, image: mishkat.png }
+      - { link: http://archive.org/download/MishkatSharifBanglaFull/MishkatSharifBangla2ndPartwaytojannah.com.pdf, image: mishkat.png }
 
-Abu Daud8:
-  collector: Imam Muslim
-  image: sahih-muslim.png
+মেশকাত জয়ীফ হাদীস :
+  collector: আল্লামা নাসিরুদ্দীন আলবানী
+  image: mishkat-a-jaif.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://deenilhaq.com/wp-content/uploads/2013/04/Mishkate-bornito-zaif-hadeeth-1-by-Muzeffer-bin-Muhsin-%E0%A6%AE%E0%A6%BF%E0%A6%B6%E0%A6%95%E0%A6%BE%E0%A6%A4%E0%A7%87-%E0%A6%AC%E0%A6%B0%E0%A7%8D%E0%A6%A3%E0%A6%BF%E0%A6%A4-%E0%A6%AF%E0%A6%88%E0%A6%AB-%E0%A6%B9%E0%A6%BE%E0%A6%A6%E0%A7%80%E0%A6%9B%E0%A6%B8%E0%A6%AE%E0%A7%82%E0%A6%B9-%E0%A7%A7.pdf, image: mishkat-a-jaif.png }
+      - { link: http://www.archive.org/download/AhlehadeethAndolonWhatWhy/MishkatEBornitoZaifHadeethShomuhoByMuzefferBinMuhsin.pdf, image: mishkat-a-jaif.png }
 
-Abu Daud9:
-  collector: Imam Muslim
-  image: sahih-muslim.png
+চল্লিশ হাদীস :
+  collector: ইমাম নওয়াবী
+  image: 40-hadis.png
   link:
     type: pdf
     parts:
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
-      - { link: http://the/download/link.pdf, image: sahih-muslim.png }
+      - { link: http://www.islamhouse.com/d/files/bn/ih_books/single/bn_an_nawawir_40_hadith.pdf, image: 40-hadis.png }
+
+হাদীসে কুদসি :
+  collector: মুস্তাফা আল-আদাবী
+  image: hadise-kudsi.jpg
+  link:
+    type: pdf
+    parts:
+      - { link: http://www.islamhouse.com/d/files/bn/ih_books/single/bn_sahih_hadise_qudsi.doc, image: hadise-kudsi.jpg }
+জুযউল কিরাআত :
+  collector: ইমাম বুখারি
+  image: jujul-kirat.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://islamicbookbd.files.wordpress.com/2013/08/jujul_kirayat.pdf, image: jujul-kirat.png }
+জুযউল রাফায়াল য়াদাইন :
+  collector: ইমাম বুখারি
+  image: juz-raful-yadain.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://islamicbookbd.files.wordpress.com/2013/08/juju-raful-yadain.pdf, image: juz-raful-yadain.png }
+১০০ সুসাব্যস্ত হাদীস :
+  collector: একটি সাউদী প্রকাশনা
+  image: 100-sunnah.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://quraneralo.com/book/100_Sunan.pdf, image: 100-sunnah.png }
+আল-আবাদুল মুফারাদ :
+  collector: ইমাম বুখারি
+  image: adabul-mufrad.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://www.quraneralo.com/book/Al-Adabul%20Mufrad.pdf, image: adabul-mufrad.png }
+যইফ আত-তিরমিযি :
+  collector: ইমাম তিরমিযি
+  image: jaif-at-tirmidhi.png
+  link:
+    type: pdf
+    parts:
+      - { link: http://ia601205.us.archive.org/7/items/JaifAtTirmijiPart-01/JaifAt-tirmiji-01.pdf, image: jaif-at-tirmidhi.png }
+      - { link: http://ia600802.us.archive.org/35/items/JoifAtTirmize2ndPartwithInteractiveLink/JoifAtTirmize2ndPartwithInteractiveLink.pdf, image: jaif-at-tirmidhi.png }
