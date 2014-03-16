@@ -2,7 +2,7 @@
 
     <div class="fl title-holder" id="hadis-navbar">
         {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
-            <h1 style="margin-top: 10px;">{{ book.titleEnglish }}</h1>
+            <h1>{{ book.titleEnglish ? book.titleEnglish : book.title }}</h1>
         {% else %}
             <h1 class="bn">{{ book.title }}</h1>
         {% endif %}
