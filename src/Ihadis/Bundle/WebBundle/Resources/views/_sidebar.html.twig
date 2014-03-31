@@ -6,7 +6,7 @@
 <div class="translation-panel">
     <ul>
         <li class="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}active{% endif %}"><a data-id="en" href="#en">English</a></li>
-        <li class="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}active{% endif %}"><a data-id="bn" href="#bn">Bangla</a></li>
+        <li class="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}active{% endif %}"><a data-id="bn" class="bn" href="#bn">বাংলা </a></li>
     </ul>
     <div class="clr"></div>
 </div>

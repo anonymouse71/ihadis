@@ -80,7 +80,7 @@
             <div class="surah fl" style="display: block">
 
                 <p class="fr">
-                    Narrated <span>{{ hadith.getNarratorEnglish }}:</span>
+                    {% trans %}Narrated by{% endtrans %} <span>{{ hadith.getNarratorEnglish }}:</span>
                 </p>
 
                 <div class="clr"></div>
@@ -111,7 +111,7 @@
         {% if hadith.note %}
             {{ hadith.note|nl2br }}
         {% else %}
-            <p>এই হাদিসের জন্য কোন ফুটনোট এখনো যোগ করা হয়নি। </p>
+            <p>{% trans %}No footnote added so far for this Hadis{% endtrans %}</p>
         {% endif %}
     </div>
 
@@ -121,7 +121,7 @@
         {% if hadith.explanation %}
             {{ hadith.explanation|nl2br }}
         {% else %}
-            <p>এই হাদিসের জন্য কোন ব্যাখা এখনো যোগ করা হয়নি । </p>
+            <p>{% trans %}No explanation added so far for this Hadis{% endtrans %}</p>
         {% endif %}
     </div>
 
@@ -130,23 +130,23 @@
     <div class="surah-bottom-panel">
 
         <div class="authenticity fl">
-            <p>Authenticity Status: <span class="{{ hadith.getAuthenticityLabel|lower }}">{{ hadith.getAuthenticityLabel }}</span></p>
-            <p>Scholar Review: <img src="/images/green_tick.png"/></p>
+            <p>{% trans %}Authenticity Status{% endtrans %}: <span class="{{ hadith.getAuthenticityLabel|lower }}">{{ hadith.getAuthenticityLabel }}</span></p>
+            <p>{% trans %}Scholar Review{% endtrans %}: <img src="/images/green_tick.png"/></p>
         </div>
 
         <div class="references fr">
-            <p><span>Reference :</span> {{ hadith.getReferencePartsEnglish(1) }}</p>
-            <p><span>In-book Reference :</span> {{ hadith.getReferencePartsEnglish(2) }}</p>
+            <p><span>{% trans %}Reference{% endtrans %}: </span> {{ hadith.getReferencePartsEnglish(1) }}</p>
+            <p><span>{% trans %}In-book Reference{% endtrans %}:</span> {{ hadith.getReferencePartsEnglish(2) }}</p>
         </div>
 
         <div class="bottom-links fl">
-            <a data-id="{{ hadith.numberPrimary }}" data-action="footnote" href="#{{ hadith.numberPrimary }}-footnote" class="footnote">Footnote</a>
-            <a data-id="{{ hadith.numberPrimary }}" data-action="explanation" href="#{{ hadith.numberPrimary }}-explanation" class="explanation">Explanation</a>
+            <a data-id="{{ hadith.numberPrimary }}" data-action="footnote" href="#{{ hadith.numberPrimary }}-footnote" class="footnote">{% trans %}Footnote{% endtrans %}</a>
+            <a data-id="{{ hadith.numberPrimary }}" data-action="explanation" href="#{{ hadith.numberPrimary }}-explanation" class="explanation">{% trans %}Explanation{% endtrans %}</a>
             <a id="permalink-{{ hadith.numberPrimary }}"
                 class="share permalink"
                 target="_blank"
                 href="{{ url('ihadis_public_hadith', {'slug': book.slug, 'number': chapter.number, 'numberPrimary': hadith.numberPrimary}) }}"
-                title="{{ book.titleEnglish }}, Chapter {{ chapter.titleEnglish }}, Hadith No. {{ hadith.numberPrimary }}">Permalink
+                title="{{ book.titleEnglish }}, Chapter {{ chapter.titleEnglish }}, Hadith No. {{ hadith.numberPrimary }}">{% trans %}Permalink{% endtrans %}
             </a>
         </div>
 

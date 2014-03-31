@@ -208,7 +208,7 @@ a.user {
 
 .main-panel {
     margin-top: 41px;
-    padding: 85px 15px 30px;
+    padding: 85px 30px 30px;
 }
 .left-panel {
     width: 136px;
@@ -274,6 +274,7 @@ a.user {
     text-decoration: none;
     text-align: center;
     width: 55px;
+    line-height: 16px;
 }
 
 .translation-panel li a:hover, .translation-panel li.active a {
@@ -372,7 +373,7 @@ a.user {
 }
 
 .main-panel .second-nav-holder {
-    padding: 10px 35px 5px;
+    padding: 10px 0 5px;
     height: 70px;
     width: 930px;
 }
@@ -626,7 +627,7 @@ a.share {
 .bottom-links {
     width: 300px;
     text-align: center;
-    margin: 0 0 0 90px;
+    margin: 0 0 0 70px;
 }
 
 .bottom-links a, .bottom-links a:link, .bottom-links a:visited {
@@ -890,8 +891,8 @@ img.article {
     border: 0 !important;                               /* Removes border */
     -webkit-appearance: none;                           /* Removes default chrome and safari style */
     -moz-appearance: none;                              /* Removes Default Firefox style */
-    background: url('/img/down.png') no-repeat;    /* Adds background-image */
-    background-position: 285px 18px;                      /* Position of the background-image */
+    background: url('/img/down.png') no-repeat;         /* Adds background-image */
+    background-position: 285px 18px;                    /* Position of the background-image */
     width: 300px;                                       /* Width of select dropdown to give space for arrow image */
     text-indent: 0.01px;                                /* Removes default arrow from firefox */
     text-overflow: "";                                  /* Removes default arrow from firefox */
@@ -1010,4 +1011,15 @@ img.article {
 
 .pagination > *:last-child{
     border-right: none;
+}
+
+.static-page p {
+    text-align: justify;
+}
+
+@-moz-document url-prefix() {
+    #hadis-navbar select {
+        height: 40px;
+        padding-top: 10px;
+    }
 }

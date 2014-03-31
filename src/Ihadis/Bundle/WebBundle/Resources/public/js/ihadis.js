@@ -18,7 +18,7 @@ var IHadis = function () {
         $('.translation-panel a').click(function(){
             var lang = $(this).data('id');
             $.cookie('lang', lang, { expires: 365, path: '/' });
-            window.location = '/                                                                                                                                  ';
+            window.location.reload();
         });
 
     }

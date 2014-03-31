@@ -1,4 +1,4 @@
-<div class="second-nav-holder book-title-holder" style="padding: 0 15px; box-sizing: border-box;">
+<div class="second-nav-holder book-title-holder" style="padding: 0 15px 0 5px; box-sizing: border-box;">
 
     <div class="fl title-holder" id="hadis-navbar" style="width: 50%">
         {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
@@ -9,7 +9,7 @@
     </div>
 
     <div class="other-nav"  style="width: 50%">
-        <h1 style="margin-top: 10px;">{{ book.titleArabic }}</h1>
+        <h1 style="margin-top: 10px;" dir="rtl">{{ book.titleArabic }}</h1>
     </div>
 
     <div class="clr"></div>
