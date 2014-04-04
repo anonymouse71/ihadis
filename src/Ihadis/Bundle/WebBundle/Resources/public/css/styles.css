@@ -373,10 +373,10 @@ a.user {
 }
 
 .main-panel .second-nav-holder {
-    padding: 10px 0 5px;
+    padding: 15px 20px 5px 30px;
     height: 70px;
     width: 980px;
-    margin-left: -1px;
+    margin: 0 -30px;
 }
 
 h1 {
@@ -516,11 +516,6 @@ h1 {
     margin: 3px 0;
 }
 
-.references span {
-    display: inline-block;
-    width: 120px;
-}
-
 .surah-bottom {
     padding: 20px 0 0;
 }
@@ -609,6 +604,10 @@ h1 {
     font-weight: bold;
     font-size: 12px;
 }
+.surah-bottom-panel > div {
+    width: 30%;
+    float: left;
+}
 
 a.copy-link, a.share {
     color: #8dc63f;
@@ -626,9 +625,8 @@ a.share {
 }
 
 .bottom-links {
-    width: 300px;
     text-align: center;
-    margin: 0 0 0 98px;
+    width: 40% !important;
 }
 
 .bottom-links a, .bottom-links a:link, .bottom-links a:visited {
@@ -863,7 +861,7 @@ img.article {
 .second-nav-holder {
     padding: 0;
     height: 50px;
-    width: 893px;
+    width: 883px;
 }
 #hadis-navbar {
     width: 893px;
@@ -1022,6 +1020,6 @@ img.article {
 @-moz-document url-prefix() {
     #hadis-navbar select {
         height: 40px;
-        padding-top: 10px;
+        padding-top: 14px;
     }
 }

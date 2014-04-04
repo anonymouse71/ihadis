@@ -586,9 +586,12 @@ class Hadith
         }
     }
 
-    public function getReferencePartsEnglish($index = 0)
+    public function getReferencePart($index = 0, $locale)
     {
-        $lines = explode("\n", $this->getReferenceEnglish());
+        $lines = ($locale == 'en')
+                    ? explode("\n", $this->getReferenceEnglish())
+                    : explode("\n", $this->getReference());
+
         return isset($lines[$index-1]) ? $lines[$index-1] : '';
     }
 }

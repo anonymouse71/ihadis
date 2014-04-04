@@ -129,27 +129,24 @@
 
     <div class="surah-bottom-panel">
 
-        <div class="authenticity fl">
+        <div class="authenticity">
             <p>{% trans %}Authenticity Status{% endtrans %}: <span class="{{ hadith.getAuthenticityLabel|lower }}">{{ hadith.getAuthenticityLabel }}</span></p>
             <p>{% trans %}Scholar Review{% endtrans %}: <img src="/images/green_tick.png"/></p>
         </div>
-
-        <div class="references fr">
-            <p><span>{% trans %}Reference{% endtrans %}: </span> {{ hadith.getReferencePartsEnglish(1) }}</p>
-            <p><span>{% trans %}In-book Reference{% endtrans %}:</span> {{ hadith.getReferencePartsEnglish(2) }}</p>
-        </div>
-
-        <div class="bottom-links fl">
+        <div class="bottom-links">
             <a data-id="{{ hadith.numberPrimary }}" data-action="footnote" href="#{{ hadith.numberPrimary }}-footnote" class="footnote">{% trans %}Footnote{% endtrans %}</a>
             <a data-id="{{ hadith.numberPrimary }}" data-action="explanation" href="#{{ hadith.numberPrimary }}-explanation" class="explanation">{% trans %}Explanation{% endtrans %}</a>
             <a id="permalink-{{ hadith.numberPrimary }}"
-                class="share permalink"
-                target="_blank"
-                href="{{ url('ihadis_public_hadith', {'slug': book.slug, 'number': chapter.number, 'numberPrimary': hadith.numberPrimary}) }}"
-                title="{{ book.titleEnglish }}, Chapter {{ chapter.titleEnglish }}, Hadith No. {{ hadith.numberPrimary }}">{% trans %}Permalink{% endtrans %}
+               class="share permalink"
+               target="_blank"
+               href="{{ url('ihadis_public_hadith', {'slug': book.slug, 'number': chapter.number, 'numberPrimary': hadith.numberPrimary}) }}"
+               title="{{ book.titleEnglish }}, Chapter {{ chapter.titleEnglish }}, Hadith No. {{ hadith.numberPrimary }}">{% trans %}Permalink{% endtrans %}
             </a>
         </div>
-
+        <div class="references">
+            <p><span>{% trans %}Reference{% endtrans %}: </span> {{ hadith.getReferencePart(1, app.request.locale) }}</p>
+            <p><span>{% trans %}In-book Reference{% endtrans %}:</span> {{ hadith.getReferencePart(2, app.request.locale) }}</p>
+        </div>
         <div class="clr"></div>
 
     </div>
