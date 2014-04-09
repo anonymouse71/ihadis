@@ -861,7 +861,7 @@ img.article {
 .second-nav-holder {
     padding: 0;
     height: 50px;
-    width: 883px;
+    width: 893px;
 }
 #hadis-navbar {
     width: 893px;
@@ -1021,5 +1021,9 @@ img.article {
     #hadis-navbar select {
         height: 40px;
         padding-top: 14px;
+    }
+
+    #hadis-navbar select.bn {
+        padding-top: 10px;
     }
 }

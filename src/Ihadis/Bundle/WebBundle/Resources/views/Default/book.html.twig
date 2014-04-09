@@ -10,7 +10,7 @@
 
         <div class="surah-holder-main">
 
-            <div class="book-desc" style="margin: 10px 25px; text-align: justify;">
+            <div class="book-desc" style="margin: 10px 15px 25px; line-height: 26px; text-align: justify; padding-right: 19px">
                 {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
                     <p>{{ book.descriptionEnglish }}</p>
                 {% else %}

@@ -1,6 +1,6 @@
-<div class="second-nav-holder book-title-holder" style="box-sizing: content-box; padding-right: 10px">
+<div class="second-nav-holder book-title-holder" style="box-sizing: content-box;">
 
-    <div class="fl title-holder" id="hadis-navbar" style="width: 50%">
+    <div class="fl title-holder" id="hadis-navbar" style="width: 40%; padding-left: 20px">
         {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
             <h1 style=" width: auto">{{ book.titleEnglish ? book.titleEnglish : book.title }}</h1>
         {% else %}
@@ -8,7 +8,7 @@
         {% endif %}
     </div>
 
-    <div class="other-nav"  style="width: 50%">
+    <div class="other-nav"  style="width: 50%; padding-right: 40px">
         <h1 style="margin-top: 10px;" dir="rtl">{{ book.titleArabic }}</h1>
     </div>
 
