@@ -17,3 +17,4 @@ parameters:
     knp.doctrine_behaviors.blameable_listener.user_entity: Ihadis\Bundle\CoreBundle\Entity\User
 
     search_perPage: 10
+    report_email: anisniit@gmail.com

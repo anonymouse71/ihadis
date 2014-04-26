@@ -133,6 +133,14 @@ class DefaultController extends BaseController
     {
         if ($this->getRequest()->getMethod() == 'POST') {
             $data = $this->getRequest()->request->all();
+
+            $to = $this->container->getParameter('report_email');
+            $headers = "From: {$data['email']} \r\n" .
+                "Reply-To: {$data['email']} \r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+            @mail($to, 'iHadis Report - '. $data['issue'], $data['comments'], $headers);
+
             $this->getDoctrine()->getRepository('IhadisCoreBundle:HadithReport')->create($data);
             return new Response('OK');
         }
