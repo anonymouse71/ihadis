@@ -1,0 +1,107 @@
+{% extends 'full_width.html.twig' %}
+
+{% block title %}Tools{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+{% block body %}
+    <style type="text/css">
+        .toolbox {
+            box-sizing: border-box;
+            border: 1px solid lightgray;
+            background-color: #fafafa;
+            padding: 0;
+            width: 48%;
+            margin: 0;
+            float: left;
+        }
+        .toolbox.right {
+            margin-left: 2%;
+        }
+        .toolbox > * {
+            margin: 0;
+            padding: 10px;
+        }
+        .toolbox header {
+            background-color: #ccc !important;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+        <div class="toolbox">
+            <header class="header">Word Replace</header>
+            <main class="main">
+                <form class="form-horizontal" action="" method="post">
+
+                    <!-- Name input-->
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="name">Replace in</label>
+                        <div class="col-md-9">
+                            <select name="book">
+                                {% for book in books %}
+                                <option value="{{ book.id }}">{{ book.title }}</option>
+                                {% endfor %}
+                            </select>
+                            <select name="chapter">
+                                <option value="all">All Chapters</option>
+                                {% for chapter in chapters %}
+                                    <option value="{{ chapter.id }}">{{ chapter.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group hidden">
+                        <label class="col-md-3 control-label" for="email">In language</label>
+                        <div class="col-md-9">
+                            <select name="locale">
+                                <option value="all">All Languages</option>
+                                <option value="bn">Bangla</option>
+                                <option value="en">English</option>
+                                <option value="ar">Arabic</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="email">Find text</label>
+                        <div class="col-md-9">
+                            <input name="find" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="message">Replace With</label>
+                        <div class="col-md-9">
+                            <input name="replacement" type="text"  class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Form actions -->
+                    <div class="form-group">
+                        <div class="col-md-12 text-right">
+                            <button type="submit" class="btn btn-primary btn-lg">Apply</button>
+                        </div>
+                    </div>
+                </form>
+
+                {% if replaced is not null %}
+                <div class="alert alert-success">
+                    {{ replaced }} matches found and replaced!
+                </div>
+                {% endif %}
+            </main>
+
+        </div>
+        <div class="toolbox right">
+            <main>
+                <h3>How to use word replacement</h3>
+                <ul>
+                    <li>First important point</li>
+                    <li>Second important point</li>
+                    <li>Third important point</li>
+                </ul>
+            </main>
+        </div>
+
+{% endblock %}

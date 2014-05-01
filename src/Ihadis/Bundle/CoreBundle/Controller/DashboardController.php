@@ -12,6 +12,7 @@
 namespace Ihadis\Bundle\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Dashboard Controller
@@ -23,6 +24,25 @@ class DashboardController extends BaseController
     public function indexAction()
     {
         return $this->render('IhadisCoreBundle:Dashboard:index.html.twig', array(
+            'user' => $this->getUser()
+        ));
+    }
+
+    public function toolsAction(Request $request)
+    {
+        $books = $this->get('ihadis.repository.book')->findAll();
+        $chapters = $this->get('ihadis.repository.chapter')->findAll(array('book' => $books[0]));
+        $replaced = null;
+
+        if($request->getMethod() == 'POST') {
+            $post = $request->request->all();
+            $replaced = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith')
+                ->replaceWords($post['find'], $post['replacement'], $post['book'], $post['chapter'], $post['locale']);
+        }
+        return $this->render('IhadisCoreBundle:Dashboard:tools.html.twig', array(
+            'books' => $books,
+            'chapters' => $chapters,
+            'replaced' => $replaced,
             'user' => $this->getUser()
         ));
     }

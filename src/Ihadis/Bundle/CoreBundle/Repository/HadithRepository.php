@@ -28,6 +28,18 @@ class HadithRepository extends EntityRepository
         return $result;
     }
 
+    public function replaceWords($word, $replacement, $book, $chapter, $lang = 'bn')
+    {
+        $conn = $this->_em->getConnection();
+        $query = "UPDATE hadiths SET body = REPLACE(body, '$word', '$replacement')";
+        if($chapter != 'all') {
+            $query .= " WHERE chapter_id = $chapter";
+        }
+        $num_rows_effected = $conn->exec($query);
+
+        return $num_rows_effected;
+    }
+
     /**
      * Get Hadiths by Section
      */

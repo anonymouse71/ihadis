@@ -49,7 +49,9 @@ var IHadis = function () {
             var title = permalinkElement.attr("title");
 
             switch (action) {
-                case 'report'      : $('#report-modal').reveal(); break;
+                case 'report'      :
+                    $('#report-hadith #comments').val("Assalamualaikum, \nThis report is about "+ permalink + " \n");
+                    $('#report-modal').reveal(); break;
                 case 'footnote'    : footnoteElement.slideToggle(); break;
                 case 'explanation' : explanationElement.slideToggle(); break;
                 case 'print'       : window.open(permalink, 'print', 'width=800,height=600').print(); break;
@@ -77,6 +79,10 @@ var IHadis = function () {
                 }
             });
 
+        });
+
+        $('.utility-toolbar .tip').miniTip({
+            position: 'left'
         });
 
     }

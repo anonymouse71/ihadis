@@ -1016,6 +1016,20 @@ img.article {
     text-align: justify;
 }
 
+/* Tooltip from miniTip */
+.minitip-content {
+    font-size: 11px;
+    padding: 8px 10px;
+    color: #fff;
+
+    background-color: #3C3C3C;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    text-shadow: 0 0 2px #000;
+    box-shadow: 0 0 3px #555;
+    border-radius: 5px;
+}
+
 /* Hack for firefox */
 @-moz-document url-prefix() {
     #hadis-navbar select {

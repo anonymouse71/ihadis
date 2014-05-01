@@ -24,3 +24,8 @@ ihadis_admin_hadith:
 ihadis_admin_user:
     resource: "@IhadisCoreBundle/Resources/config/routes/user.yml"
     prefix:   /admin/users
+
+ihadis_admin_tools:
+    pattern: /admin/tools
+    defaults:
+        _controller: IhadisCoreBundle:Dashboard:tools
