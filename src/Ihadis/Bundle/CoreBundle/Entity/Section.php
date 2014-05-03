@@ -51,6 +51,13 @@ class Section
     private $preface;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="sort_order", type="smallint", nullable=true)
+     */
+    private $sortOrder;
+
+    /**
      * @var Book
      *
      * @ORM\ManyToOne(targetEntity="Book", inversedBy="sections")
@@ -354,5 +361,27 @@ class Section
     public function setNumberArabic($number)
     {
         $this->translate('ar')->setNumber($number);
+    }
+
+    /**
+     * Set sortOrder
+     *
+     * @param int $sortOrder
+     * @return Section
+     */
+    public function setSortOrder($sortOrder)
+    {
+        $this->sortOrder = $sortOrder;
+        return $this;
+    }
+
+    /**
+     * Get sortOrder
+     *
+     * @return int
+     */
+    public function getSortOrder()
+    {
+        return $this->sortOrder;
     }
 }

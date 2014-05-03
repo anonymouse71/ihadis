@@ -53,6 +53,9 @@ class SectionFormType extends AbstractType
                 'required' => false,
                 'attr'  => array('rows' => 5)
             ))
+            ->add('sortOrder', null, array(
+                'label' => 'Sorting Order'
+            ))
         ;
     }
 

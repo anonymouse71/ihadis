@@ -54,9 +54,10 @@ class DefaultController extends BaseController
             'book' => $book
         ));
 
-        $sections = $this->get('ihadis.repository.section')->findBy(array(
-            'chapter' => $chapter
-        ));
+        $sections = $this->get('ihadis.repository.section')->findBy(
+            array('chapter' => $chapter),
+            array('sortOrder' => 'asc')
+        );
 
         $hadithRepository = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith');
 
