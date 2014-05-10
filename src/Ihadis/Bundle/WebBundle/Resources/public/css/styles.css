@@ -713,6 +713,9 @@ a.fb {
 a.tw {
     background: url(../images/icon_tw.png) center no-repeat;
 }
+a.copy {
+    background: url(../images/icon_copy2.png) center no-repeat;
+}
 
 a.share-big {
     display: inline-block;

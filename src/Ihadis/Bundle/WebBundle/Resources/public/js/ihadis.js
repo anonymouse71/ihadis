@@ -144,6 +144,25 @@ var IHadis = function () {
 
     };
 
+    var handleCopy = function() {
+        console.log('in func');
+        var client = new ZeroClipboard( $("a.copy"), {
+            moviePath: '/bundles/ihadisweb/js/ZeroClipboard.swf'
+        });
+        client.on( "ready", function (event) {
+            console.log('ready');
+        });
+        client.on( "copy", function (event) {
+            console.log('in callback');
+            event.preventDefault();
+            var clipboard = event.clipboardData;
+            var hadith_id = $(this).data('id');
+            console.log($('#hadith-body-'+ hadith_id +'-bn').html());
+            clipboard.setData( "text/plain", $('#hadith-body-'+ hadith_id +'-bn').text());
+            clipboard.setData( "text/html", $('#hadith-body-'+ hadith_id +'-bn').html() );
+        });
+    };
+
     return {
 
         init: function() {
@@ -156,6 +175,7 @@ var IHadis = function () {
             handleChapterSelection();
             handleGoto();
             handleSearch();
+            handleCopy();
         },
 
         initSearch: function() {
