@@ -36,12 +36,12 @@
 
             <div id="hadith-body-{{ hadith.numberPrimary }}-en" class="surah fr en" style="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}display: block;{% endif %}">
                 <p>Narrated <span>{{ hadith.getNarratorEnglish }}:</span></p>
-                <div>{{ hadith.getBodyEnglish }}</div>
+                <div>{{ hadith.getBodyEnglish|nl2br }}</div>
             </div>
 
             <div id="hadith-body-{{ hadith.numberPrimary }}-bn" class="surah fr bn" style="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}display: block;{% endif %}">
                 <p><span>{{ hadith.getNarrator }}</span> থেকে বর্ণিতঃ  </p>
-                <div>{{ hadith.getBody }}</div>
+                <div>{{ hadith.getBody|nl2br }}</div>
             </div>
 
             <div class="clr"></div>
