@@ -29,7 +29,7 @@
         <div class="section-translation bn">
 
             {% if section.getPrefaceArabic|length > 1 %}
-            <p class="ar">{{ section.getPrefaceArabic }}</p>
+            <p class="ar">{{ section.getPrefaceArabic|nl2br }}</p>
             {% endif %}
 
             {% if section.getPrefaceEnglish|length > 1 %}
@@ -45,7 +45,7 @@
         <div class="section-translation">
 
             {% if section.getPrefaceArabic|length > 1 %}
-                <p class="ar">{{ section.getPrefaceArabic }}</p>
+                <p class="ar">{{ section.getPrefaceArabic|nl2br }}</p>
             {% endif %}
 
             {% if section.getPreface|length > 1 %}

@@ -145,7 +145,6 @@ var IHadis = function () {
     };
 
     var handleCopy = function() {
-        console.log('in func');
         var client = new ZeroClipboard( $("a.copy"), {
             moviePath: '/bundles/ihadisweb/js/ZeroClipboard.swf'
         });
@@ -175,7 +174,7 @@ var IHadis = function () {
             handleChapterSelection();
             handleGoto();
             handleSearch();
-            handleCopy();
+            //handleCopy();
         },
 
         initSearch: function() {

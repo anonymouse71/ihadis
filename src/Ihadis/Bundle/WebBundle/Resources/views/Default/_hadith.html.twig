@@ -85,7 +85,7 @@
 
                 <div class="clr"></div>
 
-                <div class="ar">{{ hadith.getBodyArabic }}‏</div>
+                <div class="ar">{{ hadith.getBodyArabic|nl2br }}‏</div>
 
             </div>
 
@@ -94,7 +94,7 @@
                     {#<li><a data-id="{{ hadith.numberPrimary }}" data-action="tags" href="#{{ hadith.numberPrimary }}-tags" class="tags"></a></li>#}
                     <li><a data-id="{{ hadith.numberPrimary }}" data-action="report" title="Report / Suggest" href="#{{ hadith.numberPrimary }}-report" class="report tip"></a></li>
                     <li><a data-id="{{ hadith.numberPrimary }}" data-action="print" title="Print Hadis" href="#{{ hadith.numberPrimary }}-print" class="print tip"></a></li>
-                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="copy" title="Copy" href="#{{ hadith.numberPrimary }}-copy" class="copy tip">copy</a></li>
+                    {#<li><a data-id="{{ hadith.numberPrimary }}" data-action="copy" title="Copy" href="#{{ hadith.numberPrimary }}-copy" class="copy tip">copy</a></li>#}
                     <li><a data-id="{{ hadith.numberPrimary }}" data-action="facebook" title="Share on Facebook" href="#{{ hadith.numberPrimary }}-fb" class="fb tip"></a></li>
                     <li><a data-id="{{ hadith.numberPrimary }}" data-action="twitter" title="Share on Twitter" href="#{{ hadith.numberPrimary }}-tw" class="tw tip"></a></li>
                 </ul>
