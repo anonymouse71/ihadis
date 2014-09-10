@@ -74,7 +74,7 @@ class HadithFormType extends AbstractType
             ))
             ->add('bodyArabic', 'textarea', array(
                 'label' => 'Hadith Text',
-                'required' => true,
+                'required' => false,
                 'attr'  => array('rows' => 5)
             ))
             ->add('referenceArabic', 'textarea', array(
@@ -88,7 +88,7 @@ class HadithFormType extends AbstractType
             ))
             ->add('bodyEnglish', 'textarea', array(
                 'label' => 'Hadith Text',
-                'required' => true,
+                'required' => false,
                 'attr'  => array('rows' => 5)
             ))
             ->add('referenceEnglish', 'textarea', array(

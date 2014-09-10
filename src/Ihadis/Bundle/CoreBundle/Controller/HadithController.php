@@ -21,7 +21,19 @@ class HadithController extends Controller
             }
 
             $resource->setValidity(Hadith::VALIDITY_SAHIH);
+        }
 
+    }
+
+    protected function finalizeResource(Request $request, $resource)
+    {
+        // Clear translations if body is empty
+        $params = $request->request->all();
+        if(empty($params['ihadis_hadith']['bodyEnglish'])) {
+            $resource->getNewTranslations()->remove('en');
+        }
+        if(empty($params['ihadis_hadith']['bodyArabic'])) {
+            $resource->getNewTranslations()->remove('ar');
         }
     }
 

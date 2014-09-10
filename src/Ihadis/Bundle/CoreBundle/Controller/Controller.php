@@ -21,8 +21,9 @@ class Controller extends ResourceController
         $this->prepareResource($request, $resource);
 
         $form = $this->getForm($resource);
-
         if ($request->isMethod('POST') && $form->bind($request)->isValid()) {
+            $this->finalizeResource($request, $resource);
+
             $event = $this->create($resource);
             if (!$event->isStopped()) {
                 $this->setFlash('success', 'create');
@@ -49,6 +50,17 @@ class Controller extends ResourceController
     }
 
     protected function prepareResource(Request $request, $resource)
+    {
+        // Fill this in!
+    }
+
+    /**
+     * Will be called before persisting resource
+     *
+     * @param Request $request
+     * @param $resource
+     */
+    protected function finalizeResource(Request $request, $resource)
     {
         // Fill this in!
     }

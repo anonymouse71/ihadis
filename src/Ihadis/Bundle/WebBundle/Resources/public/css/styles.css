@@ -160,11 +160,14 @@ header, footer, section, article, aside, hgroup, nav {
 
 .signup {
     float: right;
+    width: 130px;
 }
 
 .signup ul {
     float: left;
     margin: 8px 0 0;
+    width: 85px;
+    text-align: right;
 }
 
 .signup li {
