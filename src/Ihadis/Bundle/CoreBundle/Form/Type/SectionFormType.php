@@ -32,10 +32,12 @@ class SectionFormType extends AbstractType
                 'attr'  => array('rows' => 5)
             ))
             ->add('numberEnglish', null, array(
-                'label' => 'Section Number (English)'
+                'label' => 'Section Number (English)',
+                'required' => false
             ))
             ->add('titleEnglish', null, array(
-                'label'  => 'Section Name (English)'
+                'label'  => 'Section Name (English)',
+                'required' => false
             ))
             ->add('prefaceEnglish', 'textarea', array(
                 'label'  => 'Section Preface (English)',
@@ -43,10 +45,12 @@ class SectionFormType extends AbstractType
                 'attr'  => array('rows' => 5)
             ))
             ->add('numberArabic', null, array(
-                'label' => 'Section Number (Arabic)'
+                'label' => 'Section Number (Arabic)',
+                'required' => false,
             ))
             ->add('titleArabic', null, array(
-                'label'  => 'Section Name (Arabic)'
+                'label'  => 'Section Name (Arabic)',
+                'required' => false,
             ))
             ->add('prefaceArabic', 'textarea', array(
                 'label'  => 'Section Preface (Arabic)',
