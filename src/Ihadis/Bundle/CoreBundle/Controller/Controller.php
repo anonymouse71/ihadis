@@ -49,20 +49,43 @@ class Controller extends ResourceController
         return $this->handleView($view);
     }
 
-    protected function prepareResource(Request $request, $resource)
-    {
-        // Fill this in!
-    }
-
     /**
-     * Will be called before persisting resource
-     *
-     * @param Request $request
-     * @param $resource
+     * Display the form for editing or update the resource.
      */
-    protected function finalizeResource(Request $request, $resource)
+    public function updateAction(Request $request)
     {
-        // Fill this in!
+        $config = $this->getConfiguration();
+
+        $resource = $this->findOr404();
+        $form = $this->getForm($resource);
+
+        if (($request->isMethod('PUT') || $request->isMethod('POST')) && $form->bind($request)->isValid()) {
+            $this->finalizeResource($request, $resource);
+
+            $event = $this->update($resource);
+            if (!$event->isStopped()) {
+                $this->setFlash('success', 'update');
+
+                return $this->redirectTo($resource);
+            }
+
+            $this->setFlash($event->getMessageType(), $event->getMessage(), $event->getMessageParams());
+        }
+
+        if ($config->isApiRequest()) {
+            return $this->handleView($this->view($form));
+        }
+
+        $view = $this
+            ->view()
+            ->setTemplate($config->getTemplate('update.html'))
+            ->setData(array(
+                $config->getResourceName() => $resource,
+                'form'                     => $form->createView()
+            ))
+        ;
+
+        return $this->handleView($view);
     }
 
     /**
@@ -105,5 +128,21 @@ class Controller extends ResourceController
         ;
 
         return $this->handleView($view);
+    }
+
+    protected function prepareResource(Request $request, $resource)
+    {
+        // Fill this in!
+    }
+
+    /**
+     * Will be called before persisting resource
+     *
+     * @param Request $request
+     * @param $resource
+     */
+    protected function finalizeResource(Request $request, $resource)
+    {
+        // Fill this in!
     }
 }

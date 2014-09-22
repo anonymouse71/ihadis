@@ -30,4 +30,5 @@ security:
         - { path: ^/admin/sections, role: ROLE_ADMIN }
         - { path: ^/admin/hadiths, role: ROLE_ADMIN }
         - { path: ^/admin/dashboard, role: ROLE_ADMIN }
+        - { path: ^/admin/tools, role: ROLE_ADMIN }
 
