@@ -15,10 +15,12 @@ class ChapterFormType extends AbstractType
                 'label' => 'Chapter Name (Bangla)')
             )
             ->add('titleEnglish', null, array(
-                'label'  => 'Chapter Name (English)')
+                'label'  => 'Chapter Name (English)',
+                'required' => false)
             )
             ->add('titleArabic', null, array(
-                'label'  => 'Chapter Name (Arabic)')
+                'label'  => 'Chapter Name (Arabic)',
+                'required' => false)
             )
             ->add('number', null, array(
                 'label'  => 'Number'

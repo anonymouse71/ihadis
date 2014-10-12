@@ -9,7 +9,8 @@
         float: none;
     }
 
-    .top, .left-panel, .utility-toolbar, .section-panel, .other-nav, a.share, .remaining-chapter, .surah-number, .surah-top2 {
+    .top, .left-panel, .utility-toolbar, .section-panel, .other-nav, a.share, .remaining-chapter, .surah-number, .surah-top2,
+    #footer {
         display: none;
     }
 

@@ -489,6 +489,9 @@ h1 {
 .surah-holder {
     width: 425px;
 }
+.surah-holder-main .full {
+    width: auto;
+}
 
 .surah-top {
     padding: 0 0 0 55px;
@@ -496,6 +499,20 @@ h1 {
     color: #bfbfbf;
     height: 38px;
     overflow: hidden;
+}
+.surah-holder.full .surah-top {
+    padding-left: 15px;
+}
+
+.surah-holder.full .surah-bottom {}
+.surah-holder.full .surah-bottom .surah{
+    width: 800px;
+    padding: 0 15px;
+    float: left;
+}
+
+.surah-bottom-panel.full {
+    padding: 30px 15px;
 }
 
 .surah-number {

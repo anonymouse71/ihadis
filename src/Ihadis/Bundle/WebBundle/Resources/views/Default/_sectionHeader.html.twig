@@ -1,23 +1,26 @@
+{% set singleCol = (section.getTitleArabic is empty) %}
 <div class="section-panel">
 
     <div class="section" id="section-{{ section.id }}">
 
         {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
-        <div class="section-left fl">
+        <div class="{% if not singleCol %}section-left fl{% endif %}">
             <h2>{{ section.getNumberEnglish }}</h2>
             {{ section.getTitleEnglish }}
         </div>
         {% else %}
-        <div class="section-left fl">
+        <div class="{% if not singleCol %}section-left fl{% endif %} bn">
             <h2>{{ section.getNumber }}</h2>
             {{ section.getTitle }}
         </div>
         {% endif %}
 
+        {% if not singleCol %}
         <div class="section-right fr ar">
             <h2>{{ section.getNumberArabic }}</h2>
             {{ section.getTitleArabic }}
         </div>
+        {% endif %}
 
         <div class="clr"></div>
 

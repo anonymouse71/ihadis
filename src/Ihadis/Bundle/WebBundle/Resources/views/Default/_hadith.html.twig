@@ -2,11 +2,102 @@
 
     <a name="{{ hadith.numberPrimary }}"></a>
 
-    <div class="surah-holder fl">
+    {% if hadith.getBodyArabic is empty %}
+        <div class="surah-holder full">
+            <div class="surah-top">
+                <div class="print-only">
+                    <div class="int-no fr">
+                        <img src="/images/int_no.png"/><br/>
+                        Intl No
+                    </div>
 
-        <div class="surah-top">
+                    <div class="surah-no2 fr">
+                        {{ hadith.numberPrimary }}
+                    </div>
+                </div>
 
-            <div class="print-only">
+                <div class="surah-number">
+                    {{ hadith.numberSecondary }}
+                </div>
+                <div class="fr" style="width: 34px">
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <a href="{{ path('ihadis_hadith_edit', {'id': hadith.id, 'section': hadith.section.id}) }}"><img src="/images/edit.png"></a>
+                    {% endif %}
+                </div>
+
+                <div class="clr"></div>
+            </div>
+            <div class="surah-bottom">
+                <div id="hadith-body-{{ hadith.numberPrimary }}-bn" class="surah bn" style="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}display: block;{% endif %}">
+                    <p><span>{{ hadith.getNarrator }}</span> থেকে বর্ণিতঃ  </p>
+                    <div>{{ hadith.getBody|nl2br }}</div>
+                </div>
+
+                {% include '@IhadisWeb/Default/_tools.html.twig' %}
+            </div>
+            <div class="clr"></div>
+        </div>
+    {% else %}
+        <div class="surah-holder fl">
+
+            <div class="surah-top">
+
+                <div class="print-only">
+                    <div class="int-no fr">
+                        <img src="/images/int_no.png"/><br/>
+                        Intl No
+                    </div>
+
+                    <div class="surah-no2 fr">
+                        {{ hadith.numberPrimary }}
+                    </div>
+                </div>
+
+                <div class="surah-number">
+                    {{ hadith.numberSecondary }}
+                </div>
+
+                <div class="clr"></div>
+
+            </div>
+
+            <div class="surah-bottom">
+
+                <div id="language-toggle" class="utility-toolbar fl">
+                    <ul>
+                        <li><a href="#{{ hadith.numberPrimary }}-en" data-id="en" class="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}active{% endif %}">En</a></li>
+                        <li><a href="#{{ hadith.numberPrimary }}-bn" data-id="bn" class="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}active{% endif %}">Bn</a></li>
+                    </ul>
+                </div>
+
+                <div id="hadith-body-{{ hadith.numberPrimary }}-en" class="surah fr en" style="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}display: block;{% endif %}">
+                    <p>Narrated <span>{{ hadith.getNarratorEnglish }}:</span></p>
+                    <div>{{ hadith.getBodyEnglish|nl2br }}</div>
+                </div>
+
+                <div id="hadith-body-{{ hadith.numberPrimary }}-bn" class="surah fr bn" style="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}display: block;{% endif %}">
+                    <p><span>{{ hadith.getNarrator }}</span> থেকে বর্ণিতঃ  </p>
+                    <div>{{ hadith.getBody|nl2br }}</div>
+                </div>
+
+                <div class="clr"></div>
+
+            </div>
+
+        </div>
+
+        <div class="surah-holder fr">
+
+            <div class="surah-top2">
+
+                <div class="fr" style="width: 34px">
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <a href="{{ path('ihadis_hadith_edit', {'id': hadith.id, 'section': hadith.section.id}) }}"><img src="/images/edit.png"></a>
+                    {% else %}
+                        &nbsp;
+                    {% endif %}
+                </div>
+
                 <div class="int-no fr">
                     <img src="/images/int_no.png"/><br/>
                     Intl No
@@ -15,96 +106,33 @@
                 <div class="surah-no2 fr">
                     {{ hadith.numberPrimary }}
                 </div>
-            </div>
-
-            <div class="surah-number">
-                {{ hadith.numberSecondary }}
-            </div>
-
-            <div class="clr"></div>
-
-        </div>
-
-        <div class="surah-bottom">
-
-            <div id="language-toggle" class="utility-toolbar fl">
-                <ul>
-                    <li><a href="#{{ hadith.numberPrimary }}-en" data-id="en" class="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}active{% endif %}">En</a></li>
-                    <li><a href="#{{ hadith.numberPrimary }}-bn" data-id="bn" class="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}active{% endif %}">Bn</a></li>
-                </ul>
-            </div>
-
-            <div id="hadith-body-{{ hadith.numberPrimary }}-en" class="surah fr en" style="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}display: block;{% endif %}">
-                <p>Narrated <span>{{ hadith.getNarratorEnglish }}:</span></p>
-                <div>{{ hadith.getBodyEnglish|nl2br }}</div>
-            </div>
-
-            <div id="hadith-body-{{ hadith.numberPrimary }}-bn" class="surah fr bn" style="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}display: block;{% endif %}">
-                <p><span>{{ hadith.getNarrator }}</span> থেকে বর্ণিতঃ  </p>
-                <div>{{ hadith.getBody|nl2br }}</div>
-            </div>
-
-            <div class="clr"></div>
-
-        </div>
-
-    </div>
-
-    <div class="surah-holder fr">
-
-        <div class="surah-top2">
-
-            <div class="fr" style="width: 34px">
-                {% if is_granted('ROLE_SUPER_ADMIN') %}
-                    <a href="{{ path('ihadis_hadith_edit', {'id': hadith.id, 'section': hadith.section.id}) }}"><img src="/images/edit.png"></a>
-                {% else %}
-                    &nbsp;
-                {% endif %}
-            </div>
-
-            <div class="int-no fr">
-                <img src="/images/int_no.png"/><br/>
-                Intl No
-            </div>
-
-            <div class="surah-no2 fr">
-                {{ hadith.numberPrimary }}
-            </div>
-
-            <div class="clr"></div>
-
-        </div>
-
-        <div class="surah-bottom">
-
-            <div class="surah fl" style="display: block">
-
-                <p class="fr">
-                    {% trans %}Narrated by{% endtrans %} <span>{{ hadith.getNarratorEnglish }}:</span>
-                </p>
 
                 <div class="clr"></div>
 
-                <div class="ar">{{ hadith.getBodyArabic|nl2br }}‏</div>
-
             </div>
 
-            <div id="hadith-tools" class="utility-toolbar fr">
-                <ul>
-                    {#<li><a data-id="{{ hadith.numberPrimary }}" data-action="tags" href="#{{ hadith.numberPrimary }}-tags" class="tags"></a></li>#}
-                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="report" title="Report / Suggest" href="#{{ hadith.numberPrimary }}-report" class="report tip"></a></li>
-                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="print" title="Print Hadis" href="#{{ hadith.numberPrimary }}-print" class="print tip"></a></li>
-                    {#<li><a data-id="{{ hadith.numberPrimary }}" data-action="copy" title="Copy" href="#{{ hadith.numberPrimary }}-copy" class="copy tip">copy</a></li>#}
-                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="facebook" title="Share on Facebook" href="#{{ hadith.numberPrimary }}-fb" class="fb tip"></a></li>
-                    <li><a data-id="{{ hadith.numberPrimary }}" data-action="twitter" title="Share on Twitter" href="#{{ hadith.numberPrimary }}-tw" class="tw tip"></a></li>
-                </ul>
-            </div>
+            <div class="surah-bottom">
 
-            <div class="clr"></div>
+                <div class="surah fl" style="display: block">
+
+                    <p class="fr">
+                        {% trans %}Narrated by{% endtrans %} <span>{{ hadith.getNarratorEnglish }}:</span>
+                    </p>
+
+                    <div class="clr"></div>
+
+                    <div class="ar">{{ hadith.getBodyArabic|nl2br }}‏</div>
+
+                </div>
+
+                {% include '@IhadisWeb/Default/_tools.html.twig' %}
+
+                <div class="clr"></div>
+
+            </div>
 
         </div>
-
-    </div>
+    {% endif %}
 
     <div class="clr"></div>
 
@@ -128,7 +156,7 @@
 
     <div class="clr"></div>
 
-    <div class="surah-bottom-panel">
+    <div class="surah-bottom-panel {% if hadith.getBodyArabic is empty %}full{% endif %}">
 
         <div class="authenticity">
             <p>{% trans %}Authenticity Status{% endtrans %}: <span class="{{ hadith.getAuthenticityLabel|lower }}">{{ hadith.getAuthenticityLabel }}</span></p>

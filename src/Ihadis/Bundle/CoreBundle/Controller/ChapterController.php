@@ -15,4 +15,16 @@ class ChapterController extends Controller
             }
         }
     }
+
+    protected function finalizeResource(Request $request, $resource)
+    {
+        // Clear translations if body is empty
+        $params = $request->request->all();
+        if(empty($params['ihadis_section']['titleEnglish'])) {
+            $resource->getNewTranslations()->remove('en');
+        }
+        if(empty($params['ihadis_section']['titleArabic'])) {
+            $resource->getNewTranslations()->remove('ar');
+        }
+    }
 } 
