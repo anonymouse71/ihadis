@@ -15,6 +15,8 @@
 
     </div>
 
+    {% include 'partials/flash.html.twig' %}
+
     <table class="table table-striped table-bordered table-hover" id="users">
 
         <thead>
@@ -53,6 +55,13 @@
                             <a href="{{ path('ihadis_admin_user_chapters', {'user': user.id}) }}" class="btn mini green">Chapters</a>
                         {% endif %}
 
+                        {% if 'ROLE_SUPER_ADMIN' in app.user.roles and app.user != user %}
+                        <a href="#" class="btn mini red remove"
+                                data-callback="forwardToUrl"
+                                data-url="{{ path('ihadis_admin_user_remove', {'user': user.id}) }}"
+                                data-message="Are you sure to delete this <b>User<b/>?">Remove</a>
+                        {% endif %}
+
                         {#<a href="" class="btn mini blue">Edit</a>
                         <form method="post" action="" class="delete-action-form">
                             <input type="hidden" name="_method" value="DELETE" />
@@ -67,3 +76,9 @@
     </table>
 
 {% endblock %}
+
+{% block documentReady %}
+    {{ parent() }}
+
+
+{% endblock documentReady %}

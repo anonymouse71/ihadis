@@ -70,19 +70,43 @@ var IHadisBackend = function () {
             bootbox.alert("All the hadiths have been saved.");
             location.href = $('#cancel-btn').attr('href');
         }
-    }
+    };
 
     var handleAddMore = function() {
         $('#add-more-hadith').click(function(){
            addMoreHadith();
         });
-    }
+    };
 
     var handleSaveAll = function() {
         $('#save-btn').click(function(){
             saveAllHadith();
         });
-    }
+    };
+
+    var prepareConfirmationModal = function() {
+        $(document).on('click', 'a.remove', function(e) {
+            e.preventDefault();
+            var link = this;
+
+            $('#confirmation-msg').html($(this).data('message'));
+            $('#confirmation-yes').on('click', function() {
+                var callback = $(link).data('callback');
+                window[callback](link);
+
+                $('#confirmation').modal('hide');
+            });
+
+            $('#confirmation').modal('show');
+        });
+
+        // While the modal is hiding, nedd to clear message and event
+        $('#confirmation').on('hidden.bs.modal', function (e) {
+            $('#confirmation-msg').empty();
+            $('#confirmation-yes').off();
+        });
+    };
+
 
     return {
 
@@ -90,6 +114,7 @@ var IHadisBackend = function () {
             handleShowHide();
             handleAddMore();
             handleSaveAll();
+            prepareConfirmationModal();
         },
 
         addMoreHadtih: function() {
@@ -103,3 +128,8 @@ var IHadisBackend = function () {
     }
 
 }();
+
+// Some common callbacks
+function forwardToUrl(link) {
+    window.location = $(link).data('url');
+}

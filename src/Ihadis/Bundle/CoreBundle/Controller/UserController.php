@@ -14,6 +14,7 @@ namespace Ihadis\Bundle\CoreBundle\Controller;
 use Ihadis\Bundle\CoreBundle\Entity\User;
 use Ihadis\Bundle\CoreBundle\Form\Type\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -25,6 +26,8 @@ class UserController extends Controller
 {
     public function indexAction()
     {
+        $this->goHomeUnlessLoggedIn();
+
         $query = $this->get('doctrine.orm.entity_manager')->getRepository('IhadisCoreBundle:User')
             ->createQueryBuilder('u')
             ->getQuery();
@@ -101,6 +104,24 @@ class UserController extends Controller
         ));
     }
 
+    public function removeAction(User $user)
+    {
+        if (false === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+            throw new AccessDeniedException();
+        }
+
+        try {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($user);
+            $em->flush();
+            $this->addFlash('success','User have successfully removed!');
+        } catch (\Exception $e) {
+            $this->addFlash('error','Error in removing User! Please try later.');
+        }
+
+        return $this->redirect($this->generateUrl('ihadis_admin_user_index'));
+    }
+
     public function chaptersAction(User $user)
     {
         $chapters = array();
@@ -143,4 +164,15 @@ class UserController extends Controller
         ));
     }
 
+    protected function addFlash($type, $message)
+    {
+        $this->get('session')->getFlashBag()->add($type,$message);
+    }
+
+    private function goHomeUnlessLoggedIn()
+    {
+        if(! $this->getUser()) {
+            return $this->redirect($this->generateUrl('ihadis_homepage'));
+        }
+    }
 } 

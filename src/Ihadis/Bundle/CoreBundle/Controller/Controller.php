@@ -145,4 +145,9 @@ class Controller extends ResourceController
     {
         // Fill this in!
     }
+
+    protected function addFlash($type, $message)
+    {
+        $this->get('session')->getFlashBag()->add($type,$message);
+    }
 }

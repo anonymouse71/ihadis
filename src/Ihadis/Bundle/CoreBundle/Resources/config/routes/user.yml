@@ -13,6 +13,11 @@ ihadis_admin_user_create:
     defaults:
         _controller: IhadisCoreBundle:User:create
 
+ihadis_admin_user_remove:
+    pattern: /remove/{user}
+    defaults:
+        _controller: IhadisCoreBundle:User:remove
+
 ihadis_admin_user_chapters:
     pattern: /chapters/{user}
     defaults:
