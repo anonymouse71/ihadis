@@ -16,7 +16,8 @@ class Hadith
 {
     use ORMBehaviors\Translatable\Translatable,
         ORMBehaviors\Timestampable\Timestampable,
-        ORMBehaviors\Blameable\Blameable
+        ORMBehaviors\Blameable\Blameable,
+        \Ajaxray\TagBundle\Traits\Taggable
     ;
 
     const VALIDITY_NONE  = 0;
@@ -124,6 +125,11 @@ class Hadith
      * @ORM\ManyToOne(targetEntity="Section", inversedBy="hadiths")
      */
     private $section;
+
+    function __construct()
+    {
+        $this->prepareTags();
+    }
 
     /**
      * @ORM\PreFlush

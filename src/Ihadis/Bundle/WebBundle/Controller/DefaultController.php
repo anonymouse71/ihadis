@@ -2,6 +2,7 @@
 
 namespace Ihadis\Bundle\WebBundle\Controller;
 
+use Ajaxray\TagBundle\Entity\Tag;
 use Ihadis\Bundle\CoreBundle\Entity\Book;
 use Ihadis\Bundle\CoreBundle\Entity\Chapter;
 use Ihadis\Bundle\CoreBundle\Entity\Hadith;
@@ -145,6 +146,19 @@ class DefaultController extends BaseController
             $this->getDoctrine()->getRepository('IhadisCoreBundle:HadithReport')->create($data);
             return new Response('OK');
         }
+    }
+
+    public function testAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $hadis = $em->find('IhadisCoreBundle:Hadith', 15);
+
+        $this->get('ajaxray_tag.tagger')->tag($hadis, 'ইমান', true);
+        echo '<pre>';
+        \Doctrine\Common\Util\Debug::dump($hadis->getTags());
+        die("\n Died in ". __FILE__ ." at line ". __LINE__);
+
+        return $this->render('IhadisWebBundle:StaticPages:disclaimer.html.twig');
     }
 
     /**

@@ -130,7 +130,11 @@ var IHadis = function () {
 
         var search = function() {
             var q = $('#q').val();
-            window.location = '/search/'+q;
+            if(q == '') {
+                $('#q').focus();
+            } else {
+                window.location = '/search/'+q;
+            }
         };
 
         $('#q').keypress(function(e) {

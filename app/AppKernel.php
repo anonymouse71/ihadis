@@ -29,6 +29,7 @@ class AppKernel extends Kernel
 
             new Ihadis\Bundle\CoreBundle\IhadisCoreBundle(),
             new Ihadis\Bundle\WebBundle\IhadisWebBundle(),
+            new Ajaxray\TagBundle\AjaxrayTagBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

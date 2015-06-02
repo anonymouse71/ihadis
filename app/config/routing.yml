@@ -1,3 +1,7 @@
+ajaxray_tag:
+    resource: "@AjaxrayTagBundle/Resources/config/routing.yml"
+    prefix:   /
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
@@ -16,6 +20,10 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
+ajaxray_tags:
+    resource: "@AjaxrayTagBundle/Resources/config/routing.yml"
+    prefix:   /tags
 
 ihadis_core:
     resource: "@IhadisCoreBundle/Resources/config/routing.yml"

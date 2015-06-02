@@ -37,6 +37,10 @@ ihadis_pdf_book:
     pattern: /pdf/{bookName}
     defaults: { _controller: IhadisWebBundle:Default:pdfBook }
 
+ihadis_public_test:
+    pattern: /test
+    defaults: { _controller: IhadisWebBundle:Default:test }
+
 ihadis_public_book:
     pattern: /{slug}
     defaults: { _controller: IhadisWebBundle:Default:book }
@@ -44,7 +48,6 @@ ihadis_public_book:
 ihadis_public_chapter:
     pattern: /{slug}/{number}
     defaults: { _controller: IhadisWebBundle:Default:chapter }
-
 
 ihadis_public_goto:
     pattern: /goto/{slug}/{numberPrimary}
