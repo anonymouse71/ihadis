@@ -1,0 +1,12 @@
+parameters:
+#    ajaxray_tag.example.class: Ajaxray\TagBundle\Example
+
+services:
+
+    ajaxray_tag.tagger:
+        class: Ajaxray\TagBundle\Service\Tagger
+        arguments: [ @service_container ]
+
+#    ajaxray_tag.example:
+#        class: %ajaxray_tag.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

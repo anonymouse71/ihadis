@@ -1,0 +1,8 @@
+ajaxray_tag_cloud:
+    pattern:  /{size}
+    defaults: { _controller: AjaxrayTagBundle:Tag:cloud, size: 10 }
+
+ajaxray_tag_add:
+    pattern:  /
+    defaults: { _controller: AjaxrayTagBundle:Tag:add}
+    methods: [POST]

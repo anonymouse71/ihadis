@@ -127,5 +127,32 @@ class Tag
         $this->frequency = $frequency;
         return $this;
     }
+
+    /**
+     * Set frequency
+     *
+     * @param int $increaseBy default 1
+     *
+     * @return Tag
+     */
+    public function increaseFrequency($increaseBy = 1)
+    {
+        $this->frequency += $increaseBy;
+        return $this;
+    }
+
+    /**
+     * Set frequency
+     *
+     * @param int $decreaseBy default 1
+     *
+     * @return Tag
+     */
+    public function decreaseFrequency($decreaseBy = 1)
+    {
+        $this->frequency -= $decreaseBy;
+        return $this;
+    }
+
     
 } 

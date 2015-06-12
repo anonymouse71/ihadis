@@ -10,6 +10,7 @@
 
 namespace Ajaxray\TagBundle\Service;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -40,19 +41,28 @@ class Tagger
         return $this;
     }
 
+    /**
+     * Tag an entity with a tagname. Tag will be created if needed.
+     *
+     *
+     * @param $entity
+     * @param $tagName
+     * @param bool $doFlush
+     *
+     * @return mixed
+     */
     public function tag($entity, $tagName, $doFlush = false)
     {
         $this->throwUnlessTaggable($entity);
 
         $repo = $this->em->getRepository('AjaxrayTagBundle:Tag');
-        $tag = $repo->getByName($tagName);
+        $tag = $repo->getByName(trim($tagName));
 
         if(! $entity->getTags()->contains($tag)) {
             $entity->addTag($tag);
-            $tag->setFrequency($tag->getFrequency() + 1);
+            $tag->increaseFrequency();
 
             $this->em->persist($tag);
-            $this->em->persist($entity);
 
             if($doFlush) {
                 $this->em->flush();
@@ -61,6 +71,35 @@ class Tagger
 
         return $entity;
     }
+
+    public function setCsvTags($entity, $csvTags, $doFlush = false)
+    {
+        $this->throwUnlessTaggable($entity);
+        $repo = $this->em->getRepository('AjaxrayTagBundle:Tag');
+        $tags = new ArrayCollection();
+
+        foreach(explode(',', $csvTags) as $tagName) {
+            if(empty($tagName)) continue;
+
+            $tag = $repo->getByName(trim($tagName));
+            $tag->increaseFrequency();
+
+            $tags->add($tag);
+            $this->em->persist($tag);
+        }
+
+        foreach($entity->getTags() as $oldTag) {
+            $oldTag->decreaseFrequency();
+        }
+
+        $entity->setTags($tags);
+
+        if($doFlush) {
+            $this->em->flush();
+        }
+        return $entity;
+    }
+
 
     private function throwUnlessTaggable($obj)
     {
