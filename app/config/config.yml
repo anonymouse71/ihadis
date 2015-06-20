@@ -125,3 +125,6 @@ services:
      class: Twig_Extensions_Extension_Text
      tags:
          - { name: twig.extension }
+
+ajaxray_tag:
+    entity: IhadisCoreBundle:Hadith

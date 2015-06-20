@@ -151,11 +151,13 @@ class DefaultController extends BaseController
     public function testAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $hadis = $em->find('IhadisCoreBundle:Hadith', 15);
+        $entityClass = $this->container->getParameter('ajaxray_tag.entity');
+        $hadis = $em->find($entityClass, 15);
 
-        $this->get('ajaxray_tag.tagger')->tag($hadis, 'ইমান', true);
+
+        //$this->get('ajaxray_tag.tagger')->tag($hadis, 'ইমান', true);
         echo '<pre>';
-        \Doctrine\Common\Util\Debug::dump($hadis->getTags());
+        \Doctrine\Common\Util\Debug::dump($hadis);
         die("\n Died in ". __FILE__ ." at line ". __LINE__);
 
         return $this->render('IhadisWebBundle:StaticPages:disclaimer.html.twig');
