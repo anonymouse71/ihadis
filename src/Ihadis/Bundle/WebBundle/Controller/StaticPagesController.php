@@ -3,7 +3,11 @@
 namespace Ihadis\Bundle\WebBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 
+/**
+ * @Cache(expires="+10 days", public=true)
+ */
 class StaticPagesController extends Controller
 {
     public function aboutUsAction()
@@ -30,6 +34,5 @@ class StaticPagesController extends Controller
     {
         return $this->render('IhadisWebBundle:StaticPages:incomplete.html.twig');
     }
-
 
 }

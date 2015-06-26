@@ -8,8 +8,12 @@ use Ihadis\Bundle\CoreBundle\Entity\Chapter;
 use Ihadis\Bundle\CoreBundle\Entity\Hadith;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * @Cache(expires="+2 days", public=true)
+ */
 class DefaultController extends BaseController
 {
     public function indexAction()
@@ -150,17 +154,17 @@ class DefaultController extends BaseController
 
     public function testAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $entityClass = $this->container->getParameter('ajaxray_tag.entity');
-        $hadis = $em->find($entityClass, 15);
+//        $em = $this->getDoctrine()->getManager();
+//        $entityClass = $this->container->getParameter('ajaxray_tag.entity');
+//        $hadis = $em->find($entityClass, 15);
+//
+//
+//        //$this->get('ajaxray_tag.tagger')->tag($hadis, 'ইমান', true);
+//        echo '<pre>';
+//        \Doctrine\Common\Util\Debug::dump($hadis);
+//        die("\n Died in ". __FILE__ ." at line ". __LINE__);
 
-
-        //$this->get('ajaxray_tag.tagger')->tag($hadis, 'ইমান', true);
-        echo '<pre>';
-        \Doctrine\Common\Util\Debug::dump($hadis);
-        die("\n Died in ". __FILE__ ." at line ". __LINE__);
-
-        return $this->render('IhadisWebBundle:StaticPages:disclaimer.html.twig');
+        return $this->render('ui2/layout.html.twig');
     }
 
     /**
