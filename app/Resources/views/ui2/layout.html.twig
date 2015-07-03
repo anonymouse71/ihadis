@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}iHadis{% endblock %}</title>
+    <meta charset="UTF-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Learn how to code your first responsive website with the new Twitter Bootstrap 3.">
+
+    <!-- Mobile viewport optimized -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    {% block stylesheets %}
+
+        {% stylesheets
+        'ui2/css/bootstrap.min.css'
+        'ui2/css/style.css'
+        'ui2/css/mobile.css'
+        filter='cssrewrite' output='css/ui2.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+    {% endblock %}
+
+</head>
+
+
+<body>
+
+<div class="header_area">
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="{{ asset('ui2/img/logo.jpg') }}" style="width: 160px;height: 65px;" alt=""></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+            <div class="col-lg-7 col-sm-4 col-md-5 pull-left searchbox">
+
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="সার্চ করুন" name="q">
+
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i><img src="{{ asset('ui2/img/search.png') }}" alt=""></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <ul class="nav navbar-nav pull-right">
+                <li><a href="#"><img src="{{ asset('ui2/img/home_icon.png') }}" alt=""> Home</a></li>
+
+                <li class="dropdown">
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('ui2/img/books.png') }}" alt=""> Books
+                        <b class="caret"></b></a>
+                    <ul class="dropdown-menu row">
+                        <li class="col-sm-6">
+                            <a href="#">সহিহ বুখারি</a>
+                            <a href="#">মিশকাতুল মাসাবিহ</a>
+                            <a href="#">সুনানে আবু দাউদ</a>
+                            <a href="#">সহিহ ও জয়ীফ আত-তিরমিযি</a>
+                            <a href="#"> জাল ও জয়ীফ হাদিস সিরিজ</a>
+                            <a href="#"> মুয়াত্তা ইমাম মালিক </a>
+                        </li>
+                        <li class="col-sm-6">
+                            <a href="#">সহিহ বুখারি</a>
+                            <a href="#">মিশকাতুল মাসাবিহ</a>
+                            <a href="#">সুনানে আবু দাউদ</a>
+                            <a href="#">সহিহ ও জয়ীফ আত-তিরমিযি</a>
+                            <a href="#"> জাল ও জয়ীফ হাদিস সিরিজ</a>
+                            <a href="#"> মুয়াত্তা ইমাম মালিক </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="#"><img src="{{ asset('ui2/img/collection2.png') }}" alt=""> Subjectwise Hadith</a></li>
+                <li><a href="#"><img src="{{ asset('ui2/img/joinus.png') }}" alt=""> Join Us</a></li>
+                <li><a href="#"><img src="{{ asset('ui2/img/comments.png') }}" alt=""> Comments</a></li>
+
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+</div>
+<!--header area over-->
+{% block content %}
+<div class="content">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Place your page content here</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
+
+<!--*********************** Footer Area ************************-->
+<div class="footer_area">
+    <div class="row">
+
+
+        <div class="col-md-3 col-sm-6 col-xs-6 col-10">
+            <div class="footer_part">
+                <img src="{{ asset('ui2/img/footer_1.jpg') }}" alt="">
+
+                <h3>More About ihadis</h3>
+
+                <p><a href="">&raquo; Disclaimer</a></p>
+
+                <p><a href="">&raquo; Updates</a></p>
+
+                <p><a href="">&raquo; Sources We use</a></p>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-6 col-10">
+            <div class="footer_part">
+                <img src="{{ asset('ui2/img/footer_2.jpg') }}" alt="">
+
+                <h3>Islamic resources</h3>
+
+                <p><a href="http://quran.com/">&raquo; Quran.com</a></p>
+
+                <p><a href="http://islamhouse.com/">&raquo; Islam House</a></p>
+
+                <p class="foot"><a href="http://www.amarboi.org/">&raquo; বাংলা বই</a></p>
+
+                <p class="foot"><a href="https://www.youtube.com/channel/UCX2o3HekhEEfO29UhkVcmuQ/videos">&raquo; বাংলা
+                        ওয়াজ/লেকচার</a></p>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-6 col-10">
+            <div class="footer_part">
+                <img src="{{ asset('ui2/img/footer_3.jpg') }}" alt="">
+
+                <h3>Recommended blogs</h3>
+
+                <p class="foot"><a href="http://www.quraneralo.com/">&raquo; কুরআনের আলো</a></p>
+
+                <p class="foot"><a href="http://at-tahreek.com">&raquo; আত-তাহরিক</a></p>
+
+                <p class="foot"><a href="http://www.shomokalin.com/">&raquo; সমকালীন</a></p>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-6 col-10">
+            <div class="footer_part bn">
+                <img src="{{ asset('ui2/img/footer_4.jpg') }}" alt="">
+
+                <h3>About ihadis</h3>
+
+                <p><a href="http://facebook.com/groups/hadis.team1">Facebook</a></p>
+
+                <p>mail: <a href="">weloveallah2012@gmail.com</a></p>
+
+                <p>Copyright © 2015-2016, all rights reserved, iHadis.com</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% block javascripts %}
+
+    <!--[if lt IE 9]>
+    <script src="/assets/plugins/respond.min.js"></script>
+    <script src="/assets/plugins/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- BEGIN GLOBAL JS -->
+    {% javascripts
+    'ui2/js/jquery.min.js'
+    'ui2/js/bootstrap.min.js'
+    'ui2/js/custom.js'
+        output='js/ui2.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% block documentReady %}{% endblock documentReady %}
+
+{% endblock javascripts %}
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-392339-7', 'ihadis.com');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

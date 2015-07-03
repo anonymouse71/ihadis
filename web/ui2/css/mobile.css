@@ -1,0 +1,703 @@
+/* Define Helper Class */
+
+
+
+
+/* === Media Queries ==== */
+
+@media (max-width: 1021px) {
+
+
+
+    .hadith {
+        font-size: 18px;
+    }
+
+    .dropdown-menu>li>a {
+        padding: 5px 20px;
+    }
+
+    .dropdown-menu {
+        position: static;
+        float: none;
+        -webkit-box-shadow: none;
+    }
+
+    .navbar-default .navbar-toggle:focus, .navbar-default       .navbar-toggle:hover {
+        background-color: #fff;
+    }
+
+    .col-sm-6 {
+        width: 100%;
+    }
+
+    .navbar-default .navbar-collapse {
+        background: #fff;
+        z-index: 999;
+        border-top: 1px solid #e0e0e0;
+
+    }
+
+    .form-control {
+        border-right: none !important;
+    }
+
+    .input-group button {
+        right: 24px;
+        top: 19px;
+    }
+
+    .navbar-default .navbar-toggle {
+        background: #ffffff;
+        border: 1px solid #93C528;
+        margin: 0;
+        margin-top: 8px;
+        margin-right: 10px;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar{
+        background: #93C528;
+    }
+
+    .navbar-brand img {
+        width: 140px !important;
+        height: 50px !important;
+    }
+
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 0px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+
+    .navbar-nav>li>.dropdown-menu.row{
+        width: 100%;
+    }
+
+
+    .navbar-default .navbar-brand{
+        color: #ffffff;
+    }
+
+    .searchbox{
+        float: none !important;
+    }
+
+    .header_area ul.nav.navbar-nav.pull-right{
+        float: none!important;
+        text-align: left;
+        height: 326px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        border-top: 1px solid #ddd;
+    }
+
+    .navbar-nav>li{
+        float: none;
+        display: block;
+    }
+
+    .navbar-nav>li>.dropdown-menu.row{
+        width: 100%;
+    }
+
+    /* since 3.1.0 */
+    .navbar-collapse.collapse.in {
+        display: block!important;
+        overflow-x: hidden;
+    }
+    .collapsing {
+        overflow: hidden!important;
+    }
+}
+
+
+
+
+@media (max-width: 1920px) and (min-width: 993px){
+
+    .col-md-9 {
+        width: 72%;
+    }
+
+}
+
+
+@media (max-width: 1924px){
+    .col-lg-7 {
+        width: 57.45%;
+        padding-right: 0;
+    }
+}
+
+
+
+@media (max-width: 1919px){
+    .col-lg-7 {
+        width: 56%;
+        padding-right: 0;
+    }
+}
+
+
+
+@media (max-width: 1859px){
+    .col-lg-7 {
+        width: 52%;
+    }
+}
+
+
+
+@media (max-width: 1752px){
+    .col-lg-7 {
+        width: 50%;
+    }
+}
+
+
+@media (max-width: 1637px){
+    .col-lg-7 {
+        width: 48%;
+    }
+}
+
+
+@media (max-width: 1578px){
+    .col-lg-7 {
+        width: 44%;
+    }
+}
+
+
+@media (max-width: 1467px){
+    .col-lg-7 {
+        width: 40%;
+    }
+}
+
+
+@media (max-width: 1372px){
+    .col-md-5 {
+        width: 39.5%;
+        padding-right: 0;
+    }
+}
+
+
+
+
+/*for medium screen*/
+
+@media (max-width: 1366px){
+    .col-md-5 {
+        width: 39.8%;
+        padding-right: 0;
+    }
+}
+
+/*for medium screen*/
+
+
+
+
+
+
+
+@media (max-width: 1365px){
+    .col-md-5 {
+        width: 37%;
+        padding-right: 0;
+    }
+}
+
+
+@media (max-width: 1308px) {
+    .col-md-5 {
+        width: 34%;
+    }
+}
+
+
+@media (max-width: 1249px) {
+    .col-md-5 {
+        width: 28%;
+    }
+}
+
+@media (max-width: 1147px) {
+    .col-md-5 {
+        width: 24%;
+    }
+}
+
+
+
+@media (max-width: 1088px) {
+    .col-md-5 {
+        width: 20% !important;
+    }
+}
+
+
+@media (max-width: 1036px) {
+    .col-md-5 {
+        width: 18% !important;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 1199px) and (min-width: 992px){
+    .col-md-9 {
+        width: 70%;
+    }
+}
+
+
+@media (max-width: 1086px) {
+    .col-md-5 {
+        width: 28%;
+    }
+}
+
+@media (max-width: 1027px){
+    .col-md-5 {
+        width: 27%;
+    }
+}
+
+
+@media (max-width: 1021px){
+
+    .col-md-5 {
+        width: 100% !important;
+        padding-right: 20px;
+    }
+
+}
+@media (max-width: 771px){
+
+    .col-md-5 {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 767px){
+
+    .dropdown-menu {
+        background: #fff !important;
+        border: 1px solid rgba(0,0,0,.15) !important;
+        border-radius: 4px !important;
+    }
+
+
+    .slider {margin-bottom: 15px;}
+
+    .navbar-brand img {
+        width: 140px !important;
+        height: 50px !important;
+    }
+
+    .dropdown-menu>li>a:hover {
+        background-color: #F0F0F0 !important;
+    }
+
+
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+        background: #ffffff;
+        border:1px solid #93C528;
+    }
+
+    .navbar-toggle{
+        border: none;
+    }
+
+    .navbar-default .navbar-toggle{
+        background: #ffffff;
+        border:1px solid #93C528;
+        margin: 0;
+        margin-top: 8px;
+        margin-right: 10px;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar{
+        background: #93C528;
+    }
+
+
+    .form-control {
+        border-right: none !important;
+    }
+
+    .input-group button {
+        right: 35px;
+    }
+
+
+    .navbar-default .navbar-collapse{
+        background: #fff;
+        z-index: 999;
+    }
+    .navbar-default .navbar-nav>li>a {
+        color: #5a4f4f !important;
+    }
+    .navbar-default .navbar-nav>.active>a {
+        color: #000 !important;
+    }
+
+    .navbar-nav>li>a{
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+    .navbar-nav>li:hover{
+        background: #fff;
+        color: #000;
+    }
+
+    .navbar-default .navbar-brand{
+        color: #ffffff;
+    }
+
+    .searchbox{
+        float: none !important;
+        padding-left: 0;
+        padding-right: 8px;
+    }
+
+    .header_area ul.nav.navbar-nav.pull-right{
+        float: none!important;
+        text-align: left;
+        height: 325px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .navbar-nav>li{
+        float: none;
+        display: block;
+    }
+
+    .navbar-nav>li>.dropdown-menu.row{
+        width: 100%;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a{
+        color: #000;
+    }
+
+    .navbar-nav>li:hover {
+        background: #FAFDF2;
+    }
+
+}
+
+
+
+@media (max-width: 1199px) and (min-width: 991px) {
+    .img1{
+        width: 76px;
+        background-size: 46px;
+        background-image: url("img/book_icon6.png");
+    }
+
+    .book_con h3 {
+        font-size: 16px;
+    }
+
+}
+
+
+
+@media (max-width: 371px) {
+    .img1 {
+        width: 76px;
+        background-size: 46px;
+        background-image: url("img/book_icon6.png");
+    }
+
+    .book_con h3 {
+        font-size: 16px;
+    }
+
+}
+
+
+@media (max-width: 283px) {
+
+    .img1 {
+        display: none;
+    }
+
+}
+
+
+
+@media (max-width: 991px){
+
+    .book {
+        margin-bottom: 20px;
+    }
+
+}
+
+@media (max-width: 1811px) {
+
+    .col-lg-61 {
+        width: 48%;
+        float: left;
+    }
+
+    .menu li {
+        padding: 15px 30px !important;}
+}
+
+
+
+
+@media (max-width: 1740px) {
+
+    .col-lg-6 {
+        width: 46%;
+    }
+
+    .menu li {
+        padding: 15px 30px !important;}
+}
+
+
+
+
+@media (max-width: 1675px) {
+
+    .col-lg-6 {
+        width: 42%;
+    }
+    .menu li {
+        padding: 15px 30px !important;}
+}
+
+
+
+@media (max-width: 1558px) {
+
+    .col-lg-6 {
+        width: 38%;
+    }
+
+    .menu li {
+        padding: 15px 30px !important;}
+}
+
+
+
+@media (max-width: 1455px) {
+
+    .col-lg-6 {
+        width: 32%;
+    }
+
+    .menu li {
+        padding: 15px 30px !important;}
+}
+
+
+@media (max-width: 491px) {
+
+    .bar img {
+        display: none;
+    }
+
+    .bar h1 {
+        font-size: 24px;
+    }
+
+    .footer_part {
+        border-right: none;
+    }
+
+}
+
+
+
+/******************Innerpage mobile CSS*********************/
+
+
+
+
+
+
+@media (max-width: 991px) {
+
+    .hadith {
+        width: 87%;
+    }
+
+    .chapter_name img {
+        display: none;
+    }
+
+    .chapter_name_big img {
+        display: none;
+    }
+
+
+
+}
+
+@media (max-width: 730px) {
+
+    .bottom-links {
+        display: none;
+    }
+
+    .references {
+        float: right !important;
+    }
+}
+
+
+
+
+@media (max-width: 688px) {
+
+    .hadith {
+        width: 85%;
+    }
+
+}
+
+
+@media (max-width: 643px) {
+
+    .hadith {
+        width: 85%;
+    }
+
+    .bottom-links {
+        float: right !important;
+    }
+
+    .references {
+        display: none;
+    }
+
+    .surah-bottom-panel > div {
+        width: 35.2%;
+    }
+
+
+}
+
+
+
+@media (max-width: 612px) {
+
+    .surah-bottom-panel > div {
+        width: 45%;
+    }
+
+    .hadith {
+        width: 82%;
+    }
+
+    .chapter_name h2 {font-size: 18px;}
+    .chapter_name_big h2 {font-size: 24px;}
+
+}
+
+
+@media (max-width: 505px) {
+
+    .bottom-links, .utility-toolbar {
+        display: none;
+    }
+
+    .hadith {
+        width: 94%;
+    }
+
+    .right2 {
+        padding-left: 30px;
+    }
+
+
+    .surah-bottom-panel > div {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+
+
+    .subject_big img {
+        display: none;
+    }
+
+    .subject_big h2 {
+        font-size: 18px;
+        top: 10px;
+    }
+
+}
+
+
+
+@media (max-width: 991px) and (min-width: 768px){
+
+    .goto {
+        height: 245px;
+    }
+
+}
+
+
+
+/******************Footer CSS*********************/
+
+
+
+@media (max-width: 1021px) and (min-width: 767px){
+
+    .col-10 {
+        width: 50% !important;
+    }
+
+}
+
+@media (max-width: 766px) and (min-width: 560px) {
+
+    .col-xs-6 {
+        width: 50% !important;
+    }
+
+}
+
+@media (max-width: 559px) {
+
+    .footer_part {
+        border-right: none;
+    }
+
+}

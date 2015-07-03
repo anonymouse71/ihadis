@@ -56,3 +56,7 @@ ihadis_public_goto:
 ihadis_public_hadith:
     pattern: /{slug}/{number}/{numberPrimary}
     defaults: { _controller: IhadisWebBundle:Default:hadith }
+
+ihadis_ui2_homepage:
+    pattern:  /ui2/
+    defaults: { _controller: IhadisWebBundle:Public:index }

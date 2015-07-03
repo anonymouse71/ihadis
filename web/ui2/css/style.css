@@ -1,0 +1,992 @@
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+
+@font-face {
+    font-family: 'SolaimanLipi';
+    src: url('../fonts/solaimanlipi_20-04-07.eot');
+    src: url('../fonts/solaimanlipi_20-04-07.eot') format('embedded-opentype'), url('../fonts/solaimanlipi_20-04-07.woff') format('woff'), url('../fonts/solaimanlipi_20-04-07.ttf') format('truetype'), url('../fonts/solaimanlipi_20-04-07.svg#SolaimanLipiNormal') format("svg");
+}
+
+
+body {
+    font-family: SolaimanLipi, sans-serif;
+}
+
+.container {
+    max-width: 1054px;
+    padding: 0 20px;
+}
+
+a {
+    color: #000;
+}
+
+a:hover {
+    color: #3D9910;
+    text-decoration: none;
+}
+
+.header_area {
+    position: fixed;
+    background: white;
+    z-index: 999;
+    height: 50px;
+    width: 100%;
+}
+
+.content {
+    padding-top: 80px;
+}
+
+
+.navbar-nav>li>a {
+    padding-top: 20px;
+}
+
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    color: #555;
+    background-color: #F1F1F1;
+}
+
+
+
+.logo img {
+    width: 170px;
+}
+
+.form-control {
+    border-right: 1px solid #E7E7E7 !important;
+    border: 0px;
+    border-radius: 0;
+    height: 65px;
+    font-size: 20px;
+    color: black;
+    font-family: SolaimanLipi, sans-serif;
+    padding-right: 60px;
+    line-height: 34px;
+    -webkit-box-shadow: none;
+    box-shadow: 0px 0px;
+
+}
+
+.input-group {
+    display: flex;
+}
+
+
+.input-group-btn {
+    display: block;
+    width: 0;
+}
+
+
+.input-group .btn{
+    padding: 0px;
+}
+
+.form-control:focus {
+    border-color: none;
+    -webkit-box-shadow: none;
+}
+
+.navbar-default{
+    background-color: #FFFFFF;
+    border-color: none;
+    box-shadow:  0px 1px 0px 0px #DDDDDD;
+}
+
+.navbar {
+    border: none;
+}
+
+.navbar-collapse {
+    padding-right: 0;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-nav>li {
+    float: left;
+    margin-top: 0px;
+    border-right: 1px solid #ddd;
+    line-height: 65px;
+    min-height: 65px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.navbar-nav>li:hover {
+    background: #F2FDE7;
+}
+
+
+.navbar-nav>li:last-child {
+    border-right: none;
+    padding-right: 15px;
+}
+
+.input-group button{
+    background: transparent;
+    border: 0;
+    z-index: 999;
+    position: relative;
+    top: 23px;
+    right: 51px;
+}
+
+.input-group button:hover{
+    background: transparent;
+}
+
+.menu {
+    text-decoration: none;
+    float: right;
+    margin-right: 10px;
+}
+.menu ul{
+    text-decoration: none;
+    height: 60px;
+    padding: 0;
+
+}
+
+.menu li {
+    text-decoration: none;
+    float: left;
+    padding: 15px 30px;
+    border-right: 1px solid #ddd;
+    height: 60px;
+    display: inline-block;
+}
+
+.menu li:last-child{
+    border-right: none;
+
+}
+
+.menu li a{
+    color: #000;
+
+}
+.menu li a:hover{
+    color: #000;
+    text-decoration: none;
+
+}
+
+
+.wrapper {
+    width: 1064px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.goto {
+    width: 100%;
+    height: 220px;
+    border: 1px solid #ddd;
+    padding: 5px 20px;
+    min-width: 263px;
+}
+
+.goto img {
+    margin-right: 8px;
+}
+
+.goto li {
+    list-style: none;
+}
+
+
+.goto .button {
+    background: #8EC51D;
+    border: none;
+    padding: 5px 18px;
+    float: right;
+    margin-top: 15px;
+    color: white;
+    font-family: 'open Sans';
+
+}
+
+.goto h3{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+select {
+    border: none;
+    font-size: 16px;
+    background: #fff url('http://www.ihadis.com/img/down.png') no-repeat 154px 7px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 165px;
+    height: 24px;
+    outline: none;
+}
+
+
+.hadith_go {
+    margin-top: 15px;
+}
+
+.hadith_go img {
+    margin-right: 5px;
+}
+
+.hadith_go input[type="text"] {
+    width: 130px;
+    height: 25px;
+    border: none !important;
+    border-bottom: 1px solid #e1e1e1 !important;
+    margin: 5px 0 5px 10px;
+    font-size: 13px;
+    color: #000;
+    padding: 2px 1px;
+    box-shadow: none;
+    border-radius: 0;
+    outline: 0;
+    font-family: arial;
+    font-size: 18px;
+}
+
+.navbar-nav>li>.dropdown-menu.row{
+    width: 400px;
+}
+
+
+.navbar-default .navbar-nav>.open>a {
+    height: 65px;
+}
+
+
+.slider {
+    width: 100%;
+    min-height: 220px;
+    border: 1px solid #ddd;
+    padding: 5px 20px;
+    overflow: hidden;
+    height: auto;
+}
+
+.slider h4 {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.slider p {
+    font-size: 16px;
+    padding: 10px;
+    text-align: justify;
+    text-overflow: ellipsis;
+}
+
+.books {margin-top: 30px;}
+
+
+.book{
+    width: 100%;
+    min-height: 107px;
+    overflow: hidden;
+    border: 1px solid #D1D1D1;
+}
+
+.img1 {
+    background-image: url("../img/book_icon5.png");
+    height: 105px;
+    width: 120px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-right: 1px solid #D1D1D1;
+    background-size: 60px;
+}
+
+
+
+.book_con {
+    padding-left: 20px;
+    margin-top: -5px;
+
+}
+
+.book_con h3{
+    font-size: 18px;
+
+}
+
+.author {
+    background-image: url(../img/pencil.png);
+    background-position: left center;
+    padding-left: 30px;
+    background-repeat: no-repeat;
+    margin-bottom: 5px;
+    font-size: 15px;
+
+}
+
+.number {
+    background-image: url(../img/tag.png);
+    background-position: left center;
+    padding-left: 30px;
+    background-repeat: no-repeat;
+    width: 150px;
+    font-size: 15px;
+}
+
+
+.gap {margin: 10px;}
+
+
+.bar_area {
+    overflow: hidden;
+}
+
+
+.bar {
+    height: 100px;
+    text-align: center;
+    margin-top: 100px;
+    border: 1px solid #ddd;
+    margin-bottom: 50px;
+}
+
+.bar h1 {
+    padding: 12px;
+}
+
+.bar img {
+    position: relative;
+    top: -8px;
+    left: -15px;
+}
+
+
+.collection_area {
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.collection {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+}
+
+.img {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.coll1 {
+    position: relative;
+    left: 18px;
+    top: 11px;
+
+}
+
+.coll2 {
+    position: relative;
+    top: 15px;
+    right: 16px;
+
+}
+
+.collection h4 {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    left: 32px;
+    top: 5px;
+    display: inline-block;
+    width: 190px;
+}
+
+
+.collection_links {
+    padding: 20px;
+    overflow: hidden;
+}
+
+.collection_links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.collection_links ul li{
+    list-style: none;
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.collection_links ul img{
+    width: 18px;
+    margin-right: 14px;
+    position: relative;
+    top: -1px;
+}
+
+
+.book_info {
+    font-size: 17px;
+    text-align: justify;
+
+}
+
+
+/************Footer*************/
+
+
+.footer_area {
+    background: #FFFFFF;
+    margin-top: 100px;
+    padding: 20px 10px;
+    color: #303030;
+    /*border-top: 4px solid #719D13;*/
+    overflow: hidden;
+    box-shadow: 3px 1px 7px 1px #A5A5A5;
+    font-family: 'open sans';
+}
+
+.footer_part {
+    text-align: center;
+    margin-bottom: 25px;
+    border-right: 1px solid #D1D1D1;
+}
+
+.bn {
+    border-right: none;
+}
+
+
+.footer_part img{
+    width: 58px;
+}
+.footer_part h3{
+    font-size: 18px;
+}
+.footer_part p a{
+    color: #303030;
+    font-size: 14px;
+    text-decoration: none;
+}
+.footer_part p {
+    margin: 0px;
+    padding: 2px 0;
+}
+
+
+
+
+/*************************Inner page hadith***************************/
+
+
+.right1 {
+    max-width: 100%;
+    min-height: auto;
+    background: #fff;
+    padding: 15px 30px;
+    border: 1px solid #DFDCDC;
+    margin-bottom: 20px;
+    font-family: SolaimanLipi, sans-serif;
+    text-align: justify;
+    border-left: 4px solid #8BB706;
+
+}
+
+.chapter h2{
+    font-size: 20px;
+}
+
+.chapter_text {
+    font-size: 17px;
+}
+
+
+
+.hadith_number {
+    display: block;
+    /*padding: 0 0 0 30px;*/
+    color: #4c5d72;
+    font-size: 30px;
+    margin: 0 30px 0 0;
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 20px;
+    line-height: 24px;
+    font-family: arial;
+
+}
+
+
+.hadith_number p {
+    left: 11px;
+    display: inline;
+    position: relative;
+    top: 4px;
+    left: 11px;
+}
+
+.hadith-body {
+    height: auto;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+}
+
+
+.hadith-body p span {
+    color: #4a9b41;
+}
+
+.hadith-body p {
+    color: #b6b6b6;
+    font-size: 17px;
+}
+
+.hadith-text, .hadith-text p {
+    color: #000;
+}
+
+
+.chapter h2 {
+    margin-top: 10;
+}
+
+.hadith {
+    padding-left: 0px;
+    margin: 0;
+    text-align: justify;
+    padding-bottom: 10px;
+    width: 91%;
+    font-size: 16px;
+    line-height: 26px;
+    font-family: SolaimanLipi, sans-serif;
+    float: left;
+}
+
+.right2 {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    padding: 30px;
+    background: white;
+    padding-right: 14px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    border-color: #ddd;
+    padding-left: 40px;
+}
+.authenticity p {
+    font-weight: normal;
+    color: #666;
+    margin: 0 0 4px;
+}
+
+.authenticity span.sahih {
+    color: #F4F4F4;
+    background: #82B31C;
+    padding: 2px 10px;
+    border-radius: 2px;
+    font-size: 16px;
+}
+
+
+.authenticity span.jaif {
+    color: #F4F4F4;
+    background: #E44848;
+    padding: 2px 10px;
+    border-radius: 2px;
+    font-size: 16px;
+}
+
+
+.authenticity span {
+    color: #666;
+}
+
+.surah-bottom-panel {
+    padding: 40px 0px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bottom-links a.footnote {
+    background: url("img/tika.png") right no-repeat;
+    background-size: 20px;
+}
+
+.bottom-links a.explanation {
+    background: url("img/bekkha.png") right no-repeat;
+    background-size: 20px;
+}
+
+a.share {
+    background: url("img/direct.png") right 2px no-repeat;
+    padding: 0px 35px 0 0;
+    color: #747474;
+    display: inline-block;
+    font-weight: bold;
+    font-family: SolaimanLipi, sans-serif;
+}
+
+.bottom-links a, .bottom-links a:link, .bottom-links a:visited {
+    color: #747474;
+    display: inline-block;
+    padding: 0 35px 0 0;
+    margin: 0 5px;
+}
+
+.surah-bottom-panel > div {
+    width: 33.2%;
+    float: left;
+}
+
+.references {
+    float: left;
+    color: #666;
+    font-family: Tahom, Arial, sans-serif;
+    font-weight: normal;
+    text-align: right;
+    padding-right: 14px;
+}
+
+.references p {
+    padding: 0;
+    margin: 0;
+}
+
+.authenticity p {
+    font-size: 15px
+}
+
+.authenticity, .references, .dim {
+    color: #bfbfbf;
+}
+
+.bottom-links {
+    text-align: center;
+}
+
+
+
+.utility-toolbar {
+    position: relative;
+    top: 5px;
+}
+
+.utility-toolbar li a {
+    width: 48px;
+    height: 43px;
+    padding: 8px 0 0;
+    display: block;
+    border: 1px solid #E2E2E2;
+    border-bottom: none;
+    font-size: 12px;
+    color: #c6c6c6;
+    text-align: center;
+}
+
+.utility-toolbar li:nth-last-child(1) a {
+    border-bottom: 1px solid #E2E2E2;
+}
+
+
+ul {list-style: none;}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.utility-toolbar li a:hover, .utility-toolbar li a.active {
+    color: #000;
+    background-color: #F5F5F5;
+    text-decoration: none;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+}
+
+.fr {float:right;}
+.fr ul {padding: 0;}
+
+a.report {
+    background: url(img/report.png) no-repeat center 11px;
+}
+
+/*a.report:hover {
+    background: url(img/report.png) no-repeat center -24px;
+}*/
+
+a.print {
+    background: url(img/print.png) no-repeat center 11px;
+}
+
+/*a.print:hover {
+    background: url(img/print.png) no-repeat center -21px;
+}*/
+
+a.tags {
+    background: url(http://www.ihadis.com/images/icon_tag.png) center no-repeat;
+}
+
+a.fb {
+    background: url(img/facebook.png) no-repeat center 11px;
+}
+
+/*a.fb:hover {
+    background: url(img/facebook.png) no-repeat center -26px;
+}*/
+
+
+a.tw {
+    background: url("img/twitter.png") no-repeat center 11px;
+}
+
+/*
+a.tw:hover {
+    background: url("img/twitter.png") no-repeat center -18px;
+}
+*/
+
+a.copy {
+    background: url(http://www.ihadis.com/images/icon_copy2.png) center no-repeat;
+}
+
+
+.edit li {
+    display: inline;
+    list-style: none;
+
+}
+
+.edit li a {
+    border: 1px solid #ddd;
+    padding: 21px;
+    position: absolute;
+    right: 32px;
+    top: 16px;
+    background: url("img/edit.png") no-repeat center center;
+}
+
+.chapter_name {
+    max-width: 100%;
+    min-height: auto;
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #DFDCDC;
+    margin-bottom: 20px;
+    font-family: SolaimanLipi, sans-serif;
+    text-align: center;
+}
+
+.chapter_name h2 {
+    display: inline;
+    font-size: 28px;
+}
+
+.chapter_name p {
+    display: inline;
+    font-size: 20px;
+    color: #848484;
+}
+
+.form {
+    border-radius: 4px;
+    position: static;
+    margin: inherit;
+    border-right: none !important;
+    font-family: SolaimanLipi, sans-serif;
+}
+
+
+/**********Book Page*************/
+
+.book_page {
+    padding-top: 80px;
+}
+
+
+
+.collection2 {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+}
+
+.collection2 h4 {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    left: 20px;
+    top: 5px;
+    display: inline-block;
+}
+
+
+.collection2_links {
+    padding: 20px;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+
+
+.collection3 {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+}
+
+
+.collection3 h4 {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    left: 32px;
+    top: 5px;
+    display: inline-block;
+    width: 120px;
+}
+
+
+.clickable{
+    cursor: pointer;
+}
+
+.panel-heading div {
+    margin-top: -18px;
+    font-size: 15px;
+}
+
+.panel-heading div span{
+    margin-left:5px;
+}
+.panel-body{
+    display: none;
+}
+
+
+.ddc {
+    padding-top: 20px;
+}
+
+tr {
+    font-size: 17px;
+    font-family: SolaimanLipi, sans-serif;
+}
+.table1 tr {
+    font-family: 'open sans';
+    font-size: 15px;
+}
+
+.margin0 {
+    margin-bottom: 0;
+}
+
+
+.chapter_name_big {
+    max-width: 100%;
+    min-height: auto;
+    background: #fff;
+    padding: 20px 30px;
+    border: 1px solid #ddd;
+    font-family: SolaimanLipi, sans-serif;
+    text-align: center;
+}
+
+
+.chapter_name_big h2 {
+    display: inline;
+    font-size: 30px;
+}
+
+.chapter_name_big p {
+    display: inline;
+    font-size: 20px;
+    color: #848484;
+}
+
+
+
+
+
+/*********************Colleciton*******************/
+
+
+.pagination>li>a, .pagination>li>span {
+    color: #000000;
+    font-size: 20px;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    width: 51.6px;
+}
+
+.pagination>li:first-child>a, .pagination>li:last-child>a {
+    border-radius: 0;
+}
+
+.pagination>li>a:hover, .pagination>li>a:active, .pagination>li>a:focus {
+    color: #FFF;
+    background-color: #93C804;
+}
+
+
+.subject_big {
+    max-width: 100%;
+    min-height: auto;
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #ddd;
+    font-family: SolaimanLipi, sans-serif;
+    text-align: center;
+    height: auto;
+}
+
+
+.subject_big h2 {
+    display: inline;
+    font-size: 32px;
+    top: 8px;
+    position: relative;
+}
+
+.panel-title {
+    font-family: open sans;
+}
+
+.panel-success>.panel-heading {
+    color: #000000;
+    background-color: #E2F1BA;
+    border-color: transparent !important;
+}
+
+
+.panel-heading {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.panel {
+    border-radius: 0px;
+}
+
+.btn.active, .btn:active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.btn:active:focus, .btn:focus {
+    outline: none;
+    background: transparent;
+}
+
+.foot {
+    font-family: SolaimanLipi, sans-serif;
+}
