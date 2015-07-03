@@ -106,6 +106,13 @@ class Hadith
     private $validity;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="highlighted", type="boolean", nullable=true)
+     */
+    private $highlighted;
+
+    /**
      * @var Book
      *
      * @ORM\ManyToOne(targetEntity="Book", inversedBy="hadiths")
@@ -599,5 +606,28 @@ class Hadith
                     : explode("\n", $this->getReference());
 
         return isset($lines[$index-1]) ? $lines[$index-1] : '';
+    }
+
+    /**
+     * Get highlighted
+     *
+     * @return boolean
+     */
+    public function getHighlighted()
+    {
+        return $this->highlighted;
+    }
+
+    /**
+     * Set highlighted
+     *
+     * @param boolean $highlighted
+     *
+     * @return Hadith
+     */
+    public function setHighlighted($highlighted)
+    {
+        $this->highlighted = $highlighted;
+        return $this;
     }
 }

@@ -1,5 +1,10 @@
 ### Public Pages ###
 
+iHadis_public_pages:
+    resource: "@IhadisWebBundle/Controller"
+    prefix:   /ui2
+    type: annotation
+
 ihadis_homepage:
     pattern:  /
     defaults: { _controller: IhadisWebBundle:Default:index }
@@ -56,7 +61,3 @@ ihadis_public_goto:
 ihadis_public_hadith:
     pattern: /{slug}/{number}/{numberPrimary}
     defaults: { _controller: IhadisWebBundle:Default:hadith }
-
-ihadis_ui2_homepage:
-    pattern:  /ui2/
-    defaults: { _controller: IhadisWebBundle:Public:index }

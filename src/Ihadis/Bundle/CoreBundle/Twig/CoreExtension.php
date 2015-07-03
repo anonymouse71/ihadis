@@ -35,7 +35,8 @@ class CoreExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('banglaNumber', array($this, 'getBanglaNumber'))
+            new \Twig_SimpleFilter('banglaNumber', array($this, 'getBanglaNumber')),
+            new \Twig_SimpleFilter('to_bn_num', array($this, 'getBanglaNumber'))
         );
     }
 
