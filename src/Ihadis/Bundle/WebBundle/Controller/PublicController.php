@@ -23,13 +23,6 @@ class PublicController extends BaseController
         return $this->render('ui2/home.html.twig');
     }
 
-    /**
-     * @Route("/_random/{title}", defaults={"title" = "আজকের হাদিস"}, name="_random")
-     *
-     * @param $title
-     *
-     * @return Response
-     */
     public function randomHadisAction($title = "আজকের হাদিস")
     {
         $em = $this->getDoctrine()->getManager();
@@ -42,4 +35,6 @@ class PublicController extends BaseController
             'title' => $title,
         ]);
     }
+
+
 }
