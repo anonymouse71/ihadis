@@ -27,6 +27,14 @@
         "sylius/resource-bundle": "dev-master",
         "white-october/pagerfanta-bundle": "1.0.*@dev"
     },
+    "require-dev": {
+        "behat/behat": "^3.0",
+        "behat/symfony2-extension": "~2.0",
+        "behat/mink": "~1.5",
+        "behat/mink-extension": "~2.0",
+        "behat/mink-selenium2-driver": "^1.2",
+        "behat/mink-browserkit-driver": "~1.1"
+    },
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
