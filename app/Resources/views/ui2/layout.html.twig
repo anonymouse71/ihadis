@@ -61,23 +61,8 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('ui2/img/books.png') }}" alt=""> Books
                         <b class="caret"></b></a>
-                    <ul class="dropdown-menu row">
-                        <li class="col-sm-6">
-                            <a href="#">সহিহ বুখারি</a>
-                            <a href="#">মিশকাতুল মাসাবিহ</a>
-                            <a href="#">সুনানে আবু দাউদ</a>
-                            <a href="#">সহিহ ও জয়ীফ আত-তিরমিযি</a>
-                            <a href="#"> জাল ও জয়ীফ হাদিস সিরিজ</a>
-                            <a href="#"> মুয়াত্তা ইমাম মালিক </a>
-                        </li>
-                        <li class="col-sm-6">
-                            <a href="#">সহিহ বুখারি</a>
-                            <a href="#">মিশকাতুল মাসাবিহ</a>
-                            <a href="#">সুনানে আবু দাউদ</a>
-                            <a href="#">সহিহ ও জয়ীফ আত-তিরমিযি</a>
-                            <a href="#"> জাল ও জয়ীফ হাদিস সিরিজ</a>
-                            <a href="#"> মুয়াত্তা ইমাম মালিক </a>
-                        </li>
+                    <ul class="dropdown-menu row" id="nav-booklist">
+                        {{ render(controller("IhadisWebBundle:Public:booklist")) }}
                     </ul>
                 </li>
 

@@ -38,6 +38,13 @@ class Book
     /**
      * @var string
      *
+     * @ORM\Column(name="collector", type="string", length=255, nullable=true)
+     */
+    private $collector;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
@@ -73,6 +80,13 @@ class Book
     /**
      * @var string
      *
+     * @ORM\Column(name="links", type="text", nullable=true)
+     */
+    private $links;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="edition", type="string", length=50, nullable=true)
      */
     private $edition;
@@ -83,6 +97,13 @@ class Book
      * @ORM\Column(name="published", type="boolean", nullable=true)
      */
     private $published;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="numberOfHadis", type="integer")
+     */
+    private $numberOfHadis = 0;
 
     /**
      * @var integer
@@ -537,4 +558,75 @@ class Book
     {
         return $this->hadiths->count();
     }
+
+    /**
+     * Get collector
+     *
+     * @return string
+     */
+    public function getCollector()
+    {
+        return $this->collector;
+    }
+
+    /**
+     * Set collector
+     *
+     * @param string $collector
+     *
+     * @return Book
+     */
+    public function setCollector($collector)
+    {
+        $this->collector = $collector;
+        return $this;
+    }
+
+    /**
+     * Get links
+     *
+     * @return string
+     */
+    public function getLinks()
+    {
+        return $this->links;
+    }
+
+    /**
+     * Set links
+     *
+     * @param string $links
+     *
+     * @return Book
+     */
+    public function setLinks($links)
+    {
+        $this->links = $links;
+        return $this;
+    }
+
+    /**
+     * Get numberOfHadis
+     *
+     * @return int
+     */
+    public function getNumberOfHadis()
+    {
+        return $this->numberOfHadis;
+    }
+
+    /**
+     * Set numberOfHadis
+     *
+     * @param int $numberOfHadis
+     *
+     * @return Book
+     */
+    public function setNumberOfHadis($numberOfHadis)
+    {
+        $this->numberOfHadis = $numberOfHadis;
+        return $this;
+    }
+
+
 }

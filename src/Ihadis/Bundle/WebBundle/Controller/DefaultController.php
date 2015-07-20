@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Yaml\Yaml;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class DefaultController extends BaseController
 {
@@ -216,9 +217,6 @@ class DefaultController extends BaseController
         return $output;
     }
 
-    /**
-     * @Route("/_status", name="status")
-     */
     public function statusAction()
     {
         return new JsonResponse(array('status' => 'OK'));

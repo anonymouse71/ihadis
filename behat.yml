@@ -6,7 +6,7 @@ default:
       sessions:
         default:
           symfony2: ~
-      base_url: http://www.ihadis.local
+      base_url: http://www.ihadis.local/app_test.php # <== Replace with appropriate value
   suites:
     public:
       type: symfony_bundle

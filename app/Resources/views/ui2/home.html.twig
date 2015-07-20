@@ -48,250 +48,25 @@
 <div class="books">
 <div class="container">
 
-<!-------------------------------book 1----------------------->
+<div class="row" id="booklist">
 
-<div class="row">
-
+    {% for book in booklist %}
     <div class="col-md-4 col">
         <div class="book">
             <div class="book_img img1 pull-left"></div>
             <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
+                <h3><a href="{{ url('book', {'slug': book.slug}) }}">{{ book.title }}</a></h3>
 
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
+                <div class="author"><span>{{ book.collector }}</span></div>
+                <div class="number"><span>হাদিস সংখ্য {{ book.numberOfHadis|to_bn_num }}</span></div>
             </div>
         </div>
     </div>
-
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
+    {% endfor %}
 
 </div>
-<!--row end-->
+<!-- bookslist row end-->
 
-
-<!-------------------------------book 2----------------------->
-
-<div class="gap"></div>
-
-
-<div class="row">
-
-    <div class="col-md-4 col">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-<!--row end-->
-
-
-<!-------------------------------book 3----------------------->
-
-<div class="gap"></div>
-
-
-<div class="row">
-
-    <div class="col-md-4 col">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-<!--row end-->
-
-
-<!-------------------------------book 4----------------------->
-
-<div class="gap"></div>
-
-<div class="row">
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-<!--row end-->
-
-
-<!-------------------------------book 5----------------------->
-
-<div class="gap"></div>
-
-
-<div class="row">
-
-    <div class="col-md-4 col">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-4">
-        <div class="book">
-            <div class="book_img img1 pull-left"></div>
-            <div class="book_con pull-left">
-                <h3><a href="">সহিহ বুখারি</a></h3>
-
-                <div class="author"><span>ইমাম বুখারি</span></div>
-                <div class="number"><span>হাদিস সংখ্যা ৭২২৫</span></div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-<!--row end-->
 
 
 </div>

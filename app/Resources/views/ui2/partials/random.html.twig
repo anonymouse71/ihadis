@@ -1,8 +1,9 @@
-<h4>{{ title }}</h4>
+<div id="random-hadis" data-hadis-id="{{ hadis.id }}">
+    <h4>{{ title }}</h4>
 
-<p>
-    <span class="text-success">{{ hadis.narrator }} থেকে বর্ণিত, </span> 
-    {{ hadis.body }}
-</p>
-<div class="small text-muted text-right"> &mdash; {{ hadis.book.title }}, হাদিস নং {{ hadis.numberPrimary|to_bn_num }}</div>
-
+    <p>
+        <span class="text-success">{{ hadis.narrator }} থেকে বর্ণিত, </span>
+        {{ hadis.body }}
+    </p>
+    <div class="small text-muted text-right"> &mdash; {{ hadis.book.title }}, হাদিস নং {{ hadis.numberPrimary|to_bn_num }}</div>
+</div>

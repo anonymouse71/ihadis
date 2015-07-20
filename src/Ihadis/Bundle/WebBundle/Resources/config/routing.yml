@@ -9,6 +9,10 @@ ihadis_homepage:
     pattern:  /
     defaults: { _controller: IhadisWebBundle:Default:index }
 
+ihadis_status:
+    pattern:  /_status
+    defaults: { _controller: IhadisWebBundle:Default:status }
+
 ihadis_search:
     pattern: /search/{keyword}/{page}
     defaults: { _controller: IhadisWebBundle:Default:search, page: 1 }
