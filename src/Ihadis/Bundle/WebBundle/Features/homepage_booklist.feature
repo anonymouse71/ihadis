@@ -1,4 +1,4 @@
-Feature: Homepage booklist
+Feature: Homepage booklist blocks
   In order to browse hadis by books
   As a website user
   I need to see list of available hadis books
@@ -17,8 +17,6 @@ Feature: Homepage booklist
     And I should see "সহিহ বুখারি" in the "#booklist > div:first-child h3" element
     And I should see "সহিহ মুসলিম" in the "#booklist > div:nth-child(2) h3" element
     And I should see "সহিহ আবু দাউদ" in the "#booklist > div:last-child h3" element
-
-
 
   Scenario: Do not show unpublished books
     Given the following Hadis books are in database

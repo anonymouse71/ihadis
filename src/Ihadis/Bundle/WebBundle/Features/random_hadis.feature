@@ -1,4 +1,4 @@
-Feature: আজকের হাদিস
+Feature: Homepage আজকের হাদিস section
   In order to know new important Hadis
   As a website user
   I need to see a random hadis from a selected set on homepage

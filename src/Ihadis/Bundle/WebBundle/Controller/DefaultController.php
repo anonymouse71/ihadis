@@ -219,6 +219,6 @@ class DefaultController extends BaseController
 
     public function statusAction()
     {
-        return new JsonResponse(array('status' => 'OK'));
+        return new JsonResponse(array('status' => 'SUCCESS'));
     }
 }

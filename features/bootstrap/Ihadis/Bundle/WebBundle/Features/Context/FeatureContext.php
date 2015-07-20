@@ -2,6 +2,7 @@
 
 namespace Ihadis\Bundle\WebBundle\Features\Context;
 
+use Ajaxray\Behat\Context\DoctrineContext;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\MinkExtension\Context\MinkContext;
@@ -18,7 +19,7 @@ use Symfony\Component\Config\Definition\Exception\Exception;
  */
 class FeatureContext extends MinkContext implements Context, SnippetAcceptingContext
 {
-    use KernelDictionary;
+    use KernelDictionary, DoctrineContext;
 
     /**
      * Initializes context.
@@ -72,7 +73,6 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
         for($i = 0; $i < $numberOf; $i++) {
             $this->getSession()->reset();
             $this->getSession()->visit($this->getSession()->getCurrentUrl().'?cb='.microtime().rand(1, 1000));
-            $this->iPutABreakpoint();
 
             $content = $this->getSession()->getPage()->find('css', $selector)->getText();
             if(is_null($lastContent)) {
@@ -101,59 +101,11 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     }
 
     /**
-     * @BeforeScenario
-     */
-    public function setupDb()
-    {
-        $dbpath = $this->getContainer()->getParameter('test_sqlite_path');
-
-        if(! is_file($dbpath)) {
-            // Create File
-            Dir::makeWritable(dirname($dbpath));
-            touch($dbpath);
-
-            // Prepare database
-            chdir($this->getKernel()->getRootDir());
-            exec('php console doctrine:database:create --env=test');
-            exec('php console doctrine:schema:create --env=test');
-
-            // Create Super Admin
-            $helper = $this->getContainer()->get('fos_user.util.user_manipulator');
-            $helper->create('admin', '123456', 'anis.programmer@gmail.com', true, true);
-        }
-    }
-
-    /**
      * @AfterScenario @javascript
      */
     public function closeBrowser()
     {
         $this->getSession()->stop();
-    }
-
-    /**
-     * @Given /^database in default state$/
-     */
-    public function databaseInDefaultState()
-    {
-        $this->clearData();
-        $this->executeSQLScript('default.sql');
-    }
-
-    /**
-     * @Given /^database is empty$/
-     */
-    public function clearData()
-    {
-        $this->executeSQLScript('teardown.sql');
-    }
-
-    public function executeSQLScript($scriptName)
-    {
-        $dbpath = $this->getContainer()->getParameter('test_sqlite_path');
-        $clearScript = $this->getKernel()->getRootDir(). '/data/scripts/'. $scriptName;
-
-        exec("sqlite3 $dbpath < $clearScript");
     }
 
     /**

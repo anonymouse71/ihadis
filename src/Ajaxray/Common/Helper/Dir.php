@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ihadis\Bundle\CoreBundle\Helper;
+namespace Ajaxray\Common\Helper;
 
 /**
  * Dir
