@@ -10,7 +10,9 @@ use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\Symfony2Extension\Context\KernelDictionary;
+use Doctrine\ORM\EntityManager;
 use Ihadis\Bundle\CoreBundle\Entity\Book;
+use Ihadis\Bundle\CoreBundle\Entity\Chapter;
 use Ihadis\Bundle\CoreBundle\Helper\Dir;
 use Symfony\Component\Config\Definition\Exception\Exception;
 
@@ -20,6 +22,11 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 class FeatureContext extends MinkContext implements Context, SnippetAcceptingContext
 {
     use KernelDictionary, DoctrineContext;
+
+    /**
+     * @var EntityManager
+     */
+     private $em;
 
     /**
      * Initializes context.
@@ -176,23 +183,47 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function theFollowingChaptersAreInDatabase(TableNode $table)
     {
-        $em = $this->getContainer()->get('doctrine')->getManager();
+        $this->em = $this->getContainer()->get('doctrine')->getManager();
 
         foreach($table->getHash() as $chapterData) {
-            $book = new Book();
-            $book->setTitle(trim($bookData['title']));
-            $book->setCollector($bookData['collector']);
-            $book->setNumberOfHadis($bookData['numberOfHadis']);
-            $book->setSlug($bookData['slug']);
-            $book->setPublished(boolval($bookData['published']));
+            $book = $this->em->getReference('IhadisCoreBundle:Book', $chapterData['book_id']);
+            $chapter = new Chapter();
 
-            if($bookData['description']) {
-                $book->setDescription($bookData['description']);
-            }
+            $chapter->setBook($book);
+            $chapter->setTitle(trim($chapterData['title']));
+            $chapter->setNumber($chapterData['number']);
+            $chapter->setRange($chapterData['range']);
 
-            $em->persist($book);
+            $this->em->persist($chapter);
         }
-        $em->flush();
+        $this->em->flush();
+    }
+
+    /**
+     * @Given /^I click on "(?P<selector>[^"]+)" element$/
+     */
+    public function iClickOnElement($selector)
+    {
+        $element = $this->getSession()->getPage()->find('css', $selector);
+        $element->click();
+    }
+
+    /**
+     * @Then /^I should see (\d+) number of visible rows in "(?P<table>[^"]+)"$/
+     *
+     * @param $results
+     * @param $table
+     *
+     * @throws \Exception
+     * @return bool
+     */
+    public function iShouldSeeNumberOfVisibleRowsIn($results, $table)
+    {
+        $rows = $this->getSession()->evaluateScript("$('$table tbody tr:visible:not(.filterTable_no_results)').length");
+        if($results != intval($rows)) {
+            throw new \Exception("Found $rows visible rows in $table, where expected was $results");
+        }
+        return true;
     }
 
 }

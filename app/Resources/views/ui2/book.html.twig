@@ -93,15 +93,15 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Chapters</h3>
                         <div class="pull-right">
-							<span data-container="body" title="" data-toggle="tooltip" class="clickable filter" data-original-title="Search in Chpaters">
+							<span data-container="body" title="" id="filter-toggle" data-toggle="tooltip" class="clickable filter" data-original-title="Search in Chpaters">
 								<i class="glyphicon glyphicon-search"></i>
 							</span>
                         </div>
                     </div>
-                    <div class="panel-body" style="display: block;">
-                        <input type="text" placeholder="অধ্যায় খুঁজুন" data-filters="#task-table" data-action="filter" id="task-table-filter" class="form-control form">
+                    <div class="panel-body" style="display: none;">
+                        <input type="text" placeholder="অধ্যায় খুঁজুন" data-filters="#chapter-list" data-action="filter" id="chapter-list-filter" class="form-control form">
                     </div>
-                    <table id="task-table" class="table table-hover table-bordered">
+                    <table id="chapter-list" class="table table-hover table-bordered">
                         <thead style="border-bottom: 1px solid #ddd">
                             <tr>
                                 <th>#</th>
@@ -111,48 +111,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for chapter in chapters %}
                             <tr>
-                                <td>১</td>
-                                <td><a href="">ওহীর সূচনা অধ্যায়</a></td>
-                                <td class="text-center">১ - ৭</td>
-
+                                <td>{{ chapter.number }}</td>
+                                <td><a href="">{{ chapter.title }}</a></td>
+                                <td class="text-center">{{ chapter.range|to_bn_num }}</td>
                             </tr>
-                            <tr>
-                                <td>২</td>
-                                <td>ঈমান</td>
-                                <td class="text-center">৮ - ৫৮</td>
-
-                            </tr>
-                            <tr>
-                                <td>৩</td>
-                                <td>ইল্&zwnj;ম</td>
-                                <td class="text-center">৫৯ - ১৩৪</td>
-
-                            </tr>
-                            <tr>
-                                <td>৪</td>
-                                <td>ওজু</td>
-                                <td class="text-center">১৩৫ - ২৪৭</td>
-
-                            </tr>
-                            <tr>
-                                <td>৫</td>
-                                <td>পথে আটকে পড়া ও ইহ্&zwnj;রাম অবস্থায় শিকারকারীর বিধান</td>
-                                <td class="text-center">১০৮০ - ১১১৯</td>
-
-                            </tr>
-                            <tr>
-                                <td>৬</td>
-                                <td>বৃষ্টির জন্য দোয়া</td>
-                                <td class="text-center">১০০৫ - ১০৩৯</td>
-
-                            </tr>
-                            <tr>
-                                <td>৭</td>
-                                <td>কুরআন তিলাওয়াতের সিজ্&zwnj;দা</td>
-                                <td class="text-center">১০৬৭ - ১০৭৯</td>
-
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

@@ -51,6 +51,13 @@ class Chapter
     private $number = 0;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="range", type="string", length=255)
+     */
+    private $range;
+
+    /**
      * @var Book
      *
      * @ORM\ManyToOne(targetEntity="Book", inversedBy="chapters")
@@ -267,4 +274,29 @@ class Chapter
     {
         $this->translate('ar')->setTitle($title);
     }
+
+    /**
+     * Get range
+     *
+     * @return string
+     */
+    public function getRange()
+    {
+        return $this->range;
+    }
+
+    /**
+     * Set range
+     *
+     * @param string $range
+     *
+     * @return Chapter
+     */
+    public function setRange($range)
+    {
+        $this->range = $range;
+        return $this;
+    }
+
+
 }

@@ -9,6 +9,7 @@ Feature: Book page chapters list
       | title | description      | collector   | numberOfHadis | slug    | published |
       | সহিহ বুখারি | সহিহ বুখারি সম্পর্কে| ইমাম বুখারি (রহঃ)| 7563          | bukhari | 1         |
       | সহিহ মুসলিম | সহিহ মুসলিম সম্পর্কে| ইমাম মুসলিম (রহঃ)| 5460          | muslim | 1         |
+      | সহিহ আবু দাউদ | ইমাম আবু দাউদ | ইমাম আবু দাউদ (রহঃ) |17450         | abu-daud | 1         |
     And the following Chapters are in database
       | book_id | title              | number | range     |
       | 1       | ওহীর সূচনা অধ্যায় | 1      | 1 - 7     |
@@ -17,33 +18,31 @@ Feature: Book page chapters list
       | 2       | ওজু                | 1      | 135 - 247 |
       | 2       | বৃষ্টির জন্য দোয়া | 2      | 248 - 303 |
 
-  Scenario Outline: The book is available
+  Scenario Outline: Book has chapters
     When I go to "/ui2/book/<slug>"
-    Then I should see "<title>" in the "h2" element
-    And I should see "<description>"
-    And I should see "<collector>"
+    Then I should see <chapters> "#chapter-list tbody tr" elements
+    And I should see "<chapter_name>" in the "#chapter-list tbody tr:first-child" element
+    And I should see "<range>" in the "#chapter-list tbody tr:first-child" element
 
   Examples:
-    | slug |  title | description | collector |
-    | bukhari | সহিহ বুখারি | সহিহ বুখারি সম্পর্কে| ইমাম বুখারি (রহঃ) |
-    | muslim | সহিহ মুসলিম | সহিহ মুসলিম সম্পর্কে| ইমাম মুসলিম (রহঃ) |
+    | slug    | chapters | chapter_name  | range |
+    | bukhari | 3        | ওহীর সূচনা অধ্যায় | ১ - ৭ |
+    | muslim  | 2        | ওজু            | ১৩৫ - ২৪৭ |
 
 
-  Scenario: Book has downloadable pdf links
-    Given book id 1 has the following content as links:
-      """
-      Part 1 | http://the-book-link.com/part-1.pdf
-      Part 2 | http://the-book-link.com/part-2.pdf
-      Part 3 | http://the-book-link.com/part-3.pdf
-      """
-    When I go to "/ui2/book/bukhari"
-    Then I should see "PDF ডাউনলোড"
-    And I should see 3 "#downloads table tr" elements
-    And I should see "Part 1" in the "#downloads tr:first-child th" element
+  Scenario: Book has no chapters
+    When I go to "/ui2/book/abu-daud"
+    Then I should see 0 "#chapter-list tbody tr" elements
 
-  Scenario: Book has no pdf links
-    When I go to "/ui2/book/bukhari"
-    Then I should not see "PDF ডাউনলোড"
+  @javascript
+  Scenario Outline: Chapter list filtering
+    Given I am on "/ui2/book/bukhari"
+    And I click on "#filter-toggle" element
+    When I fill in "chapter-list-filter" with "<keyword>"
+    Then I should see <results> number of visible rows in "#chapter-list"
 
-
-
+    Examples:
+    | keyword | results |
+    | ম       | 2 |
+    | ওহীর    | 1 |
+    | ক       | 0 |
