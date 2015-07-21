@@ -368,7 +368,18 @@ select {
     top: -8px;
     left: -15px;
 }
+.boxed {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+}
 
+.boxed h4 {
+    font-size: 18px;
+    margin: 15px 20px;
+}
+
+.padded-10 { padding: 10px; }
+.padded-20 { padding: 20px; }
 
 .collection_area {
     margin-top: 30px;

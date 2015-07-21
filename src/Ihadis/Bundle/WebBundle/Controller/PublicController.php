@@ -40,7 +40,6 @@ class PublicController extends BaseController
         ));
 
         return $this->render('ui2/book.html.twig', array(
-            'page'     => 'book',
             'book'     => $book,
             'chapters' => $chapters
         ));

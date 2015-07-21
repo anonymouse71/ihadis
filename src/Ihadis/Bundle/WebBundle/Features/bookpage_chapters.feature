@@ -1,7 +1,7 @@
-Feature: Book page - Basic information
-  In order to get overview of a Hadis book
+Feature: Book page chapters list
+  In order to browse chapters of a book
   As a website user
-  I want to see basic information about a book
+  I need to see links to chapters
 
   Background:
     Given database is empty
@@ -9,6 +9,13 @@ Feature: Book page - Basic information
       | title | description      | collector   | numberOfHadis | slug    | published |
       | সহিহ বুখারি | সহিহ বুখারি সম্পর্কে| ইমাম বুখারি (রহঃ)| 7563          | bukhari | 1         |
       | সহিহ মুসলিম | সহিহ মুসলিম সম্পর্কে| ইমাম মুসলিম (রহঃ)| 5460          | muslim | 1         |
+    And the following Chapters are in database
+      | book_id | title              | number | range     |
+      | 1       | ওহীর সূচনা অধ্যায় | 1      | 1 - 7     |
+      | 1       | ঈমান               | 2      | 8 - 58    |
+      | 1       | ইল্‌ম              | 3      | 59 - 134  |
+      | 2       | ওজু                | 1      | 135 - 247 |
+      | 2       | বৃষ্টির জন্য দোয়া | 2      | 248 - 303 |
 
   Scenario Outline: The book is available
     When I go to "/ui2/book/<slug>"

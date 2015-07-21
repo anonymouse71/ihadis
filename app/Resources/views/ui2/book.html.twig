@@ -10,10 +10,12 @@
             <div class="col-md-12 col-sm-12">
                 <div class="chapter_name_big margin0">
                     <div class="chapter">
-                        <img alt="" src="img/masjid.png" class="pull-left"> <h2> সহিহ বুখারি </h2> <img alt="" src="img/masjid.png" class="pull-right">
+                        <img alt="" src="{{ asset('ui2/img/masjid.png') }}" class="pull-left">
+                        <h2>{{ book.title }}</h2>
+                        <img alt="" src="{{ asset('ui2/img/masjid.png') }}" class="pull-right">
                     </div>
-                    <div class="chapter_text">
-                        <p>সংকলকঃ ইমাম বুখারি (রহঃ)</p>
+                    <div class="chapter_text" >
+                        <p>সংকলকঃ {{ book.collector }}</p>
                     </div>
                 </div>
             </div>
@@ -26,15 +28,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="collection2 margin0">
+                    <div class="boxed margin0">
 
-                        <h4>সহিহ বুখারি সম্পর্কে তথ্য</h4>
+                        <h4>{{ book.title }} সম্পর্কে তথ্য</h4>
 
-                        <div class="collection2_links">
-
-                            <p class="book_info">ইসলামে হাদিস বা হাদিস শাস্ত্র বলা হয় সেই জ্ঞান সম্পর্কে যার সাহায্যে রাসুল্লাহ (সঃ) এর কথা, কাজ, অনুমোদন ইত্যাদি সম্পর্কে জ্ঞান লাভ করা যায়। মুহাদ্দিসগন হাদিসের বিশুদ্ধতা রক্ষার জন্য আপ্রান চেষ্টা ও সাধনা করেছেন। তারই প্রমান হচ্ছে ইমাম বুখারী (রহঃ) এই গ্রন্থ সহিহুল বুখারী। সহিহ বুখারি হচ্ছে সমস্ত হাদিস গ্রন্থের মধ্যে সবচাইতে বিশুদ্ধ হাদিস গ্রন্থ। সহিহ বুখারিতে ৭৫৬৩ টি হাদিস রয়েছে এবং এই সব গুলো হাদিসই সহিহ্&zwnj;।</p>
-
-
+                        <div class="padded-20">
+                            <p class="book_info">{{ book.description }}</p>
                         </div><!--End of collection_links-->
                     </div><!--End of Collection-->
                 </div><!--End of md6-->
@@ -45,108 +44,45 @@
     </div>
 
 
-
-
-
-
-
-
+    {% if book.links is not empty %}
     <div class="collection_area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="collection3">
+                    <div class="boxed">
+                        <h4 onclick="$('#downloads').slideToggle()" class="clickable">
+                            <img alt="" src="{{ asset('ui2/img/pdf2.png') }}" />
+                            PDF ডাউনলোড
+                        </h4>
 
+                        <div class="padded-20" id="downloads" style="display: none">
 
+                            <table class="table table-hover">
 
+                                <tbody>
+                                    {% for link in book.links|split("\n") %}
+                                    <tr>
+                                        {% set linkParts = link|split('|') %}
+                                        <th width="20%">{{ linkParts[0] }}</th>
+                                        <td>
+                                            <a href="{{ linkParts[1]|trim }}" target="_blank">
+                                                {{ linkParts[1]|length > 40 ? linkParts[1][:40] ~ '...' : linkParts[1] }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
 
-                        <div class="panelw">
-                            <div class="panel5">
-                                <div style="border-bottom: none;" class="img">
-                       <span data-container="body" title="" data-toggle="tooltip" class="clickable" data-original-title="এখানে ক্লিক করুন">
-
-                    <img alt="" src="img/pdf2.png" class="coll1 pull-left"><h4>PDF ডাউনলোড</h4> <img style="position: relative;left: 45px;" alt="" src="img/download.png" class="">
-
-                        </span>
-                                </div>
-                            </div>
-
-
-                            <div style="padding: 0px;border-bottom: none;border-top-left-radius: 0;border-top-right-radius: 0;" class="panel-body">
-
-
-                                <div class="collection_links">
-
-
-                                    <div class="col-md-6">
-
-                                        <table class="table table-hover table-bordered">
-
-                                            <tbody class="table1">
-                                                <tr>
-                                                    <td><a href="">Part 1</a></td>
-                                                    <td class="text-center"><a href="">Download Link</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Part 2</td>
-                                                    <td class="text-center"><a href="">Download Link</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Part 3</td>
-                                                    <td class="text-center"><a href="">Download Link</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Part 4</td>
-                                                    <td class="text-center"><a href="">Download Link</a></td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-
-                                    <div class="col-md-6">
-
-                                        <table class="table table-hover table-bordered">
-
-                                            <tbody class="table1">
-                                                <tr>
-                                                    <td><a href="">Part 1</a></td>
-                                                    <td class="text-center"><a href="">Download Link</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Part 2</td>
-                                                    <td class="text-center"><a href="">Download Link</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Part 3</td>
-                                                    <td class="text-center"><a href="">Download Link</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Part 4</td>
-                                                    <td class="text-center"><a href="">Download Link</a></td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div><!--End of collection_links-->
-                            </div>
-                        </div>
+                        </div><!--End of collection_links-->
 
 
                     </div><!--End of Collection-->
-                </div><!--End of md6-->
+                </div><!--End of col-md-12-->
             </div>
         </div>
     </div>
-
-
-
-
-
-
+    {% endif %}
 
     <div class="container">
 

@@ -141,7 +141,6 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function theFollowingHadisBooksAreInDatabase(TableNode $table)
     {
-        $this->clearData();
         $em = $this->getContainer()->get('doctrine')->getManager();
 
         foreach($table->getHash() as $bookData) {
@@ -151,6 +150,46 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
             $book->setNumberOfHadis($bookData['numberOfHadis']);
             $book->setSlug($bookData['slug']);
             $book->setPublished(boolval($bookData['published']));
+
+            if($bookData['description']) {
+                $book->setDescription($bookData['description']);
+            }
+
+            $em->persist($book);
+        }
+        $em->flush();
+    }
+
+    /**
+     * @Given /^book id (\d+) has the following content as links:$/
+     */
+    public function bookIdHasTheFollowingContentAsLinks($bookId, PyStringNode $links)
+    {
+        $em = $this->getContainer()->get('doctrine')->getManager();
+        $book = $em->find('IhadisCoreBundle:Book', $bookId);
+        $book->setLinks($links);
+        $em->flush();
+    }
+
+    /**
+     * @Given /^the following Chapters are in database$/
+     */
+    public function theFollowingChaptersAreInDatabase(TableNode $table)
+    {
+        $em = $this->getContainer()->get('doctrine')->getManager();
+
+        foreach($table->getHash() as $chapterData) {
+            $book = new Book();
+            $book->setTitle(trim($bookData['title']));
+            $book->setCollector($bookData['collector']);
+            $book->setNumberOfHadis($bookData['numberOfHadis']);
+            $book->setSlug($bookData['slug']);
+            $book->setPublished(boolval($bookData['published']));
+
+            if($bookData['description']) {
+                $book->setDescription($bookData['description']);
+            }
+
             $em->persist($book);
         }
         $em->flush();
