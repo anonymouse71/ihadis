@@ -66,6 +66,7 @@
                                         <th width="20%">{{ linkParts[0] }}</th>
                                         <td>
                                             <a href="{{ linkParts[1]|trim }}" target="_blank">
+                                                <img alt="Download" src="{{ asset('ui2/img/download.png') }}" align="left" height="20" /> &nbsp;
                                                 {{ linkParts[1]|length > 40 ? linkParts[1][:40] ~ '...' : linkParts[1] }}
                                             </a>
                                         </td>

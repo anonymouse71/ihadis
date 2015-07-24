@@ -158,7 +158,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
             $book->setSlug($bookData['slug']);
             $book->setPublished(boolval($bookData['published']));
 
-            if($bookData['description']) {
+            if(isset($bookData['description'])) {
                 $book->setDescription($bookData['description']);
             }
 

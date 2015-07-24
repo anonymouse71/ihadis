@@ -45,6 +45,11 @@ class PublicController extends BaseController
         ));
     }
 
+    /**
+     * Will be used as a partial
+     *
+     * @return Response
+     */
     public function booklistAction()
     {
         $booklist = $this->getDoctrine()->getRepository('IhadisCoreBundle:Book')->findBy(['published' => true]);
@@ -56,6 +61,13 @@ class PublicController extends BaseController
         return new Response($listItems);
     }
 
+    /**
+     * Will be used as a partial
+     *
+     * @param string $title
+     *
+     * @return Response
+     */
     public function randomHadisAction($title = "আজকের হাদিস")
     {
         $em = $this->getDoctrine()->getManager();

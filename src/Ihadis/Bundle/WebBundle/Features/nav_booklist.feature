@@ -4,7 +4,8 @@ Feature: Top Navbar booklist menu
   I need to see list of available hadis books on navbar
 
   Scenario: List all published books
-    Given the following Hadis books are in database
+    Given database is empty
+    And the following Hadis books are in database
       | title         | collector     | numberOfHadis | slug | published |
       | সহিহ বুখারি   | ইমাম বুখারি   | 7450          | bukhari | 1         |
       | সহিহ মুসলিম   | ইমাম মুসলিম   | 5430          | muslim  | 0         |

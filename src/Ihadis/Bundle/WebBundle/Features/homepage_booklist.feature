@@ -7,7 +7,8 @@ Feature: Homepage booklist blocks
     Given I am on "/ui2"
 
   Scenario: See list of books
-    Given the following Hadis books are in database
+    Given database is empty
+    And the following Hadis books are in database
       | title         | collector     | numberOfHadis | slug | published |
       | সহিহ বুখারি   | ইমাম বুখারি   | 7450          | bukhari | 1         |
       | সহিহ মুসলিম   | ইমাম মুসলিম   | 5430          | muslim  | 1         |
@@ -19,7 +20,8 @@ Feature: Homepage booklist blocks
     And I should see "সহিহ আবু দাউদ" in the "#booklist > div:last-child h3" element
 
   Scenario: Do not show unpublished books
-    Given the following Hadis books are in database
+    Given database is empty
+    And the following Hadis books are in database
       | title         | collector     | numberOfHadis | slug | published |
       | সহিহ বুখারি   | ইমাম বুখারি   | 7450          | bukhari | 0         |
       | সহিহ মুসলিম   | ইমাম মুসলিম   | 5430          | muslim  | 1         |
