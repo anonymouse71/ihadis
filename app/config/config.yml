@@ -97,6 +97,7 @@ sylius_resource:
             classes:
                 model: Ihadis\Bundle\CoreBundle\Entity\Chapter
                 controller: Ihadis\Bundle\CoreBundle\Controller\ChapterController
+                repository: Ihadis\Bundle\CoreBundle\Repository\ChapterRepository
 
         ihadis.section:
             driver: doctrine/orm

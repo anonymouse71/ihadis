@@ -225,7 +225,7 @@ a:hover {
 select {
     border: none;
     font-size: 16px;
-    background: #fff url('http://www.ihadis.com/img/down.png') no-repeat 154px 7px;
+    background: #fff url('../img/down.png') no-repeat 154px 7px;
     -webkit-appearance: none;
     -moz-appearance: none;
     width: 165px;
@@ -301,7 +301,7 @@ select {
 }
 
 .img1 {
-    background-image: url("../img/book_icon5.png");
+    background-image: url(../img/book_icon5.png);
     height: 105px;
     width: 120px;
     background-position: center center;
@@ -501,7 +501,7 @@ select {
 /*************************Inner page hadith***************************/
 
 
-.right1 {
+.section {
     max-width: 100%;
     min-height: auto;
     background: #fff;
@@ -511,14 +511,12 @@ select {
     font-family: SolaimanLipi, sans-serif;
     text-align: justify;
     border-left: 4px solid #8BB706;
-
 }
 
-.chapter h2{
+.section h2{
     font-size: 20px;
 }
-
-.chapter_text {
+.chapter_text, .section p {
     font-size: 17px;
 }
 
@@ -539,7 +537,7 @@ select {
 }
 
 
-.hadith_number p {
+.hadith_number span {
     left: 11px;
     display: inline;
     position: relative;
@@ -585,7 +583,7 @@ select {
     float: left;
 }
 
-.right2 {
+.hadith-box {
     width: 100%;
     height: auto;
     margin-bottom: 20px;
@@ -632,17 +630,17 @@ select {
 }
 
 .bottom-links a.footnote {
-    background: url("img/tika.png") right no-repeat;
+    background: url(../img/tika.png) right no-repeat;
     background-size: 20px;
 }
 
 .bottom-links a.explanation {
-    background: url("img/bekkha.png") right no-repeat;
+    background: url(../img/bekkha.png) right no-repeat;
     background-size: 20px;
 }
 
 a.share {
-    background: url("img/direct.png") right 2px no-repeat;
+    background: url(../img/direct.png) right 2px no-repeat;
     padding: 0px 35px 0 0;
     color: #747474;
     display: inline-block;
@@ -731,47 +729,41 @@ li {
 .fr ul {padding: 0;}
 
 a.report {
-    background: url(img/report.png) no-repeat center 11px;
+    background: url(../img/report.png) no-repeat center 11px;
 }
 
 /*a.report:hover {
-    background: url(img/report.png) no-repeat center -24px;
+    background: url(../img/report.png) no-repeat center -24px;
 }*/
 
 a.print {
-    background: url(img/print.png) no-repeat center 11px;
+    background: url(../img/print.png) no-repeat center 11px;
 }
 
 /*a.print:hover {
-    background: url(img/print.png) no-repeat center -21px;
+    background: url(../img/print.png) no-repeat center -21px;
 }*/
 
-a.tags {
-    background: url(http://www.ihadis.com/images/icon_tag.png) center no-repeat;
-}
 
 a.fb {
-    background: url(img/facebook.png) no-repeat center 11px;
+    background: url(../img/facebook.png) no-repeat center 11px;
 }
 
 /*a.fb:hover {
-    background: url(img/facebook.png) no-repeat center -26px;
+    background: url(../img/facebook.png) no-repeat center -26px;
 }*/
 
 
 a.tw {
-    background: url("img/twitter.png") no-repeat center 11px;
+    background: url(../img/twitter.png) no-repeat center 11px;
 }
 
 /*
 a.tw:hover {
-    background: url("img/twitter.png") no-repeat center -18px;
+    background: url(../img/twitter.png) no-repeat center -18px;
 }
 */
 
-a.copy {
-    background: url(http://www.ihadis.com/images/icon_copy2.png) center no-repeat;
-}
 
 
 .edit li {
@@ -786,7 +778,7 @@ a.copy {
     position: absolute;
     right: 32px;
     top: 16px;
-    background: url("img/edit.png") no-repeat center center;
+    background: url(../img/edit.png) no-repeat center center;
 }
 
 .chapter_name {

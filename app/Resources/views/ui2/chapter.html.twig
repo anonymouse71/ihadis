@@ -1,0 +1,89 @@
+{% extends 'ui2/layout.html.twig' %}
+
+{% block content %}
+<div class="content">
+
+
+    <div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12">
+            <div class="chapter_name">
+                <div class="chapter">
+                    <img alt="" src="{{ asset('ui2/img/flower.png') }}" class="pull-left"> <h2>{{ chapter.title }}</h2> <img alt="" src="{{ asset('ui2/img/flower.png') }}" class="pull-right">
+                </div>
+                <div class="chapter_text">
+                    <p>হাদিস নাম্বার - {{ chapter.range|to_bn_num }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12">
+            {% for section in sections %}
+            <div class="section-wrap" id="section-{{ section.id }}">
+                <div class="section">
+                    <h2><img alt="" src="{{ asset('ui2/img/open_book2.png') }}"> {{ section.title }}</h2>
+                    <p>{{ section.preface }}</p>
+                </div>
+
+                <div class="section-hadiths">
+                    {% for hadith in section.hadiths %}
+                        <div class="row hadith-row" id="hadith-{{ hadith.id }}">
+                            <div class="col-md-12">
+                                <div class="hadith-box">
+                                    <div class="hadith_number">
+                                        <img alt="" src="{{ asset('ui2/img/single-hadith.png') }}">
+                                        <span>{{ hadith.numberPrimary }}</span>
+                                        <div class="edit"><li><a class="pull-right" href="#1-report"></a></li></div>
+                                    </div>
+
+                                    <div class="hadith-body">
+                                        <div class="hadith">
+                                            <p><span>{{ hadith.narrator }}</span> থেকে বর্ণিতঃ</p>
+                                            <div class="hadith-text">{{ hadith.body }}</div>
+                                        </div>
+                                        <div class="utility-toolbar fr">
+                                            <ul>
+                                                <li><a class="report tip" href="#1-report" title="" data-action="report" data-id="1"></a></li>
+                                                <li><a class="print tip" href="#1-print" title="" data-action="print" data-id="1"></a></li>
+                                                <li><a class="fb tip" href="#1-fb" title="" data-action="facebook" data-id="1"></a></li>
+                                                <li><a class="tw tip" href="#1-tw" title="" data-action="twitter" data-id="1"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="surah-bottom-panel">
+                                        <div class="authenticity">
+                                            <p>নির্ভরযোগ্যতা: <span class="sahih">{{ hadith.getAuthenticityLabel }}</span></p>
+                                            <p>পুনর্নিরীক্ষন: <img src="{{ asset('ui2/img/tick2.png') }}"></p>
+                                        </div>
+
+                                        <div class="bottom-links">
+                                            <a class="footnote" href="#1-footnote" data-action="footnote" data-id="1">পাদটীকা</a>
+                                            <a class="explanation" href="#1-explanation" data-action="explanation" data-id="1">ব্যাখ্যা</a>
+                                        </div>
+
+                                        <div class="references">
+                                            <a title="" href="" target="_blank" class="share permalink" id="permalink-1">সরাসরি </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+    </div><!---End of row-->
+
+    </div>
+</div>
+{% endblock content %}

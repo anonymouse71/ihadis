@@ -1,8 +1,7 @@
 {% extends 'ui2/layout.html.twig' %}
 
 {% block content %}
-    <div class="book_page">
-
+<div class="content book_page">
 
     <div class="container">
         <div class="row">
@@ -115,7 +114,7 @@
                             {% for chapter in chapters %}
                             <tr>
                                 <td>{{ chapter.number }}</td>
-                                <td><a href="">{{ chapter.title }}</a></td>
+                                <td><a href="{{ url('chapter', {'slug': book.slug, 'chapter': chapter.id}) }}">{{ chapter.title }}</a></td>
                                 <td class="text-center">{{ chapter.range|to_bn_num }}</td>
                             </tr>
                             {% endfor %}
@@ -128,5 +127,5 @@
 
 
 
-    </div>
+</div>
 {% endblock content %}

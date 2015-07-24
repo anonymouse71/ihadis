@@ -46,6 +46,29 @@ class PublicController extends BaseController
     }
 
     /**
+     * @Route("/book/{slug}/{chapter}", name="chapter")
+     *
+     * @param Book $book
+     * @param Chapter $chapter
+     *
+     * @return Response
+     */
+    public function chapterAction(Book $book, Chapter $chapter)
+    {
+        //$limit = $this->container->getParameter('search_perPage');
+        // @Fixme : Till js loading is not implemented, keeping 1000
+        $limit  = 1000;
+        $sections = $this->get('ihadis.repository.chapter')
+            ->getSectionsWithHadis($chapter, $limit);
+
+        return $this->render('ui2/chapter.html.twig', array(
+            'book'     => $book,
+            'chapter' => $chapter,
+            'sections' => $sections
+        ));
+    }
+
+    /**
      * Will be used as a partial
      *
      * @return Response
