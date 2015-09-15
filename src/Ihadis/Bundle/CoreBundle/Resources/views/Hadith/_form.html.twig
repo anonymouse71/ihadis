@@ -21,11 +21,19 @@
             <div class="form-actions form-inline" style="border: none; margin: 0">
 
                 <div class="row">
-                    <div class="col-md-3">{{ form_row(form.numberPrimary) }}</div>
-                    <div class="col-md-3">{{ form_row(form.numberSecondary) }}</div>
-                    <div class="col-md-2">{{ form_row(form.validity) }}</div>
+                    <div class="col-md-2">{{ form_row(form.numberPrimary) }}</div>
+                    <div class="col-md-2">{{ form_row(form.numberSecondary) }}</div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="ihadis_hadith_validity" class="control-label required">
+                                Validity <button type="button" data-toggle="modal" data-target="#new-validity"  class="btn btn-xs btn-primary">+new</button>
+                            </label>
+                            {{ form_widget(form.validity) }}
+                        </div>
+                    </div>
                     <div class="col-md-2">{{ form_row(form.scholarReviewed) }}</div>
                     <div class="col-md-2">{{ form_row(form.crossChecked) }}</div>
+                    <div class="col-md-2">{{ form_row(form.highlighted) }}</div>
                 </div>
 
             </div>

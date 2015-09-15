@@ -20,12 +20,6 @@ class Hadith
         \Ajaxray\TagBundle\Traits\Taggable
     ;
 
-    const VALIDITY_NONE  = 0;
-    const VALIDITY_MAUDU = 10;
-    const VALIDITY_DAIF  = 20;
-    const VALIDITY_HASAN = 30;
-    const VALIDITY_SAHIH = 40;
-
     /**
      * @var integer
      *
@@ -101,7 +95,7 @@ class Hadith
     /**
      * @var integer
      *
-     * @ORM\Column(name="validity", type="smallint")
+     * @ORM\ManyToOne(targetEntity="Validity")
      */
     private $validity;
 

@@ -55,3 +55,8 @@ ihadis_hadith_delete:
                 parameters:
                     section: $section
 
+ihadis_validity_create:
+    pattern: /validity/
+    methods: [POST]
+    defaults:
+        _controller: IhadisCoreBundle:Validity:create

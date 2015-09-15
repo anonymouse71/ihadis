@@ -3,6 +3,7 @@
 namespace Ihadis\Bundle\CoreBundle\Controller;
 
 use Ihadis\Bundle\CoreBundle\Entity\Hadith;
+use Ihadis\Bundle\CoreBundle\Form\Type\ValidityType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -20,7 +21,7 @@ class HadithController extends Controller
                 $resource->setBook($section->getBook());
             }
 
-            $resource->setValidity(Hadith::VALIDITY_SAHIH);
+            //$resource->setValidity(Hadith::VALIDITY_SAHIH);
         }
 
     }
@@ -52,7 +53,8 @@ class HadithController extends Controller
             ->setTemplate('IhadisCoreBundle:Hadith:_form.html.twig')
             ->setData(array(
                 $config->getResourceName() => $resource,
-                'form'                     => $form->createView()
+                'form'                     => $form->createView(),
+               // 'newValidity'              => $this->createForm(new ValidityType())->createView()
             ))
         ;
 
@@ -63,4 +65,6 @@ class HadithController extends Controller
     {
         return new Response('OK');
     }
+
+
 }

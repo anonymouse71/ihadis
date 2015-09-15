@@ -33,16 +33,11 @@ class HadithFormType extends AbstractType
                 'choices' => array(0 => 'No', 1 => 'Yes'),
                 'attr'   => array('class' => 'input-small')
             ))
-            ->add('validity', 'choice', array(
-                'label'  => 'Validity',
-                'choices' => array(
-                    Hadith::VALIDITY_NONE  => 'N/A',
-                    Hadith::VALIDITY_MAUDU => "Maudu'",
-                    Hadith::VALIDITY_DAIF  => "Da'if",
-                    Hadith::VALIDITY_HASAN => "Hasan",
-                    Hadith::VALIDITY_SAHIH => "Sahih"
-                ),
-                'attr'   => array('class' => 'input-small')
+            ->add('validity', 'entity', array(
+                'label'    => 'Validity',
+                'class'    => 'IhadisCoreBundle:Validity',
+                'property' => 'title',
+                'attr'     => array('class' => 'input-small')
             ))
             ->add('narrator', 'text', array(
                 'label'  => 'Hadith Narrator',

@@ -13,7 +13,7 @@ namespace Ihadis\Bundle\CoreBundle\Controller;
 
 use Ihadis\Bundle\CoreBundle\Entity\User;
 use Ihadis\Bundle\CoreBundle\Form\Type\UserType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller as CommonController;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @author Mohammad Emran Hasan <phpfour@gmail.com>
  */
-class UserController extends Controller
+class UserController extends CommonController
 {
     public function indexAction()
     {
