@@ -100,6 +100,13 @@ class Hadith
     private $validity;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="highlighted", type="boolean", nullable=true)
+     */
+    private $highlighted;
+
+    /**
      * @var Book
      *
      * @ORM\ManyToOne(targetEntity="Book", inversedBy="hadiths")
@@ -577,13 +584,7 @@ class Hadith
 
     public function getAuthenticityLabel()
     {
-        switch ($this->validity) {
-            case self::VALIDITY_NONE    : return '-';
-            case self::VALIDITY_SAHIH   : return 'Sahih';
-            case self::VALIDITY_HASAN   : return 'Hasan';
-            case self::VALIDITY_MAUDU   : return 'Maudu';
-            case self::VALIDITY_DAIF    : return "D'aif";
-        }
+        $this->getValidity()->getTitle();
     }
 
     public function getReferencePart($index = 0, $locale)
@@ -593,5 +594,28 @@ class Hadith
                     : explode("\n", $this->getReference());
 
         return isset($lines[$index-1]) ? $lines[$index-1] : '';
+    }
+
+    /**
+     * Get highlighted
+     *
+     * @return boolean
+     */
+    public function getHighlighted()
+    {
+        return $this->highlighted;
+    }
+
+    /**
+     * Set highlighted
+     *
+     * @param boolean $highlighted
+     *
+     * @return Hadith
+     */
+    public function setHighlighted($highlighted)
+    {
+        $this->highlighted = $highlighted;
+        return $this;
     }
 }

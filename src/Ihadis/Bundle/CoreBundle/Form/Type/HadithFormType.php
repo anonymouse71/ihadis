@@ -97,6 +97,10 @@ class HadithFormType extends AbstractType
                 'mapped' => false,
                 'attr'  => array('rows' => 5)
             ))
+            ->add('highlighted', null, array(
+                'label' =>'Highlighted',
+                'required' => false
+            ))
         ;
 
         $builder->addEventSubscriber(new AddEntityFieldSubscriber());
