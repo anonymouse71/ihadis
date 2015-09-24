@@ -56,12 +56,12 @@ class HadithFormType extends AbstractType
             ->add('note', 'textarea', array(
                 'label' => 'Note',
                 'required' => false,
-                'attr'  => array('rows' => 3)
+                'attr'  => array('rows' => 5)
             ))
             ->add('explanation', 'textarea', array(
                 'label' => 'Explanation',
                 'required' => false,
-                'attr'  => array('rows' => 3)
+                'attr'  => array('rows' => 5)
             ))
             ->add('narratorArabic', 'text', array(
                 'label'  => 'Hadith Narrator',

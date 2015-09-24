@@ -67,7 +67,7 @@
 
                     <div>&nbsp;</div>
 
-                    <div class="col-md-4">
+                    <div class="hidden">
 
                         <div style="font-weight: bold; font-size: 14px; margin: 10px 0;">Arabic</div>
 
@@ -78,7 +78,7 @@
 
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="hidden">
 
                         <div style="font-weight: bold; font-size: 14px; margin: 10px 0;">English</div>
 
@@ -88,7 +88,7 @@
 
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-12">
 
                         <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">Bangla</div>
 
@@ -137,5 +137,13 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+{% endblock %}
+
+{% block documentReady %}
+
+    {{ parent() }}
+
+    $('#ihadis_hadith_body, #ihadis_hadith_reference, #ihadis_hadith_note').markdown({autofocus:false});
 
 {% endblock %}

@@ -8,7 +8,7 @@ var IHadisBackend = function () {
             $(this).parent().find(".form-group").slideToggle();
         });
 
-    }
+    };
 
     var addMoreHadith = function() {
 
@@ -20,14 +20,14 @@ var IHadisBackend = function () {
         hadithFormContainer.find('.portlet').last().attr('id', 'portlet-' + hadithCounter);
         hadithFormContainer.find('form').last().attr('target', 'iframe-' + hadithCounter);
         hadithFormContainer.find('.caption').last().html('<i class="fa fa-reorder"></i> Hadith #' + hadithCounter);
-
+        hadithFormContainer.find('textarea').markdown({autofocus:false});
         hadithCounter++;
 
         for (var i = 1; i < hadithCounter - 1; i++) {
             $('#portlet-' + i + '> .portlet-title > .tools > .collapse').click();
         }
 
-    }
+    };
 
     var saveAllHadith = function() {
 
