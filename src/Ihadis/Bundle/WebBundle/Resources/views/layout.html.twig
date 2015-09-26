@@ -165,9 +165,8 @@
         "assets/plugins/jquery-migrate-1.2.1.min.js"
         "assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"
         "assets/plugins/bootstrap/js/bootstrap.min.js"
-        "assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js"
-        "assets/plugins/jquery.blockui.min.js"
         "assets/plugins/jquery.cookie.min.js"
+        "assets/plugins/bootstrap-markdown/lib/markdown.js"
         "@IhadisWebBundle/Resources/public/js/ZeroClipboard.min.js"
         "@IhadisWebBundle/Resources/public/js/jquery.reveal.js"
         "@IhadisWebBundle/Resources/public/js/bjqs-1.3.min.js"
@@ -186,6 +185,7 @@
 
             {% block documentReady %}
             IHadis.init();
+
             {% endblock documentReady %}
 
         });

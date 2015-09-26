@@ -30,7 +30,7 @@
             <div class="surah-bottom">
                 <div id="hadith-body-{{ hadith.numberPrimary }}-bn" class="surah bn" style="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}display: block;{% endif %}">
                     <p><span>{{ hadith.getNarrator }}</span> থেকে বর্ণিতঃ  </p>
-                    <div>{{ hadith.getBody|nl2br }}</div>
+                    <div class="markdown">{{ hadith.getBody }}</div>
                 </div>
 
                 {% include '@IhadisWeb/Default/_tools.html.twig' %}
@@ -70,12 +70,12 @@
                     </ul>
                 </div>
 
-                <div id="hadith-body-{{ hadith.numberPrimary }}-en" class="surah fr en" style="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}display: block;{% endif %}">
+                <div id="hadith-body-{{ hadith.numberPrimary }}-en" class="surah fr en raabi" style="{% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}display: block;{% endif %}">
                     <p>Narrated <span>{{ hadith.getNarratorEnglish }}:</span></p>
                     <div>{{ hadith.getBodyEnglish|nl2br }}</div>
                 </div>
 
-                <div id="hadith-body-{{ hadith.numberPrimary }}-bn" class="surah fr bn" style="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}display: block;{% endif %}">
+                <div id="hadith-body-{{ hadith.numberPrimary }}-bn" class="surah fr bn  raabi" style="{% if app.request.cookies.has('lang') == false or app.request.cookies.get('lang') == 'bn' %}display: block;{% endif %}">
                     <p><span>{{ hadith.getNarrator }}</span> থেকে বর্ণিতঃ  </p>
                     <div>{{ hadith.getBody|nl2br }}</div>
                 </div>
@@ -138,7 +138,7 @@
 
     <div class="surah-footnote bn" style="{% if not hadith.note %}display: none;{% endif %}">
         {% if hadith.note %}
-            {{ hadith.note|nl2br }}
+            <p class="markdown">{{ hadith.note }}</p>
         {% else %}
             <p>{% trans %}No footnote added so far for this Hadis{% endtrans %}</p>
         {% endif %}
@@ -148,7 +148,7 @@
 
     <div class="surah-explanation bn" style="display: none;">
         {% if hadith.explanation %}
-            {{ hadith.explanation|nl2br }}
+            <p class="markdown">{{ hadith.explanation }}</p>
         {% else %}
             <p>{% trans %}No explanation added so far for this Hadis{% endtrans %}</p>
         {% endif %}

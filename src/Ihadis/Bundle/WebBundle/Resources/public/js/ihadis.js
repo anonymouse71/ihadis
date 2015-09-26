@@ -166,9 +166,21 @@ var IHadis = function () {
         });
     };
 
+    var markdownToHtml = function(selector) {
+        if('object' != typeof(markdown)) {
+            console.error('Markdown parser markdown.js is not loaded');
+        }
+
+        var els = selector ? $(selector) : $('.markdown');
+        els.each(function(i, el){
+            $(el).html(markdown.toHTML($(el).text()));
+        });
+    };
+
     return {
 
         init: function() {
+            markdownToHtml();
             /*initZeroClipboard();
             handleHadithCopy();*/
             handleLanguageToggle();

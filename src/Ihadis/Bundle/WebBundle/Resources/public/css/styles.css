@@ -569,11 +569,13 @@ h1 {
 
 .surah p {
     margin: 0 0 6px;
-    color: #b6b6b6;
     text-align: left;
 }
+.surah p.raabi {
+    color: #b6b6b6;
+}
 
-.surah p span {
+.surah p.raabi span {
     color: #4a9b41;
 }
 

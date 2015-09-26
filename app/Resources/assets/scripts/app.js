@@ -830,7 +830,9 @@ var App = function () {
         if ($.cookie('style_color')) {
             setColor($.cookie('style_color'));
         }
-    }
+    };
+
+
 
     //* END:CORE HANDLERS *//
 
