@@ -584,7 +584,7 @@ class Hadith
 
     public function getAuthenticityLabel()
     {
-        $this->getValidity()->getTitle();
+        return is_null($this->validity)? 'Not set yet!' : $this->getValidity()->getTitle();
     }
 
     public function getReferencePart($index = 0, $locale)
