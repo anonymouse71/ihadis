@@ -1041,6 +1041,14 @@ img.article {
     text-align: justify;
 }
 
+.markdown ul li {
+}
+.markdown ul li:before {
+    content: "\002022";
+    color: grey;
+    padding-right: 10px;
+}
+
 /* Tooltip from miniTip */
 .minitip-content {
     font-size: 11px;
