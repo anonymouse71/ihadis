@@ -159,7 +159,13 @@
     <div class="surah-bottom-panel {% if hadith.getBodyArabic is empty %}full{% endif %}">
 
         <div class="authenticity">
-            <p>{% trans %}Authenticity Status{% endtrans %}: <span class="{{ hadith.getAuthenticityLabel|lower }}">{{ hadith.getAuthenticityLabel }}</span></p>
+            <p>{% trans %}Authenticity Status{% endtrans %}:
+                {% if hadith.validity is null %}
+                <span class="label">Not set yet!</span>
+                {% else %}
+                <span class="label" style="color:{{ hadith.validity.color }}; background:{{ hadith.validity.background() }};">{{ hadith.validity.title }}</span>
+                {% endif %}
+            </p>
             <p>{% trans %}Scholar Review{% endtrans %}: <img src="/images/green_tick.png"/></p>
         </div>
         <div class="bottom-links">

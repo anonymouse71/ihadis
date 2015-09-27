@@ -371,7 +371,7 @@ class Hadith
     /**
      * Get validity
      *
-     * @return integer 
+     * @return Validity
      */
     public function getValidity()
     {
