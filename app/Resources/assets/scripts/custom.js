@@ -18,6 +18,7 @@ var IHadisBackend = function () {
         hadithFormContainer.append('<iframe style="display: none;" name="iframe-' + hadithCounter + '"></iframe>');
 
         hadithFormContainer.find('.portlet').last().attr('id', 'portlet-' + hadithCounter);
+        hadithFormContainer.find('.portlet').last().find('a.remove').data('counter', hadithCounter);
         hadithFormContainer.find('form').last().attr('target', 'iframe-' + hadithCounter);
         hadithFormContainer.find('.caption').last().html('<i class="fa fa-reorder"></i> Hadith #' + hadithCounter);
         hadithFormContainer.find('textarea').markdown({autofocus:false});
@@ -49,15 +50,12 @@ var IHadisBackend = function () {
             setInterval(checkSaveCompletion, 5000);
 
         } else {
-
             bootbox.alert("Please enter all required fields marked in red.");
-
         }
 
-    }
+    };
 
     var checkSaveCompletion = function() {
-
         var completed = 0;
 
         $('#hadith-form-container').find('iframe').each(function(){
@@ -65,9 +63,9 @@ var IHadisBackend = function () {
                 completed++;
             }
         });
-
-        if (completed == hadithCounter - 1) {
-            bootbox.alert("All the hadiths have been saved.");
+        console.log('Checking completion:'+ completed);
+        if (completed == $('iframe').length) {
+            $.gritter.add('All the hadiths have been saved.');
             location.href = $('#cancel-btn').attr('href');
         }
     };
@@ -85,14 +83,17 @@ var IHadisBackend = function () {
     };
 
     var prepareConfirmationModal = function() {
+
         $(document).on('click', 'a.remove', function(e) {
             e.preventDefault();
             var link = this;
 
-            $('#confirmation-msg').html($(this).data('message'));
+            $('#confirmation-msg').html("Do you really want to remove this (may be unsaved) hadis?");
             $('#confirmation-yes').on('click', function() {
-                var callback = $(link).data('callback');
-                window[callback](link);
+                var sl = $(link).data('counter');
+                console.log(sl);
+                $('#portlet-'+ sl).remove();
+                $('iframe[name=iframe-'+ sl+']').remove();
 
                 $('#confirmation').modal('hide');
             });

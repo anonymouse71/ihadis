@@ -444,7 +444,10 @@ var App = function () {
     var handlePortletTools = function () {
         jQuery('body').on('click', '.portlet > .portlet-title > .tools > a.remove', function (e) {
             e.preventDefault();
-            jQuery(this).closest(".portlet").remove();
+
+            if($(this).data('counter') == undefined) { // Leave hadis add forms
+                jQuery(this).closest(".portlet").remove();
+            }
         });
 
         jQuery('body').on('click', '.portlet > .portlet-title > .tools > a.reload', function (e) {
