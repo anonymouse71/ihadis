@@ -136,11 +136,7 @@ class UserController extends CommonController
             $chapters = $em->getRepository('IhadisCoreBundle:Chapter')
                 ->findBy(array('book' => $this->getRequest()->request->get('book')));
 
-        }
-        
-        if ($this->getRequest()->request->has('chapters')) {
-
-            $newChapterIds = $this->getRequest()->request->get('chapters');
+            $newChapterIds = $this->getRequest()->request->get('chapters') ?: [];
             $assignedChapters = array();
 
             foreach ($newChapterIds as $chapterId) {
