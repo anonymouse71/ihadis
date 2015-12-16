@@ -27,6 +27,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/books, role: ROLE_SUPER_ADMIN }
         - { path: ^/admin/chapters, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/users, role: ROLE_ADMIN }
         - { path: ^/admin/sections, role: ROLE_ADMIN }
         - { path: ^/admin/hadiths, role: ROLE_ADMIN }
         - { path: ^/admin/dashboard, role: ROLE_ADMIN }
