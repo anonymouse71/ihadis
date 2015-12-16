@@ -30,6 +30,7 @@ class User extends BaseUser
     protected $lastName;
 
     /**
+     * var ArrayCollection
      * @ORM\ManyToMany(targetEntity="Chapter")
      */
     protected $chapters;
@@ -66,7 +67,7 @@ class User extends BaseUser
     /**
      * Get chapters
      *
-     * @return mixed
+     * @return ArrayCollection
      */
     public function getChapters()
     {

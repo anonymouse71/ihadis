@@ -124,38 +124,44 @@ class UserController extends CommonController
 
     public function chaptersAction(User $user)
     {
-        $chapters = array();
-        $chapterIds = array();
+        $bookChapters = array();
         $selectedChapters = array();
+        $userChapters = $user->getChapters();
 
         $em = $this->get('doctrine.orm.entity_manager');
         $books = $em->getRepository('IhadisCoreBundle:Book')->findAll();
 
-        if ($this->getRequest()->request->has('book')) {
+        $post = $this->getRequest()->request;
+        if ($post->has('book')) {
             
-            $chapters = $em->getRepository('IhadisCoreBundle:Chapter')
+            $bookChapters = $em->getRepository('IhadisCoreBundle:Chapter')
                 ->findBy(array('book' => $this->getRequest()->request->get('book')));
+        }
 
-            $newChapterIds = $this->getRequest()->request->get('chapters') ?: [];
-            $assignedChapters = array();
+        if ($post->has('save')) {
 
-            foreach ($newChapterIds as $chapterId) {
-                $assignedChapters[] = $em->getRepository('IhadisCoreBundle:Chapter')->find($chapterId);
+            $chapterRepository  = $em->getRepository('IhadisCoreBundle:Chapter');
+            foreach ($bookChapters as $chapter) {
+                $userChapters->removeElement($chapter);
             }
 
-            $user->setChapters($assignedChapters);
+            $newChapterIds = $post->get('chapters') ?: [];
+            foreach ($newChapterIds as $chapterId) {
+                $userChapters->add($chapterRepository->find($chapterId));
+            }
+
+            $user->setChapters($userChapters);
             $em->persist($user);
             $em->flush();
+        }
 
-        } 
-
-        foreach ($user->getChapters() as $chapter) {
+        foreach ($userChapters as $chapter) {
             $selectedChapters[] = $chapter->getId();
         }
 
         return $this->render('IhadisCoreBundle:User:chapters.html.twig', array(
             'books' => $books,
-            'chapters' => $chapters,
+            'chapters' => $bookChapters,
             'selectedChapters' => $selectedChapters
         ));
     }
