@@ -36,7 +36,6 @@
         </thead>
 
         <tbody>
-            {{ dump(selectedChapters) }}
             {% for chapter in chapters %}
                 <tr>
                     <td><input type="checkbox" name="chapters[]" value="{{ chapter.id }}" {% if chapter.id in selectedChapters %} checked="checked" {% endif %} /></td>
