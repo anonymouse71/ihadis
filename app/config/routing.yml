@@ -29,6 +29,11 @@ ihadis_core:
     resource: "@IhadisCoreBundle/Resources/config/routing.yml"
     prefix:   /
 
+ihadis_public:
+    resource: "@IhadisWebBundle/Controller/HadisController.php"
+    type: annotation
+    prefix:   /new
+
 ihadis_web:
     resource: "@IhadisWebBundle/Resources/config/routing.yml"
     prefix:   /

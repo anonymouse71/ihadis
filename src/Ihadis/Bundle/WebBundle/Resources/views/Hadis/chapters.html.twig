@@ -1,0 +1,470 @@
+{% extends('IhadisWebBundle::layout2.html.twig') %}
+
+{% block title %}{{ parent() }} | Chapters of ##Book-name {% endblock %}
+
+{% block body %}
+    <div class="row main1">
+
+        <div class="col-md-3 test">
+            <div class="side-header" style="background-color: #fff;height: 59px;padding: 0px 0px;">
+                <div class="select-area pull-left">All books</div>
+                <div class="select-box2 pull-right">
+                    <select name="category" id="category" class="book-category2">
+                        <option value="all">সহিহ বুখারি</option>
+                        <option value="all">সহিহ মুসলিম</option>
+                        <option value="all">মিশকাত</option>
+                        <option value="all">আবু দাউদ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 fl test2">
+
+            <ul class=tabs>
+
+                <li>
+                    <input type=radio name=tabs id=tab2 checked>
+                    <label for=tab1>Hadis Books</label>
+                    <div id=tab-content2 class=tab-content>
+                        <div style="width: auto;height: 200px;">
+                            <div class="goto">
+                                <h3>নির্দিষ্ট হাদিসে যান</h3>
+                                <select class="selectpicker" data-size="7">
+                                    <option>সহিহ বুখারি</option>
+                                    <option>সহিহ মুসলিম</option>
+                                    <option>সুনানে আবু দাউদ</option>
+                                    <option>সুনানে নাসাঈ</option>
+                                    <option>জাল হাদিস সিরিজ</option>
+                                    <option>সহিহ বুখারি</option>
+                                    <option>সহিহ মুসলিম</option>
+                                    <option>সহিহ বুখারি</option>
+                                    <option>সহিহ মুসলিম</option>
+                                    <option>সুনানে আবু দাউদ</option>
+                                    <option>সুনানে নাসাঈ</option>
+                                    <option>জাল হাদিস সিরিজ</option>
+                                    <option>সহিহ বুখারি</option>
+                                    <option>সহিহ মুসলিম</option>
+                                </select>
+
+                                <div class="hadith_go">
+                                    <input name="goto_hadith" type="tel" class="text-search" maxlength="4" placeholder="Hadith no.">
+                                </div>
+                                <input name="" type="submit" class="button" value="Go">
+                            </div>
+                        </div>
+                    </div><!--tab 1 end-->
+                </li>
+
+                <li>
+                    <input type=radio name=tabs id=tab1 checked>
+                    <label for=tab2>Go to a Hadith</label>
+                    <div id=tab-content1 class=tab-content>
+
+                        <div id='Demo'>
+                            <div class='content'>
+                                <div class="book-lists">
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item active">সহিহ বুখারি</a>
+                                        <a href="#" class="list-group-item">সহিহ মুসলিম</a>
+                                        <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
+                                        <a href="#" class="list-group-item">সুনানে নাসাঈ</a>
+                                        <a href="#" class="list-group-item">মিশকাতুল মাসাবিহ</a>
+                                        <a href="#" class="list-group-item">জাল হাদিস সিরিজ</a>
+                                        <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
+                                        <a href="#" class="list-group-item">সহিহ মুসলিম</a>
+                                        <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
+                                        <a href="#" class="list-group-item">সহিহ মুসলিম</a>
+                                        <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
+                                        <a href="#" class="list-group-item">সহিহ মুসলিম</a>
+                                        <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
+                                        <a href="#" class="list-group-item">সহিহ মুসলিম</a>
+                                        <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div><!--col 3-->
+
+        <div class="col-md-9 col-xs-12 rl">
+
+            <div class="list-header">
+                <h3>Sahih Bukhari
+                    <span>(7586 hadiths)</span>
+                </h3>
+            </div>
+
+
+            <div class="hadith-list">
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০১</th>
+                        <th class="tg-yw42">ওহীর সূচনা অধ্যায়</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০২</th>
+                        <th class="tg-yw42">সালাতের ওয়াক্তসমূহ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৩</th>
+                        <th class="tg-yw42">কুরআন তিলাওয়াতের সিজ্‌দা</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৪</th>
+                        <th class="tg-yw42">পথে আটকে পড়া ও ইহ্‌রাম অবস্থায় শিকারকারীর বিধান</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৫</th>
+                        <th class="tg-yw42">আল্লাহ্‌দ্রোহী ও ধর্মত্যাগীদেরকে তাওবার প্রতি আহ্বান ও তাদের সাথে যুদ্ধ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৬</th>
+                        <th class="tg-yw42">ওহীর সূচনা অধ্যায়</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৭</th>
+                        <th class="tg-yw42">সালাতের ওয়াক্তসমূহ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৮</th>
+                        <th class="tg-yw42">কুরআন তিলাওয়াতের সিজ্‌দা</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৯</th>
+                        <th class="tg-yw42">পথে আটকে পড়া ও ইহ্‌রাম অবস্থায় শিকারকারীর বিধান</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১০</th>
+                        <th class="tg-yw42">আল্লাহ্‌দ্রোহী ও ধর্মত্যাগীদেরকে তাওবার প্রতি আহ্বান ও তাদের সাথে যুদ্ধ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১১</th>
+                        <th class="tg-yw42">ওহীর সূচনা অধ্যায়</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১২</th>
+                        <th class="tg-yw42">সালাতের ওয়াক্তসমূহ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৩</th>
+                        <th class="tg-yw42">কুরআন তিলাওয়াতের সিজ্‌দা</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৪</th>
+                        <th class="tg-yw42">পথে আটকে পড়া ও ইহ্‌রাম অবস্থায় শিকারকারীর বিধান</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৫</th>
+                        <th class="tg-yw42">আল্লাহ্‌দ্রোহী ও ধর্মত্যাগীদেরকে তাওবার প্রতি আহ্বান ও তাদের সাথে যুদ্ধ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৬</th>
+                        <th class="tg-yw42">ওহীর সূচনা অধ্যায়</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৭</th>
+                        <th class="tg-yw42">সালাতের ওয়াক্তসমূহ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৮</th>
+                        <th class="tg-yw42">কুরআন তিলাওয়াতের সিজ্‌দা</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৯</th>
+                        <th class="tg-yw42">পথে আটকে পড়া ও ইহ্‌রাম অবস্থায় শিকারকারীর বিধান</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">২০</th>
+                        <th class="tg-yw42">আল্লাহ্‌দ্রোহী ও ধর্মত্যাগীদেরকে তাওবার প্রতি আহ্বান ও তাদের সাথে যুদ্ধ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০১</th>
+                        <th class="tg-yw42">ওহীর সূচনা অধ্যায়</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০২</th>
+                        <th class="tg-yw42">সালাতের ওয়াক্তসমূহ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৩</th>
+                        <th class="tg-yw42">কুরআন তিলাওয়াতের সিজ্‌দা</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৪</th>
+                        <th class="tg-yw42">পথে আটকে পড়া ও ইহ্‌রাম অবস্থায় শিকারকারীর বিধান</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৫</th>
+                        <th class="tg-yw42">আল্লাহ্‌দ্রোহী ও ধর্মত্যাগীদেরকে তাওবার প্রতি আহ্বান ও তাদের সাথে যুদ্ধ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৬</th>
+                        <th class="tg-yw42">ওহীর সূচনা অধ্যায়</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৭</th>
+                        <th class="tg-yw42">সালাতের ওয়াক্তসমূহ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৮</th>
+                        <th class="tg-yw42">কুরআন তিলাওয়াতের সিজ্‌দা</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">০৯</th>
+                        <th class="tg-yw42">পথে আটকে পড়া ও ইহ্‌রাম অবস্থায় শিকারকারীর বিধান</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১০</th>
+                        <th class="tg-yw42">আল্লাহ্‌দ্রোহী ও ধর্মত্যাগীদেরকে তাওবার প্রতি আহ্বান ও তাদের সাথে যুদ্ধ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১১</th>
+                        <th class="tg-yw42">ওহীর সূচনা অধ্যায়</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১২</th>
+                        <th class="tg-yw42">সালাতের ওয়াক্তসমূহ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৩</th>
+                        <th class="tg-yw42">কুরআন তিলাওয়াতের সিজ্‌দা</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৪</th>
+                        <th class="tg-yw42">পথে আটকে পড়া ও ইহ্‌রাম অবস্থায় শিকারকারীর বিধান</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৫</th>
+                        <th class="tg-yw42">আল্লাহ্‌দ্রোহী ও ধর্মত্যাগীদেরকে তাওবার প্রতি আহ্বান ও তাদের সাথে যুদ্ধ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৬</th>
+                        <th class="tg-yw42">ওহীর সূচনা অধ্যায়</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৭</th>
+                        <th class="tg-yw42">সালাতের ওয়াক্তসমূহ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৮</th>
+                        <th class="tg-yw42">কুরআন তিলাওয়াতের সিজ্‌দা</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">১৯</th>
+                        <th class="tg-yw42">পথে আটকে পড়া ও ইহ্‌রাম অবস্থায় শিকারকারীর বিধান</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">২০</th>
+                        <th class="tg-yw42">আল্লাহ্‌দ্রোহী ও ধর্মত্যাগীদেরকে তাওবার প্রতি আহ্বান ও তাদের সাথে যুদ্ধ</th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+
+{% block documentReady %}
+    {{ parent() }}
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+        });
+    </script>
+{% endblock documentReady %}

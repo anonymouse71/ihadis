@@ -1,0 +1,318 @@
+{% extends('IhadisWebBundle::layout2.html.twig') %}
+
+{% block title %}{{ parent() }} | Read Hadis in Bangla{% endblock %}
+
+{% block body %}
+    <div class="header_area">
+        <div class="container p-right">
+            <div class="row">
+
+                <div class="logo">
+                    <img src="{{ asset('bundles/ihadisweb/2/img/logo6.png') }}" alt="logo">
+                </div>
+
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="search">
+                        <div class="input-group">
+                            <div class="search-box">
+                                <input id="search2" name="search"  type="text" placeholder="Search for hadith" class="form-control search-input"/>
+                                <button name="" type="submit" class="button n2" value="">
+                                    <i class="fa fa-search fa-2x"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="text-right" style="color: white;font-family: arial;margin-top:10px;">
+                        <div id="tabs-container">
+                            <ul class="tabs-menu">
+                                <li class="current"><a href="#tab-3">Daily Hadith</a> &nbsp;|&nbsp;&nbsp;</li>
+                                <li><a href="#tab-1">Advanced Search</a> &nbsp;|&nbsp;&nbsp;</li>
+                                <li><a href="#tab-2">Go to a Hadith</a></li>
+                            </ul>
+
+                            <div class="tab">
+                                <div id="tab-1" class="tab-content">
+                                    <p>
+                                        <span class="select_name">Books: </span>
+                                        <select class="selectpicker" data-size="7">
+                                            <option>সহিহ বুখারি</option>
+                                            <option>সহিহ মুসলিম</option>
+                                            <option>সুনানে আবু দাউদ</option>
+                                            <option>সুনানে নাসাঈ</option>
+                                            <option>জাল হাদিস সিরিজ</option>
+                                            <option>সহিহ বুখারি</option>
+                                            <option>সহিহ মুসলিম</option>
+                                            <option>সুনানে আবু দাউদ</option>
+                                            <option>সুনানে নাসাঈ</option>
+                                            <option>জাল হাদিস সিরিজ</option>
+                                        </select>
+
+                                        <span class="select_name">Chapters: </span>
+                                        <select class="selectpicker" data-size="7">
+                                            <option>সহিহ বুখারি</option>
+                                            <option>সহিহ মুসলিম</option>
+                                            <option>সুনানে আবু দাউদ</option>
+                                            <option>সুনানে নাসাঈ</option>
+                                            <option>জাল হাদিস সিরিজ</option>
+                                            <option>সহিহ বুখারি</option>
+                                            <option>সহিহ মুসলিম</option>
+                                            <option>সুনানে আবু দাউদ</option>
+                                            <option>সুনানে নাসাঈ</option>
+                                            <option>জাল হাদিস সিরিজ</option>
+                                        </select>
+                                    </p>
+                                </div>
+
+
+                                <div id="tab-2" class="tab-content">
+                                    <p>
+                                        <span class="select_name">Books: </span>
+
+                                        <select class="selectpicker" data-size="7">
+                                            <option>সহিহ বুখারি</option>
+                                            <option>সহিহ মুসলিম</option>
+                                            <option>সুনানে আবু দাউদ</option>
+                                            <option>সুনানে নাসাঈ</option>
+                                            <option>জাল হাদিস সিরিজ</option>
+                                            <option>সহিহ বুখারি</option>
+                                            <option>সহিহ মুসলিম</option>
+                                            <option>সুনানে আবু দাউদ</option>
+                                            <option>সুনানে নাসাঈ</option>
+                                            <option>জাল হাদিস সিরিজ</option>
+                                        </select>
+
+
+                                        <span class="select_name">Hadith No. </span>
+
+
+                                        <input name="goto_hadith" type="tel" class="text-search" maxlength="4" placeholder="Hadith no.">
+                                        <input name="" type="submit" class="button" value="Go">
+
+
+
+                                    </p>
+                                </div>
+
+                                <div id="tab-3" class="tab-content">
+                                    <p class="daily_hadith">
+                                        "কেউ হেদায়েতের দিকে আহ্বান করলে যতজন তার অনুসরণ করবে প্রত্যেকের সমান সওয়াবের অধিকারী সে হবে, তবে যারা অনুসরন করেছে তাদের সওয়াবের কোন কমতি হবে না।" [সহিহ মুসলিমঃ ২৬৭৮]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div><!--header area-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--------------------------------------Mobile-------------------------------------------------->
+
+            <div class="col-xs-12 book-list-small">
+
+
+                <div class="list-header">
+                    <h3>Hadith Book Lists</h3>
+                </div>
+
+                <div class="hadith-list">
+
+
+                    <table class="tg">
+                        <tr>
+                            <th class="tg-yw40">০১</th>
+                            <th class="tg-yw42">সহিহ বুখারি</th>
+                            <th class="tg-yw43">৭৫৫২ টি হাদিস</th>
+                        </tr>
+                    </table>
+
+                    <table class="tg">
+                        <tr>
+                            <th class="tg-yw40">০১</th>
+                            <th class="tg-yw42">সহিহ বুখারি</th>
+                            <th class="tg-yw43">৭৫৫২ টি হাদিস</th>
+                        </tr>
+                    </table>
+
+                    <table class="tg">
+                        <tr>
+                            <th class="tg-yw40">০১</th>
+                            <th class="tg-yw42">সহিহ বুখারি</th>
+                            <th class="tg-yw43">৭৫৫২ টি হাদিস</th>
+                        </tr>
+                    </table>
+
+                    <table class="tg">
+                        <tr>
+                            <th class="tg-yw40">০১</th>
+                            <th class="tg-yw42">সহিহ বুখারি</th>
+                            <th class="tg-yw43">৭৫৫২ টি হাদিস</th>
+                        </tr>
+                    </table>
+
+                    <table class="tg">
+                        <tr>
+                            <th class="tg-yw40">০১</th>
+                            <th class="tg-yw42">সহিহ বুখারি</th>
+                            <th class="tg-yw43">৭৫৫২ টি হাদিস</th>
+                        </tr>
+                    </table>
+
+                    <table class="tg">
+                        <tr>
+                            <th class="tg-yw40">০১</th>
+                            <th class="tg-yw42">সহিহ বুখারি</th>
+                            <th class="tg-yw43">৭৫৫২ টি হাদিস</th>
+                        </tr>
+                    </table>
+
+                    <table class="tg">
+                        <tr>
+                            <th class="tg-yw40">০১</th>
+                            <th class="tg-yw42">সহিহ বুখারি</th>
+                            <th class="tg-yw43">৭৫৫২ টি হাদিস</th>
+                        </tr>
+                    </table>
+
+                    <table class="tg">
+                        <tr>
+                            <th class="tg-yw40">০১</th>
+                            <th class="tg-yw42">সহিহ বুখারি</th>
+                            <th class="tg-yw43">৭৫৫২ টি হাদিস</th>
+                        </tr>
+                    </table>
+
+                    <table class="tg">
+                        <tr>
+                            <th class="tg-yw40">০১</th>
+                            <th class="tg-yw42">সহিহ বুখারি</th>
+                            <th class="tg-yw43">৭৫৫২ টি হাদিস</th>
+                        </tr>
+                    </table>
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <!------------------------------------------------------------------------- -->
+
+        </div>
+    </div> <!-- /container -->
+
+    <div class="container middle">
+        <div class="row">
+
+            <div class="book-list-wrap">
+                <div class="col-md-3">
+                    <div class="book-list">
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-book"></i><a href="{{ url('book-details', {'slug': 'bukhari'}) }}">সহিহ বুখারি</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">সহিহ মুসলিম</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">সুনান আবু দাউদ</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">সুনান নাসাঈ</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">সহিহ আত-তিরমিযি</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">ইবনে মাযাহ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="book-list">
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-book"></i><a href="#">মুসনাদে আহমাদ</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">মুয়াত্তা ইমাম মালিক</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">রিয়াদুস সলেহিন</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">বুলুগুল মারাম</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">আল লু'লু ওয়াল মারজান</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">হাদিস সম্ভার</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="book-list">
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-book"></i><a href="#">৪০ হাদিস</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">সিলসিলা সহিহা</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">জাল জয়িফ হাদিস সিরিজ</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">মিশকাতুল মাসাবিহ</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">আদাবুল মুফরাদ</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">সহিহ হাদিসে কুদসি</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="book-list">
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-book"></i><a href="#">জুজ'উল রাফায়েল ইয়াদাইন</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">জুজ'উল কিরাত</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">১০০ সুসাব্যস্ত হাদিস</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">মিশকাতে জয়িফ হাদিস</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">শামায়েলে তিরমিযি</a></li>
+                            <li><i class="fa-li fa fa-book"></i><a href="#">সুনান আদ-দারিমী</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock body %}
+
+{% block documentReady %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.selectpicker').selectpicker();
+
+            $(".tabs-menu a").click(function (event) {
+                event.preventDefault();
+
+                $(this).parent().addClass("current");
+                $(this).parent().siblings().removeClass("current");
+
+                var tab = $(this).attr("href");
+                $(".tab-content").not(tab).css("display", "none");
+                $(tab).fadeIn();
+            });
+
+        });
+    </script>
+{% endblock documentReady %}
