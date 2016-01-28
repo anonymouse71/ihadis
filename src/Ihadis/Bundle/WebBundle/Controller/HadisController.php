@@ -28,7 +28,7 @@ class HadisController extends BaseController
     }
 
     /**
-     * @Route("/book/{slug}", name="book-details")
+     * @Route("/books/{slug}", name="book-details")
      *
      * @return Response
      */
@@ -47,6 +47,35 @@ class HadisController extends BaseController
         return $this->render('IhadisWebBundle:Hadis:chapters.html.twig');
     }
 
+    /**
+     * @Route("/books/{slug}/chapters/{id}", name="chapter")
+     *
+     * @return Response
+     */
+    public function chapterAction(Book $book, Chapter $chapter)
+    {
+//        $chapters = $this->get('ihadis.repository.chapter')->findBy(array(
+//            'book' => $book
+//        ));
+//
+//        $sections = $this->get('ihadis.repository.section')->findBy(
+//            array('chapter' => $chapter),
+//            array('sortOrder' => 'asc')
+//        );
+//
+//        $hadithRepository = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith');
+//
+//        return $this->render('IhadisWebBundle:Default:chapter.html.twig', array(
+//            'page'       => 'chapter',
+//            'book'       => $book,
+//            'chapter'    => $chapter,
+//            'chapters'   => $chapters,
+//            'sections'   => $sections,
+//            'hadithRepo' => $hadithRepository
+//        ));
+        return $this->render('@IhadisWeb/Hadis/section.html.twig');
+    }
+
     // ================ Dummy ===================
 
     public function pdfBookAction($bookName)
@@ -61,29 +90,6 @@ class HadisController extends BaseController
         return $this->render('IhadisWebBundle:Default:pdfBook.html.twig', array(
             'name' => $bookName,
             'book' => $book,
-        ));
-    }
-
-    public function chapterAction(Book $book, Chapter $chapter)
-    {
-        $chapters = $this->get('ihadis.repository.chapter')->findBy(array(
-            'book' => $book
-        ));
-
-        $sections = $this->get('ihadis.repository.section')->findBy(
-            array('chapter' => $chapter),
-            array('sortOrder' => 'asc')
-        );
-
-        $hadithRepository = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith');
-
-        return $this->render('IhadisWebBundle:Default:chapter.html.twig', array(
-            'page'       => 'chapter',
-            'book'       => $book,
-            'chapter'    => $chapter,
-            'chapters'   => $chapters,
-            'sections'   => $sections,
-            'hadithRepo' => $hadithRepository
         ));
     }
 

@@ -1,6 +1,17 @@
-{% extends('IhadisWebBundle::layout2.html.twig') %}
+{% extends('IhadisWebBundle::layout.html.twig') %}
 
 {% block title %}{{ parent() }} | Read Hadis in Bangla{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+    "@IhadisWebBundle/Resources/public/css/style.css"
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+{% endblock stylesheets %}
 
 {% block body %}
     <div class="header_area">
@@ -8,7 +19,7 @@
             <div class="row">
 
                 <div class="logo">
-                    <img src="{{ asset('bundles/ihadisweb/2/img/logo6.png') }}" alt="logo">
+                    <img src="{{ asset('/bundles/ihadisweb/img/logo6.png') }}" alt="logo">
                 </div>
 
                 <div class="col-md-8 col-md-offset-2">
@@ -294,6 +305,8 @@
         </div>
     </div>
 {% endblock body %}
+
+{% block footerClass %}footer_area_home{% endblock %}
 
 {% block documentReady %}
     {{ parent() }}

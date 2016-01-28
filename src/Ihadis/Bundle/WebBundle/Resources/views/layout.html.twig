@@ -1,208 +1,184 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8"/>
-    <title>{% block title %}iHadis.com{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% block title %}iHadis{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+    <!--+++++++CSS files++++++++++++++-->
     {% block stylesheets %}
 
         {% stylesheets
-        "@IhadisWebBundle/Resources/public/css/styles.css"
-        "@IhadisWebBundle/Resources/public/css/styles-responsive.css"
-        "@IhadisWebBundle/Resources/public/css/bjqs.css"
-        "@IhadisWebBundle/Resources/public/css/print.css"
-        "@IhadisWebBundle/Resources/public/css/reveal.css"
+        "@IhadisWebBundle/Resources/public/css/bootstrap-select.min.css"
+        "@IhadisWebBundle/Resources/public/css/bootstrap.min.css"
+        "@IhadisWebBundle/Resources/public/css/bootstrap-theme.min.css"
+        "@IhadisWebBundle/Resources/public/css/font-awesome.css"
+        "@IhadisWebBundle/Resources/public/css/responsive.css"
         %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
-    {% endblock %}
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    {% endblock stylesheets %}
+
+    {% block pageStyles %}{% endblock %}
 
 </head>
 
+
 <body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    <section class="center">
+<div class="main-wrap p-bottom">
+    <div id="header" class="top-header">
+        <div class="container main-home">
+            <div class="row">
+                <div class="col-md-3">
+                    <div id="banner" class=bannerTop>ihadis.com</div>
+                </div>
 
-        <div class="top">
+                <div class="col-md-9 nav-links">
+                    <ul class="menu">
+                        <li><a href="">Home</a> |</li>
+                        <li><a href="">Subjectwise Hadith</a> |</li>
+                        <li><a href="">Download Pdf</a> |</li>
+                        <li style="padding-left: 10px;padding-top: 0px;">
 
-            <div class="logo null"><a href="/"><img src="/images/logo.png"/></a></div>
+                            <div id="search" class="search">
+                                <div id="searchbar" class="sblur">
+                                    <form name="searchform" action="/search/" method="get" id="searchform">
+                                        <input type="text" class="searchquery" name="q" placeholder="Search…">
+                                        <button type="submit" class="searchsubmit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
 
-            <nav>
-                <ul>
-                    {% set rut = app.request.get('_route') %}
-                    <li {% if rut == 'ihadis_homepage' %}class="active"{% endif %}>
-                        <a href="{{ path('ihadis_homepage') }}">Hadith Books</a></li>
-                    <li {% if rut == 'join_team' %}class="active"{% endif %}>
-                        <a href="{{ path('join_team') }}">Join The Team</a></li>
-                    <li {% if rut == 'feedback' %}class="active"{% endif %}>
-                        <a href="{{ path('feedback') }}">Feedback</a></li>
-                    <li {% if rut == 'about_us' %}class="active"{% endif %}>
-                        <a href="{{ path('about_us') }}">About Us</a></li>
-                    <li><a href="{{ path('under_construction') }}">Contact</a></li>
-                </ul>
-            </nav>
-
-            <div class="signup">
-                <ul>
-                    <li><a href="{{ url('fos_user_security_login') }}">Log in</a></li>
-                </ul>
-                <a class="user fr" href="#"><img src="/images/user.png"/></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="clr"></div>
-
         </div>
 
-        {% block body %}
-            <div class="left-panel">
-
-                {% block sidebar %}
-                    {% include '@IhadisWeb/_sidebar.html.twig' %}
-                {% endblock %}
-
-            </div>
-
-            <div class="right-panel">
-
-                {% block content %}{% endblock %}
-
-            </div>
-        {% endblock %}
-
-        <div class="clr"></div>
-
-        <div id="footer">
-            <div class="link-box">
-                <h5>More about iHadis</h5>
-                <ul>
-                    <li>&raquo; <a href="{{ path('disclaimer') }}">Disclaimer</a></li>
-                    <li>&raquo; <a href="{{ path('under_construction') }}">Updates</a></li>
-                    <li>&raquo; <a href="{{ path('under_construction') }}">Sources we use</a></li>
-                </ul>
-            </div>
-            <div class="link-box">
-                <h5>Islamic resources</h5>
-                <ul>
-                    <li>&raquo; <a href="http://quran.com">Quran.com</a></li>
-                    <li>&raquo; <a href="http://islamhouse.com">Islam House</a></li>
-                    <li>&raquo; <a href="http://islamiclibrarian.webs.com/">বাংলা বই</a></li>
-                    <li>&raquo; <a href="https://www.youtube.com/user/BANGLAWAZICC/videos?flow=grid&view=0">বাংলা লেকচার </a></li>
-                </ul>
-            </div>
-            <div class="link-box">
-                <h5>Recommended blogs</h5>
-                <ul>
-                    <li>&raquo; <a href="http://www.quraneralo.com/">কুরআনের আলো</a></li>
-                    <li>&raquo; <a href="http://sorolpath.wordpress.com/">সরল পথ </a></li>
-                    <li>&raquo; <a href="http://www.shomokalin.com/">সমকালীন</a></li>
-                </ul>
-            </div>
-            <div>
-                <p>
-                    <a href="{{ path('ihadis_homepage') }}">Home</a> &nbsp;
-                    <a href="{{ path('feedback') }}">Feedback</a> &nbsp;
-                    <a href="{{ path('about_us') }}">About Us</a> &nbsp;
-                    <a href="{{ path('join_team') }}">Join Team</a> &nbsp;
-                    <a href="http://facebook.com/groups/hadis.team1" target="_blank"><img src="/images/social/facebook.png"/></a> &nbsp;
-                    <a href="#"><img src="/images/social/twitter.png"/></a> &nbsp;
-                    <a href="#"><img src="/images/social/skype.png"/></a> &nbsp;
-                    <a href="mailto:weloveallah2012@gmail.com"><img src="/images/social/gmail.png"/></a> &nbsp;
-                </p>
-                <p id="copyright"> Copyright &copy; 2014, all rights reserved, iHadis.com</p>
-            </div>
-            <div class="clr"></div>
-
+        <div class=crumbs>
+            <div class="container main-body">
+                <a href="/">Home</a> &#187; Sahih al-Bukhari</div>
         </div>
 
-    </section>
+    </div><!--End of header-->
 
-    <div id="report-modal" class="reveal-modal large">
+    {% block body %}
+    <div class="container main-body middle">
+        <div class="row">
+            <div class="col-xs-12">
+                Here goes your content.
+            </div>
+        </div>
+    </div>
+    {% endblock body %}
+</div>
 
-        <div class="modal-content">
 
-            <h1>Report Hadith</h1>
+<!--***********************Footer Area************************-->
 
-            <form action="" method="post" id="report-hadith" class="modal-form">
+<div class="{% block footerClass %}footer_area{% endblock %}">
+    <div class="row">
 
-                <label for="issue">What is the issue?</label>
-                <select id="issue" name="issue">
-                    <option value="spelling">There is a spelling mistake.</option>
-                    <option value="authenticity">The authenticity is not correct.</option>
-                    <option value="other">Other</option>
-                </select>
 
-                <label for="comments">Your comments:</label>
-                <textarea id="comments" name="comments" rows="10" cols="83" placeholder="Enter your detailed comments on the issue."></textarea>
-
-                <label for="email">Your email address:</label>
-                <input id="email" name="email" type="text" placeholder="Enter your email address where we can reach you." />
-
-                <input class="button" type="submit" value=" Submit " style="display: inline-block" />
-                <span id="report-submit-progress" style="display: none;"> Sending...</span>
-
-            </form>
-
+        <div class="col-md-3 col-sm-6">
+            <div class="footer_part">
+                <h3>ihadis Resources</h3>
+                <p><a href="http://banglawaaz.com">&raquo; Subjectwise Hadith collection</a></p>
+                <p><a href="http://quran.com/">&raquo; Download PDF Hadith books</a></p>
+                <p><a href="http://www.quraneralo.com">&raquo; Your Comments here</a></p>
+                <p><a href="http://www.shomokalin.com/">&raquo; Join with Us</a></p>
+            </div>
         </div>
 
-        <a class="close-reveal-modal">&#215;</a>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="footer_part cn">
+                <h3>Recommended Sites</h3>
+                <p><a href="http://banglawaaz.com">&raquo; Banglawaaz.com</a></p>
+                <p><a href="http://quran.com/">&raquo; fatwabd.com</a></p>
+                <p><a href="http://www.quraneralo.com">&raquo; Quraneralo.com</a></p>
+                <p><a href="http://www.shomokalin.com/">&raquo; muslimmedia.info</a></p>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6">
+            <div class="footer_part">
+                <h3>Visitors</h3>
+                <p>Now Online :</p>
+                <p>Todays Visitor :</p>
+                <p>Total Visitor :</p>
+                <p>Total Page hit :</p>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6">
+            <div class="footer_part bn">
+                <h3>About ihadis</h3>
+                <p><a href="https://www.facebook.com/ihadis.official">Facebook</a></p>
+                <p><a href="">&raquo; Disclaimer</a></p>
+                <p>mail: <a href="">weloveallah2012@gmail.com</a></p>
+                <p>Copyright © 2015-2016, iHadis.com</p>
+            </div>
+        </div>
 
     </div>
+</div>
 
+
+
+
+    <!-- BEGIN GLOBAL JS -->
     {% block javascripts %}
 
-        <!--[if lt IE 9]>
-        <script src="/assets/plugins/respond.min.js"></script>
-        <script src="/assets/plugins/excanvas.min.js"></script>
-        <![endif]-->
-
-        <!-- BEGIN GLOBAL JS -->
         {% javascripts
-        "assets/plugins/jquery-1.10.2.min.js"
-        "assets/plugins/jquery-migrate-1.2.1.min.js"
-        "assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"
-        "assets/plugins/bootstrap/js/bootstrap.min.js"
-        "assets/plugins/jquery.cookie.min.js"
-        "assets/plugins/bootstrap-markdown/lib/markdown.js"
-        "@IhadisWebBundle/Resources/public/js/ZeroClipboard.min.js"
-        "@IhadisWebBundle/Resources/public/js/jquery.reveal.js"
-        "@IhadisWebBundle/Resources/public/js/bjqs-1.3.min.js"
-        "@IhadisWebBundle/Resources/public/js/miniTip.js"
-        "@IhadisWebBundle/Resources/public/js/ihadis.js"
+        "@IhadisWebBundle/Resources/public/js/jquery.min.js"
+        "@IhadisWebBundle/Resources/public/js/sunnah.js"
+        "@IhadisWebBundle/Resources/public/js/bootstrap.min.js"
+        "@IhadisWebBundle/Resources/public/js/bootstrap-select.js"
+        "@IhadisWebBundle/Resources/public/js/jquery.nicescroll.js"
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        <!-- END GLOBAL JS -->
 
-    {% endblock javascripts %}
+    {% endblock %}
 
-    <script type="text/javascript">
+    {% block documentReady %}
+        <script>
+            $(document).ready(function() {
+                var nice = $("html").niceScroll();  // The document page (body)
+                $('.selectpicker').selectpicker();
+            });
+        </script>
+    {% endblock documentReady %}
 
-        $(document).ready(function(){
-
-            {% block documentReady %}
-            IHadis.init();
-
-            {% endblock documentReady %}
-
-        });
-
-    </script>
 
     <!-- Analytics tracker -->
     <script type="text/javascript">
 
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
         ga('create', 'UA-392339-7', 'ihadis.com');
         ga('send', 'pageview');
-
     </script>
 
 </body>

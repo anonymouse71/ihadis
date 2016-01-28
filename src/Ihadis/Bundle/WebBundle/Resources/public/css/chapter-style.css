@@ -1,0 +1,1021 @@
+/* ==========================================================================
+   Author's custom styles By Emran Ul Hadi
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+
+
+/*********Top Header*********/
+
+
+.clear{ clear:both; }
+
+
+#header {
+	width: 100%;
+	background-repeat: repeat-x;
+	position: relative;
+	z-index: 20;
+	background: #fff;
+    box-shadow: 0px 1px 5px #D8D8D7;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+
+.bannerTop {
+    height: 48px;
+    font-family: 'BebasNeue Regular';
+    font-size: 32px;
+    background-color: #46B891;
+    text-align: center;
+    color: #fff;
+    line-height: 48px;
+    width: 250px;
+}
+
+.bannerTopo {
+	height: 70px;
+	background-image: url(/bundles/ihadisweb/img/icon/logo3.png);
+	background-repeat: no-repeat, no-repeat;
+	background-position: 34%, 76%;
+	background-size: auto 75%, auto 45%;
+}
+
+.bannerMiddle {
+    height: 38px;
+    font-family: 'BebasNeue Regular';
+    font-size: 27px;
+    background-color: #46B891;
+    text-align: center;
+    color: #fff;
+    width: 250px;
+}
+
+.search {
+	/*position: absolute;
+	bottom: 45px;
+	right: 150px;
+	float: right;*/
+    margin-top: 6px !important;
+}
+
+#searchbar {
+	height:30px;
+	position:relative;
+	float: right;
+	width: 280px;
+	background-color: #fff;
+	margin: 4px 0px 0 0;
+	border: 1px solid #E2E2DF;
+}
+
+
+.searchquery {
+	border:0px; 
+	background-color:transparent;
+	position:absolute;
+	top:4px;
+	left:10px;
+	width:225px;
+	height:20px;
+	font-size: 14px;
+	color: #000;
+    font-family: arial,kalpurush;
+    outline: none;
+}
+
+
+.searchsubmit {
+	border:0px;
+	background-color:transparent;
+	background-size: 17px 17px;
+	cursor: pointer;
+	position:absolute;
+	top:5px;
+	left:253px;
+	height:17px;
+	width:17px;
+}
+
+
+
+.searchtipslink {
+	float: right;
+	font-size: 12px;
+	padding-right: 10px;
+	padding-top: 8px;
+	cursor: pointer
+}
+
+.searchtipslink:hover {}
+
+#search a { color: #fff; }
+
+
+
+.crumbs{
+    font-size: 14px;
+    color: #fff;
+	background-color: #6A9E9C;
+	padding: 1px 0px 1px 5px;
+    font-family: arial;
+	display: none
+}
+
+.crumbs a {color: #fff; }
+.crumbs a:visited { color: #eee; }
+.crumbs a:hover { color: #fff; }
+
+#back-to-top {
+	display: block;
+	margin: 3px 10px 3px 10px;
+	width: 35px;
+	height: 35px;
+	border-radius: 4px;
+	float: right;
+	position: fixed;
+	right: 10px;
+	top: 65px;
+}
+
+
+.nav-links ul li{
+    float: left;
+    display: block;
+    height: 48px;
+    padding-top: 12px;
+    font-family: arial;
+    color: #A5A5A5;
+}
+
+.nav-links ul li a{
+    color: #828282;
+    padding: 15px 10px;
+}
+
+
+.nav-links ul li a:hover{
+    color: #2FAB19;
+}
+
+
+.nav-links ul{
+    float: right;
+    margin-bottom: 0px;
+}
+
+
+
+
+/*********Top Header*********/
+
+
+
+
+@font-face {
+  font-family: 'bebasneue regular';
+  src: url('../fonts/bebasneue_regular.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: 'Kalpurush';
+	src: url('../fonts/Kalpurush.eot');
+	src: url('../fonts/Kalpurush.eot') format('embedded-opentype'), url('../fonts/Kalpurush.woff') format('woff'), url('../fonts/Kalpurush.ttf') format('truetype'), url('../fonts/solaimanlipi_20-04-07.svg#SolaimanLipiNormal') format("svg");
+}
+
+
+html,
+body {
+  background: #f9f9f9;
+  background-size: cover;
+  background-attachment: fixed;
+  font-size: 15px;
+  width: 100%;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  font-family: 'Kalpurush', arial, sans-serif;
+  font-weight: 300;
+
+}
+.list-group-item:last-child {
+    border-radius: 0;
+}
+.main1 {
+    margin-top: 20px;
+}
+
+.fl {
+    float: left;
+    position: fixed;
+    margin-top: 43px;
+    transition: .5s;
+    width: 280px;
+}
+
+.rl {
+    float: right;
+    padding-left: 20px
+}
+
+.main-wrap {
+  width: 100%;
+  height: 100%;
+  
+}
+
+.side-header{
+  position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    border: 1px solid;
+    border-color: #DEDEDE #DEDEDE #CECECE;
+    color: whitesmoke;
+    font-family: arial;
+}
+
+.list-group a{
+  width: 100%;
+  text-align: left;
+  padding-left: 30px;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 0;
+    color: #000; 
+    background-color: #F0FFF0;
+    border-color: #e4e6ef; 
+    text-shadow:none;
+    background-image: url(../img/right-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 220px center;
+    
+}
+
+a.list-group-item {
+    color: #000;
+    font-size: 15px;
+    -webkit-text-stroke: .1px;
+}
+
+.book-lists .list-group .list-group-item:first-child {
+    border-radius: 0;
+}
+
+.book-lists {
+    height: 200px;
+    overflow-y: visible;
+}
+
+.list-group {
+    margin-bottom: 0px;
+}
+
+
+.list-header h3{
+  text-transform: uppercase;
+  margin-top: 0;
+  font-family: 'BebasNeue Regular';
+  font-size: 30px;
+ 	color: #5A5A5A;
+}
+
+.list-header h3 span{
+  font-family: 'BebasNeue Regular';
+  font-size: 22px; 
+}
+
+
+.hadith-list{
+  color: #555;
+}
+
+.select-box2::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: 999;
+    padding: 10px 5px;
+    color: #949494;
+    right: 9px;
+    top: 5px;
+    width: 30px;
+    height: 47px;
+    background: url(../img/arrow.png) no-repeat 5px 23px;
+    background-repeat: no-repeat;
+    background-size: 12px;
+}
+
+#Demo { 
+    position:relative; 
+    margin:0px auto; 
+    padding:0px; 
+    width: 250px; 
+    height: 295px; 
+    overflow: hidden; 
+}
+
+#Demo .content { 
+    height: 380px; 
+}
+
+
+.tg  {border-collapse:collapse;border-spacing:0;width: 100%;margin-bottom: 15px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);/*border-top: 1px solid #F1F1F1;border: 1px solid;border-color: #EAE8E8 #DEDEDE #CECECE;*/}
+
+.tg td{font-size:15px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+
+.tg th{font-size:16px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border: none;background: #fff;}
+
+.tg .tg-yw41 {
+    background: #46b891;
+    color: #fff;
+    padding: 3px;
+    text-align: center;
+    width: 50px;
+    font-size:16px;
+    
+}
+
+.tg .tg-yw42 { 
+    margin-left: 0;
+    padding-left: 8px;
+    color: #000;
+    padding: 12px 9px;
+    font-size: 16px;
+    color: #000;
+    text-shadow: .2px .1px #CFCFCF;
+}
+   
+.tg .tg-yw43 { 
+    text-align: right;
+    padding-right: 20px;
+    max-width: 100px;
+    
+}
+    
+.select-box2 .book-category2 {
+    background: #fff;
+    -webkit-appearance: none;
+    padding: 0px 7px;
+    height: 41px;
+    width: 150px;
+    color: #000;
+    position: relative;
+    float: right;
+    border-color: #D4D4D4;
+    outline: none;
+    border-radius: 0;
+    
+}
+    
+.select-box2 {
+    padding: 9px;
+    font-family: kalpurush;
+}
+  
+.select-area {
+    padding: 18px;
+    color: #FFF;
+    font-weight: bold;
+    background-color: #46B891;
+    font-family: arial;
+}
+
+
+.row {
+    margin-right: 0px;}
+
+
+
+/*********************hadith ******************/
+
+
+#chapter{
+    background-color: #fff;
+    color: #3c3c3c;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+}
+
+#chapter h3 img{
+  margin-right: 20px;
+}
+.hadiths-list{
+    color: #3c3c3c;
+    margin-top:20px;
+}
+.hadith{
+    background-color: #fff;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #000;
+    padding: 20px;
+    padding-right: 0px;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+}
+.narrated-by{
+  color: #259221;
+    margin-bottom: 15px;
+    font-size: 16px;
+    
+}
+
+.social-lists {
+    float: right;
+    width: 4%;
+    border-left: 1px solid #f0f0f0;
+    border-top: 1px solid #f0f0f0;
+    padding-right: 42px;
+    margin-top: 11px;
+}
+
+.social-lists ul {
+    padding: 0;
+    margin-bottom: 0px;
+}
+
+.social-lists ul li{
+    list-style: none;
+    padding: 9px;
+    width: 42px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+}
+
+.social-lists ul li:hover{
+    background: #F9F9F9;
+}
+
+.social-lists ul li a{
+    text-decoration: none;
+}
+
+.social-lists .tool-icon {
+    font-size: 120%;
+    opacity: 0.2;
+    cursor: pointer;
+}
+.social-lists .tool-icon.fa-facebook {
+    color: royalblue;
+}
+.social-lists .tool-icon.fa-twitter {
+    color: #0c91e5;
+}
+.social-lists .tool-icon.fa-envelope {
+    color: palevioletred;
+}
+.social-lists .tool-icon:hover {
+    opacity: 1;
+}
+
+.sonod {
+    font-size: 16px;
+    color: #000;
+    padding-left: 25px;
+}
+
+.sahih {
+        color: #FFF;
+    background: #5FBD64;
+    padding: 0px 10px;
+    border-radius: 1px;
+    font-size: 13px;
+    padding-bottom: 1px;
+    padding-top: 4px;
+}
+
+.durbol {
+    padding: 0px 10px;
+    border-radius: 1px;
+    font-size: 13px;
+    color: #FFF;
+    background: #F36E66;
+    padding-bottom: 1px;
+    padding-top: 4px;
+}
+
+.sahih:hover, .durbol:hover, .sahih:focus , .durbol:focus {
+    color: #fff;
+}
+
+.export a, .note a{
+    color: #504E4E;
+    font-size: 16px;
+}
+
+.export span {
+    margin-right: 6px;
+    margin-left: 3px;
+}
+
+.note{
+  text-align: center;
+}
+
+.note span{
+    margin-right: 5px;
+    background: url(/bundles/ihadisweb/img/icon/comment.png) no-repeat left center;
+    padding-left: 25px;
+    padding-bottom: 1px;
+    -webkit-text-stroke: .3px;
+}
+
+.export{
+    text-align: right;
+    padding-right: 6px;
+    background: url(/bundles/ihadisweb/img/icon/export.png) no-repeat right 3px;
+    padding-right: 25px;
+    -webkit-text-stroke: .3px;
+}
+
+.export img{
+    padding-left: 10px;
+}
+
+.note a:hover, .export a:hover {
+    color: #089E10;
+}
+
+
+#chapter h3 {
+    margin: 0px 0px 15px 0px;
+    font-size: 18px;
+    height: 22px;
+    line-height: 20px;
+    font-weight: bold;
+    color: #403E3E;
+}
+
+#chapter p {
+    font-size: 16px;
+    text-align: justify;
+    color: #000;
+    line-height: 1.5em;
+    text-shadow: 1px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.had {
+    float: left;
+    width: 90%;
+    text-align: justify;
+    padding-left: 25px;
+}
+
+.had h3 {
+    margin: 10px 0px;
+    font-size: 22px;
+    background: url(/bundles/ihadisweb/img/icon/icon_surah.png) no-repeat left center;
+    padding-left: 28px;
+    line-height: 21px;
+    height: 20px;
+    margin-bottom: 20px;
+    color: #6BB71C;
+    font-family: arial;
+}
+
+
+.top-mar {
+	margin-top: 0px !important;
+}
+
+
+.hadith-footer {
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+.hadith-des {
+    font-size: 16px;
+    color: #000;
+    line-height: 1.6em;
+    text-shadow: .2px .1px #DEDEDE;
+}
+
+
+/****************Tabs area************/
+
+
+.tabs {
+  position: relative;
+
+}
+.tabs li {
+  float: left;
+  display: block;
+}
+.tabs input[type="radio"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.tabs label {
+  display: block;
+    width: 125px;
+    padding: 8px;
+    text-align: center;
+ background: #fff;
+    color: #000;
+  cursor: pointer;
+  position: relative;
+    font-family: arial;
+    font-size: 15px;
+    font-weight: normal;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.tabs [id^="tab"]:checked + p {
+    color:black;
+    -moz-transition: all 2.2s ease-in-out;
+    -o-transition: all 2.2s ease-in-out;
+    -webkit-transition: all 2.2s ease-in-out;
+    transition: all 2.2s ease-in-out;
+}
+
+
+.tabs .tab-content {
+    z-index: 2;
+    display: none;
+    position: absolute;
+    top: 37px;
+    left: 0;
+    background: #fff;
+    width: 100%;
+}
+
+.tabs [id^="tab"]:checked + label  {
+    background: #46B891;
+    color: #FFF;
+}
+
+.tabs [id^="tab"]:checked + label:hover {
+    background-color: #329E78; }
+
+.tabs [id^="tab"]:checked ~ [id^="tab-content"] {
+  display: block;
+}
+
+div#tab-content2{
+    border-bottom: 1px solid #d9d9d9;
+}
+
+
+
+/**************Go to a Hadith***********/
+
+
+.goto {
+    width: 100%;
+    height: 200px;
+    padding: 5px 20px;
+    color: #000;
+}
+
+.goto img {
+    margin-right: 8px;
+}
+
+.goto li {
+    list-style: none;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+}
+
+.dropdown-menu li {
+    float: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+    background-image:none;
+    background-color:#E6E6E6;
+    outline: none;
+}
+
+.btn-default,.btn-group.open .dropdown-toggle,.btn-default:hover, .btn-default:focus,.btn-group>.btn:focus {
+    background-image:none;
+    box-shadow: none;
+    -webkit-box-shadow:none;
+    border-color:#fff;
+    font-size: 16px;
+    outline: none;
+    background: #F5DD86 url('../img/down-arrow2.png') no-repeat 156px center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-shadow: 0px -1px 0 rgba(0,0,0,.2);
+    color: #000;
+    border-radius: 0;
+    padding-bottom: 8px;
+    padding-top: 10px;
+    
+}
+
+.caret {display: none;}
+
+.dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
+        top: auto;
+    bottom: -145px;
+}
+
+.bootstrap-select:not([class*="span"]):not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 182px;
+    margin-left: -2px;
+}
+
+.bootstrap-select .btn:focus {
+    outline: none !important;
+}
+
+.goto .button {
+    background: #46B891;
+    border: none;
+    padding: 5px 18px;
+    float: right;
+    margin-top: 15px;
+    color: white;
+    font-family: 'open Sans';
+    -webkit-text-stroke: .5px;
+    outline: none;
+    margin-bottom: 18px;
+
+}
+
+.goto h3{
+       margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    color: #2F2E2E;
+     -webkit-text-stroke: .3px;
+}
+
+.hadis-name {
+    border: none;
+    font-size: 16px;
+    background: #EAEAEA url('../img/down-arrow2.png') no-repeat 161px center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 184px;
+    height: 35px;
+    outline: none;
+    margin-left: -4px;
+    padding-left: 6px;
+    color: #2B2B2B;
+    -webkit-text-stroke: .3px;
+}
+
+.hadith_go {
+	margin-top: 15px;
+}
+
+.hadith_go img {
+	margin-right: 5px;
+}
+
+.hadith_go input[type="text"] {
+    width: 130px;
+    height: 24px;
+    border-bottom: 1px solid #BDBDBD !important;
+    margin: 5px 0 5px 0px;
+    color: #000;
+    box-shadow: none;
+    border-radius: 0;
+    outline: 0;
+    font-family: arial;
+    font-size: 17px;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    padding-left: 5px;
+}
+
+
+.crumb-bn {
+    font-family: kalpurush !important;
+}
+
+.text-search {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    width: 120px;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+}
+
+
+input[type=number]::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+/************Subjectwise hadith**************/
+
+td a {
+    color: #556871;
+    font-size: 16px;
+}
+    
+td a:hover {
+    color: #4ead13;
+    font-size: 16px;
+}
+    
+.panel {
+    border-radius: 0;
+}
+
+.panel-success>.panel-heading {
+    background-image: none;
+    color: #FFFFFF;
+    background-color: #46B891;
+    border-color: #46B891;
+}
+    
+.panel-heading {
+    color: #FFFFFF;
+    background-color: #46B891;
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 0px;
+}
+    
+.panel-success {
+    border-color: #46B891;
+    margin-left: 15px;
+}
+    
+.panel-heading div {
+	margin-top: -18px;
+	font-size: 15px;
+}
+
+.panel-heading div span {
+	margin-left:5px;
+}
+
+.panel-body{
+    display: none;
+}
+
+.search_result {
+    margin: 0px;
+    font-size: 16px;
+    line-height: 21px;
+    color: #000000;
+    font-family: kalpurush;
+    padding-bottom: 6px;
+    text-shadow: .7px 0px rgba(0, 0, 0, 0.5);
+    background: #fff;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+    border-bottom: 1px solid #F9F9F9;
+    padding-top: 10px;
+    padding-left: 35px;
+	  border-left: 4px solid #6BB71C;
+}
+
+
+.search-title {
+    background: #46B891;
+    padding: 4px 15px;
+    margin-bottom: 10px;
+}
+
+
+.search-title h4 {
+    font-size: 17px;
+    color: #FFF;
+}
+
+.search-title span {
+    font-size: 14px;
+}
+
+
+.bor-top {
+    border-top: none;
+}
+
+/************Footer*************/
+
+
+.footer_area {
+	background: #FFFFFF;
+	margin-top: 30px;
+	padding: 10px;
+	color: #000;
+	font-family: 'Open Sans', sans-serif;
+	position: relative;
+	bottom: 0;
+	height: auto;
+	border-top: 5px solid #8BC34A;
+	padding-bottom: 30px;
+}
+
+.footer_part {
+	text-align: center;
+    border-right: 3px dotted #65AB15;
+}
+
+.bn {
+	border-right: none;
+}
+
+
+
+
+.footer_part img{
+	width: 58px;
+}
+.footer_part h3{
+	  font-size: 16px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+.footer_part p a{
+	color: #000;
+	font-size: 14px;
+	text-decoration: none;
+	font-weight: 400;
+}
+.footer_part p {
+	margin: 0px;
+	padding: 2px 0;
+    font-weight: 400;
+}
+
+
+/***********Mozila Hacks************/
+
+
+@-moz-document url-prefix() { 
+    
+    
+    .hadith, #chapter, .tg {
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    }
+  
+.tg .tg-yw42 {        
+        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.14);
+}
+    
+a.list-group-item {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+    
+
+select option { padding-left: 10px; }
+    
+.select-box2 option { padding-left: 10px;padding-top: 5px; }
+.select-box2 .book-category2 {
+    border: 1px solid #DDD;
+    -moz-appearance: none;
+}
+
+.hadith-des, #chapter p {
+    text-shadow: 0.2px 0.1px #E4E4E4;
+} 
+
+.export a, .note a, .search_result {
+    text-shadow: 0px 0.5px #C3C3C3;
+}
+    
+    
+.sahih, .durbol, .search-title h4 {
+        text-shadow: 0.2px 0.1px #FFF;
+}
+    
+#Demo {
+       height: 298px; 
+    }
+    
+
+}
+
+
+
+
+
+
+

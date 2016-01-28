@@ -623,7 +623,7 @@ font-family: arial;
     margin-top: 70px;
 	padding: 10px;
 	color: #000;
-	font-family: 'open sans';
+	font-family: 'Open Sans', sans-serif;
 	position: relative;
 	bottom: 0;
 	height: auto;
@@ -665,6 +665,3 @@ font-family: arial;
 	padding: 2px 0;
     font-weight: 400;
 }
-
-
-

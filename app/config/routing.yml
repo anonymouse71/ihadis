@@ -32,8 +32,8 @@ ihadis_core:
 ihadis_public:
     resource: "@IhadisWebBundle/Controller/HadisController.php"
     type: annotation
-    prefix:   /new
+    prefix:   /
 
 ihadis_web:
     resource: "@IhadisWebBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /old
