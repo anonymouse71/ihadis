@@ -287,13 +287,11 @@ a.list-group-item {
 .list-header h3{
   text-transform: uppercase;
   margin-top: 0;
-  font-family: 'BebasNeue Regular';
   font-size: 30px;
- 	color: #5A5A5A;
+  color: #5A5A5A;
 }
 
 .list-header h3 span{
-  font-family: 'BebasNeue Regular';
   font-size: 22px; 
 }
 
@@ -513,44 +511,29 @@ a.list-group-item {
     color: #fff;
 }
 
-.export a, .note a{
-    color: #504E4E;
-    font-size: 16px;
+ul.hadis-tools {
+    margin-right: 20%;
 }
-
-.export span {
-    margin-right: 6px;
-    margin-left: 3px;
+ul.hadis-tools li a {
+    color: #999;
 }
-
-.note{
-  text-align: center;
-}
-
-.note span{
-    margin-right: 5px;
-    background: url(/bundles/ihadisweb/img/icon/comment.png) no-repeat left center;
-    padding-left: 25px;
-    padding-bottom: 1px;
-    -webkit-text-stroke: .3px;
-}
-
-.export{
-    text-align: right;
-    padding-right: 6px;
-    background: url(/bundles/ihadisweb/img/icon/export.png) no-repeat right 3px;
-    padding-right: 25px;
-    -webkit-text-stroke: .3px;
-}
-
-.export img{
-    padding-left: 10px;
-}
-
-.note a:hover, .export a:hover {
+ul.hadis-tools li a:hover {
     color: #089E10;
 }
+.row.hadis-extra {
+    background-color: #f5f5f5;
+    display: none;
+    padding: 10px 0;
+    margin: 0 20px 0 0;
+    border: 1px solid #dfdfdf;
+    color: #666;
+}
 
+.label.validity {
+    border-radius: 0;
+    font-family: 'Kalpurush', Arial, sans-serif;
+    font-size: 80%;
+}
 
 #chapter h3 {
     margin: 0px 0px 15px 0px;

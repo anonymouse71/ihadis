@@ -186,6 +186,14 @@ class Chapter
     }
 
     /**
+     * @return ArrayCollection
+     */
+    public function getSections()
+    {
+        return $this->sections;
+    }
+
+    /**
      * Get total hadith count
      *
      * @return int

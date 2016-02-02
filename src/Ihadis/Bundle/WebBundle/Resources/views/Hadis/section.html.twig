@@ -40,219 +40,77 @@
             <div class="col-md-9 col-xs-12 rl">
 
                 <div class="list-header">
-                    <h3>Sahih Bukhari
-                        <span>(7586 hadiths)</span>
+                    <h3>{{ book.title }}
+                        <span>({{ book.numberOfHadis|banglaNumber }} টি হাদীস)</span>
                     </h3>
                 </div>
 
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw41">{{ chapter.number|banglaNumber }}</th>
+                        <th class="tg-yw42"><a href="{{ url('chapter', {'slug': book.slug, 'chapter': chapter.number}) }}">{{ chapter.title }}</a></th>
+                        <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+                    </tr>
+                    {% if chapter.preface %}
+                    <tr>
+                        <td colspan="3" style="border: 0">
+                            {{ chapter.preface }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                </table>
 
-                <div class="hadith-list">
-
-                    <table class="tg">
-                        <tr>
-                            <th class="tg-yw41">০১</th>
-                            <th class="tg-yw42">ওহীর সূচনা অধ্যায়</th>
-                            <th class="tg-yw43">১০০৫ - ১০৩৯</th>
-                        </tr>
-                    </table>
-
-                    <div id="chapter">
-                        <h3>১/১. অধ্যায়ঃ</h3>
-                        <p>হারিস ইব্‌নু হিশাম (রাঃ) আল্লাহর রসূল (সাল্লাল্লাহু ‘আলাইহি ওয়া সাল্লাম)- কে জিজ্ঞেস করলেন, ‘হে আল্লাহর রসূল! আপনার নিকট ওয়াহী কিরূপে আসে?’</p>
-                    </div>
-                    <div class="hadiths-list">
-                        <div class="hadith">
-                            <div class="row">
-                                <div class="had">
-                                    <h3>5746</h3>
-                                    <p class="narrated-by">‘আলক্বামাহ ইব্‌নু ওয়াক্কাস আল-লায়সী (রহঃ) থেকে বর্ণিতঃ</p>
-                                    <p class="hadith-des">আমি ‘উমর ইব্‌নুল খাত্তাব (রাঃ)-কে মিম্বারের উপর দাঁড়িয়ে বলতে শুনেছিঃ আমি আল্লাহর রসূল (সাল্লাল্লাহু ‘আলাইহি ওয়া সাল্লাম)-কে বলতে শুনেছিঃ কাজ (এর প্রাপ্য হবে) নিয়ত অনুযায়ী। আর মানুষ তার নিয়ত অনুযায়ী প্রতিফল পাবে। তাই যার হিজরত হবে ইহকাল লাভের অথবা কোন মহিলাকে বিবাহ করার উদ্দেশ্যে- তবে তার হিজরত সে উদ্দেশ্যেই হবে, যে জন্যে, সে হিজরত করেছে।</p>
-                                </div>
-                                <div class="social-lists">
-                                    <ul>
-                                        <li title="Edit"><i class="fa fa-pencil tool-icon"></i></li><!--style="padding-left: 4px;"-->
-                                        <li title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
-                                        <li title="Print View"><i class="fa fa-print tool-icon"></i></li>
-                                        <li title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
-                                        <li title="Share On Twitter"><i class="fa fa-twitter tool-icon"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row hadith-footer">
-                                <div class="col-md-6 sonod">হাদিসের মানঃ <a class="sahih" href="#">সহিহ হাদিস</a></div>
-                                <div class="col-md-4 pull-right">
-                                    <div class="export pull-right">
-                                        <span class="pull-left"> | </span>
-                                        <a href="#">সরাসরি</a>
-                                    </div>
-                                    <div class="note pull-right"><span><a href="#">ব্যাখ্যা </a></span></div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="hadith">
-                            <div class="row">
-                                <div class="had">
-                                    <h3>5746</h3>
-                                    <p class="narrated-by">‘আলক্বামাহ ইব্‌নু ওয়াক্কাস আল-লায়সী (রহঃ) থেকে বর্ণিতঃ</p>
-                                    <p class="hadith-des">আমি ‘উমর ইব্‌নুল খাত্তাব (রাঃ)-কে মিম্বারের উপর দাঁড়িয়ে বলতে শুনেছিঃ আমি আল্লাহর রসূল (সাল্লাল্লাহু ‘আলাইহি ওয়া সাল্লাম)-কে বলতে শুনেছিঃ কাজ (এর প্রাপ্য হবে) নিয়ত অনুযায়ী। আর মানুষ তার নিয়ত অনুযায়ী প্রতিফল পাবে। তাই যার হিজরত হবে ইহকাল লাভের অথবা কোন মহিলাকে বিবাহ করার উদ্দেশ্যে- তবে তার হিজরত সে উদ্দেশ্যেই হবে, যে জন্যে, সে হিজরত করেছে।</p>
-                                </div>
-                                <div class="social-lists">
-                                    <ul>
-                                        <li title="Edit"><i class="fa fa-pencil tool-icon"></i></li>
-                                        <li title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
-                                        <li title="Print View"><i class="fa fa-print tool-icon"></i></li>
-                                        <li title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
-                                        <li title="Share On Twitter"><i class="fa fa-twitter tool-icon"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row hadith-footer">
-                                <div class="col-md-6 sonod">হাদিসের মানঃ <a class="durbol" href="#">জাল হাদিস</a></div>
-                                <div class="col-md-4 pull-right">
-                                    <div class="export pull-right">
-                                        <span class="pull-left"> | </span>
-                                        <a href="#">সরাসরি</a>
-                                    </div>
-                                    <div class="note pull-right"><span><a href="#">ব্যাখ্যা </a></span></div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div id="chapter">
-                            <h3><i class="fa fa-file-text chapter-name"></i> ১/১. অধ্যায়ঃ</h3>
-                            <p>আল্লাহ্‌র রসূল (সাল্লাল্লাহু আলাইহি ওয়া সাল্লাম)- এর প্রতি কীভাবে ওয়াহী [১] শুরু হয়েছিল।</p>
-                        </div>
-                        <div class="hadiths-list">
-                            <div class="hadith">
-                                <div class="row">
-                                    <div class="had">
-                                        <h3>
-                                            5746
-                                        </h3>
-                                        <p class="narrated-by">‘আলক্বামাহ ইব্‌নু ওয়াক্কাস আল-লায়সী (রহঃ) থেকে বর্ণিতঃ</p>
-                                        <p class="hadith-des">আমি ‘উমর ইব্‌নুল খাত্তাব (রাঃ)-কে মিম্বারের উপর দাঁড়িয়ে বলতে শুনেছিঃ আমি আল্লাহর রসূল (সাল্লাল্লাহু ‘আলাইহি ওয়া সাল্লাম)-কে বলতে শুনেছিঃ কাজ (এর প্রাপ্য হবে) নিয়ত অনুযায়ী। আর মানুষ তার নিয়ত অনুযায়ী প্রতিফল পাবে। তাই যার হিজরত হবে ইহকাল লাভের অথবা কোন মহিলাকে বিবাহ করার উদ্দেশ্যে- তবে তার হিজরত সে উদ্দেশ্যেই হবে, যে জন্যে, সে হিজরত করেছে।</p>
-                                    </div>
-                                    <div class="social-lists">
-                                        <ul>
-                                            <li title="Edit"><i class="fa fa-pencil tool-icon"></i></li>
-                                            <li title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
-                                            <li title="Print View"><i class="fa fa-print tool-icon"></i></li>
-                                            <li title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
-                                            <li title="Share On Twitter"><i class="fa fa-twitter tool-icon"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="row hadith-footer">
-                                    <div class="col-md-6 sonod">হাদিসের মানঃ <a class="sahih" href="#">সহিহ হাদিস</a></div>
-                                    <div class="col-md-4 pull-right">
-                                        <div class="export pull-right">
-                                            <span class="pull-left"> | </span>
-                                            <a href="#">সরাসরি</a>
-                                        </div>
-                                        <div class="note pull-right"><span><a href="#">ব্যাখ্যা </a></span></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="hadith">
-                                <div class="row">
-                                    <div class="had">
-                                        <h3>5746</h3>
-                                        <p class="narrated-by">‘আলক্বামাহ ইব্‌নু ওয়াক্কাস আল-লায়সী (রহঃ) থেকে বর্ণিতঃ</p>
-                                        <p class="hadith-des">আমি ‘উমর ইব্‌নুল খাত্তাব (রাঃ)-কে মিম্বারের উপর দাঁড়িয়ে বলতে শুনেছিঃ আমি আল্লাহর রসূল (সাল্লাল্লাহু ‘আলাইহি ওয়া সাল্লাম)-কে বলতে শুনেছিঃ কাজ (এর প্রাপ্য হবে) নিয়ত অনুযায়ী। আর মানুষ তার নিয়ত অনুযায়ী প্রতিফল পাবে। তাই যার হিজরত হবে ইহকাল লাভের অথবা কোন মহিলাকে বিবাহ করার উদ্দেশ্যে- তবে তার হিজরত সে উদ্দেশ্যেই হবে, যে জন্যে, সে হিজরত করেছে।</p>
-                                    </div>
-                                    <div class="social-lists">
-                                        <ul>
-                                            <li title="Edit"><i class="fa fa-pencil tool-icon"></i></li>
-                                            <li title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
-                                            <li title="Print View"><i class="fa fa-print tool-icon"></i></li>
-                                            <li title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
-                                            <li title="Share On Twitter"><i class="fa fa-twitter tool-icon"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="row hadith-footer">
-                                    <div class="col-md-6 sonod">হাদিসের মানঃ <a class="sahih" href="#">সহিহ হাদিস</a></div>
-                                    <div class="col-md-4 pull-right">
-                                        <div class="export pull-right">
-                                            <span class="pull-left"> | </span>
-                                            <a href="#">সরাসরি</a>
-                                        </div>
-                                        <div class="note pull-right"><span><a href="#">ব্যাখ্যা </a></span></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="hadith">
-                                <div class="row">
-                                    <div class="had">
-                                        <h3>5746</h3>
-                                        <p class="narrated-by">‘আলক্বামাহ ইব্‌নু ওয়াক্কাস আল-লায়সী (রহঃ) থেকে বর্ণিতঃ</p>
-                                        <p class="hadith-des">আমি ‘উমর ইব্‌নুল খাত্তাব (রাঃ)-কে মিম্বারের উপর দাঁড়িয়ে বলতে শুনেছিঃ আমি আল্লাহর রসূল (সাল্লাল্লাহু ‘আলাইহি ওয়া সাল্লাম)-কে বলতে শুনেছিঃ কাজ (এর প্রাপ্য হবে) নিয়ত অনুযায়ী। আর মানুষ তার নিয়ত অনুযায়ী প্রতিফল পাবে। তাই যার হিজরত হবে ইহকাল লাভের অথবা কোন মহিলাকে বিবাহ করার উদ্দেশ্যে- তবে তার হিজরত সে উদ্দেশ্যেই হবে, যে জন্যে, সে হিজরত করেছে।</p>
-                                    </div>
-                                    <div class="social-lists">
-                                        <ul>
-                                            <li title="Edit"><i class="fa fa-pencil tool-icon"></i></li>
-                                            <li title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
-                                            <li title="Print View"><i class="fa fa-print tool-icon"></i></li>
-                                            <li title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
-                                            <li title="Share On Twitter"><i class="fa fa-twitter tool-icon"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="row hadith-footer">
-                                    <div class="col-md-6 sonod">হাদিসের মানঃ <a class="durbol" href="#">জাল হাদিস</a></div>
-                                    <div class="col-md-4 pull-right">
-                                        <div class="export pull-right">
-                                            <span class="pull-left"> | </span>
-                                            <a href="#">সরাসরি</a>
-                                        </div>
-                                        <div class="note pull-right"><span><a href="#">ব্যাখ্যা </a></span></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="hadith">
-                                <div class="row">
-                                    <div class="had">
-                                        <h3>5746</h3>
-                                        <p class="narrated-by">‘আলক্বামাহ ইব্‌নু ওয়াক্কাস আল-লায়সী (রহঃ) থেকে বর্ণিতঃ</p>
-                                        <p class="hadith-des">আমি ‘উমর ইব্‌নুল খাত্তাব (রাঃ)-কে মিম্বারের উপর দাঁড়িয়ে বলতে শুনেছিঃ আমি আল্লাহর রসূল (সাল্লাল্লাহু ‘আলাইহি ওয়া সাল্লাম)-কে বলতে শুনেছিঃ কাজ (এর প্রাপ্য হবে) নিয়ত অনুযায়ী। আর মানুষ তার নিয়ত অনুযায়ী প্রতিফল পাবে। তাই যার হিজরত হবে ইহকাল লাভের অথবা কোন মহিলাকে বিবাহ করার উদ্দেশ্যে- তবে তার হিজরত সে উদ্দেশ্যেই হবে, যে জন্যে, সে হিজরত করেছে।</p>
-                                    </div>
-                                    <div class="social-lists">
-                                        <ul>
-                                            <li title="Edit"><i class="fa fa-pencil tool-icon tool-icon"></i></li>
-                                            <li title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
-                                            <li title="Print View"><i class="fa fa-print tool-icon"></i></li>
-                                            <li title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
-                                            <li title="Share On Twitter"><i class="fa fa-twitter tool-icon"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="row hadith-footer">
-                                    <div class="col-md-6 sonod">হাদিসের মানঃ <a class="durbol" href="#">জাল হাদিস</a></div>
-                                    <div class="col-md-4 pull-right">
-                                        <div class="export pull-right">
-                                            <span class="pull-left"> | </span>
-                                            <a href="#">সরাসরি</a>
-                                        </div>
-                                        <div class="note pull-right"><span><a href="#">ব্যাখ্যা </a></span></div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
+                {% for section in chapter.sections %}
+                <div id="chapter">
+                    <h3><i class="fa fa-file-text chapter-name"></i> {{ section.number }} : {{ section.title }}</h3>
+                    <p>{{ section.preface|nl2br }}</p>
                 </div>
+                <div class="hadiths-list">
+                    {% for hadis in section.hadiths %}
+                    <div class="hadith">
+                        <div class="row">
+                            <div class="had">
+                                <h3>
+                                    {{ hadis.numberPrimary }}
+                                </h3>
+                                <p class="narrated-by">{{ hadis.narrator }} থেকে বর্ণিতঃ</p>
+                                <p class="hadith-des">{{ hadis.body|nl2br }}</p>
+                            </div>
+                            <div class="social-lists">
+                                <ul>
+                                    <li title="Edit"><i class="fa fa-pencil tool-icon"></i></li>
+                                    <li title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
+                                    <li title="Print View"><i class="fa fa-print tool-icon"></i></li>
+                                    <li title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
+                                    <li title="Share On Twitter"><i class="fa fa-twitter tool-icon"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% if hadis.note %}
+                        <div class="row hadis-extra note"><div class="col-xs-12">{{ hadis.note|nl2br }}</div></div>
+                        {% endif %}
+                        {% if hadis.explanation %}
+                        <div class="row hadis-extra explanation"><div class="col-xs-12">{{ hadis.explanation|nl2br }}</div></div>
+                        {% endif %}
+                        <div class="row hadith-footer">
+                            <div class="col-md-6 sonod">হাদিসের মানঃ <span class="label validity" style="color: {{ hadis.validity.color }}; background-color: {{ hadis.validity.background }}">{{ hadis.validity.title }}</span></div>
+                            <div class="col-md-6">
+                                <ul class="list-inline hadis-tools text-right">
+                                {% if hadis.note %}
+                                    <li class="note"><a href="#"><i class="fa fa-info-circle"></i> টীকা </a></li>
+                                {% endif %}
+                                {% if hadis.explanation %}
+                                    <li class="explanation"><a href="#"><i class="fa fa-comment"></i> ব্যাখ্যা </a></li>
+                                {% endif %}
+                                    <li><a href="#"><i class="fa fa-external-link"></i> সরাসরি</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+
             </div>
         </div>
     </div>
@@ -264,8 +122,14 @@
     
     <script type="text/javascript">
         $(document).ready(function () {
-
-
+            $('.hadis-tools li.note a').click(function(e) {
+                e.preventDefault();
+                $(this).closest('.hadith').find('.hadis-extra.note').slideToggle();
+            });
+            $('.hadis-tools li.explanation a').click(function(e) {
+                e.preventDefault();
+                $(this).closest('.hadith').find('.hadis-extra.explanation').slideToggle();
+            });
         });
     </script>
 {% endblock documentReady %}

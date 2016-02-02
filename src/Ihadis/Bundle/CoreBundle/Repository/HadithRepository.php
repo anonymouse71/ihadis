@@ -28,6 +28,31 @@ class HadithRepository extends EntityRepository
         return $result;
     }
 
+    public function getDetailedTree($book, $chapter = null, $section = null, $hadis = null)
+    {
+        $qb = $this->_em->createQueryBuilder()
+                        ->select('b, c, s, h')
+                        ->from('IhadisCoreBundle:Book', 'b')
+                        ->leftJoin('b.chapters', 'c')
+                        ->leftJoin('c.sections', 's')
+                        ->leftJoin('s.hadiths', 'h')
+                        //->leftJoin('h.validity', 'v')
+                        ->where('b.id = :bookId')
+                        ->setParameter(':bookId', $book);
+
+        if(! is_null($chapter)) {
+            $qb->andWhere('c.number = :chapter')->setParameter(':chapter', $chapter);
+        }
+        if(! is_null($section)) {
+            $qb->andWhere('s.number = :section')->setParameter(':section', $section);
+        }
+        if(! is_null($hadis)) {
+            $qb->andWhere('h.numberPrimary = :hadis')->setParameter(':hadis', $hadis);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
     public function replaceWords($word, $replacement, $book, $chapter, $lang = 'bn')
     {
         $conn = $this->_em->getConnection();

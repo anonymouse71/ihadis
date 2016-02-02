@@ -85,11 +85,32 @@ class Book
     private $published;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="have_unicode", type="boolean")
+     */
+    private $haveUnicode = false;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="have_pdf", type="boolean")
+     */
+    private $havePDF = false;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="numberOfChapters", type="integer")
      */
     private $numberOfChapters = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="number_of_hadis", type="integer")
+     */
+    private $numberOfHadis = 0;
 
     /**
      * @var ArrayCollection
@@ -356,6 +377,54 @@ class Book
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isHaveUnicode()
+    {
+        return $this->haveUnicode;
+    }
+
+    /**
+     * @param boolean $haveUnicode
+     */
+    public function setHaveUnicode($haveUnicode)
+    {
+        $this->haveUnicode = $haveUnicode;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isHavePDF()
+    {
+        return $this->havePDF;
+    }
+
+    /**
+     * @param boolean $havePDF
+     */
+    public function setHavePDF($havePDF)
+    {
+        $this->havePDF = $havePDF;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfHadis()
+    {
+        return $this->numberOfHadis;
+    }
+
+    /**
+     * @param int $numberOfHadis
+     */
+    public function setNumberOfHadis($numberOfHadis)
+    {
+        $this->numberOfHadis = $numberOfHadis;
     }
 
     /**
