@@ -332,7 +332,7 @@ a.list-group-item {
 
 .tg  {border-collapse:collapse;border-spacing:0;width: 100%;margin-bottom: 15px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);/*border-top: 1px solid #F1F1F1;border: 1px solid;border-color: #EAE8E8 #DEDEDE #CECECE;*/}
 
-.tg td{font-size:15px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg td{font-size:16px;padding:10px 20px; word-break:normal;}
 
 .tg th{font-size:16px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border: none;background: #fff;}
 
@@ -536,10 +536,9 @@ ul.hadis-tools li a:hover {
 }
 
 #chapter h3 {
-    margin: 0px 0px 15px 0px;
+    margin: 0 0 15px 0;
     font-size: 18px;
-    height: 22px;
-    line-height: 20px;
+    line-height: 25px;
     font-weight: bold;
     color: #403E3E;
 }
@@ -549,7 +548,7 @@ ul.hadis-tools li a:hover {
     text-align: justify;
     color: #000;
     line-height: 1.5em;
-    text-shadow: 1px 0px 0px rgba(0, 0, 0, 0.2);
+    /*text-shadow: 1px 0 0 rgba(0, 0, 0, 0.2);*/
 }
 
 .had {
