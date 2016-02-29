@@ -61,6 +61,31 @@ class HadisController extends BaseController
         ]);
     }
 
+
+    /**
+     * @Route("/search/{keyword}/{page}", name="search", defaults={"page":1})
+     *
+     * @param $keyword
+     * @param $page
+     *
+     * @return Response
+     */
+    public function searchAction($keyword, $page)
+    {
+        $perPage = $this->container->getParameter('search_perPage');
+
+        list($hadiths, $total) = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith')->search($keyword, $page, $perPage);
+
+        return $this->render('IhadisWebBundle:Default:search.html.twig', array(
+            'hadiths'    => $hadiths,
+            'total'      => $total,
+            'per_page'   => $perPage,
+            'keyword'    => $keyword,
+            'page'       => $page,
+            'page_links' => $this->_pagination($page, ceil($total / $perPage), 'ihadis_search', $keyword)
+        ));
+    }
+
     // ================ Dummy ===================
 
     public function pdfBookAction($bookName)
@@ -118,22 +143,6 @@ class HadisController extends BaseController
             'sections'   => $sections,
             'hadithRepo' => $hadithRepository,
             'selectedHadith' => $hadith
-        ));
-    }
-
-    public function searchAction($keyword, $page)
-    {
-        $perPage = $this->container->getParameter('search_perPage');
-
-        list($hadiths, $total) = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith')->search($keyword, $page, $perPage);
-
-        return $this->render('IhadisWebBundle:Default:search.html.twig', array(
-            'hadiths'    => $hadiths,
-            'total'      => $total,
-            'per_page'   => $perPage,
-            'keyword'    => $keyword,
-            'page'       => $page,
-            'page_links' => $this->_pagination($page, ceil($total / $perPage), 'ihadis_search', $keyword)
         ));
     }
 

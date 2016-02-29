@@ -19,8 +19,9 @@
         "@IhadisWebBundle/Resources/public/css/bootstrap-select.min.css"
         "@IhadisWebBundle/Resources/public/css/bootstrap.min.css"
         "@IhadisWebBundle/Resources/public/css/bootstrap-theme.min.css"
-        "@IhadisWebBundle/Resources/public/css/font-awesome.css"
         "@IhadisWebBundle/Resources/public/css/responsive.css"
+        "@IhadisWebBundle/Resources/public/css/perfect-scrollbar.min.css"
+        "@IhadisWebBundle/Resources/public/css/font-awesome.css"
         %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -55,8 +56,8 @@
                             <div id="search" class="search">
                                 <div id="searchbar" class="sblur">
                                     <form name="searchform" action="/search/" method="get" id="searchform">
-                                        <input type="text" class="searchquery" name="q" placeholder="Search…">
-                                        <button type="submit" class="searchsubmit">
+                                        <input type="text" class="searchquery" name="q" id="q" placeholder="Search…">
+                                        <button type="button" class="searchsubmit" id="title-search">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </form>
@@ -149,10 +150,11 @@
 
         {% javascripts
         "@IhadisWebBundle/Resources/public/js/jquery.min.js"
-        "@IhadisWebBundle/Resources/public/js/sunnah.js"
         "@IhadisWebBundle/Resources/public/js/bootstrap.min.js"
         "@IhadisWebBundle/Resources/public/js/bootstrap-select.js"
         "@IhadisWebBundle/Resources/public/js/jquery.nicescroll.js"
+        "@IhadisWebBundle/Resources/public/js/perfect-scrollbar.min.js"
+        "@IhadisWebBundle/Resources/public/js/ihadis.js"
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
@@ -162,8 +164,7 @@
     {% block documentReady %}
         <script>
             $(document).ready(function() {
-                var nice = $("html").niceScroll();  // The document page (body)
-                $('.selectpicker').selectpicker();
+                IHadis.init();
             });
         </script>
     {% endblock documentReady %}

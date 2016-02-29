@@ -1,6 +1,6 @@
 {% extends('IhadisWebBundle::layout.html.twig') %}
 
-{% block title %}{{ parent() }} | Section Name ##Section-name {% endblock %}
+{% block title %}{{ parent() }} | {{ book.title }} - {{ chapter.title }} অধ্যায়ঃ{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -26,6 +26,8 @@
                             <option value="all">সহিহ মুসলিম</option>
                             <option value="all">মিশকাত</option>
                             <option value="all">আবু দাউদ</option>
+                            <option value="all">সহিহ বুখারি</option>
+                            <option value="all">সহিহ মুসলিম</option>
                         </select>
                     </div>
                 </div>
@@ -62,8 +64,13 @@
 
                 {% for section in chapter.sections %}
                 <div id="chapter">
-                    <h3><i class="fa fa-file-text chapter-name"></i> {{ section.number }} : {{ section.title }}</h3>
-                    <p>{{ section.preface|nl2br }}</p>
+                    <h3>{{ section.number }}</h3>
+                    <p>{{ section.title }}</p>
+                    {% if section.preface %}
+                    <hr>
+                    <p class="preface">{{ section.preface|nl2br }}</p>
+                    {% endif %}
+
                 </div>
                 <div class="hadiths-list">
                     {% for hadis in section.hadiths %}
@@ -90,15 +97,12 @@
                         <div class="row hadis-extra note"><div class="col-xs-12">{{ hadis.note|nl2br }}</div></div>
                         {% endif %}
                         {% if hadis.explanation %}
-                        <div class="row hadis-extra explanation"><div class="col-xs-12">{{ hadis.explanation|nl2br }}</div></div>
+                        <div class="row hadis-extra collapsed explanation"><div class="col-xs-12">{{ hadis.explanation|nl2br }}</div></div>
                         {% endif %}
                         <div class="row hadith-footer">
                             <div class="col-md-6 sonod">হাদিসের মানঃ <span class="label validity" style="color: {{ hadis.validity.color }}; background-color: {{ hadis.validity.background }}">{{ hadis.validity.title }}</span></div>
                             <div class="col-md-6">
                                 <ul class="list-inline hadis-tools text-right">
-                                {% if hadis.note %}
-                                    <li class="note"><a href="#"><i class="fa fa-info-circle"></i> টীকা </a></li>
-                                {% endif %}
                                 {% if hadis.explanation %}
                                     <li class="explanation"><a href="#"><i class="fa fa-comment"></i> ব্যাখ্যা </a></li>
                                 {% endif %}
@@ -122,10 +126,8 @@
     
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.hadis-tools li.note a').click(function(e) {
-                e.preventDefault();
-                $(this).closest('.hadith').find('.hadis-extra.note').slideToggle();
-            });
+            Ps.initialize(document.getElementById('ps-box'));
+
             $('.hadis-tools li.explanation a').click(function(e) {
                 e.preventDefault();
                 $(this).closest('.hadith').find('.hadis-extra.explanation').slideToggle();

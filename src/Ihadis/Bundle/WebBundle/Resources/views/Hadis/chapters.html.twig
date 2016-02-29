@@ -1,6 +1,6 @@
 {% extends('IhadisWebBundle::layout.html.twig') %}
 
-{% block title %}{{ parent() }} | Chapters of ##Book-name {% endblock %}
+{% block title %}{{ parent() }} | Chapters of {{ book.title }} {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -16,20 +16,6 @@
 {% block body %}
     <div class="container main-body">
         <div class="row main1">
-
-            <div class="col-md-3 test">
-                <div class="side-header" style="background-color: #fff;height: 59px;padding: 0px 0px;">
-                    <div class="select-area pull-left">All books</div>
-                    <div class="select-box2 pull-right">
-                        <select name="category" id="category" class="book-category2">
-                            <option value="all">সহিহ বুখারি</option>
-                            <option value="all">সহিহ মুসলিম</option>
-                            <option value="all">মিশকাত</option>
-                            <option value="all">আবু দাউদ</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
 
             <div class="col-md-3 fl test2">
 
@@ -68,8 +54,7 @@
     
     <script type="text/javascript">
         $(document).ready(function () {
-
-
+            Ps.initialize(document.getElementById('ps-box'));
         });
     </script>
 {% endblock documentReady %}

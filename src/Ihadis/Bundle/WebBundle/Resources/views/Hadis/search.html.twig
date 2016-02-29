@@ -1,0 +1,45 @@
+{% extends '@IhadisWeb/layout.html.twig' %}
+
+{% block title %} Search Hadis - {{ keyword }} {% endblock %}
+
+{% block body %}
+
+    {% include '@IhadisWeb/Default/_secondaryNav.html.twig' with {'isSearchResult' : true, 'count': total} %}
+
+    <div class="section-container">
+
+    {% if hadiths is empty %}
+
+        <div style="height: 220px; padding: 50px 35px">
+            {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
+                No hadis found with your keyword <b>{{  keyword }}</b>
+            {% else %}
+                <b>{{  keyword }}</b> দিয়ে কোন হাদিস খুঁজে পাইনি ।
+            {% endif %}
+        </div>
+
+    {% else %}
+
+        {% for hadith in hadiths %}
+            {% include '@IhadisWeb/Default/_hadith.html.twig' with {'hadith': hadith, 'book': hadith.book, 'chapter': hadith.chapter} %}
+        {% endfor %}
+
+        {% include '@IhadisWeb/Default/_pagination.html.twig' with {'count' : total, 'current': page, 'per_page': per_page} %}
+
+    {% endif %}
+    </div>
+
+{% endblock %}
+{% block documentReady %}
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function() {
+            $(".surah:contains('{{ keyword }}')").each(function(){
+                $(this).html(
+                        $(this).html().replace('{{ keyword }}', "<span class='highlighted'>{{ keyword }}</span>")
+                );
+            });
+        });
+    </script>
+{% endblock documentReady %}

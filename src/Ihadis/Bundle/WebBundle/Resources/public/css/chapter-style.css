@@ -258,7 +258,7 @@ body {
     background-color: #F0FFF0;
     border-color: #e4e6ef; 
     text-shadow:none;
-    background-image: url(../img/right-arrow.png);
+    background-image: url(/bundles/ihadisweb/img/right-arrow.png);
     background-repeat: no-repeat;
     background-position: 220px center;
     
@@ -296,11 +296,14 @@ a.list-group-item {
 }
 
 
-.hadith-list{
+.hadith-list, .tg-yw42 a{
   color: #555;
 }
+.tg-yw42 a:hover{
+    color: #000;
+}
 
-.select-box2::after {
+.select-box2:after {
     content: "";
     position: absolute;
     pointer-events: none;
@@ -311,12 +314,11 @@ a.list-group-item {
     top: 5px;
     width: 30px;
     height: 47px;
-    background: url(../img/arrow.png) no-repeat 5px 23px;
-    background-repeat: no-repeat;
+    background: url(/bundles/ihadisweb/img/arrow.png) no-repeat 5px 23px;
     background-size: 12px;
 }
 
-#Demo { 
+#ps-box {
     position:relative; 
     margin:0px auto; 
     padding:0px; 
@@ -325,7 +327,7 @@ a.list-group-item {
     overflow: hidden; 
 }
 
-#Demo .content { 
+#ps-box .content {
     height: 380px; 
 }
 
@@ -348,11 +350,8 @@ a.list-group-item {
 
 .tg .tg-yw42 { 
     margin-left: 0;
-    padding-left: 8px;
-    color: #000;
     padding: 12px 9px;
     font-size: 16px;
-    color: #000;
     text-shadow: .2px .1px #CFCFCF;
 }
    
@@ -440,11 +439,12 @@ a.list-group-item {
     border-top: 1px solid #f0f0f0;
     padding-right: 42px;
     margin-top: 11px;
+    border-radius: 4px 0 0 4px;
 }
 
 .social-lists ul {
     padding: 0;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .social-lists ul li{
@@ -468,6 +468,9 @@ a.list-group-item {
     opacity: 0.2;
     cursor: pointer;
 }
+.social-lists .tool-icon.fa-pencil {
+    color: orangered;
+}
 .social-lists .tool-icon.fa-facebook {
     color: royalblue;
 }
@@ -475,7 +478,7 @@ a.list-group-item {
     color: #0c91e5;
 }
 .social-lists .tool-icon.fa-envelope {
-    color: palevioletred;
+    color: #9d6416;
 }
 .social-lists .tool-icon:hover {
     opacity: 1;
@@ -511,9 +514,6 @@ a.list-group-item {
     color: #fff;
 }
 
-ul.hadis-tools {
-    margin-right: 20%;
-}
 ul.hadis-tools li a {
     color: #999;
 }
@@ -522,33 +522,44 @@ ul.hadis-tools li a:hover {
 }
 .row.hadis-extra {
     background-color: #f5f5f5;
-    display: none;
     padding: 10px 0;
-    margin: 0 20px 0 0;
+    margin: 30px 20px 0 0;
     border: 1px solid #dfdfdf;
     color: #666;
 }
 
+.row.hadis-extra.collapsed {
+    display: none;
+}
+
 .label.validity {
-    border-radius: 0;
-    font-family: 'Kalpurush', Arial, sans-serif;
-    font-size: 80%;
+    padding: 4px 10px 1px;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 400;
 }
 
 #chapter h3 {
     margin: 0 0 15px 0;
     font-size: 18px;
-    line-height: 25px;
+    background: url(/bundles/ihadisweb/img/icon/book.jpg) no-repeat left center;
+    padding-left: 40px;
+    height: 22px;
+    line-height: 20px;
     font-weight: bold;
     color: #403E3E;
 }
 
-#chapter p {
+#chapter p{
     font-size: 16px;
     text-align: justify;
     color: #000;
     line-height: 1.5em;
-    /*text-shadow: 1px 0 0 rgba(0, 0, 0, 0.2);*/
+    text-shadow: 1px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+#chapter p.preface {
+    text-shadow: none;
 }
 
 .had {
@@ -702,7 +713,7 @@ div#tab-content2{
     border-color:#fff;
     font-size: 16px;
     outline: none;
-    background: #F5DD86 url('../img/down-arrow2.png') no-repeat 156px center;
+    background: #F5DD86 url('/bundles/ihadisweb/img/down-arrow2.png') no-repeat 156px center;
     -webkit-appearance: none;
     -moz-appearance: none;
     text-shadow: 0px -1px 0 rgba(0,0,0,.2);
@@ -754,7 +765,7 @@ div#tab-content2{
 .hadis-name {
     border: none;
     font-size: 16px;
-    background: #EAEAEA url('../img/down-arrow2.png') no-repeat 161px center;
+    background: #EAEAEA url('/bundles/ihadisweb/img/down-arrow2.png') no-repeat 161px center;
     -webkit-appearance: none;
     -moz-appearance: none;
     width: 184px;
@@ -952,46 +963,44 @@ td a:hover {
 
 
 @-moz-document url-prefix() { 
-    
-    
+
     .hadith, #chapter, .tg {
         box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
     }
   
-.tg .tg-yw42 {        
-        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.14);
-}
-    
-a.list-group-item {
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-}
-    
-
-select option { padding-left: 10px; }
-    
-.select-box2 option { padding-left: 10px;padding-top: 5px; }
-.select-box2 .book-category2 {
-    border: 1px solid #DDD;
-    -moz-appearance: none;
-}
-
-.hadith-des, #chapter p {
-    text-shadow: 0.2px 0.1px #E4E4E4;
-} 
-
-.export a, .note a, .search_result {
-    text-shadow: 0px 0.5px #C3C3C3;
-}
-    
-    
-.sahih, .durbol, .search-title h4 {
-        text-shadow: 0.2px 0.1px #FFF;
-}
-    
-#Demo {
-       height: 298px; 
+    .tg .tg-yw42 {
+            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.14);
     }
-    
+
+    a.list-group-item {
+        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+    }
+
+
+    select option { padding-left: 10px; }
+
+    .select-box2 option { padding-left: 10px;padding-top: 5px; }
+    .select-box2 .book-category2 {
+        border: 1px solid #DDD;
+        -moz-appearance: none;
+    }
+
+    .hadith-des, #chapter p {
+        text-shadow: 0.2px 0.1px #E4E4E4;
+    }
+
+    .export a, .note a, .search_result {
+        text-shadow: 0px 0.5px #C3C3C3;
+    }
+
+
+    .sahih, .durbol, .search-title h4 {
+            text-shadow: 0.2px 0.1px #FFF;
+    }
+
+    #ps-box {
+       height: 298px;
+    }
 
 }
 

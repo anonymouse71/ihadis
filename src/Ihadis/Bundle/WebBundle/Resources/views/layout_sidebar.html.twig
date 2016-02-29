@@ -1,0 +1,40 @@
+{% extends('IhadisWebBundle::layout.html.twig') %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+    "@IhadisWebBundle/Resources/public/css/chapter-style.css"
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+{% endblock stylesheets %}
+
+{% block body %}
+    <div class="container main-body">
+        <div class="row main1">
+
+            {% block sidebar %}
+                {% include '@IhadisWeb/partials/_sidebar_tabs.html.twig' %}
+            {% endblock %}
+
+            <div class="col-md-9 col-xs-12 rl">
+                {% block content %}
+                    Main content here.
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+
+{% block documentReady %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Ps.initialize(document.getElementById('ps-box'));
+        });
+    </script>
+{% endblock documentReady %}

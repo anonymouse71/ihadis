@@ -7,6 +7,7 @@
 
     {% stylesheets
     "@IhadisWebBundle/Resources/public/css/style.css"
+    "@IhadisWebBundle/Resources/public/css/responsive.css"
     %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -27,8 +28,7 @@
                         <div class="input-group">
                             <div class="search-box">
                                 <input id="search2" name="search"  type="text" placeholder="Search for hadith" class="form-control search-input"/>
-                                <button name="" type="submit" class="button n2" value="">
-                                    <i class="fa fa-search fa-2x"></i>
+                                <button name="" type="button" class="button n2" id="home-search" value="">
                                 </button>
                             </div>
 
@@ -142,12 +142,6 @@
                 </div>
             </div>
 
-
-
-
-
-
-
             <!------------------------------------------------------------------------- -->
 
         </div>
@@ -159,9 +153,9 @@
             <div class="book-list-wrap">
                 <div class="col-md-3">
                     <div class="book-list">
-                        <ul class="fa-ul">
+                        <ul>
                         {% for book in books %}
-                            <li><i class="fa-li fa fa-book"></i><a href="{{ url('book-details', {'slug': book.slug}) }}">{{ book.title }}</a></li>
+                            <li><a href="{{ url('book-details', {'slug': book.slug}) }}">{{ book.title }}</a></li>
 
                             {% if loop.index % 6 == 0 %}
                             </ul>
@@ -169,7 +163,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="book-list">
-                            <ul class="fa-ul">
+                            <ul>
                             {% endif %}
                         {% endfor %}
                         </ul>

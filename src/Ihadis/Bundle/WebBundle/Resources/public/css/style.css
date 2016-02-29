@@ -102,7 +102,7 @@ select:focus {
 
 .bannerTopo {
 	height: 70px;
-	background-image: url(../img/icon/logo3.png);
+	background-image: url(/bundles/ihadisweb/img/icon/logo3.png);
 	background-repeat: no-repeat, no-repeat;
 	background-position: 34%, 76%;
 	background-size: auto 75%, auto 45%;
@@ -217,7 +217,7 @@ select:focus {
     border-color: #CDE4B5;
     font-size: 16px;
     outline: none;
-    background: #F6FFED url('../img/down-arrow2.png') no-repeat 172px center;
+    background: #F6FFED url('/bundles/ihadisweb/img/down-arrow2.png') no-repeat 172px center;
     -webkit-appearance: none;
     -moz-appearance: none;
     text-shadow: 0px -1px 0 rgba(0,0,0,.2);
@@ -313,7 +313,7 @@ header a:hover {
   top: 6px;
   width: 30px;
   height: 47px;
-  background: url('../img/arrow.png') no-repeat 5px 23px;
+  background: url('/bundles/ihadisweb/img/arrow.png') no-repeat 5px 23px;
   background-repeat: no-repeat;
 }
 .select-box .book-category {
@@ -355,7 +355,7 @@ header a:hover {
     background-color: #fff;
     height: 230px;
     padding-top: 6px;
-	border: 1px solid #E5E5E5;
+    border: 1px solid #E5E5E5;
 }
 
 .book-list ol li {
@@ -427,7 +427,13 @@ font-family: arial;
 }
 
 .book-list ul li {
-    margin: 5px auto 15px !important;
+    background: url(/bundles/ihadisweb/img/icon/bulet.jpg) no-repeat 15px 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #E6E6E6;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    padding-left: 35px;
+    line-height: 25px;
 }
 
 
@@ -441,6 +447,7 @@ font-family: arial;
 .book-list li a:hover{
     color: #2FAB19;
 }
+
 
 .form-control:focus {
     -webkit-box-shadow: none;
@@ -464,8 +471,6 @@ font-family: arial;
     background-color:#E6E6E6;
     outline: none;
 }
-
-
 
 .caret {display: none;}
 
@@ -576,7 +581,10 @@ font-family: arial;
     top: 0px;
     position: absolute;
     z-index: 2;
-    color: whitesmoke;
+    color: #949494;
+    background-image: url(/bundles/ihadisweb/img/icon/search1.png);
+    background-repeat: no-repeat;
+    background-position: center;
     height: 58px;
     width: 114px;
 }
