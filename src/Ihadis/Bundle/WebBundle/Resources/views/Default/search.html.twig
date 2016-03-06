@@ -30,13 +30,14 @@
     </div>
 
 {% endblock %}
-    {% block documentReady %}
-    {{ parent() }}
 
-    $(".surah:contains('{{ keyword }}')").each(function(){
-        $(this).html(
-                $(this).html().replace('{{ keyword }}', "<span class='highlighted'>{{ keyword }}</span>")
-        );
-    });
+{% block documentReady %}
+{{ parent() }}
 
-    {% endblock documentReady %}
+$(".surah:contains('{{ keyword }}')").each(function(){
+    $(this).html(
+            $(this).html().replace('{{ keyword }}', "<span class='highlighted'>{{ keyword }}</span>")
+    );
+});
+
+{% endblock documentReady %}

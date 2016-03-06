@@ -1,60 +1,24 @@
-{% extends('IhadisWebBundle::layout.html.twig') %}
+{% extends('IhadisWebBundle::layout_sidebar.html.twig') %}
 
 {% block title %}{{ parent() }} | Chapters of {{ book.title }} {% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-
-    {% stylesheets
-    "@IhadisWebBundle/Resources/public/css/chapter-style.css"
-    %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
-
-{% endblock stylesheets %}
-
-{% block body %}
-    <div class="container main-body">
-        <div class="row main1">
-
-            <div class="col-md-3 fl test2">
-
-                {% include '@IhadisWeb/partials/_sidebar_tabs.html.twig' %}
-
-            </div><!--col 3-->
-
-            <div class="col-md-9 col-xs-12 rl">
-
-                <div class="list-header">
-                    <h3>{{ book.title }}
-                        <span>({{ book.numberOfHadis|banglaNumber }} টি হাদীস)</span>
-                    </h3>
-                </div>
-
-                <div class="hadith-list">
-                    {% for chapter in book.chapters %}
-                    <table class="tg">
-                        <tr>
-                            <th class="tg-yw41">{{ chapter.number|banglaNumber }}</th>
-                            <th class="tg-yw42"><a href="{{ url('chapter', {'slug': book.slug, 'chapter': chapter.number}) }}">{{ chapter.title }}</a></th>
-                            <th class="tg-yw43">১০০৫ - ১০৩৯</th>
-                        </tr>
-                    </table>
-                    {% endfor %}
-
-                </div>
-            </div>
-        </div>
+{% block content %}
+    <div class="list-header">
+        <h3>{{ book.title }}
+            <span>({{ book.numberOfHadis|banglaNumber }} টি হাদীস)</span>
+        </h3>
     </div>
 
-{% endblock body %}
+    <div class="hadith-list">
+        {% for chapter in book.chapters %}
+        <table class="tg">
+            <tr>
+                <th class="tg-yw41">{{ chapter.number|banglaNumber }}</th>
+                <th class="tg-yw42"><a href="{{ url('chapter', {'slug': book.slug, 'chapter': chapter.number}) }}">{{ chapter.title }}</a></th>
+                <th class="tg-yw43">১০০৫ - ১০৩৯</th>
+            </tr>
+        </table>
+        {% endfor %}
 
-{% block documentReady %}
-    {{ parent() }}
-    
-    <script type="text/javascript">
-        $(document).ready(function () {
-            Ps.initialize(document.getElementById('ps-box'));
-        });
-    </script>
-{% endblock documentReady %}
+    </div>
+{% endblock %}

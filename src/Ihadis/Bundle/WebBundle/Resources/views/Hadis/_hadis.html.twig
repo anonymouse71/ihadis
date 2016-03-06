@@ -1,0 +1,37 @@
+<div class="hadith">
+    <div class="row">
+        <div class="had">
+            <h3>
+                {{ hadis.numberPrimary|banglaNumber }}
+            </h3>
+            <p class="narrated-by">{{ hadis.narrator }} থেকে বর্ণিতঃ</p>
+            <p class="hadith-des">{{ hadis.body|nl2br }}</p>
+        </div>
+        <div class="social-lists">
+            <ul>
+                <li title="Edit"><i class="fa fa-pencil tool-icon"></i></li>
+                <li title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
+                <li title="Print View"><i class="fa fa-print tool-icon"></i></li>
+                <li title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
+                <li title="Share On Twitter"><i class="fa fa-twitter tool-icon"></i></li>
+            </ul>
+        </div>
+    </div>
+    {% if hadis.note %}
+        <div class="row hadis-extra note"><div class="col-xs-12">{{ hadis.note|nl2br }}</div></div>
+    {% endif %}
+    {% if hadis.explanation %}
+        <div class="row hadis-extra collapsed explanation"><div class="col-xs-12">{{ hadis.explanation|nl2br }}</div></div>
+    {% endif %}
+    <div class="row hadith-footer">
+        <div class="col-md-6 sonod">হাদিসের মানঃ <span class="label validity" style="color: {{ hadis.validity.color }}; background-color: {{ hadis.validity.background }}">{{ hadis.validity.title }}</span></div>
+        <div class="col-md-6">
+            <ul class="list-inline hadis-tools text-right">
+                {% if hadis.explanation %}
+                    <li class="explanation"><a href="#"><i class="fa fa-comment"></i> ব্যাখ্যা </a></li>
+                {% endif %}
+                <li><a href="#"><i class="fa fa-external-link"></i> সরাসরি</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

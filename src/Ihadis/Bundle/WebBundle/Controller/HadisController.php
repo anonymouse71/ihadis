@@ -76,7 +76,7 @@ class HadisController extends BaseController
 
         list($hadiths, $total) = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith')->search($keyword, $page, $perPage);
 
-        return $this->render('IhadisWebBundle:Default:search.html.twig', array(
+        return $this->render('@IhadisWeb/Hadis/search.html.twig', array(
             'hadiths'    => $hadiths,
             'total'      => $total,
             'per_page'   => $perPage,
@@ -211,20 +211,20 @@ class HadisController extends BaseController
 
         for ($i = $min; $i <= $max; $i++):
             if ($current == $i):
-                $output[] = "<span>{$i}</span>";
+                $output[] = "<li class='active'><a href='#'>{$i}</a></li>";
             else:
-                $output[] = '<a href="' . $this->generateUrl($route, array('keyword' => $keyword, 'page' => $i)) . '">' . $i . '</a>';
+                $output[] = '<li><a href="' . $this->generateUrl($route, array('keyword' => $keyword, 'page' => $i)) . '">' . $i . '</a><li>';
             endif;
         endfor;
 
         if ($current + 1 < $pages):
-            $output[] = '<a href="' . $this->generateUrl($route, array('keyword' => $keyword, 'page' => $current + 1)) . '" title="Next">&rsaquo;</a>';
-            $output[] = '<a href="' . $this->generateUrl($route, array('keyword' => $keyword, 'page' => $pages)) . '" title="Last">&raquo;</a>';
+            $output[] = '<li><a href="' . $this->generateUrl($route, array('keyword' => $keyword, 'page' => $current + 1)) . '" title="Next">&rsaquo;</a></li>';
+            $output[] = '<li><a href="' . $this->generateUrl($route, array('keyword' => $keyword, 'page' => $pages)) . '" title="Last">&raquo;</a></li>';
         endif;
 
         if ($current - 1 > 0):
-            array_unshift($output, '<a href="' . $this->generateUrl($route, array('keyword' => $keyword, 'page' => $current - 1)) . '" title="Previous">&lsaquo;</a>');
-            array_unshift($output, '<a href="' . $this->generateUrl($route, array('keyword' => $keyword, 'page' => 1)) . '" title="First">&laquo;</a>');
+            array_unshift($output, '<li><a href="' . $this->generateUrl($route, array('keyword' => $keyword, 'page' => $current - 1)) . '" title="Previous">&lsaquo;</a></li>');
+            array_unshift($output, '<li><a href="' . $this->generateUrl($route, array('keyword' => $keyword, 'page' => 1)) . '" title="First">&laquo;</a></li>');
         endif;
 
         return $output;

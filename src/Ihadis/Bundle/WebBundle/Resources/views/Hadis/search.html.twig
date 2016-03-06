@@ -1,43 +1,39 @@
-{% extends '@IhadisWeb/layout.html.twig' %}
+{% extends('IhadisWebBundle::layout_sidebar.html.twig') %}
 
-{% block title %} Search Hadis - {{ keyword }} {% endblock %}
+{% block title %} {{ parent() }} | {{ keyword }} {% endblock %}
 
-{% block body %}
-
-    {% include '@IhadisWeb/Default/_secondaryNav.html.twig' with {'isSearchResult' : true, 'count': total} %}
-
-    <div class="section-container">
-
-    {% if hadiths is empty %}
-
-        <div style="height: 220px; padding: 50px 35px">
-            {% if app.request.cookies.has('lang') and app.request.cookies.get('lang') == 'en' %}
-                No hadis found with your keyword <b>{{  keyword }}</b>
-            {% else %}
-                <b>{{  keyword }}</b> দিয়ে কোন হাদিস খুঁজে পাইনি ।
-            {% endif %}
-        </div>
-
-    {% else %}
-
-        {% for hadith in hadiths %}
-            {% include '@IhadisWeb/Default/_hadith.html.twig' with {'hadith': hadith, 'book': hadith.book, 'chapter': hadith.chapter} %}
-        {% endfor %}
-
-        {% include '@IhadisWeb/Default/_pagination.html.twig' with {'count' : total, 'current': page, 'per_page': per_page} %}
-
-    {% endif %}
+{% block content %}
+    <div class="list-header">
+        <h3>সার্চ এর ফলাফল
+            <span>({{ total|banglaNumber }}টি হাদীস)</span>
+        </h3>
+    </div>
+    <div class="search-title">
+        <h4>"{{ keyword }}" দিয়ে খুঁজছেন <span>({{ total|banglaNumber }}টি ফলাফল পাওয়া গেছে)</span> </h4>
     </div>
 
+    {% for hadis in hadiths %}
+        <h3 class="search_result">
+            {{ hadis.book.title }} » {{ hadis.numberPrimary|banglaNumber }}
+            <span class="text-muted">({{ hadis.chapter.title }})</span>
+        </h3>
+        {% include '@IhadisWeb/Hadis/_hadis.html.twig' with { 'hadis': hadis } %}
+    {% endfor %}
+
+    {% include '@IhadisWeb/partials/_pagination.html.twig' with {'count' : total, 'current': page, 'per_page': per_page} %}
+
 {% endblock %}
+
 {% block documentReady %}
     {{ parent() }}
 
     <script>
         $(document).ready(function() {
-            $(".surah:contains('{{ keyword }}')").each(function(){
+            Ps.initialize(document.getElementById('ps-box'));
+
+            $(".hadith-des:contains('{{ keyword }}')").each(function(){
                 $(this).html(
-                        $(this).html().replace('{{ keyword }}', "<span class='highlighted'>{{ keyword }}</span>")
+                    $(this).html().replace('{{ keyword }}', "<span class='highlighted'>{{ keyword }}</span>")
                 );
             });
         });

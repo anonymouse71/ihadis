@@ -69,6 +69,13 @@ a {
 	float: right;*/
     margin-top: 6px !important;
 }
+.highlighted {
+    display: inline-block;
+    background-color: #444;
+    color: lightgoldenrodyellow;
+    padding: 0 5px;
+    border-radius: 3px;
+}
 
 #searchbar {
 	height:30px;
