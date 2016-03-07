@@ -82,7 +82,7 @@ class HadisController extends BaseController
             'per_page'   => $perPage,
             'keyword'    => $keyword,
             'page'       => $page,
-            'page_links' => $this->_pagination($page, ceil($total / $perPage), 'ihadis_search', $keyword)
+            'page_links' => $this->_pagination($page, ceil($total / $perPage), 'search', $keyword)
         ));
     }
 
