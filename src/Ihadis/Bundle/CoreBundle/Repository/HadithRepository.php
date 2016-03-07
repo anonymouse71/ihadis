@@ -44,7 +44,7 @@ class HadithRepository extends EntityRepository
             $qb->andWhere('c.number = :chapter')->setParameter(':chapter', $chapter);
         }
         if(! is_null($section)) {
-            $qb->andWhere('s.number = :section')->setParameter(':section', $section);
+            $qb->andWhere('s.id = :section')->setParameter(':section', $section);
         }
         if(! is_null($hadis)) {
             $qb->andWhere('h.numberPrimary = :hadis')->setParameter(':hadis', $hadis);

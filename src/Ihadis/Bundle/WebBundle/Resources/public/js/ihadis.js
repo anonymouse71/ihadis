@@ -84,7 +84,8 @@ var IHadis = function () {
         $('#q, #search2').keypress(function(e) {
             var keycode = (e.keyCode ? e.keyCode : e.which);
             if(keycode == '13'){
-                search(this);
+                e.preventDefault();
+                search($(this));
             }
         });
 

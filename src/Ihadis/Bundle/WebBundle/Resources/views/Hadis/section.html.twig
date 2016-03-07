@@ -23,11 +23,17 @@
         </tr>
         {% endif %}
     </table>
-
-    {% for section in chapter.sections %}
+    {% set sectionsToShow = (sections is defined) ? sections : chapter.sections  %}
+    {% for section in sectionsToShow %}
     <div id="chapter">
-        <h3>{{ section.number }}</h3>
-        <p>{{ section.title }}</p>
+        <h3>
+            <a class="text-muted" href="{{ url('section', {'slug': book.slug, 'chapter': chapter.number, 'section' : section.id }) }}"
+               title="সরাসরি  পরিচ্ছেদ  লিঙ্ক ">
+                {{ section.number }}
+            </a>
+        </h3>
+        <p> {{ section.title }} </p>
+
         {% if section.preface %}
         <hr>
         <p class="preface">{{ section.preface|nl2br }}</p>
@@ -35,7 +41,8 @@
 
     </div>
     <div class="hadiths-list">
-        {% for hadis in section.hadiths %}
+        {% set hadisesToShow = (hadises is defined) ? hadises : section.hadiths  %}
+        {% for hadis in hadisesToShow %}
             {% include '@IhadisWeb/Hadis/_hadis.html.twig' with { 'hadis': hadis } %}
         {% endfor %}
     </div>

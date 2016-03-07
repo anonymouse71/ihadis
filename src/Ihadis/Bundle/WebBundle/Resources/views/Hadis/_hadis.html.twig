@@ -35,7 +35,10 @@
                 {% if hadis.explanation %}
                     <li class="explanation"><a href="#"><i class="fa fa-comment"></i> ব্যাখ্যা </a></li>
                 {% endif %}
-                <li><a href="#"><i class="fa fa-external-link"></i> সরাসরি</a></li>
+                <li title="সরাসরি হাদীস লিঙ্ক " class="direct-hadis">
+                    <a href="{{ url('hadis', {'slug': hadis.book.slug, 'numberPrimary': hadis.numberPrimary}) }}">
+                        <i class="fa fa-external-link"></i> সরাসরি</a>
+                </li>
             </ul>
         </div>
     </div>

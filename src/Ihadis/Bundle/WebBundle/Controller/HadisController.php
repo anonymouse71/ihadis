@@ -45,8 +45,8 @@ class HadisController extends BaseController
     /**
      * @Route("/books/{slug}/chapter/{chapter}", name="chapter")
      *
-     * @param Book $book
-     * @param $chapter
+     * @param Book $book Book slug
+     * @param integer $chapter Chapter number
      *
      * @return Response
      */
@@ -61,6 +61,43 @@ class HadisController extends BaseController
         ]);
     }
 
+    /**
+     * @Route("/books/{slug}/chapter/{chapter}/section/{section}", name="section")
+     *
+     * @param Book $book Book slug
+     * @param integer $chapter Chapter number
+     * @param integer $section Section ID
+     *
+     * @return Response
+     */
+    public function sectionAction(Book $book, $chapter, $section)
+    {
+        $hadithRepository = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith');
+        $bookTree = $hadithRepository->getDetailedTree($book, $chapter, $section);
+
+        return $this->render('@IhadisWeb/Hadis/section.html.twig', [
+            'book' => $book,
+            'chapter' => $bookTree[0]->getChapters()[0], // First chapter of First Book in result
+            'sections' => $bookTree[0]->getChapters()[0]->getSections() // Sections of first Chapter of First Book in result
+        ]);
+    }
+
+    /**
+     * @Route("/books/{slug}/hadis/{numberPrimary}", name="hadis")
+     *
+     * @param Book $book Book slug
+     *
+     * @return Response
+     */
+    public function hadisAction(Book $book, Hadith $hadis)
+    {
+        return $this->render('@IhadisWeb/Hadis/section.html.twig', [
+            'book'     => $book,
+            'chapter'  => $hadis->getChapter(),
+            'sections' => [$hadis->getSection()],
+            'hadises'  => [$hadis]
+        ]);
+    }
 
     /**
      * @Route("/search/{keyword}/{page}", name="search", defaults={"page":1})
