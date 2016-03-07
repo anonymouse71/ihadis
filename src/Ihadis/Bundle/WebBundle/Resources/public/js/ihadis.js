@@ -2,54 +2,59 @@ var IHadis = function () {
 
     var handleHadithTools = function() {
 
-        $('#hadith-tools a, .bottom-links a').live('click', function(){
-
-            var action = $(this).data('action');
-            var hadith = $(this).data('id');
-
-            var permalinkElement = $('#permalink-' + hadith);
-            var footnoteElement = $('#hadith-' + hadith).find('.surah-footnote');
-            var explanationElement = $('#hadith-' + hadith).find('.surah-explanation');
-
-            var permalink = permalinkElement.attr("href");
-            var title = permalinkElement.attr("title");
-
-            switch (action) {
-                case 'report'      :
-                    $('#report-hadith #comments').val("Assalamualaikum, \nThis report is about "+ permalink + " \n");
-                    $('#report-modal').reveal(); break;
-                case 'footnote'    : footnoteElement.slideToggle(); break;
-                case 'explanation' : explanationElement.slideToggle(); break;
-                case 'print'       : window.open(permalink, 'print', 'width=800,height=600').print(); break;
-                case 'facebook'    : window.open('https://www.facebook.com/sharer/sharer.php?s=100&p[url]=' + permalink + '&p[title]=' + title, 'sharer', 'width=626,height=436'); break;
-                case 'twitter'     : window.open('https://twitter.com/share?url=' + permalink + '&text=' + title + '&hashtags=hadith,sunnah,islam,ihadis', 'sharer', 'width=626,height=436'); break;
-            }
-
-        });
-
-        $('#report-hadith').submit(function(e){
-
+        $('.hadis-tools li.explanation a').click(function(e) {
             e.preventDefault();
-            $('#report-submit-progress').show();
-
-            $.ajax({
-                url: '/hadith/report',
-                method: 'POST',
-                data: $('#report-hadith').serialize(),
-                success: function(res) {
-                    if (res == 'OK') {
-                        $('#report-submit-progress').hide();
-                        $('#email, #comments').val('');
-                        $('#report-modal').trigger('reveal:close');
-                    }
-                }
-            });
-
+            $(this).closest('.hadith').find('.hadis-extra.explanation').slideToggle();
         });
 
-        $('.utility-toolbar .tip').miniTip({
-            position: 'left'
-        });
+        //$('#hadith-tools a, .bottom-links a').live('click', function(){
+        //
+        //    var action = $(this).data('action');
+        //    var hadith = $(this).data('id');
+        //
+        //    var permalinkElement = $('#permalink-' + hadith);
+        //    var footnoteElement = $('#hadith-' + hadith).find('.surah-footnote');
+        //    var explanationElement = $('#hadith-' + hadith).find('.surah-explanation');
+        //
+        //    var permalink = permalinkElement.attr("href");
+        //    var title = permalinkElement.attr("title");
+        //
+        //    switch (action) {
+        //        case 'report'      :
+        //            $('#report-hadith #comments').val("Assalamualaikum, \nThis report is about "+ permalink + " \n");
+        //            $('#report-modal').reveal(); break;
+        //        case 'footnote'    : footnoteElement.slideToggle(); break;
+        //        case 'explanation' : explanationElement.slideToggle(); break;
+        //        case 'print'       : window.open(permalink, 'print', 'width=800,height=600').print(); break;
+        //        case 'facebook'    : window.open('https://www.facebook.com/sharer/sharer.php?s=100&p[url]=' + permalink + '&p[title]=' + title, 'sharer', 'width=626,height=436'); break;
+        //        case 'twitter'     : window.open('https://twitter.com/share?url=' + permalink + '&text=' + title + '&hashtags=hadith,sunnah,islam,ihadis', 'sharer', 'width=626,height=436'); break;
+        //    }
+        //
+        //});
+
+        //$('#report-hadith').submit(function(e){
+        //
+        //    e.preventDefault();
+        //    $('#report-submit-progress').show();
+        //
+        //    $.ajax({
+        //        url: '/hadith/report',
+        //        method: 'POST',
+        //        data: $('#report-hadith').serialize(),
+        //        success: function(res) {
+        //            if (res == 'OK') {
+        //                $('#report-submit-progress').hide();
+        //                $('#email, #comments').val('');
+        //                $('#report-modal').trigger('reveal:close');
+        //            }
+        //        }
+        //    });
+        //
+        //});
+
+        //$('.utility-toolbar .tip').miniTip({
+        //    position: 'left'
+        //});
 
     };
 
@@ -85,6 +90,14 @@ var IHadis = function () {
 
         $('#title-search').click(function (e) { search($('#q')) });
         $('#home-search').click(function (e) { search($('#search2')) });
+
+        // Highlight search result
+        var searchKeyword = window.searchKeyword || 'not-in-search-page';
+        $(".hadith-des:contains("+ searchKeyword +")").each(function(){
+            $(this).html(
+                $(this).html().replace(searchKeyword, "<span class='highlighted'>"+ searchKeyword +"</span>")
+            );
+        });
 
     };
 
@@ -124,7 +137,7 @@ var IHadis = function () {
             $('.selectpicker').selectpicker();
 
             // markdownToHtml();
-            // handleHadithTools();
+            handleHadithTools();
             // handleGoto();
             handleSearch();
             handleScrollEvents();

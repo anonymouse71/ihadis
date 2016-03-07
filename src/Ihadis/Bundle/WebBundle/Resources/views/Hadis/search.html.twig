@@ -14,8 +14,9 @@
 
     {% for hadis in hadiths %}
         <h3 class="search_result">
-            {{ hadis.book.title }} » {{ hadis.numberPrimary|banglaNumber }}
-            <span class="text-muted">({{ hadis.chapter.title }})</span>
+            <a href="{{ url('book-details', {'slug': hadis.book.slug}) }}" class="text-muted" target="_blank">{{ hadis.book.title }}</a> <i class="fa fa-angle-right text-muted"></i>
+            <a href="{{ url('chapter', {'slug': hadis.book.slug, 'chapter': hadis.chapter.number}) }}" class="text-muted" target="_blank">{{ hadis.chapter.title }}</a> <i class="fa fa-angle-right text-muted"></i>
+            {{ hadis.numberPrimary|banglaNumber }}
         </h3>
         {% include '@IhadisWeb/Hadis/_hadis.html.twig' with { 'hadis': hadis } %}
     {% endfor %}
@@ -25,17 +26,9 @@
 {% endblock %}
 
 {% block documentReady %}
-    {{ parent() }}
-
-    <script>
-        $(document).ready(function() {
-            Ps.initialize(document.getElementById('ps-box'));
-
-            $(".hadith-des:contains('{{ keyword }}')").each(function(){
-                $(this).html(
-                    $(this).html().replace('{{ keyword }}', "<span class='highlighted'>{{ keyword }}</span>")
-                );
-            });
-        });
+    <script type="text/javascript">
+        window.searchKeyword = '{{ keyword }}';
     </script>
+
+    {{ parent() }}
 {% endblock documentReady %}

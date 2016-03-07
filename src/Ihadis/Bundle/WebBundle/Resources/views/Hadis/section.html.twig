@@ -41,18 +41,3 @@
     </div>
     {% endfor %}
 {% endblock %}
-
-{% block documentReady %}
-    {{ parent() }}
-    
-    <script type="text/javascript">
-        $(document).ready(function () {
-            Ps.initialize(document.getElementById('ps-box'));
-
-            $('.hadis-tools li.explanation a').click(function(e) {
-                e.preventDefault();
-                $(this).closest('.hadith').find('.hadis-extra.explanation').slideToggle();
-            });
-        });
-    </script>
-{% endblock documentReady %}

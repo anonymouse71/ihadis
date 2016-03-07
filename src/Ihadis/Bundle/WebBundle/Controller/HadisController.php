@@ -179,21 +179,6 @@ class HadisController extends BaseController
     }
 
     /**
-     * @param $keyword
-     * @return string
-     */
-    private static function _detectLang($keyword)
-    {
-        if (mb_check_encoding($keyword, 'ASCII')) {
-            return 'en';
-        } else if (preg_match('/[أ-ي]/ui', $keyword)) {
-            return 'ar';
-        } else {
-            return 'bn';
-        }
-    }
-
-    /**
      * Pagination function
      *
      * @param int $current The current page
