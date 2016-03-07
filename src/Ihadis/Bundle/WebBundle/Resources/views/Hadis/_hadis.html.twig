@@ -9,7 +9,12 @@
         </div>
         <div class="social-lists">
             <ul>
-                <li title="Edit"><i class="fa fa-pencil tool-icon"></i></li>
+                {% if is_granted('ROLE_ADMIN') %}
+                <li title="Edit">
+                    <a href="{{ url('ihadis_hadith_edit', {'id': hadis.id, 'section': hadis.section.id}) }}" target="_blank">
+                        <i class="fa fa-pencil tool-icon"></i></a>
+                </li>
+                {% endif %}
                 <li title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
                 <li title="Print View"><i class="fa fa-print tool-icon"></i></li>
                 <li title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
