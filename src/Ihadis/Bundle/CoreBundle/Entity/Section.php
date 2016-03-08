@@ -51,6 +51,13 @@ class Section
     private $preface;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="hadis_range", type="string", length=20, nullable=true)
+     */
+    private $range;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="sort_order", type="smallint", nullable=true)
@@ -383,5 +390,21 @@ class Section
     public function getSortOrder()
     {
         return $this->sortOrder;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRange()
+    {
+        return $this->range;
+    }
+
+    /**
+     * @param string $range
+     */
+    public function setRange($range)
+    {
+        $this->range = $range;
     }
 }

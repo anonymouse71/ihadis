@@ -39,6 +39,13 @@ class Chapter
     /**
      * @var string
      *
+     * @ORM\Column(name="hadis_range", type="string", length=20, nullable=true)
+     */
+    private $range;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="preface", type="text", nullable=true)
      */
     private $preface;
@@ -274,5 +281,21 @@ class Chapter
     public function setTitleArabic($title)
     {
         $this->translate('ar')->setTitle($title);
+    }
+
+    /**
+     * @return string
+     */
+    public function getRange()
+    {
+        return $this->range;
+    }
+
+    /**
+     * @param string $range
+     */
+    public function setRange($range)
+    {
+        $this->range = $range;
     }
 }

@@ -25,6 +25,12 @@ class ChapterFormType extends AbstractType
             ->add('number', null, array(
                 'label'  => 'Number'
             ))
+            ->add('preface', null, array(
+                'label'  => 'Preface'
+            ))
+            ->add('range', null, array(
+                'label'  => 'Range'
+            ))
             ->add('book', 'entity', array(
                 'label'    => 'Book',
                 'class'    => 'IhadisCoreBundle:Book',

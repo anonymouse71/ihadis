@@ -20,6 +20,9 @@ class SectionFormType extends AbstractType
                      'class'    => 'IhadisCoreBundle:Chapter',
                      'property' => 'title')
             )
+            ->add('range', null, array(
+                'label'  => 'Range'
+            ))
             ->add('number', null, array(
                 'label' => 'Section Number (Bangla)'
             ))
