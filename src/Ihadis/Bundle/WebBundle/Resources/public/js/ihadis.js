@@ -59,11 +59,16 @@ var IHadis = function () {
     };
 
     var handleGoto = function() {
-        $('#goto_form').submit(function(e) {
+        $('#goto-submit').click(function(e) {
             e.preventDefault();
-            var book = $(this).find("[name='goto_book']").val();
-            var hadith = $(this).find("[name='goto_hadith']").val();
-            window.location = '/goto/'+ book + '/'+ hadith;
+
+            var book = $('#goto-book').val();
+            var hadis = $('#goto-hadis').val();
+            if(hadis == false) {
+                $('#goto-hadis').focus();
+            } else {
+                window.location = '/books/'+ book + '/hadis/'+ hadis;
+            }
         })
     };
 
@@ -139,7 +144,7 @@ var IHadis = function () {
 
             // markdownToHtml();
             handleHadithTools();
-            // handleGoto();
+            handleGoto();
             handleSearch();
             handleScrollEvents();
         }

@@ -220,6 +220,9 @@ body {
 .list-group-item:last-child {
     border-radius: 0;
 }
+.main-body {
+    min-height: 400px;
+}
 .main1 {
     margin-top: 20px;
 }

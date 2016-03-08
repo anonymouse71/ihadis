@@ -21,16 +21,16 @@
                 <div style="width: auto;height: 200px;">
                     <div class="goto">
                         <h3>নির্দিষ্ট হাদিসে যান</h3>
-                        <select class="selectpicker" data-size="7">
+                        <select class="selectpicker" data-size="7" id="goto-book">
                             {% for book in books %}
                                 <option value="{{ book.slug }}">{{ book.title }}</option>
                             {% endfor %}
                         </select>
 
                         <div class="hadith_go">
-                            <input name="goto_hadith" type="tel" class="text-search" maxlength="4" placeholder="Hadith no.">
+                            <input name="goto_hadith"  id="goto-hadis" type="tel" class="text-search" maxlength="4" placeholder="Hadith no.">
                         </div>
-                        <input name="" type="submit" class="button" value="Go">
+                        <input name="" type="button" class="button"  id="goto-submit" value="Go">
                     </div>
                 </div>
             </div><!--tab 1 end-->
