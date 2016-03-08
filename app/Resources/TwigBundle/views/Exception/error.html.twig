@@ -1,0 +1,22 @@
+{% extends('IhadisWebBundle::layout_sidebar.html.twig') %}
+
+{% block title %}{{ parent() }} |আল্লাহু আকবার  !{% endblock %}
+
+{% block content %}
+    <div style="height: 400px;">
+        <h2>
+            {% block message %}
+                দুঃখিত!! এই মুহুর্তে এই পৃষ্ঠাটি দেখানো সম্ভব হচ্ছে না!!
+            {% endblock %}
+        </h2>
+        <p>
+            আপনি যা করতে পারেন - 
+        </p>
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-mail-reply"></i> <a href="javascript:history.back()">আগের পেজে ফিরে চলুন </a></li>
+            <li><i class="fa-li fa fa-undo"></i> পরবর্তিতে আবার চেষ্টা করুন </li>
+            <li><i class="fa-li fa fa-envelope"></i> স্থায়ী সমস্যা মনে হলে কন্টাক্ট পেজ  থেকে এডমিনকে জানান (যাজাকাল্লাহ) ! </li>
+            <li><i class="fa-li fa fa-heartbeat"></i> iHadis টিমের জন্য দুয়া করুন যেন তারা এই সমস্যা দ্রুত সমাধান করতে পারে </li>
+        </ul>
+    </div>
+{% endblock %}
