@@ -3,12 +3,9 @@
         <div class="select-area pull-left">All books</div>
         <div class="select-box2 pull-right">
             <select name="category" id="category" class="book-category2">
-                <option value="all">সহিহ বুখারি</option>
-                <option value="all">সহিহ মুসলিম</option>
-                <option value="all">মিশকাত</option>
-                <option value="all">আবু দাউদ</option>
-                <option value="all">সহিহ বুখারি</option>
-                <option value="all">সহিহ মুসলিম</option>
+                {% for book in books %}
+                <option value="{{ book.slug }}">{{ book.title }}</option>
+                {% endfor %}
             </select>
         </div>
     </div>
@@ -25,20 +22,9 @@
                     <div class="goto">
                         <h3>নির্দিষ্ট হাদিসে যান</h3>
                         <select class="selectpicker" data-size="7">
-                            <option>সহিহ বুখারি</option>
-                            <option>সহিহ মুসলিম</option>
-                            <option>সুনানে আবু দাউদ</option>
-                            <option>সুনানে নাসাঈ</option>
-                            <option>জাল হাদিস সিরিজ</option>
-                            <option>সহিহ বুখারি</option>
-                            <option>সহিহ মুসলিম</option>
-                            <option>সহিহ বুখারি</option>
-                            <option>সহিহ মুসলিম</option>
-                            <option>সুনানে আবু দাউদ</option>
-                            <option>সুনানে নাসাঈ</option>
-                            <option>জাল হাদিস সিরিজ</option>
-                            <option>সহিহ বুখারি</option>
-                            <option>সহিহ মুসলিম</option>
+                            {% for book in books %}
+                                <option value="{{ book.slug }}">{{ book.title }}</option>
+                            {% endfor %}
                         </select>
 
                         <div class="hadith_go">
@@ -59,21 +45,10 @@
                     <div class='content'>
                         <div class="book-lists">
                             <div class="list-group">
-                                <a href="#" class="list-group-item active">সহিহ বুখারি</a>
-                                <a href="#" class="list-group-item">সহিহ মুসলিম</a>
-                                <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
-                                <a href="#" class="list-group-item">সুনানে নাসাঈ</a>
-                                <a href="#" class="list-group-item">মিশকাতুল মাসাবিহ</a>
-                                <a href="#" class="list-group-item">জাল হাদিস সিরিজ</a>
-                                <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
-                                <a href="#" class="list-group-item">সহিহ মুসলিম</a>
-                                <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
-                                <a href="#" class="list-group-item">সহিহ মুসলিম</a>
-                                <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
-                                <a href="#" class="list-group-item">সহিহ মুসলিম</a>
-                                <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
-                                <a href="#" class="list-group-item">সহিহ মুসলিম</a>
-                                <a href="#" class="list-group-item">সুনানে আবু দাউদ</a>
+                                {% for book in books %}
+                                    {% set selected = (active == book.slug) ? 'active' : '' %}
+                                    <a href="{{ url('book-details', {'slug' : book.slug}) }}" class="list-group-item {{ selected }}">{{ book.title }}</a>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

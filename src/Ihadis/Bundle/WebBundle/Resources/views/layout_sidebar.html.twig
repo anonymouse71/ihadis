@@ -16,7 +16,7 @@
         <div class="row main1">
 
             {% block sidebar %}
-                {% include '@IhadisWeb/partials/_sidebar_tabs.html.twig' %}
+                {{ render(controller("IhadisWebBundle:Hadis:_sidebar", {'active': book.slug|default('')}) ) }}
             {% endblock %}
 
             <div class="col-md-9 col-xs-12 rl">

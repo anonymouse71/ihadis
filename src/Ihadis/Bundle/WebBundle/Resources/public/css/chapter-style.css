@@ -279,12 +279,18 @@ a.list-group-item {
 
 .book-lists .list-group .list-group-item:first-child {
     border-radius: 0;
+    border-top: 0;
 }
 
 .book-lists {
     height: 200px;
     overflow-y: visible;
 }
+.book-lists .list-group-item {
+    border-width: 1px 0 0;
+    border-color: #eee;
+}
+
 
 .list-group {
     margin-bottom: 0px;
@@ -624,21 +630,22 @@ ul.hadis-tools li a:hover {
   left: -9999px;
 }
 .tabs label {
-  display: block;
+    display: block;
     width: 125px;
     padding: 8px;
     text-align: center;
- background: #fff;
+    background: #fff;
     color: #000;
-  cursor: pointer;
-  position: relative;
+    cursor: pointer;
+    position: relative;
     font-family: arial;
     font-size: 15px;
     font-weight: normal;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
 }
 
 
@@ -659,11 +666,13 @@ ul.hadis-tools li a:hover {
     left: 0;
     background: #fff;
     width: 100%;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2)
 }
 
 .tabs [id^="tab"]:checked + label  {
     background: #46B891;
     color: #FFF;
+    box-shadow: 0 -2px 5px grey inset;
 }
 
 .tabs [id^="tab"]:checked + label:hover {

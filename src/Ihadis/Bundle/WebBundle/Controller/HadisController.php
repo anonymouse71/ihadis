@@ -24,8 +24,7 @@ class HadisController extends BaseController
      */
     public function indexAction()
     {
-        $books = $this->getDoctrine()->getRepository('IhadisCoreBundle:Book')
-            ->findBy(['published' => true]);
+        $books = $this->getPublishedBooks();
 
         return $this->render('IhadisWebBundle:Hadis:index.html.twig', [
             'books' => $books
@@ -123,96 +122,19 @@ class HadisController extends BaseController
         ));
     }
 
-    // ================ Dummy ===================
-
-    public function pdfBookAction($bookName)
+    /**
+     * To be embedded in other pages
+     *
+     * @param null|string $active Slug of active book
+     *
+     * @return Response
+     */
+    public function _sidebarAction($active = null)
     {
-        $bookList = Yaml::parse(file_get_contents('../app/config/booklist.yml'));
-        $book = false;
-
-        if(array_key_exists($bookName, $bookList)) {
-            $book = $bookList[$bookName];
-        }
-
-        return $this->render('IhadisWebBundle:Default:pdfBook.html.twig', array(
-            'name' => $bookName,
-            'book' => $book,
-        ));
-    }
-
-    public function hadithAction(Book $book, Chapter $chapter, $numberPrimary)
-    {
-        $hadith = $this->get('ihadis.repository.hadith')->findOneBy(array(
-            'book' => $book,
-            'numberPrimary' => $numberPrimary
-        ));
-
-        return $this->_showHadith($book, $chapter, $hadith);
-    }
-
-    public function gotoAction(Book $book, $numberPrimary)
-    {
-        $hadith = $this->get('ihadis.repository.hadith')->findOneBy(array(
-            'book' => $book,
-            'numberPrimary' => $numberPrimary
-        ));
-
-        return $this->_showHadith($book, $hadith->getChapter(), $hadith);
-    }
-
-    private function _showHadith(Book $book, Chapter $chapter, Hadith $hadith)
-    {
-        $chapters = $this->get('ihadis.repository.chapter')->findBy(array(
-            'book' => $book
-        ));
-
-        $sections = $this->get('ihadis.repository.section')->findBy(array(
-            'chapter' => $chapter
-        ));
-
-        $hadithRepository = $this->getDoctrine()->getRepository('IhadisCoreBundle:Hadith');
-
-        return $this->render('IhadisWebBundle:Default:hadith.html.twig', array(
-            'page'       => 'chapter',
-            'book'       => $book,
-            'chapter'    => $chapter,
-            'chapters'   => $chapters,
-            'sections'   => $sections,
-            'hadithRepo' => $hadithRepository,
-            'selectedHadith' => $hadith
-        ));
-    }
-
-    public function reportAction()
-    {
-        if ($this->getRequest()->getMethod() == 'POST') {
-            $data = $this->getRequest()->request->all();
-
-            $to = $this->container->getParameter('report_email');
-            $headers = "From: {$data['email']} \r\n" .
-                "Reply-To: {$data['email']} \r\n" .
-                'X-Mailer: PHP/' . phpversion();
-
-            @mail($to, 'iHadis Report - '. $data['issue'], $data['comments'], $headers);
-
-            $this->getDoctrine()->getRepository('IhadisCoreBundle:HadithReport')->create($data);
-            return new Response('OK');
-        }
-    }
-
-    public function testAction()
-    {
-//        $em = $this->getDoctrine()->getManager();
-//        $entityClass = $this->container->getParameter('ajaxray_tag.entity');
-//        $hadis = $em->find($entityClass, 15);
-//
-//
-//        //$this->get('ajaxray_tag.tagger')->tag($hadis, 'ইমান', true);
-//        echo '<pre>';
-//        \Doctrine\Common\Util\Debug::dump($hadis);
-//        die("\n Died in ". __FILE__ ." at line ". __LINE__);
-
-        return $this->render('ui2/layout.html.twig');
+        return $this->render('@IhadisWeb/partials/_sidebar_tabs.html.twig', [
+            'books' => $this->getPublishedBooks(),
+            'active' => $active
+        ]);
     }
 
     /**
@@ -250,5 +172,16 @@ class HadisController extends BaseController
         endif;
 
         return $output;
+    }
+
+    /**
+     * @return array|\Ihadis\Bundle\CoreBundle\Entity\Book[]
+     */
+    protected function getPublishedBooks()
+    {
+        $books = $this->getDoctrine()->getRepository('IhadisCoreBundle:Book')
+                      ->findBy(['published' => true])
+        ;
+        return $books;
     }
 }
