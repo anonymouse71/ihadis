@@ -81,28 +81,16 @@
                                     <p>
                                         <span class="select_name">Books: </span>
 
-                                        <select class="selectpicker" data-size="7">
-                                            <option>সহিহ বুখারি</option>
-                                            <option>সহিহ মুসলিম</option>
-                                            <option>সুনানে আবু দাউদ</option>
-                                            <option>সুনানে নাসাঈ</option>
-                                            <option>জাল হাদিস সিরিজ</option>
-                                            <option>সহিহ বুখারি</option>
-                                            <option>সহিহ মুসলিম</option>
-                                            <option>সুনানে আবু দাউদ</option>
-                                            <option>সুনানে নাসাঈ</option>
-                                            <option>জাল হাদিস সিরিজ</option>
+                                        <select class="selectpicker" data-size="7" id="goto-book">
+                                            {% for book in books %}
+                                                <option value="{{ book.slug }}">{{ book.title }}</option>
+                                            {% endfor %}
                                         </select>
 
-
                                         <span class="select_name">Hadith No. </span>
+                                        <input name="goto_hadith" id="goto-hadis" type="tel" class="text-search" maxlength="4" placeholder="Hadith no.">
 
-
-                                        <input name="goto_hadith" type="tel" class="text-search" maxlength="4" placeholder="Hadith no.">
-                                        <input name="" type="submit" class="button" value="Go">
-
-
-
+                                        <input name="" type="button" class="button" id="goto-submit" value="Go">
                                     </p>
                                 </div>
 
@@ -133,7 +121,7 @@
                         <table class="tg">
                             <tr>
                                 <th class="tg-yw40">{{ "%02d"|format(loop.index)|banglaNumber }}</th>
-                                <th class="tg-yw42">{{ book.title }}</th>
+                                <th class="tg-yw42"><a href="{{ url('book-details', {'slug': book.slug}) }}">{{ book.title }}</a></th>
                                 <th class="tg-yw43">{{ book.numberOfHadis|banglaNumber }} টি হাদিস</th>
                             </tr>
                         </table>
@@ -157,7 +145,7 @@
                         {% for book in books %}
                             <li><a href="{{ url('book-details', {'slug': book.slug}) }}">{{ book.title }}</a></li>
 
-                            {% if loop.index % 6 == 0 %}
+                            {% if loop.index % 6 == 0 and not loop.last %}
                             </ul>
                         </div>
                     </div>

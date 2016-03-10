@@ -299,6 +299,10 @@
         text-align: center;
     }
 
+    .list-inline.text-right {
+        text-align: right !important;
+    }
+
 }
 
 @media (max-width: 1920px) and (min-width: 992px) {

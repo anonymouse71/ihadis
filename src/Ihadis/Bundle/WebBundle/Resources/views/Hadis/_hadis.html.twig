@@ -29,8 +29,8 @@
         <div class="row hadis-extra collapsed explanation"><div class="col-xs-12">{{ hadis.explanation|nl2br }}</div></div>
     {% endif %}
     <div class="row hadith-footer">
-        <div class="col-md-6 sonod">হাদিসের মানঃ <span class="label validity" style="color: {{ hadis.validity.color }}; background-color: {{ hadis.validity.background }}">{{ hadis.validity.title }}</span></div>
-        <div class="col-md-6">
+        <div class="col-sm-6 sonod">হাদিসের মানঃ <span class="label validity" style="color: {{ hadis.validity.color }}; background-color: {{ hadis.validity.background }}">{{ hadis.validity.title }}</span></div>
+        <div class="col-sm-6">
             <ul class="list-inline hadis-tools text-right">
                 {% if hadis.explanation %}
                     <li class="explanation"><a href="#"><i class="fa fa-comment"></i> ব্যাখ্যা </a></li>
