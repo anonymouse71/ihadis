@@ -339,7 +339,7 @@ a.list-group-item {
     margin:0px auto; 
     padding:0px; 
     width: 250px; 
-    height: 295px; 
+    height: 286px;
     overflow: hidden; 
 }
 
@@ -415,7 +415,7 @@ a.list-group-item {
 /*********************hadith ******************/
 
 
-#chapter{
+.chapter{
     background-color: #fff;
     color: #3c3c3c;
     padding: 20px 25px;
@@ -425,7 +425,7 @@ a.list-group-item {
     box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
 }
 
-#chapter h3 img{
+.chapter h3 img{
   margin-right: 20px;
 }
 .hadiths-list{
@@ -555,7 +555,7 @@ ul.hadis-tools li a:hover {
     font-weight: 400;
 }
 
-#chapter h3 {
+.chapter h3 {
     margin: 0 0 15px 0;
     font-size: 18px;
     background: url(/bundles/ihadisweb/img/icon/book.jpg) no-repeat left center;
@@ -566,7 +566,7 @@ ul.hadis-tools li a:hover {
     color: #403E3E;
 }
 
-#chapter p{
+.chapter p{
     font-size: 16px;
     text-align: justify;
     color: #000;
@@ -574,7 +574,7 @@ ul.hadis-tools li a:hover {
     text-shadow: 1px 0 0 rgba(0, 0, 0, 0.2);
 }
 
-#chapter p.preface {
+.chapter p.preface {
     text-shadow: none;
 }
 
@@ -675,7 +675,6 @@ ul.hadis-tools li a:hover {
 .tabs [id^="tab"]:checked + label  {
     background: #46B891;
     color: #FFF;
-    box-shadow: 0 -2px 5px grey inset;
 }
 
 .tabs [id^="tab"]:checked + label:hover {
@@ -983,7 +982,7 @@ td a:hover {
 
 @-moz-document url-prefix() { 
 
-    .hadith, #chapter, .tg {
+    .hadith, .chapter, .tg {
         box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
     }
   
@@ -1004,7 +1003,7 @@ td a:hover {
         -moz-appearance: none;
     }
 
-    .hadith-des, #chapter p {
+    .hadith-des, .chapter p {
         text-shadow: 0.2px 0.1px #E4E4E4;
     }
 
@@ -1018,7 +1017,7 @@ td a:hover {
     }
 
     #ps-box {
-       height: 298px;
+       height: 286px;
     }
 
 }

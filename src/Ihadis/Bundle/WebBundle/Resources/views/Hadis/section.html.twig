@@ -25,7 +25,7 @@
     </table>
     {% set sectionsToShow = (sections is defined) ? sections : chapter.sections  %}
     {% for section in sectionsToShow %}
-    <div id="chapter">
+    <div class="chapter">
         <h3>
             <a class="text-muted" href="{{ url('section', {'slug': book.slug, 'chapter': chapter.number, 'section' : section.id }) }}"
                title="সরাসরি  পরিচ্ছেদ  লিঙ্ক ">
