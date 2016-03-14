@@ -26,7 +26,9 @@ class ValidityType extends AbstractType
                 'property' => 'title',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('v')
-                              ->orderBy('v.sortOrder', 'ASC');
+                              ->where('v.superType is null')
+                              ->orderBy('v.sortOrder', 'ASC')
+                              ->addOrderBy('v.id', 'ASC');
                 },
                 'attr'     => array('class' => 'input-small')
             ))

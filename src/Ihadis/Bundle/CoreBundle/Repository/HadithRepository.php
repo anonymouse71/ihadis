@@ -38,6 +38,7 @@ class HadithRepository extends EntityRepository
                         ->leftJoin('s.hadiths', 'h')
                         //->leftJoin('h.validity', 'v')
                         ->where('b.id = :bookId')
+                        ->orderBy('h.numberPrimary', 'ASC')
                         ->setParameter(':bookId', $book);
 
         if(! is_null($chapter)) {
