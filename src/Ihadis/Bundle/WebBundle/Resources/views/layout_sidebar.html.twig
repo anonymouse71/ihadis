@@ -14,7 +14,7 @@
 
 {% block body %}
     <div class="container main-body">
-        <div class="row main1">
+        <div class="row main">
 
             {% block sidebar %}
                 {{ render(controller("IhadisWebBundle:Hadis:_sidebar", {'active': book.slug|default('')}) ) }}

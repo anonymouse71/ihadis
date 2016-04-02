@@ -1,24 +1,30 @@
-<div class="hadith">
+<div class="hadith" data-id="{{ hadis.id }}" data-title="{{ hadis.book.title }}, {{ hadis.chapter.title }}, হাদীস নং {{ hadis.numberPrimary|banglaNumber }}">
     <div class="row">
         <div class="had">
-            <h3>
+            <h3 class="hidden-print">
                 {{ hadis.numberPrimary|banglaNumber }}
             </h3>
+            <div class="visible-print-block">
+                <h2>{{ hadis.book.title }}</h2>
+                <h3 style="padding-left: 0">অধ্যায় : {{ hadis.chapter.title }}</h3>
+                <h4>হাদীস নং : {{ hadis.numberPrimary|banglaNumber }}</h4>
+                <hr>
+            </div>
             <p class="narrated-by">{{ hadis.narrator }} থেকে বর্ণিতঃ</p>
             <p class="hadith-des">{{ hadis.body|nl2br }}</p>
         </div>
-        <div class="social-lists">
+        <div class="social-lists hidden-print">
             <ul>
                 {% if is_granted('ROLE_ADMIN') %}
-                <li title="Edit">
+                <li title="Edit" data-toggle="tooltip" data-placement="left">
                     <a href="{{ url('ihadis_hadith_edit', {'id': hadis.id, 'section': hadis.section.id}) }}" target="_blank">
                         <i class="fa fa-pencil tool-icon"></i></a>
                 </li>
                 {% endif %}
-                <li title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
-                <li title="Print View"><i class="fa fa-print tool-icon"></i></li>
-                <li title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
-                <li title="Share On Twitter"><i class="fa fa-twitter tool-icon"></i></li>
+                <li data-toggle="tooltip" data-placement="left" data-action="report" title="Report/Suggest"><i class="fa fa-envelope tool-icon"></i></li>
+                <li data-toggle="tooltip" data-placement="left" data-action="print" title="Print View"><i class="fa fa-print tool-icon"></i></li>
+                <li data-toggle="tooltip" data-placement="left" data-action="facebook" title="Share on Facebook"><i class="fa fa-facebook tool-icon"></i></li>
+                <li data-toggle="tooltip" data-placement="left" data-action="twitter" title="Share On Twitter"><i class="fa fa-twitter tool-icon"></i></li>
             </ul>
         </div>
     </div>
@@ -33,10 +39,10 @@
         <div class="col-sm-6">
             <ul class="list-inline hadis-tools text-right">
                 {% if hadis.explanation %}
-                    <li class="explanation"><a href="#"><i class="fa fa-comment"></i> ব্যাখ্যা </a></li>
+                    <li class="explanation hidden-print"><a href="#"><i class="fa fa-comment"></i> ব্যাখ্যা </a></li>
                 {% endif %}
                 <li title="সরাসরি হাদীস লিঙ্ক " class="direct-hadis">
-                    <a href="{{ url('hadis', {'slug': hadis.book.slug, 'numberPrimary': hadis.numberPrimary}) }}">
+                    <a href="{{ url('direct-hadis', {'id': hadis.id}) }}" class="permalink">
                         <i class="fa fa-external-link"></i> সরাসরি</a>
                 </li>
             </ul>

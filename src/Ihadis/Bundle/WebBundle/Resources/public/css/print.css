@@ -1,0 +1,8 @@
+@media print {
+    #header,
+    .main > .col-md-3,
+    .footer_area,
+    .social-lists {
+        display: none;
+    }
+}

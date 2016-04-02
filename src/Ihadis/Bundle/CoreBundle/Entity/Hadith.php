@@ -53,14 +53,14 @@ class Hadith
     /**
      * @var string
      *
-     * @ORM\Column(name="numberPrimary", type="string", length=50, nullable=true)
+     * @ORM\Column(name="numberPrimary", type="integer", nullable=true)
      */
     private $numberPrimary;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="numberSecondary", type="string", length=50, nullable=true)
+     * @ORM\Column(name="numberSecondary", type="integer", nullable=true)
      */
     private $numberSecondary;
 

@@ -99,6 +99,21 @@ class HadisController extends BaseController
     }
 
     /**
+     * @Route("/{id}", requirements={"id" = "\d+"}, name="direct-hadis")
+     *
+     * @param Hadith $hadith Hadis Id
+     *
+     * @return Response
+     */
+    public function directHadisAction(Hadith $hadith)
+    {
+        return $this->redirect($this->get('router')->generate('hadis', [
+            'slug' => $hadith->getBook()->getSlug(),
+            'numberPrimary' => $hadith->getNumberPrimary(),
+        ]));
+    }
+
+    /**
      * @Route("/search/{keyword}/{page}", name="search", defaults={"page":1})
      *
      * @param $keyword
