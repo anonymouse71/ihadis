@@ -100,9 +100,9 @@ class HadithRepository extends EntityRepository
     {
         return $qb
             ->distinct(true)
-            ->join('h.translations', 't')
+            //->leftJoin('h.translations', 't')
             ->where('h.body LIKE :keyword')
-            ->orWhere('t.body LIKE :keyword')
+            //->orWhere('t.body LIKE :keyword')
             ->setParameter('keyword', "%$keyword%");
     }
 }
