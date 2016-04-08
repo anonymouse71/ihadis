@@ -13,7 +13,7 @@
         <tr>
             <th class="tg-yw41">{{ chapter.number|banglaNumber }}</th>
             <th class="tg-yw42"><a href="{{ url('chapter', {'slug': book.slug, 'chapter': chapter.number}) }}">{{ chapter.title }}</a></th>
-            <th class="tg-yw43 text-muted"><i>{{ chapter.range }}</i></th>
+            <th class="tg-yw43 text-muted">{{ chapter.range }}</th>
         </tr>
         {% if chapter.preface %}
         <tr>

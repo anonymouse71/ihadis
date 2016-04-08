@@ -108,7 +108,7 @@
     }
 
     .note {
-        display: none;
+        margin-bottom: 10px !important;
     }
 
     .export {
@@ -242,7 +242,7 @@
     }
 
     .note {
-        float: right;
+        margin-bottom: 10px !important;
     }
 
 
