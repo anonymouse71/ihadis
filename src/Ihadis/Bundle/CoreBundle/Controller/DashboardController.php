@@ -31,7 +31,7 @@ class DashboardController extends BaseController
     public function toolsAction(Request $request)
     {
         $books = $this->get('ihadis.repository.book')->findAll();
-        $chapters = $this->get('ihadis.repository.chapter')->findAll(array('book' => $books[0]));
+        $chapters = $this->get('ihadis.repository.chapter')->findAll();
         $replaced = null;
 
         if($request->getMethod() == 'POST') {

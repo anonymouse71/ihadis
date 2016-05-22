@@ -35,17 +35,23 @@
 
                     <!-- Name input-->
                     <div class="form-group">
-                        <label class="col-md-3 control-label" for="name">Replace in</label>
+                        <label class="col-md-3 control-label" for="booklist">Replace in Book</label>
                         <div class="col-md-9">
-                            <select name="book">
+                            <select name="book" id="booklist" class="form-control">
+                                <option value="all">All Books</option>
                                 {% for book in books %}
                                 <option value="{{ book.id }}">{{ book.title }}</option>
                                 {% endfor %}
                             </select>
-                            <select name="chapter">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="chapterlist">In Chapter</label>
+                        <div class="col-md-9">
+                            <select name="chapter" id="chapterlist" class="form-control">
                                 <option value="all">All Chapters</option>
                                 {% for chapter in chapters %}
-                                    <option value="{{ chapter.id }}">{{ chapter.title }}</option>
+                                    <option data-book-id="{{ chapter.book.id }}" value="{{ chapter.id }}">{{ chapter.title }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -54,7 +60,7 @@
                     <div class="form-group hidden">
                         <label class="col-md-3 control-label" for="email">In language</label>
                         <div class="col-md-9">
-                            <select name="locale">
+                            <select name="locale" class="form-control">
                                 <option value="all">All Languages</option>
                                 <option value="bn">Bangla</option>
                                 <option value="en">English</option>
@@ -87,7 +93,7 @@
 
                 {% if replaced is not null %}
                 <div class="alert alert-success">
-                    {{ replaced }} matches found and replaced!
+                    Found and replaced in {{ replaced }} Hadis bodies and Chapter prefaces!
                 </div>
                 {% endif %}
             </main>
@@ -105,3 +111,9 @@
         </div>
 
 {% endblock %}
+
+
+{% block documentReady %}
+    {{ parent() }}
+    IHadisBackend.cascadeBookChapterSelection($('#booklist'), $('#chapterlist'));
+{% endblock documentReady %}

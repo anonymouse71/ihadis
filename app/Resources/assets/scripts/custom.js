@@ -108,6 +108,18 @@ var IHadisBackend = function () {
         });
     };
 
+    var cascadeBookChapterSelection = function (booklist, chapterlist) {
+        $(chapterlist).find('option[data-book-id]').hide();
+
+        $(booklist).change(function (e) {
+            var bookId = $(this).val();
+
+            $(chapterlist).find('option').show();
+            $(chapterlist).find('option:not([data-book-id='+ bookId +'])').hide();
+            $(chapterlist).find('option[value=all]').show().prop('selected', true);
+        });
+    };
+
 
     return {
 
@@ -124,8 +136,8 @@ var IHadisBackend = function () {
 
         saveAllHadith: function() {
             saveAllHadith();
-        }
-
+        },
+        "cascadeBookChapterSelection" : cascadeBookChapterSelection
     }
 
 }();

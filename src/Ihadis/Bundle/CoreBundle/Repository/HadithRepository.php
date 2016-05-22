@@ -59,11 +59,18 @@ class HadithRepository extends EntityRepository
     public function replaceWords($word, $replacement, $book, $chapter, $lang = 'bn')
     {
         $conn = $this->_em->getConnection();
-        $query = "UPDATE hadiths SET body = REPLACE(body, '$word', '$replacement')";
+
+        $hadisBody = "UPDATE hadiths SET body = REPLACE(body, '$word', '$replacement')";
+        $sectionPreface = "UPDATE sections SET preface = REPLACE(preface, '$word', '$replacement')";
+
+        $filter = '';
         if($chapter != 'all') {
-            $query .= " WHERE chapter_id = $chapter";
+            $filter = " WHERE chapter_id = $chapter";
+        } else if ($book != 'all') {
+            $filter = " WHERE book_id = $book";
         }
-        $num_rows_effected = $conn->exec($query);
+        $num_rows_effected = $conn->exec($hadisBody . $filter);
+        $num_rows_effected += $conn->exec($sectionPreface . $filter);
 
         return $num_rows_effected;
     }
